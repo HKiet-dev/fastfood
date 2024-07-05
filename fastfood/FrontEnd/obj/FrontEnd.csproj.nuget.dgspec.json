@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj": {}
+    "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj": {}
   },
   "projects": {
-    "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj": {
+    "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj",
+        "projectUniqueName": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj",
         "projectName": "FrontEnd",
-        "projectPath": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj",
-        "packagesPath": "C:\\Users\\TuKi2901\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\obj\\",
+        "projectPath": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\FrontEnd\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\TuKi2901\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,6 +45,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
