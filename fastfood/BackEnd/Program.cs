@@ -2,6 +2,8 @@ using AutoMapper;
 using BackEnd;
 using BackEnd.Data;
 using BackEnd.Models;
+using BackEnd.Repository.Interfaces;
+using BackEnd.Repository.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +31,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 // Config các IService và Service ở chỗ này ↓
-
+builder.Services.AddScoped<ICategoryService,CategoryService>();
 
 
 // Config các IService và Service ở chỗ này ↑
