@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using BackEnd.Models;
+using BackEnd.Models.Dtos;
+using static Azure.Core.HttpHeader;
 
 namespace BackEnd
 {
@@ -10,6 +13,8 @@ namespace BackEnd
             {
                 // Viết Model muốn mapping với DTO vào đây 
                 // VD : config.CreateMap<ProductDto, Products>().ReverseMap();
+                config.CreateMap<CategoryDto, Category>();
+                config.CreateMap<Category, CategoryDto>();
             });
             return mappingconfig;
         }
