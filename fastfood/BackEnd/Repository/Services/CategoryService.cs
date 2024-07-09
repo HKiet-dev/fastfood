@@ -21,9 +21,11 @@ namespace BackEnd.Repository.Services
                 _db.Category.Add(category);
                 _db.SaveChanges();
                 response.Result = _mapper.Map<CategoryDto>(category);
+                response.Message = "Category Created";
             }
             catch (Exception ex)
             {
+                response.IsSuccess = false;
                 response.Message = ex.Message;
             }
             return response;
@@ -36,11 +38,12 @@ namespace BackEnd.Repository.Services
                 var category = _db.Category.Find(id);
                 _db.Category.Remove(category);
                 _db.SaveChanges();
+                response.Message = "Category Deleted";
             }
             catch
             {
                 response.IsSuccess = false;
-                response.Message = "Category ID is not exist";
+                response.Message = "The ID is not exist";
             }
             return response;
         }
@@ -54,7 +57,7 @@ namespace BackEnd.Repository.Services
                 return response;
             }
             response.IsSuccess = false;
-            response.Message = "Don't have any coupon";
+            response.Message = "Don't have any category";
             return response;
         }
 
@@ -66,13 +69,32 @@ namespace BackEnd.Repository.Services
                 if (category == null)
                 {
                     response.IsSuccess = false;
-                    response.Message = "Coupon ID is not exist";
+                    response.Message = "The ID is not exist";
                 }
                 response.Result = _mapper.Map<CategoryDto>(category);
             }
             catch (Exception ex)
             {
                 response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        public ResponseDto GetByName(string name)
+        {
+            try
+            {
+                var categories = _db.Category.Where(x=> x.Name.Contains(name)).ToList();
+                if (!categories.Any())
+                {
+                    response.IsSuccess = false;
+                    response.Message = $"The name '{name}' is not exist";
+                }
+                response.Result = _mapper.Map<List<CategoryDto>>(categories);
+            } catch (Exception ex)
+            {
+                response.IsSuccess=false;
                 response.Message = ex.Message;
             }
             return response;
@@ -85,7 +107,7 @@ namespace BackEnd.Repository.Services
                 _db.Entry(category).State = EntityState.Modified;
                 _db.SaveChanges();
                 response.Result = _mapper.Map<CategoryDto>(category);
-                response.Message = "Updated";
+                response.Message = "Category Updated";
             }
             catch
             {

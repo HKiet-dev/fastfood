@@ -15,33 +15,21 @@ namespace BackEnd.Controllers
         ICategoryService _cateService = cateService;
         IMapper _mapper = mapper;
 
-        /// <summary>
-        /// Get all category
-        /// </summary>
-        /// <returns>List of category</returns>
+
         [HttpGet]
         public ResponseDto GetAll()
         {
             return _cateService.GetAll();
         }
 
-        /// <summary>
-        /// Get category by id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns code="200">Category with id</returns>
-        /// <returns code="400">Category id is not existed</returns>
+
         [HttpGet("{id:int}")]
         public ResponseDto GetById(int id)
         {
             return _cateService.GetById(id);
         }
 
-        /// <summary>
-        /// Create new category
-        /// </summary>
-        /// <param name="category"></param>
-        /// <returns></returns>
+
         [HttpPost]
         public ResponseDto Create([FromBody] CategoryDto dto)
         {
@@ -69,6 +57,13 @@ namespace BackEnd.Controllers
         public ResponseDto Delete([FromRoute] int id)
         {
             var response = _cateService.Delete(id);
+            return response;
+        }
+
+        [HttpGet("{name}")]
+        public ResponseDto GetByName(string name)
+        {
+            var response = _cateService.GetByName(name);
             return response;
         }
     }
