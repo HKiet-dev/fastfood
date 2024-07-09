@@ -8,7 +8,7 @@ namespace BackEnd.Repository.Interfaces
         Task<string> Resgister(RegistrationRequestDto registrationRequestDTO);
         Task<LoginResponseDto> Login(LoginRequestDto loginRequestDTO);
         Task<bool> AssignRole(string email, string roleName);
-        Task<IList<string>> GetUserRole(User users);
+        Task<IList<string>> GetUserRole(User user);
         Task<string> GetUserId(string email);
         Task<UserDto> GetUserById(string userId);
         Task<string> GenerateJwt(UserDto user);

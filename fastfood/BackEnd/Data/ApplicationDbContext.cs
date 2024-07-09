@@ -14,9 +14,9 @@ namespace BackEnd.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Cart> Cart { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
         public DbSet<CartDetail> CartDetail { get; set; }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -36,6 +36,14 @@ namespace BackEnd.Data
 
             builder.Entity<OrderDetail>()
                 .HasKey(od => new { od.OrderId, od.ProductId });
+
+            builder.Entity<Cart>()
+                .HasKey(c => c.CartId);
+
+            builder.Entity<User>()
+                .HasOne(u => u.Cart)
+                .WithOne(c => c.User)
+                .HasForeignKey<Cart>(c => c.UserId);
 
         }
     }
