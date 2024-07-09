@@ -15,5 +15,6 @@ namespace BackEnd.Models
         public DateTime CreateAt { get; set; } = DateTime.UtcNow;
         public List<CartDetail>? CartDetails { get; set; }
         public List<Order>? Orders { get; set; }
+        public Cart Cart { get; set; }
     }
 }
