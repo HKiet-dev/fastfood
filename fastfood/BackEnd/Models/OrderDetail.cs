@@ -10,7 +10,7 @@ namespace BackEnd.Models
         [Column(TypeName = "DECIMAL(18,2)")]
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
-        [Range(1,100,ErrorMessage = "Giảm giá chỉ có thể trong khoảng từ 1 đến 100")]
+/*        [Range(1,100,ErrorMessage = "Giảm giá chỉ có thể trong khoảng từ 1 đến 100")] chỉ nên dùng anotation trong Dto */
         public int Discount { get; set; }
         [Column(TypeName = "DECIMAL(18,2)")]
         public decimal Total { get; set; }
