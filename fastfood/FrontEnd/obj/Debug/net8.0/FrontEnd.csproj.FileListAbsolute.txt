@@ -61,3 +61,6 @@ C:\Users\Admin\Desktop\NET106\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\refint
 C:\Users\Admin\Desktop\NET106\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\FrontEnd.pdb
 C:\Users\Admin\Desktop\NET106\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\FrontEnd.genruntimeconfig.cache
 C:\Users\Admin\Desktop\NET106\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\ref\FrontEnd.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\FrontEnd.csproj.AssemblyReference.cache
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\FrontEnd.csproj.Up2Date

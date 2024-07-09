@@ -7,7 +7,9 @@ namespace BackEnd.Models
     {
         [Key]
         public int Id { get; set; }
+        [StringLength(50)]
         public string Name { get; set; } = string.Empty;
+        [StringLength(100)]
         public string Description { get; set; } = string.Empty;
         [Column(TypeName = "DECIMAL(18,2)")]
         public decimal Price { get; set; }

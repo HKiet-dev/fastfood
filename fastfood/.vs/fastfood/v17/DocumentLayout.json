@@ -1,13 +1,73 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\",
+  "WorkspaceRootPath": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\backend\\repository\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\migrations\\20240709080811_modify-data-type-all-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\migrations\\20240709080811_modify-data-type-all-table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\repository\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\repository\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\migrations\\20240705050116_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\migrations\\20240705050116_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\dtos\\registrationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\registrationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\dtos\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\repository\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\repository\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\dtos\\responsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\responsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,15 +82,15 @@
           "Children": [
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -38,33 +98,227 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20240709080811_modify-data-type-all-table.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Migrations\\20240709080811_modify-data-type-all-table.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Migrations\\20240709080811_modify-data-type-all-table.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Migrations\\20240709080811_modify-data-type-all-table.cs",
+              "RelativeToolTip": "BackEnd\\Migrations\\20240709080811_modify-data-type-all-table.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:08:11.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20240705050116_init.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Migrations\\20240705050116_init.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Migrations\\20240705050116_init.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Migrations\\20240705050116_init.cs",
+              "RelativeToolTip": "BackEnd\\Migrations\\20240705050116_init.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:07:49.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\OrderDetail.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\OrderDetail.cs",
+              "RelativeToolTip": "BackEnd\\Models\\OrderDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAB6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:05:51.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Product.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Product.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:05:50.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Order.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Order.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Order.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA1wBgAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:04:30.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Category.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Category.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:02:50.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CartDetail.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\CartDetail.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\CartDetail.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\CartDetail.cs",
+              "RelativeToolTip": "BackEnd\\Models\\CartDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:02:41.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RegistrationRequestDto.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\RegistrationRequestDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\RegistrationRequestDto.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\RegistrationRequestDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\RegistrationRequestDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T08:00:37.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginResponseDto.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\LoginResponseDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\LoginResponseDto.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\LoginResponseDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\LoginResponseDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T07:57:21.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LoginRequestDto.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\LoginRequestDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\LoginRequestDto.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\LoginRequestDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\LoginRequestDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T07:56:55.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ResponseDto.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\ResponseDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\ResponseDto.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\ResponseDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\ResponseDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T07:55:02.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CategoryDto.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\CategoryDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\CategoryDto.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\CategoryDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\CategoryDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T07:55:00.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\User.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\User.cs",
+              "RelativeToolTip": "BackEnd\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T07:54:18.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\UserDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\UserDto.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\UserDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\UserDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T07:54:11.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Repository\\Interfaces\\IAuthService.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "BackEnd\\Repository\\Interfaces\\IAuthService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T07:49:18.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "ICategoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\ICategoryService.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\ICategoryService.cs",
               "RelativeDocumentMoniker": "BackEnd\\Repository\\Interfaces\\ICategoryService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\ICategoryService.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\ICategoryService.cs",
               "RelativeToolTip": "BackEnd\\Repository\\Interfaces\\ICategoryService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T08:09:36.95Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 16,
               "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Controllers\\CategoryController.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "BackEnd\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Controllers\\CategoryController.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "BackEnd\\Controllers\\CategoryController.cs",
               "ViewState": "AQIAAEEAAAAAAAAAAAAQwEsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T07:49:15.157Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T07:49:15.157Z"
             }
           ]
         }
