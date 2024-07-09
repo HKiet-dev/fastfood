@@ -17,8 +17,11 @@ namespace BackEnd.Models
         public string PhoneNo { get; set; }
         [StringLength(250, MinimumLength = 5, ErrorMessage = "Độ dài địa chỉ phải từ 5 đến 250 ký tự")]
         public string Address { get; set; }
+        [StringLength(50)]
         public string PaymentType { get; set; }
+        [StringLength(50)]
         public string PaymentStatus { get; set; }
+        [StringLength(50)]
         public string OrderStatus { get; set; }
         [MaxLength(1000, ErrorMessage = "Độ dài ghi chú tối đa 1000 ký tự")]
         public string Note { get; set; }

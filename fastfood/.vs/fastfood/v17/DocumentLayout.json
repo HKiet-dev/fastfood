@@ -3,44 +3,44 @@
   "WorkspaceRootPath": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\dtos\\registrationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\registrationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\dtos\\responsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\responsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\dtos\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\dtos\\responsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\responsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\fpt polytechnic\\csharp6\\lab\\asm\\fastfood\\fastfood\\backend\\models\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,137 +50,155 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 12,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "BackEnd\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T08:52:07.464Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ResponseDto.cs",
-              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\ResponseDto.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\ResponseDto.cs",
-              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\ResponseDto.cs",
-              "RelativeToolTip": "BackEnd\\Models\\Dtos\\ResponseDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Program.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Program.cs",
+              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Program.cs",
+              "RelativeToolTip": "BackEnd\\Program.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAB4AAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T08:51:55.372Z",
+              "WhenOpened": "2024-07-09T10:12:19.962Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CategoryDto.cs",
-              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\CategoryDto.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\CategoryDto.cs",
-              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\CategoryDto.cs",
-              "RelativeToolTip": "BackEnd\\Models\\Dtos\\CategoryDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T08:51:51.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrderDetail.cs",
-              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\OrderDetail.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Models\\OrderDetail.cs",
-              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\OrderDetail.cs",
-              "RelativeToolTip": "BackEnd\\Models\\OrderDetail.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T08:42:35.167Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Category.cs",
               "RelativeDocumentMoniker": "BackEnd\\Models\\Category.cs",
               "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Category.cs",
               "RelativeToolTip": "BackEnd\\Models\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA0AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T08:26:02.351Z",
+              "WhenOpened": "2024-07-09T09:47:36.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "CartDetail.cs",
               "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\CartDetail.cs",
               "RelativeDocumentMoniker": "BackEnd\\Models\\CartDetail.cs",
               "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\CartDetail.cs",
               "RelativeToolTip": "BackEnd\\Models\\CartDetail.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwA4AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T07:51:29.461Z",
+              "WhenOpened": "2024-07-09T09:47:22.313Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Models\\Order.cs",
-              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Order.cs",
-              "RelativeToolTip": "BackEnd\\Models\\Order.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAABlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T07:50:53.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Models\\Product.cs",
-              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Product.cs",
-              "RelativeToolTip": "BackEnd\\Models\\Product.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T07:49:12.733Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\User.cs",
               "RelativeDocumentMoniker": "BackEnd\\Models\\User.cs",
               "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\User.cs",
               "RelativeToolTip": "BackEnd\\Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABBAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T07:48:23.025Z",
+              "WhenOpened": "2024-07-09T09:47:02.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\UserDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\UserDto.cs",
+              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\UserDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\UserDto.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T09:46:19.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResponseDto.cs",
+              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\ResponseDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\ResponseDto.cs",
+              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\ResponseDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\ResponseDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T09:46:17.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegistrationRequestDto.cs",
+              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\RegistrationRequestDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\RegistrationRequestDto.cs",
+              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\RegistrationRequestDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\RegistrationRequestDto.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T09:46:06.249Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Controllers\\CategoryController.cs",
-              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "BackEnd\\Controllers\\CategoryController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACAAAAASAAAA",
+              "Title": "LoginResponseDto.cs",
+              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\LoginResponseDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\LoginResponseDto.cs",
+              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\LoginResponseDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\LoginResponseDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T07:44:55.245Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-09T09:45:43.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginRequestDto.cs",
+              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\LoginRequestDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\LoginRequestDto.cs",
+              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\LoginRequestDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\LoginRequestDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T09:45:41.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CategoryDto.cs",
+              "DocumentMoniker": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\CategoryDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\CategoryDto.cs",
+              "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\CategoryDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\CategoryDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T09:44:58.305Z"
             }
           ]
         }

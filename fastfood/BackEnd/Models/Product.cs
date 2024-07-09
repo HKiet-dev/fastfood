@@ -7,8 +7,9 @@ namespace BackEnd.Models
     {
         [Key]
         public int Id { get; set; }
+        [StringLength(50)]
         public string Name { get; set; } = string.Empty;
-        [MaxLength(2000, ErrorMessage ="Mô tả phải ít hơn 2000 ký tự")]
+        [MaxLength(1000, ErrorMessage ="Mô tả phải ít hơn 1000 ký tự")]
         public string Description { get; set; } = string.Empty;
         [Column(TypeName = "DECIMAL(18,2)")]
         [Range(0,double.MaxValue, ErrorMessage ="Giá phải lớn hơn hoặc bằng 0")]
