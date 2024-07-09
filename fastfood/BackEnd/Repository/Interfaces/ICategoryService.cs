@@ -10,5 +10,6 @@ namespace BackEnd.Repository.Interfaces
         ResponseDto Create(Category category);
         ResponseDto Update(Category category);
         ResponseDto Delete(int id);
+        ResponseDto GetByName(string name);
     }
 }
