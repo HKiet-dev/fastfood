@@ -8,6 +8,8 @@ namespace BackEnd.Models.Dtos
         public string Id { get; set; }
         [Required]
         public string Name { get; set; }
+        [Phone]
+        public string Phone {  get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
