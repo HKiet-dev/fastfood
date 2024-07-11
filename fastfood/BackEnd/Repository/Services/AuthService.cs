@@ -161,8 +161,19 @@ namespace BackEnd.Repository.Services
                         Avatar = userToReturn.Avatar
                     };
 
-                   
-                    
+                    CartDto cartDto = new()
+                    {
+                        UserId = userToReturn.Id,
+                    };
+
+                    await _context.Cart.AddAsync(_mapper.Map<Cart>(cartDto));
+                    await _context.SaveChangesAsync();
+
+                    return "";
+                }
+                else
+                {
+                    return result.Errors.FirstOrDefault().Description;
                 }
             }
             catch (Exception ex)

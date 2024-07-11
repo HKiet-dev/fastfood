@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\repository\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\dtos\\cartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\cartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,7 +62,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "CartDto.cs",
+              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\CartDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\CartDto.cs",
+              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\CartDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\CartDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T14:59:52.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\User.cs",
               "RelativeDocumentMoniker": "BackEnd\\Models\\User.cs",
@@ -66,8 +83,7 @@
               "RelativeToolTip": "BackEnd\\Models\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T14:46:26.577Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T14:46:26.577Z"
             },
             {
               "$type": "Document",
@@ -77,14 +93,14 @@
               "RelativeDocumentMoniker": "BackEnd\\Models\\Cart.cs",
               "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Cart.cs",
               "RelativeToolTip": "BackEnd\\Models\\Cart.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAOAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-11T14:46:01.001Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "BackEnd\\Data\\ApplicationDbContext.cs",
@@ -92,12 +108,11 @@
               "RelativeToolTip": "BackEnd\\Data\\ApplicationDbContext.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAAwCIAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T14:45:16.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T14:45:16.729Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CartDetail.cs",
               "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\CartDetail.cs",
               "RelativeDocumentMoniker": "BackEnd\\Models\\CartDetail.cs",
@@ -105,8 +120,7 @@
               "RelativeToolTip": "BackEnd\\Models\\CartDetail.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T14:44:48.849Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T14:44:48.849Z"
             },
             {
               "$type": "Document",
@@ -116,14 +130,14 @@
               "RelativeDocumentMoniker": "BackEnd\\Repository\\Services\\AuthService.cs",
               "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Services\\AuthService.cs",
               "RelativeToolTip": "BackEnd\\Repository\\Services\\AuthService.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAAAKMAAAATAAAA",
+              "ViewState": "AQIAAJsAAAAAAAAAAAAAAK0AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-11T14:43:04.49Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "BackEnd\\Controllers\\AuthController.cs",
@@ -131,8 +145,7 @@
               "RelativeToolTip": "BackEnd\\Controllers\\AuthController.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwBYAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T14:34:24.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T14:34:24.354Z"
             }
           ]
         }

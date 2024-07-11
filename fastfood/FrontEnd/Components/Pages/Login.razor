@@ -1,0 +1,37 @@
+﻿@page "/login"
+<link rel="stylesheet" href="~/login.css" />
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center mb-4">Đăng nhập</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-3">Đăng nhập</button>
+            </form>
+            <div class="text-center">
+                <p>Hoặc đăng nhập bằng</p>
+                <!-- Google Login Button -->
+                <a href="#" class="btn btn-outline-dark btn-block">
+                    <i class="fab fa-google"></i> Đăng nhập với Google
+                </a>
+            </div>
+            <div class="text-center mt-3">
+                <NavLink  href="signUp" Match="NavLinkMatch.All">
+                    <span class="text-black"> Bạn chưa có tài khoản?</span> <a href="#">Đăng ký ngay</a>
+                </NavLink>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

@@ -70,6 +70,7 @@ namespace BackEnd.Repository.Services
                 {
                     response.IsSuccess = false;
                     response.Message = "The ID is not exist";
+                    return response;
                 }
                 response.Result = _mapper.Map<CategoryDto>(category);
             }
@@ -90,6 +91,7 @@ namespace BackEnd.Repository.Services
                 {
                     response.IsSuccess = false;
                     response.Message = $"The name '{name}' is not exist";
+                    return response;
                 }
                 response.Result = _mapper.Map<List<CategoryDto>>(categories);
             } catch (Exception ex)
