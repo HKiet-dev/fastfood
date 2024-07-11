@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\backend\\repository\\interfaces\\ifoodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\repository\\interfaces\\ifoodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\backend\\models\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\backend\\controllers\\foodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\foodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\backend\\repository\\services\\foodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\repository\\services\\foodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,27 +47,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IFoodService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\IFoodService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Repository\\Interfaces\\IFoodService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\IFoodService.cs",
-              "RelativeToolTip": "BackEnd\\Repository\\Interfaces\\IFoodService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAkwAsAAAAjAAAA",
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\ProductDto.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\ProductDto.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\ProductDto.cs",
+              "RelativeToolTip": "BackEnd\\Models\\Dtos\\ProductDto.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAA5wAoAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T02:15:38.66Z",
+              "WhenOpened": "2024-07-11T02:45:51.907Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "BackEnd\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAA1wCMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T02:41:49.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "FoodService.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Repository\\Services\\FoodService.cs",
               "RelativeDocumentMoniker": "BackEnd\\Repository\\Services\\FoodService.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Repository\\Services\\FoodService.cs",
               "RelativeToolTip": "BackEnd\\Repository\\Services\\FoodService.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAgwAkAAABIAAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAQwBEAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T02:15:21.572Z",
+              "WhenOpened": "2024-07-11T02:38:33.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FoodController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Controllers\\FoodController.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Controllers\\FoodController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Controllers\\FoodController.cs",
+              "RelativeToolTip": "BackEnd\\Controllers\\FoodController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwCMAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T02:22:38.277Z",
               "EditorCaption": ""
             }
           ]
