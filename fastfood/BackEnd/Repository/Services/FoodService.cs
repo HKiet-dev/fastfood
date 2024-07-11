@@ -100,9 +100,26 @@ namespace BackEnd.Repository.Services
             return response;
         }
 
-        public ResponseDto GetByFilter(int? categoryid, decimal? price, bool IsActive = true)
+        public ResponseDto GetByFilter(int? categoryid, decimal? price)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var products = _db.Product.Where(x => x.IsActive).ToList();
+                if (categoryid.HasValue)
+                {
+                    products = products.Where(x => x.CategoryId == categoryid).ToList();
+                }
+                if (price.HasValue)
+                {
+                    products = products.Where(x => x.Price >= price).ToList();
+                }
+                response.Result = products;
+            } catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
         }
 
         public ResponseDto GetById(int id)

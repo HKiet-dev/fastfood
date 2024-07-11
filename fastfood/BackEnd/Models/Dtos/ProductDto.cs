@@ -14,7 +14,7 @@ namespace BackEnd.Models.Dtos
         [Range(0,double.MaxValue, ErrorMessage ="Giá phải lớn hơn hoặc bằng 0")]
         public decimal Price { get; set; }
         [Range(0, int.MaxValue, ErrorMessage = "Số lượt xem phải lớn hơn hoặc bằng 0")]
-        public int View { get; set; }
+        public int View { get; set; } = 0;
         public bool IsActive { get; set; }
         public bool IsCombo { get; set; }
         public int CategoryId { get; set; }

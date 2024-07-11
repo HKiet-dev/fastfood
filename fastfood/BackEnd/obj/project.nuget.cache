@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Palq5uoUr3qGwTKLD7sMgut73GpGUoCbVO0LCSJ3EFlBKK/V5IWnqLxp2kF1XgTLfw0FoXWdjcsDyBUJ3s062A==",
+  "dgSpecHash": "hN+I2I5mROjcz6EquUQ2GRcVmgIl03GTai0CbEc7I/gD5yBfVy5blsRvVrqIdzG7xHxuhSnRaNE1tTk0hrV9zA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Asm_GD1\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

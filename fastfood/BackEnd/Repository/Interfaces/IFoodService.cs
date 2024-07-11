@@ -12,7 +12,7 @@ namespace BackEnd.Repository.Interfaces
         ResponseDto Delete(int id);
         ResponseDto GetByCategoryId(int categoryid);
         ResponseDto GetBySearch(string query);
-        ResponseDto GetByFilter(int? categoryid,decimal? price, bool IsActive = true );
+        ResponseDto GetByFilter(int? categoryid,decimal? price);
         ResponseDto TopViewed();
 
     }
