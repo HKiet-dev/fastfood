@@ -11,7 +11,6 @@ namespace BackEnd.Models
         [StringLength(100)]
         public string Address { get; set; }
         public string Avatar { get; set; }
-        public List<CartDetail>? CartDetails { get; set; }
         public List<Order>? Orders { get; set; }
         public Cart Cart { get; set; }
     }

@@ -133,21 +133,6 @@ namespace BackEnd.Repository.Services
 
         public async Task<string> Resgister(RegistrationRequestDto registrationRequestDTO)
         {
-/*            [Required]
-            public string Id { get; set; }
-            [Required]
-            public string Name { get; set; }
-            [Required]
-            [Phone]
-            public string Phone { get; set; }
-            [Required]
-            [EmailAddress]
-            public string Email { get; set; }
-            [Required]
-            public int Gender { get; set; }
-        public string Address { get; set; }
-        public string Avatar { get; set; }
-        public string Role { get; set; }*/
             User user = new User()
             {
                 UserName = registrationRequestDTO.Name,
@@ -176,7 +161,8 @@ namespace BackEnd.Repository.Services
                         Avatar = userToReturn.Avatar
                     };
 
-
+                   
+                    
                 }
             }
             catch (Exception ex)

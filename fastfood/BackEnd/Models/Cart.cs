@@ -11,5 +11,6 @@ namespace BackEnd.Models
         public string UserId { get; set; }
         [ForeignKey(nameof(UserId))]
         public User User { get; set; }
+        public List<CartDetail> CartDetails { get; set; }
     }
 }
