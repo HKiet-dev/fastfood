@@ -5,6 +5,7 @@ namespace BackEnd.Models.Dtos
 {
     public class CartDetailDto
     {
+        [Required(ErrorMessage = "UserId không được để trống")]
         public string UserId { get; set; }
         public int ProductId { get; set; }
         [Range(1, int.MaxValue, ErrorMessage = "Số lượng phải lớn hơn 0")]

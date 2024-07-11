@@ -6,6 +6,7 @@ namespace BackEnd.Models.Dtos
     public class OrderDto
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "UserId không được để trống")]
         public string UserId { get; set; }
         public DateTime DateReceived { get; set; }
         //Ký tự có dấu, khoảng trắng
