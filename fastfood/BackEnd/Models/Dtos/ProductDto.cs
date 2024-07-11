@@ -6,8 +6,9 @@ namespace BackEnd.Models.Dtos
     public class ProductDto
     {
         public int Id { get; set; }
-        [Required,MaxLength(50)]
-        public string Name { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Tên sản phẩm là bắt buộc")]
+        [MaxLength(50, ErrorMessage = "Tên phải ít hơn 50 ký tự")]
+        public string Name { get; set; } 
         [MaxLength(1000, ErrorMessage ="Mô tả phải ít hơn 1000 ký tự")]
         public string Description { get; set; } = string.Empty;
         [Column(TypeName = "DECIMAL(18,2)")]
