@@ -12,9 +12,20 @@ namespace BackEnd.Models
         [StringLength(250, MinimumLength = 5, ErrorMessage = "Độ dài địa chỉ phải từ 5 đến 250 ký tự")]
         public string Address { get; set; }
         public string Avatar { get; set; }
+        [Required]
+        [EnumDataType(typeof(UserStatus))]
+        public UserStatus Status { get; set; } = UserStatus.Active;
         public DateTime CreateAt { get; set; } = DateTime.UtcNow;
         public List<CartDetail>? CartDetails { get; set; }
         public List<Order>? Orders { get; set; }
         public Cart Cart { get; set; }
+    }
+
+    public enum UserStatus
+    {
+        Active,
+        Inactive,
+        Delete,
+        Block
     }
 }
