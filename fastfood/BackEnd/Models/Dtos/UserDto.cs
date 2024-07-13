@@ -21,5 +21,6 @@ namespace BackEnd.Models.Dtos
         [StringLength(250, MinimumLength = 5, ErrorMessage = "Độ dài địa chỉ phải từ 5 đến 250 ký tự")]
         public string Address { get; set; }
         public string Avatar { get; set; }
+        public UserStatus Status { get; set; } = UserStatus.Active;
     }
 }

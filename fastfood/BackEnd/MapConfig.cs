@@ -17,6 +17,8 @@ namespace BackEnd
                 config.CreateMap<Category, CategoryDto>();
                 config.CreateMap<ProductDto, Product>();
                 config.CreateMap<Product, ProductDto>();
+                config.CreateMap<UserDto, User>();
+                config.CreateMap<User, UserDto>();
             });
             return mappingconfig;
         }

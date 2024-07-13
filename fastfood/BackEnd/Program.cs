@@ -33,7 +33,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Config các IService và Service ở chỗ này ↓
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IFoodService,FoodService>();
-
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Config các IService và Service ở chỗ này ↑
 
