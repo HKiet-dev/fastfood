@@ -1,0 +1,136 @@
+﻿@page "/productmanager"
+
+<h3>ProductsManager</h3>
+
+<div class="">
+	<div class="row">
+		<a class="card border-danger mb-3 mx-3 btn btn-danger text-black" style="max-width: 250px;" href="usermanager">
+			<h5 class="card-title m-5">Users Manager</h5>
+		</a>
+		<a class="border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
+			<h5 class="card-title m-5">Products Manager</h5>
+		</a>
+		<a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
+			<h5 class="card-title m-5">Orders Manager</h5>
+		</a>
+		<a class="card border-info mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
+			<h5 class="card-title m-5">Category Manager</h5>
+		</a>
+	</div>
+@* 	<nav class="navbar navbar-light bg-light justify-content-between">
+		<div>
+			<a class="btn btn-warning mx-2" asp-controller="Food" asp-action="Index">Food</a>
+			<a class="btn btn-outline-warning mx-2" asp-controller="Pizza" asp-action="Pizza"><i class="fas fa-pizza-slice"></i> Pizza</a>
+			<a class="btn btn-outline-warning mx-2" asp-controller="Other" asp-action="Other"><i class="fas fa-wine-bottle"></i> Other</a>
+			<a class="btn btn-outline-warning mx-2" asp-controller="Combo" asp-action="Combo"><i class="fas fa-pizza-slice"></i><i class="fas fa-wine-bottle"></i> Combo</a>
+		</div>
+		<div class="form-inline">
+			<a class="form-inline btn btn-warning me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
+			<input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-warning my-3 my-sm-0 m-2" type="submit">Search</button>
+		</div>
+	</nav> *@
+	<nav class="navbar navbar-light bg-light justify-content-end">
+		<a class="form-inline btn btn-warning me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
+		<div class="form-inline">
+			<input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-warning my-3 my-sm-0 m-2" type="submit">Search</button>
+		</div>
+	</nav>
+
+	<!-- Modal -->
+	<div class="modal fade" id="createFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-large">
+			<div class="modal-content">
+				<div class="container-fluid p-5">
+					<form class="row">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+						<div class="form-group input-group mb-3">
+							@* <label class="control-label fw-bold input-group-text">ID:</label> *@
+							<input type="hidden" asp-for="FoodID" class="form-control" />
+							@* <span asp-validation-for="FoodID" class="text-danger"></span> *@
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">FoodName:</label>
+							<input asp-for="FoodName" class="form-control w-100" />
+							<span asp-validation-for="FoodName" class="text-danger"></span>
+
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">Price:</label>
+							<input asp-for="Price" min="1" class="form-control w-100" />
+							<span asp-validation-for="Price" class="text-danger"></span>
+
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">Description:</label>
+							<input asp-for="Description" class="form-control w-100" />
+							<span asp-validation-for="Description" class="text-danger"></span>
+
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">Image:</label>
+							<input asp-for="Image" class="form-control w-100" />
+							<span asp-validation-for="Image" class="text-danger"></span>
+
+						</div>
+						<div class="form-group input-group mb-3">
+							@* <label class="control-label fw-bold input-group-text">AccountID:</label> *@
+							<input type="hidden" asp-for="AccountID" class="form-control w-100" />
+							@* <span asp-validation-for="AccountID" class="text-danger"></span> *@
+						</div>
+						<div class="form-group mt-3 text-center">
+							<input type="submit" value="Create" asp-action="CreateFood" class="btn btn-danger w-50" />
+						</div>
+						<div class="form-group mt-3 text-center">
+							<input type="submit" value="Update" asp-action="UpdateFood" class="btn btn-primary w-50" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card border border-light rounded p-3 shadow bg-light">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						Product ID
+					</th>
+					<th>
+						Name
+					</th>
+					<th>
+						Description
+					</th>
+					<th>
+						UnitPrice
+					</th>
+					<th>
+						IsActive
+					</th>
+					<th>
+						IsCombo
+					</th>
+					<th>
+						CategoryName
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						body
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+@code {
+
+}
