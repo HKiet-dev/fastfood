@@ -9,59 +9,87 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FrontEnd
 build_property.RootNamespace = FrontEnd
-build_property.ProjectDir = D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\FrontEnd\
+build_property.ProjectDir = E:\C#6\asm\fastfood\fastfood\FrontEnd\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\FrontEnd
+build_property.MSBuildProjectDirectory = E:\C#6\asm\fastfood\fastfood\FrontEnd
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/App.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/About.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Layout/NavMenuAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudUFkbWluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/PagesAdmin/CategoryManager.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc0FkbWluXENhdGVnb3J5TWFuYWdlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/PagesAdmin/OrderManager.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc0FkbWluXE9yZGVyTWFuYWdlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/PagesAdmin/ProductsManager.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc0FkbWluXFByb2R1Y3RzTWFuYWdlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/PagesAdmin/UserManager.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc0FkbWluXFVzZXJNYW5hZ2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/About.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBYm91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/CartItem.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJ0SXRlbS5yYXpvcg==
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/CartClient.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJ0Q2xpZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/Error.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/CartCustomer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXJ0Q3VzdG9tZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/Home.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/Login.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/Menu.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/Menu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/SignUp.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/ProductDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9kdWN0RGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Pages/SignUp.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTaWduVXAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Routes.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/_Imports.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Layout/MainLayout.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-y5qljaingz
 
-[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Layout/NavMenu.razor]
+[E:/C\#6/asm/fastfood/fastfood/FrontEnd/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-e8evo7atp8

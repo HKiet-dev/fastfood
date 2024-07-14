@@ -1,0 +1,153 @@
+﻿/* Optional CSS for product- */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+
+    .product-card img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .product-card .card-title {
+        font-size: 1.1em;
+        margin: 0;
+    }
+
+    .product-card .card-footer {
+        border-top: 1px solid #ddd;
+    }
+
+    .product-card .btn {
+        width: 100%;
+    }
+
+
+/* Optional CSS for product- */
+
+
+
+
+
+
+/* Optional CSS for product-details */
+.product-details {
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    flex: 0 0 30%;
+    margin-right: 20px;
+}
+
+    .product-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+.product-info {
+    flex: 1;
+}
+
+    .product-info h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+.price {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 10px;
+}
+
+    .description ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+.order-links,
+.social-share {
+    margin-top: 20px;
+}
+
+    .social-share ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .order-links li,
+    .social-share li {
+        margin-right: 10px;
+    }
+
+    .social-share a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .social-share a {
+        color: #333;
+    }
+
+        .social-share a:hover {
+            color: #007bff;
+        }
+
+.fa-facebook-f,
+.fa-twitter,
+.fa-pinterest-p {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.price h3, .price .current-price {
+    display: inline;
+    margin-right: 10px;
+}
+
+/* Optional CSS for product-details */
+
+
+
+
+
+/* Optional CSS for product-cart */
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.img-fluid {
+    max-width: 100px;
+    margin-right: 20px;
+}
+
+.text-danger {
+    cursor: pointer;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.btn-secondary, .btn-primary, .btn-dark {
+    margin-left: 10px;
+}
+/* Optional CSS for product-cart */

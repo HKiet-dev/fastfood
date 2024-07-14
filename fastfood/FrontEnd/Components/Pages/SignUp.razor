@@ -1,5 +1,36 @@
 ﻿@page "/signUp"
-<h3>SignUp</h3>
+<link rel="stylesheet" href="~/login.css" />
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center mb-4">Đăng ký</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Tên đăng nhập</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Nhập lại mật khẩu</label>
+                    <input type="password" class="form-control" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-3">Đăng ký</button>
+            </form>
+            <div class="text-center mt-3">
+                <NavLink class="nav-link" href="/login">
+                    <span>Quay lại đăng nhập</span>
+                </NavLink>
+            </div>
+        </div>
+    </div>
+</div>
 
 @code {
 

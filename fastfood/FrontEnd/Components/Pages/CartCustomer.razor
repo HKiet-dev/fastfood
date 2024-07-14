@@ -1,0 +1,91 @@
+﻿@page "/cartcustomer"
+
+<div class="container mt-5">
+    <h2 class="mb-4">GIỎ HÀNG</h2>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="d-flex">
+                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="img-fluid" style="max-width: 100px; margin-right: 20px;">
+                            <div>
+                                <p>Product Name</p>
+                                <p>ABC</p>
+                                <p class="text-danger">Xoá</p>
+                            </div>
+                        </td>
+                        <td>000VNĐ</td>
+                        <td>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                </div>
+                                <input type="text" class="form-control" value="1">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>000VNĐ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="notes">Ghi chú</label>
+                <textarea class="form-control" id="notes" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-right">
+            <p>Tổng tiền: <strong>000VNĐ</strong></p>
+            <button class="btn btn-secondary">Cập nhật</button>
+            <button class="btn btn-primary">Thanh toán</button>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="container mt-5">
+    <h4>Chọn phương thức thanh toán</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="cashPayment" checked>
+                <label class="form-check-label" for="cashPayment">
+                    Thanh toán tiền mặt
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="momoPayment">
+                <label class="form-check-label" for="momoPayment">
+                    Thanh toán qua MoMo QR
+                </label>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="qrCode" class="text-center">
+                <p>Quét mã QR MoMo để thanh toán:</p>
+                <img src="https://homepage.momocdn.net/blogscontents/momo-upload-api-220715103645-637934782053464745.png" alt="MoMo QR Code" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<link href="/Product.css" rel="stylesheet" />
