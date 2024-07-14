@@ -846,24 +846,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\C#6\\asm\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj",
+      "projectUniqueName": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj",
       "projectName": "FrontEnd",
-      "projectPath": "E:\\C#6\\asm\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "E:\\C#6\\asm\\fastfood\\fastfood\\FrontEnd\\obj\\",
+      "projectPath": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\FrontEnd\\FrontEnd.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\FrontEnd\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -927,7 +922,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
