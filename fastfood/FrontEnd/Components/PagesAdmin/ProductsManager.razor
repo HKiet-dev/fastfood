@@ -13,7 +13,7 @@
 		<a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
 			<h5 class="card-title m-5">Orders Manager</h5>
 		</a>
-		<a class="card border-info mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
+		<a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
 			<h5 class="card-title m-5">Category Manager</h5>
 		</a>
 	</div>
@@ -48,37 +48,46 @@
 
 						<div class="form-group input-group mb-3">
 							@* <label class="control-label fw-bold input-group-text">ID:</label> *@
-							<input type="hidden" asp-for="FoodID" class="form-control" />
+							<input type="hidden" asp-for="ProductID" class="form-control" />
 							@* <span asp-validation-for="FoodID" class="text-danger"></span> *@
 						</div>
 						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">FoodName:</label>
-							<input asp-for="FoodName" class="form-control w-100" />
-							<span asp-validation-for="FoodName" class="text-danger"></span>
-
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Price:</label>
-							<input asp-for="Price" min="1" class="form-control w-100" />
-							<span asp-validation-for="Price" class="text-danger"></span>
+							<label class="control-label fw-bold input-group-text">ProductName:</label>
+							<input asp-for="ProductName" class="form-control w-100" />
+							<span asp-validation-for="ProductName" class="text-danger"></span>
 
 						</div>
 						<div class="form-group input-group mb-3">
 							<label class="control-label fw-bold input-group-text">Description:</label>
-							<input asp-for="Description" class="form-control w-100" />
+							<input asp-for="Description" min="1" class="form-control w-100" />
 							<span asp-validation-for="Description" class="text-danger"></span>
 
 						</div>
 						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Image:</label>
-							<input asp-for="Image" class="form-control w-100" />
-							<span asp-validation-for="Image" class="text-danger"></span>
+							<label class="control-label fw-bold input-group-text">UnitPrice:</label>
+							<input asp-for="UnitPrice" class="form-control w-100" />
+							<span asp-validation-for="UnitPrice" class="text-danger"></span>
 
 						</div>
 						<div class="form-group input-group mb-3">
-							@* <label class="control-label fw-bold input-group-text">AccountID:</label> *@
-							<input type="hidden" asp-for="AccountID" class="form-control w-100" />
-							@* <span asp-validation-for="AccountID" class="text-danger"></span> *@
+							<label class="control-label fw-bold input-group-text">View:</label>
+							<input asp-for="View" class="form-control w-100" />
+							<span asp-validation-for="View" class="text-danger"></span>
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">IsActive:</label>
+							<input asp-for="IsActive" class="form-control w-100" />
+							<span asp-validation-for="IsActive" class="text-danger"></span>
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">IsCombo:</label>
+							<input asp-for="IsCombo" class="form-control w-100" />
+							<span asp-validation-for="IsCombo" class="text-danger"></span>
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">CategoryId:</label>
+							<input asp-for="CategoryId" class="form-control w-100" />
+							<span asp-validation-for="CategoryId" class="text-danger"></span>
 						</div>
 						<div class="form-group mt-3 text-center">
 							<input type="submit" value="Create" asp-action="CreateFood" class="btn btn-danger w-50" />

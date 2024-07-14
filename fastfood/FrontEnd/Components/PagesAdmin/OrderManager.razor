@@ -1,6 +1,6 @@
-﻿@page "/categorymanager"
+﻿@page "/ordermanager"
 
-<h3>CategoryManager</h3>
+<h3>OrderManager</h3>
 
 <div class="">
 	<div class="row">
@@ -10,19 +10,19 @@
 		<a class="card border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
 			<h5 class="card-title m-5">Products Manager</h5>
 		</a>
-		<a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
+		<a class="border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
 			<h5 class="card-title m-5">Orders Manager</h5>
 		</a>
-		<a class="border-info mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
+		<a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
 			<h5 class="card-title m-5">Category Manager</h5>
 		</a>
 	</div>
 
 	<nav class="navbar navbar-light bg-light justify-content-end">
-		<a class="form-inline btn btn-success me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
+		<a class="form-inline btn btn-info me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
 		<div class="form-inline">
 			<input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-3 my-sm-0 m-2" type="submit">Search</button>
+			<button class="btn btn-outline-info my-3 my-sm-0 m-2" type="submit">Search</button>
 		</div>
 	</nav>
 
@@ -37,27 +37,52 @@
 							<div class="col">
 								<div class="form-group input-group mb-3">
 									@* <label class="control-label fw-bold input-group-text">ID:</label> *@
-									<input type="hidden" asp-for="Order.OrderID" class="form-control" />
+									<input type="hidden" asp-for="OrderID" class="form-control" />
 									@* <span class="text-danger"></span> *@
 								</div>
 								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">TotalPrice:</label>
-									<input asp-for="Order.TotalPrice" class="form-control" />
+									<label class="control-label fw-bold input-group-text">DateReceived:</label>
+									<input asp-for="DateReceived" class="form-control" />
 									<span class="text-danger"></span>
 								</div>
 								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">Status:</label>
-									<input asp-for="Order.Status" min="1" class="form-control " />
+									<label class="control-label fw-bold input-group-text">FullName:</label>
+									<input asp-for="FullName" min="1" class="form-control " />
 									<span class="text-danger"></span>
 								</div>
 								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">PaymentMethod:</label>
-									<input asp-for="Order.PaymentMethod" class="form-control" />
+									<label class="control-label fw-bold input-group-text">PhoneNo:</label>
+									<input asp-for="PhoneNo" class="form-control" />
+									<span class="text-danger"></span>
+								</div>
+								<div class="form-group input-group mb-3">
+									<label class="control-label fw-bold input-group-text">Address:</label>
+									<input asp-for="Address" class="form-control" />
+									<span class="text-danger"></span>
+								</div>
+								<div class="form-group input-group mb-3">
+									<label class="control-label fw-bold input-group-text">PaymentType:</label>
+									<input asp-for="PaymentType" class="form-control" />
+									<span class="text-danger"></span>
+								</div>
+								<div class="form-group input-group mb-3">
+									<label class="control-label fw-bold input-group-text">PaymentStatus:</label>
+									<input asp-for="PaymentStatus" class="form-control" />
+									<span class="text-danger"></span>
+								</div>
+								<div class="form-group input-group mb-3">
+									<label class="control-label fw-bold input-group-text">OrderStatus:</label>
+									<input asp-for="OrderStatus" class="form-control" />
+									<span class="text-danger"></span>
+								</div>
+								<div class="form-group input-group mb-3">
+									<label class="control-label fw-bold input-group-text">Note:</label>
+									<input asp-for="Note" class="form-control" />
 									<span class="text-danger"></span>
 								</div>
 								<div class="form-group input-group mb-3">
 									@* <label class="control-label fw-bold input-group-text">AccountID:</label> *@
-									<input type="hidden" asp-for="Order.AccountID" class="form-control" />
+									<input type="hidden" asp-for="UserId" class="form-control" />
 									@* <span class="text-danger"></span> *@
 								</div>
 							</div>
@@ -100,15 +125,34 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="card border border-light rounded p-3 shadow bg-light">
 		<table class="table">
 			<thead>
 				<tr>
 					<th>
-						Category ID
+						OrderID
 					</th>
 					<th>
-						Category Name
+						TotalPrice
+					</th>
+					<th>
+						Status
+					</th>
+					<th>
+						PaymentMethod
+					</th>
+					<th>
+						AccountID
+					</th>
+					<th>
+						FoodName
+					</th>
+					<th>
+						Image
+					</th>
+					<th>
+						Price
 					</th>
 					<th></th>
 				</tr>

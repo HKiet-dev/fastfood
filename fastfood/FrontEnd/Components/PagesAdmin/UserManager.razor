@@ -13,7 +13,7 @@
 		<a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
 			<h5 class="card-title m-5">Orders Manager</h5>
 		</a>
-		<a class="card border-info mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
+		<a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
 			<h5 class="card-title m-5">Category Manager</h5>
 		</a>
 	</div>
@@ -27,13 +27,23 @@
 						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 						<div class="form-group input-group mb-3">
 							@* <label class="control-label fw-bold input-group-text">AccountId:</label> *@
-							<input type="hidden" asp-for="AccountId" class="form-control w-100" />
+							<input type="hidden" asp-for="User Id" class="form-control w-100" />
 							@* <span asp-validation-for="AccountId" class="text-danger"></span> *@
 						</div>
 						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Name:</label>
-							<input asp-for="AccountName" class="form-control w-100" />
-							<span asp-validation-for="AccountName" class="text-danger"></span>
+							<label class="control-label fw-bold input-group-text">Username :</label>
+							<input asp-for="Username" class="form-control w-100" />
+							<span asp-validation-for="Username" class="text-danger"></span>
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">FullName:</label>
+							<input asp-for="FullName" class="form-control w-100" />
+							<span asp-validation-for="FullName" class="text-danger"></span>
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">Gender:</label>
+							<input asp-for="Gender" class="form-control w-100" />
+							<span asp-validation-for="Gender" class="text-danger"></span>
 						</div>
 						<div class="form-group input-group mb-3">
 							<label class="control-label fw-bold input-group-text">PhoneNumber:</label>
@@ -41,9 +51,9 @@
 							<span asp-validation-for="PhoneNumber" class="text-danger"></span>
 						</div>
 						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Birthday:</label>
-							<input asp-for="Birthday" class="form-control w-100" />
-							<span asp-validation-for="Birthday" class="text-danger"></span>
+							<label class="control-label fw-bold input-group-text">Address:</label>
+							<input asp-for="Address" class="form-control w-100" />
+							<span asp-validation-for="Address" class="text-danger"></span>
 						</div>
 						<div class="form-group input-group mb-3">
 							<label class="control-label fw-bold input-group-text">Email:</label>
@@ -51,28 +61,24 @@
 							<span asp-validation-for="Email" class="text-danger"></span>
 						</div>
 						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">PasswordHash:</label>
-							<input asp-for="PasswordHash" class="form-control w-100" />
-							<span asp-validation-for="PasswordHash" class="text-danger"></span>
+							<label class="control-label fw-bold input-group-text">Avatar:</label>
+							<input asp-for="Avatar" class="form-control w-100" />
+							<span asp-validation-for="Avatar" class="text-danger"></span>
 						</div>
 						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Address:</label>
-							<input asp-for="Address" class="form-control w-100" />
-							<span asp-validation-for="Address" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Image:</label>
-							<input asp-for="Image" class="form-control w-100" />
-							<span asp-validation-for="Image" class="text-danger"></span>
+							<label class="control-label fw-bold input-group-text">EmailConfirmed:</label>
+							<input asp-for="EmailConfirmed" class="form-control w-100" />
+							<span asp-validation-for="EmailConfirmed" class="text-danger"></span>
 						</div>
 						<div class="form-group input-group mb-3">
 							<label class="control-label fw-bold input-group-text">Role:</label>
-							<select asp-for="Role" class="custom-select w-100" id="inputGroupSelect01">
-								<option selected>Choose Role....</option>
-								<option value="1">User</option>
-								<option value="2">Admin</option>
-							</select>
+							<input asp-for="Role" class="form-control w-100" />
 							<span asp-validation-for="Role" class="text-danger"></span>
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">Status:</label>
+							<input asp-for="Status" class="form-control w-100" />
+							<span asp-validation-for="Status" class="text-danger"></span>
 						</div>
 						<div class="form-group input-group mb-3">
 							@* <label class="control-label fw-bold input-group-text">RowVersion:</label> *@
