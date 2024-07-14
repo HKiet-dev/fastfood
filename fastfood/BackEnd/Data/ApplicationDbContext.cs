@@ -22,17 +22,17 @@ namespace BackEnd.Data
             base.OnModelCreating(builder);
 
             builder.Entity<CartDetail>()
-                .HasKey(cd => new {cd.ProductId,cd.UserId});
+                .HasKey(cd => new {cd.ProductId,cd.CartId});
 
             builder.Entity<Product>()
                 .HasMany(p => p.CartDetails)
                 .WithOne(cd => cd.Product)
                 .HasForeignKey(cd => cd.ProductId);
 
-            builder.Entity<User>()
+            builder.Entity<Cart>()
                 .HasMany(u => u.CartDetails)
-                .WithOne(cd => cd.User)
-                .HasForeignKey(cd => cd.UserId);
+                .WithOne(cd => cd.Cart)
+                .HasForeignKey(cd => cd.CartId);
 
             builder.Entity<OrderDetail>()
                 .HasKey(od => new { od.OrderId, od.ProductId });
