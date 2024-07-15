@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 namespace BackEnd.Models
 {
+    [Index(nameof(Name), IsUnique = true)]
     public class User : IdentityUser
     {
         [StringLength(50, MinimumLength =3, ErrorMessage ="Độ dài của tên phải từ 3 đến 50 ký tự")]

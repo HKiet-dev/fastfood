@@ -39,7 +39,7 @@ namespace BackEnd.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Cart");
+                    b.ToTable("Cart", (string)null);
                 });
 
             modelBuilder.Entity("BackEnd.Models.CartDetail", b =>
@@ -60,7 +60,7 @@ namespace BackEnd.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("CartDetail");
+                    b.ToTable("CartDetail", (string)null);
                 });
 
             modelBuilder.Entity("BackEnd.Models.Category", b =>
@@ -78,7 +78,7 @@ namespace BackEnd.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
                 });
 
             modelBuilder.Entity("BackEnd.Models.Order", b =>
@@ -137,7 +137,7 @@ namespace BackEnd.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("BackEnd.Models.OrderDetail", b =>
@@ -164,7 +164,7 @@ namespace BackEnd.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderDetail");
+                    b.ToTable("OrderDetail", (string)null);
                 });
 
             modelBuilder.Entity("BackEnd.Models.Product", b =>
@@ -207,7 +207,7 @@ namespace BackEnd.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Product", (string)null);
                 });
 
             modelBuilder.Entity("BackEnd.Models.User", b =>

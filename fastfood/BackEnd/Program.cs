@@ -34,7 +34,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IFoodService,FoodService>();
 builder.Services.AddScoped<IUserService, UserService>();
-
+builder.Services.AddScoped<IHelper, HelperService>();
 // Config các IService và Service ở chỗ này ↑
 
 builder.Services.AddEndpointsApiExplorer();
