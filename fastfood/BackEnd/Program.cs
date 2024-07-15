@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 
@@ -33,6 +33,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Config các IService và Service ở chỗ này ↓
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<IFoodService,FoodService>();
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 // Config các IService và Service ở chỗ này ↑
@@ -97,6 +99,7 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -106,6 +109,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowAllOrigins");
 
 app.UseHttpsRedirection();
 

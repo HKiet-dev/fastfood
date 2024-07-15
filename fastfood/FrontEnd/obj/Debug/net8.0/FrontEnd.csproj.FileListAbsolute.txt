@@ -123,3 +123,16 @@ D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\r
 D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\FrontEnd.pdb
 D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\FrontEnd.genruntimeconfig.cache
 D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\FrontEnd\obj\Debug\net8.0\ref\FrontEnd.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Blazorise.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Blazorise.Bootstrap5.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Blazorise.Icons.FontAwesome.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Blazorise.Licensing.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\NET106_ASP.NET_C#6_K6\Exercise\Nhom4_NET106_SD18317_Assignment\fastfood\fastfood\FrontEnd\bin\Debug\net8.0\Microsoft.JSInterop.dll
