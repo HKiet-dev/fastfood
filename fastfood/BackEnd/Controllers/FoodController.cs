@@ -58,13 +58,13 @@ namespace BackEnd.Controllers
             return _foodService.GetByFilter(categoryid, price, page, pageSize);
         }
 
-        [HttpGet("Get By Search")]
+        [HttpGet("Get-by-search")]
         public ResponseDto GetBySearch(string query, int page = 1, int pageSize = 10)
         {
             return _foodService.GetBySearch(query, page, pageSize);
         }
 
-        [HttpGet("Get top view")]
+        [HttpGet("Get-top-view")]
         public ResponseDto TopViewed(int page = 1, int pageSize = 10)
         {
             return _foodService.TopViewed(page, pageSize);
