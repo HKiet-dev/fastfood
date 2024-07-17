@@ -4,6 +4,40 @@
         <name>BackEnd</name>
     </assembly>
     <members>
+        <member name="M:BackEnd.Controllers.CategoryController.GetAll">
+            <summary>
+            Get all category
+            </summary>
+            <returns >List of category</returns>
+            <response code="200">Returns list of category</response>
+            <response code="400">If list of category is null</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.GetById(System.Int32)">
+            <summary>
+            Get category by id
+            </summary>
+            <returns>Category with id specify</returns>
+            <response code="200">Returns category with specified id</response>
+            <response code="400">If specified category id not found</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.Create(BackEnd.Models.Dtos.CategoryDto)">
+            <summary>
+            Create new category
+            </summary>
+            <param name="categorydto"></param>
+            <returns>A newly category created</returns>
+            <response code="201">Newly category created</response>
+            <response code="400">Null or invalid</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.Update(BackEnd.Models.Dtos.CategoryDto)">
+            <summary>
+            Update category
+            </summary>
+            <param name="category"></param>
+            <returns>Category updated</returns>
+            <response code="200">Category updated</response>
+            <response code="400">Null or invalid</response>
+        </member>
         <member name="T:BackEnd.Migrations.init">
             <inheritdoc />
         </member>
