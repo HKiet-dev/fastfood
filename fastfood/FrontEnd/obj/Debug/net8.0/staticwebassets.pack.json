@@ -29,13 +29,10 @@
       "PackagePath": "staticwebassets\\Img\\hamburger.jpg"
     },
     {
-<<<<<<< HEAD
-=======
       "Id": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Product.css",
       "PackagePath": "staticwebassets\\Product.css"
     },
     {
->>>>>>> main
       "Id": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
