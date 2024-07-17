@@ -18,6 +18,7 @@ namespace BackEnd.Models
         public int View { get; set; }
         public bool IsActive { get; set; }
         public bool IsCombo { get; set; }
+        public string ImageUrl { get; set; }
         public int CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }

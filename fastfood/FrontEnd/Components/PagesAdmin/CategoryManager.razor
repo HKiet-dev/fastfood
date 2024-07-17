@@ -1,0 +1,86 @@
+﻿@page "/categorymanager"
+
+<h3>CategoryManager</h3>
+
+<div class="">
+	<div class="row">
+		<a class="card border-danger mb-3 mx-3 btn btn-danger text-black" style="max-width: 250px;" href="usermanager">
+			<h5 class="card-title m-5">Users Manager</h5>
+		</a>
+		<a class="card border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
+			<h5 class="card-title m-5">Products Manager</h5>
+		</a>
+		<a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
+			<h5 class="card-title m-5">Orders Manager</h5>
+		</a>
+		<a class="border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
+			<h5 class="card-title m-5">Category Manager</h5>
+		</a>
+	</div>
+
+	<nav class="navbar navbar-light bg-light justify-content-end">
+		<a class="form-inline btn btn-success me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
+		<div class="form-inline">
+			<input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-3 my-sm-0 m-2" type="submit">Search</button>
+		</div>
+	</nav>
+
+	<!-- Modal -->
+	<div class="modal fade" id="createFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-large">
+			<div class="modal-content">
+				<div class="container-fluid p-5">
+					<form class="row">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+						<div class="form-group input-group mb-3">
+							@* <label class="control-label fw-bold input-group-text">ID:</label> *@
+							<input type="hidden" asp-for="CategoryID" class="form-control" />
+							@* <span asp-validation-for="FoodID" class="text-danger"></span> *@
+						</div>
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">CategoryName:</label>
+							<input asp-for="CategoryName" class="form-control w-100" />
+							<span asp-validation-for="CategoryName" class="text-danger"></span>
+						</div>
+
+						<div class="form-group mt-3 text-center">
+							<input type="submit" value="Create" asp-action="CreateFood" class="btn btn-danger w-50" />
+						</div>
+						<div class="form-group mt-3 text-center">
+							<input type="submit" value="Update" asp-action="UpdateFood" class="btn btn-primary w-50" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card border border-light rounded p-3 shadow bg-light">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						Category ID
+					</th>
+					<th>
+						Category Name
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						hehe
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+@code {
+
+}

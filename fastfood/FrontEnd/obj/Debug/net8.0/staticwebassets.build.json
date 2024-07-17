@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "POxd7FTqmim2x3AHTW6A1t05XLTTGNy1LYy19dJLe7M=",
+=======
+  "Hash": "7teOzi5EuCMKKdTAYFSd003epfSv/hWXrbCu2CjCx/Q=",
+>>>>>>> main
   "Source": "FrontEnd",
   "BasePath": "_content/FrontEnd",
   "Mode": "Default",
@@ -1535,6 +1539,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\login.css"
+    },
+    {
+      "Identity": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Product.css",
+      "SourceId": "FrontEnd",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "BasePath": "_content/FrontEnd",
+      "RelativePath": "Product.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Product.css"
     }
   ]
 }
