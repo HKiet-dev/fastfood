@@ -8,14 +8,15 @@ namespace FrontEnd.Services
     public class CategoryService(IBaseService baseService) : ICategoryService
     {
         readonly IBaseService _baseService = baseService;
+        readonly string _categoryUri = ApiUrl + "/api/category";
         public async Task<ResponseDto?> Create(Category category)
         {
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.POST,
                 Data = category,
-                Url = CategoryApiBase
-            });
+                Url = _categoryUri
+            }) ;
         }
 
         public async Task<ResponseDto?> Delete(int id)
@@ -23,7 +24,7 @@ namespace FrontEnd.Services
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.DELETE,
-                Url = CategoryApiBase + "/" + id
+                Url = _categoryUri +"/" + id
             });
         }
 
@@ -32,7 +33,7 @@ namespace FrontEnd.Services
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.GET,
-                Url = CategoryApiBase
+                Url = _categoryUri
             });
         }
 
@@ -41,7 +42,7 @@ namespace FrontEnd.Services
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.GET,
-                Url = CategoryApiBase + "/" +id
+                Url = _categoryUri + "/" + id
             });
         }
 
@@ -50,7 +51,7 @@ namespace FrontEnd.Services
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.GET,
-                Url = CategoryApiBase + "/" + name
+                Url = _categoryUri + "/" + name
             });
         }
 
@@ -59,7 +60,7 @@ namespace FrontEnd.Services
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.PUT,
-                Url = CategoryApiBase
+                Url = _categoryUri
             });
         }
     }

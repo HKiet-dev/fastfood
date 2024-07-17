@@ -2,6 +2,9 @@ using Blazorise;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
 using FrontEnd.Components;
+using FrontEnd.Services;
+using FrontEnd.Services.IService;
+using FrontEnd.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,12 @@ builder.Services
     })
     .AddBootstrap5Providers()
     .AddFontAwesomeIcons();
+
+//builder.Services.AddHttpContextAccessor();
+//builder.Services.AddHttpClient();
+//StaticDetails.ApiUrl = builder.Configuration["ServiceUrls:BackEndApi"];
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
