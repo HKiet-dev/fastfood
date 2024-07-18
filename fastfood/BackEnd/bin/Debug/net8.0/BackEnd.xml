@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BackEnd</name>
+    </assembly>
+    <members>
+        <member name="M:BackEnd.Controllers.AuthController.Register(BackEnd.Models.Dtos.RegistrationRequestDto)">
+            <summary>
+            Đăng ký người dùng mới.
+            </summary>
+            <param name="obj">Thông tin tài khoản đăng ký.</param>
+            <returns>Kết quả đăng ký.</returns>
+            <response code="200">Đăng ký thành công.</response>
+            <response code="400">Đăng ký thất bại (có thể do email đã tồn tại hoặc dữ liệu không hợp lệ).</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.Login(BackEnd.Models.Dtos.LoginRequestDto)">
+            <summary>
+            Đăng nhập.
+            </summary>
+            <param name="model">Thông tin đăng nhập.</param>
+            <returns>Thông tin người dùng nếu đăng nhập thành công.</returns>
+            <response code="200">Đăng nhập thành công.</response>
+            <response code="400">Đăng nhập thất bại (tài khoản hoặc mật khẩu không đúng).</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.AssignRole(BackEnd.Models.Dtos.RegistrationRequestDto)">
+            <summary>
+            Gán vai trò cho người dùng.
+            </summary>
+            <param name="model">Thông tin người dùng và vai trò.</param>
+            <returns>Kết quả gán vai trò.</returns>
+            <response code="200">Gán vai trò thành công.</response>
+            <response code="400">Gán vai trò thất bại.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.GetUserId(System.String)">
+            <summary>
+            Lấy ID người dùng dựa trên email.
+            </summary>
+            <param name="email">Email của người dùng.</param>
+            <returns>ID của người dùng.</returns>
+            <response code="200">Trả về ID người dùng.</response>
+            <response code="400">Không tìm thấy người dùng.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.GetUserRole(BackEnd.Models.Dtos.UserDto)">
+            <summary>
+            Lấy vai trò của người dùng.
+            </summary>
+            <param name="user">Thông tin người dùng.</param>
+            <returns>Vai trò của người dùng.</returns>
+            <response code="200">Trả về vai trò của người dùng.</response>
+            <response code="400">Không xác định được vai trò người dùng.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.GetUserByEmail(System.String)">
+            <summary>
+            Lấy thông tin người dùng dựa trên email.
+            </summary>
+            <param name="email">Email của người dùng.</param>
+            <returns>Thông tin người dùng.</returns>
+            <response code="200">Trả về thông tin người dùng.</response>
+            <response code="400">Người dùng không tồn tại.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.CreateUserFromGoogleLogin(System.String,System.String)">
+            <summary>
+            Tạo người dùng mới từ thông tin đăng nhập Google.
+            </summary>
+            <param name="email">Email của người dùng.</param>
+            <param name="name">Tên của người dùng.</param>
+            <returns>Thông tin người dùng mới được tạo.</returns>
+            <response code="200">Tạo người dùng thành công.</response>
+            <response code="400">Tạo người dùng thất bại.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.GetUserById(System.String)">
+            <summary>
+            Lấy thông tin người dùng dựa trên ID.
+            </summary>
+            <param name="userId">ID của người dùng.</param>
+            <returns>Thông tin người dùng.</returns>
+            <response code="200">Trả về thông tin người dùng.</response>
+            <response code="400">Lỗi xảy ra trong quá trình xác thực người dùng.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.JWTGenerator(BackEnd.Models.Dtos.UserDto)">
+            <summary>
+            Tạo token JWT cho người dùng.
+            </summary>
+            <param name="user">Thông tin người dùng.</param>
+            <returns>Token JWT.</returns>
+            <response code="200">Trả về token JWT.</response>
+            <response code="400">Lỗi xảy ra trong quá trình xác thực người dùng.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.ExternalLoginGoogle">
+            <summary>
+            Bắt đầu quá trình đăng nhập bằng Google.
+            </summary>
+            <returns>Chuyển hướng đến trang đăng nhập của Google.</returns>
+        </member>
+        <member name="M:BackEnd.Controllers.AuthController.ExternalLoginCallback">
+            <summary>
+            Xử lý callback sau khi đăng nhập bằng Google.
+            </summary>
+            <returns>Chuyển hướng về frontend với token JWT (nếu thành công đăng nhập thành công).</returns>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.GetAll">
+            <summary>
+            Lấy danh sách tất cả các danh mục.
+            </summary>
+            <returns>Danh sách các danh mục (Category).</returns>
+            <response code="200">Trả về danh sách các danh mục.</response>
+            <response code="404">Không tìm thấy danh mục nào.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.GetById(System.Int32)">
+            <summary>
+            Lấy danh mục theo ID.
+            </summary>
+            <param name="id">ID của danh mục cần lấy.</param>
+            <returns>Danh mục có ID tương ứng.</returns>
+            <response code="200">Trả về danh mục với ID đã chỉ định.</response>
+            <response code="404">Không tìm thấy danh mục với ID đã chỉ định.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.Create(BackEnd.Models.Dtos.CategoryDto)">
+            <summary>
+            Tạo danh mục mới.
+            </summary>
+            <param name="categorydto">Thông tin của danh mục mới.</param>
+            <returns>Danh mục mới được tạo.</returns>
+            <response code="201">Danh mục mới được tạo thành công.</response>
+            <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.Update(BackEnd.Models.Dtos.CategoryDto)">
+            <summary>
+            Cập nhật thông tin danh mục.
+            </summary>
+            <param name="category">Thông tin cập nhật của danh mục.</param>
+            <returns>Danh mục sau khi được cập nhật.</returns>
+            <response code="200">Danh mục được cập nhật thành công.</response>
+            <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc</response>
+            <response code="404">Không tìm thấy danh mục cần cập nhật.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.Delete(System.Int32)">
+            <summary>
+            Xóa danh mục theo ID.
+            </summary>
+            <param name="id">ID của danh mục cần xóa.</param>
+            <returns>Kết quả xóa danh mục.</returns>
+            <response code="200">Xóa danh mục thành công.</response>
+            <response code="404">Không tìm thấy danh mục cần xóa.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CategoryController.GetByName(System.String)">
+            <summary>
+            Tìm kiếm danh mục theo tên.
+            </summary>
+            <param name="name">Tên danh mục cần tìm kiếm.</param>
+            <returns>Danh sách các danh mục có tên khớp với từ khóa tìm kiếm.</returns>
+            <response code="200">Trả về danh sách các danh mục khớp với tên.</response>
+            <response code="404">Không tìm thấy danh mục nào khớp với tên.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Lấy danh sách tất cả các sản phẩm (có phân trang).
+            </summary>
+            <param name="page">Trang hiện tại (mặc định là 1).</param>
+            <param name="pageSize">Số lượng sản phẩm trên mỗi trang (mặc định là 10).</param>
+            <returns>Danh sách các sản phẩm.</returns>
+            <response code="200">Trả về danh sách các sản phẩm.</response>
+            <response code="404">Không tìm thấy sản phẩm nào.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.GetById(System.Int32)">
+            <summary>
+            Lấy sản phẩm theo ID.
+            </summary>
+            <param name="id">ID của sản phẩm cần lấy.</param>
+            <returns>Sản phẩm có ID tương ứng.</returns>
+            <response code="200">Trả về sản phẩm với ID đã chỉ định.</response>
+            <response code="404">Không tìm thấy sản phẩm với ID đã chỉ định.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.Create(BackEnd.Models.Dtos.ProductDto)">
+            <summary>
+            Tạo sản phẩm mới.
+            </summary>
+            <param name="productDto">Thông tin của sản phẩm mới.</param>
+            <returns>Sản phẩm mới được tạo.</returns>
+            <response code="201">Sản phẩm mới được tạo thành công.</response>
+            <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.Delete(System.Int32)">
+            <summary>
+            Xóa sản phẩm theo ID.
+            </summary>
+            <param name="id">ID của sản phẩm cần xóa.</param>
+            <returns>Kết quả xóa sản phẩm.</returns>
+            <response code="200">Xóa sản phẩm thành công.</response>
+            <response code="404">Không tìm thấy sản phẩm cần xóa.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.GetByCategoryId(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Lấy danh sách sản phẩm theo ID của danh mục (có phân trang).
+            </summary>
+            <param name="categoryId">ID của danh mục.</param>
+            <param name="page">Trang hiện tại (mặc định là 1).</param>
+            <param name="pageSize">Số lượng sản phẩm trên mỗi trang (mặc định là 10).</param>
+            <returns>Danh sách các sản phẩm thuộc danh mục đã chỉ định.</returns>
+            <response code="200">Trả về danh sách các sản phẩm thuộc danh mục.</response>
+            <response code="404">Không tìm thấy sản phẩm nào thuộc danh mục.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.GetByFilter(System.Nullable{System.Int32},System.Nullable{System.Decimal},System.Int32,System.Int32)">
+            <summary>
+            Lọc sản phẩm theo danh mục và giá (có phân trang).
+            </summary>
+            <param name="categoryid">ID của danh mục (tùy chọn).</param>
+            <param name="price">Giá sản phẩm (tùy chọn).</param>
+            <param name="page">Trang hiện tại (mặc định là 1).</param>
+            <param name="pageSize">Số lượng sản phẩm trên mỗi trang (mặc định là 10).</param>
+            <returns>Danh sách các sản phẩm phù hợp với bộ lọc.</returns>
+            <response code="200">Trả về danh sách các sản phẩm phù hợp với bộ lọc.</response>
+            <response code="404">Không tìm thấy sản phẩm nào phù hợp với bộ lọc.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.GetBySearch(System.String,System.Int32,System.Int32)">
+            <summary>
+            Tìm kiếm sản phẩm theo từ khóa (có phân trang).
+            </summary>
+            <param name="query">Từ khóa tìm kiếm.</param>
+            <param name="page">Trang hiện tại (mặc định là 1).</param>
+            <param name="pageSize">Số lượng sản phẩm trên mỗi trang (mặc định là 10).</param>
+            <returns>Danh sách các sản phẩm phù hợp với từ khóa tìm kiếm.</returns>
+            <response code="200">Trả về danh sách các sản phẩm phù hợp với từ khóa tìm kiếm.</response>
+            <response code="404">Không tìm thấy sản phẩm nào phù hợp với từ khóa tìm kiếm.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.TopViewed(System.Int32,System.Int32)">
+            <summary>
+            Lấy danh sách sản phẩm được xem nhiều nhất (có phân trang).
+            </summary>
+            <param name="page">Trang hiện tại (mặc định là 1).</param>
+            <param name="pageSize">Số lượng sản phẩm trên mỗi trang (mặc định là 10).</param>
+            <returns>Danh sách các sản phẩm được xem nhiều nhất.</returns>
+            <response code="200">Trả về danh sách các sản phẩm được xem nhiều nhất.</response>
+            <response code="404">Không tìm thấy sản phẩm nào.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.FoodController.Update(BackEnd.Models.Dtos.ProductDto)">
+            <summary>
+            Cập nhật thông tin sản phẩm.
+            </summary>
+            <param name="productDto">Thông tin cập nhật của sản phẩm.</param>
+            <returns>Sản phẩm sau khi được cập nhật.</returns>
+            <response code="200">Sản phẩm được cập nhật thành công.</response>
+            <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
+            <response code="404">Không tìm thấy sản phẩm cần cập nhật.</response>
+        </member>
+        <member name="T:BackEnd.Migrations.init">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:BackEnd.Migrations.modifydatatypealltable">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.modifydatatypealltable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.modifydatatypealltable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.modifydatatypealltable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:BackEnd.Migrations.AddCartTable">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.AddCartTable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.AddCartTable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.AddCartTable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:BackEnd.Migrations.updateDB">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateDB.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateDB.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateDB.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
