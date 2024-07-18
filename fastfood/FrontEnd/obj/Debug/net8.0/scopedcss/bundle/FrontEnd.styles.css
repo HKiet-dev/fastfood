@@ -1,0 +1,50 @@
+/* _content/FrontEnd/Components/Layout/MainLayout.razor.rz.scp.css */
+/* _content/FrontEnd/Components/Layout/NavMenu.razor.rz.scp.css */
+/* Navbar background and height */
+.navbar[b-e8evo7atp8] {
+    background-color: #17a2b8;
+    height: 60px;
+}
+
+/* Navbar brand */
+.navbar-brand[b-e8evo7atp8] {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+/* Navbar toggler icon */
+.navbar-toggler-icon[b-e8evo7atp8] {
+    color: #ffffff;
+    /* Navbar links */
+    .navbar-nav .nav-link
+
+{
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin: 0 10px;
+}
+
+/* Active link */
+.navbar-nav .nav-link.active[b-e8evo7atp8] {
+    font-weight: bold;
+}
+
+/* Form search */
+.navbar form[b-e8evo7atp8] {
+    margin-left: auto;
+}
+
+/* Giỏ hàng và Đăng kí/Đăng nhập */
+.navbar .nav-link[b-e8evo7atp8] {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+    /* Biểu tượng và chữ của Giỏ hàng và Đăng kí/Đăng nhập */
+    .navbar .nav-link i[b-e8evo7atp8] {
+        font-size: 1.2rem;
+    }
+
+    .navbar .nav-link .mx-2[b-e8evo7atp8] {
+        font-size: 0.9rem;
+    }
