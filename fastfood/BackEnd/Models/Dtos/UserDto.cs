@@ -12,7 +12,7 @@ namespace BackEnd.Models.Dtos
         public string Name { get; set; }
         [StringLength(13, MinimumLength = 9, ErrorMessage = "Độ dài số điện thoại phải từ 9 đến 13 chữ số")]
         [Phone(ErrorMessage = "Số điện thoại phải là chữ số")]
-        public string Phone {  get; set; }
+        public string PhoneNumber {  get; set; }
         [Required(ErrorMessage ="Email không được để trống")]
         [EmailAddress(ErrorMessage ="Email phải đúng định dạng")]
         public string Email { get; set; }

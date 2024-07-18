@@ -114,7 +114,7 @@ namespace BackEnd.Repository.Services
             {
                 Id = user.Id,
                 Name = user.Name,
-                Phone = user.PhoneNumber,
+                PhoneNumber = user.PhoneNumber,
                 Email = user.Email,
                 Address = user.Address,
                 Gender = user.Gender,
@@ -156,7 +156,7 @@ namespace BackEnd.Repository.Services
                         Email = userToReturn.Email,
                         Id = userToReturn.Id,
                         Name = userToReturn.Name,
-                        Phone = userToReturn.PhoneNumber,
+                        PhoneNumber = userToReturn.PhoneNumber,
                         Address = userToReturn.Address,
                         Avatar = userToReturn.Avatar
                     };

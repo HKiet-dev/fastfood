@@ -64,8 +64,8 @@ namespace BackEnd.Controllers
             }
             return null;
         }
-        [HttpDelete]
-        public async Task<ResponseDto> Delete([FromBody] string id)
+        [HttpDelete("{id}")]
+        public async Task<ResponseDto> Delete([FromRoute] string id)
         {
             if (ModelState.IsValid)
             {
