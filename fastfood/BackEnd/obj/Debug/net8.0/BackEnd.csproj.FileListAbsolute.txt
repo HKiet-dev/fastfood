@@ -439,6 +439,7 @@ D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\BackEnd\obj\Debug\net8.0\re
 D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.pdb
 D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.genruntimeconfig.cache
 D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\BackEnd\obj\Debug\net8.0\ref\BackEnd.dll
+<<<<<<< HEAD
 C:\Users\USER\Desktop\asm\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.csproj.AssemblyReference.cache
 C:\Users\USER\Desktop\asm\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\USER\Desktop\asm\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.AssemblyInfoInputs.cache
@@ -586,3 +587,7 @@ C:\Users\USER\Desktop\asm\fastfood\fastfood\BackEnd\obj\Debug\net8.0\scopedcss\b
 C:\Users\USER\Desktop\asm\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.csproj.Up2Date
 C:\Users\USER\Desktop\asm\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.genruntimeconfig.cache
 C:\Users\USER\Desktop\asm\fastfood\fastfood\BackEnd\obj\Debug\net8.0\ref\BackEnd.dll
+=======
+C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\bin\Debug\net8.0\BackEnd.xml
+C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.xml
+>>>>>>> main
