@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -64,15 +63,6 @@ builder.Services.AddSwaggerGen(options =>
             }, new string[]{}
         }
     });
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Fast Food API 1.0",
-        Version = "v1.0",
-        Description = "An API to perform fast food delivery operations"
-    });
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    options.IncludeXmlComments(xmlPath);
 });
 
 builder.Services.AddAuthentication(options =>
@@ -117,10 +107,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Fast Food API v1");
-    });
+    app.UseSwaggerUI();
 }
 
 app.UseCors("AllowAllOrigins");

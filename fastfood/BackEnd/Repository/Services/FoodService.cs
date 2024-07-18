@@ -19,19 +19,19 @@ namespace BackEnd.Repository.Services
                 if(product == null)
                 {
                     response.IsSuccess = false;
-                    response.Message = "Thức ăn truyền vào không hợp lệ";
+                    response.Message = "The product parameter can not null";
                     return response;
                 }
                 if(_db.Product.Any(p => p.Name == product.Name))
                 {
                     response.IsSuccess = false;
-                    response.Message = $"Thức ăn tên : {product.Name} đã tồn tại";
+                    response.Message = $"The product with name {product.Name} already exist";
                     return response;
                 }
                 _db.Product.Add(product);
                 _db.SaveChanges();
                 response.Result = _mapper.Map<ProductDto>(product);
-                response.Message = "Thêm thức ăn thành công";
+                response.Message = "Product Created";
             }
             catch (Exception ex)
             {
@@ -51,14 +51,14 @@ namespace BackEnd.Repository.Services
                 if (product == null)
                 {
                     response.IsSuccess = false;
-                    response.Message = "Thức ăn này không tồn tại";
+                    response.Message = "Product do not exist";
                     return response;
                 }
 
                 _db.Product.Remove(product);
                 _db.SaveChanges();
                 response.IsSuccess = true;
-                response.Message = "Xoá thức ăn thành công";
+                response.Message = "Product Deleted";
             }
             catch (Exception ex)
             {
@@ -148,7 +148,7 @@ namespace BackEnd.Repository.Services
                 if (product == null)
                 {
                     response.IsSuccess = false;
-                    response.Message = $"Thức ăn này không tồn tại";
+                    response.Message = $"Food id = {id} do not exist";
                     return response;
                 }    
                 response.Result = _mapper.Map<ProductDto>(product);
@@ -211,12 +211,12 @@ namespace BackEnd.Repository.Services
                 _db.Entry(product).State = EntityState.Modified;
                 _db.SaveChanges();
                 response.Result = _mapper.Map<ProductDto>(product);
-                response.Message = "Thức ăn đã cập nhật";
+                response.Message = "Product Updated";
             }
             catch
             {
                 response.IsSuccess = false;
-                response.Message = "Thức ăn này không tồn tại";
+                response.Message = "This product is not exist";
             }
             return response;
         }
