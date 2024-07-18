@@ -66,8 +66,8 @@ builder.Services.AddSwaggerGen(options =>
     });
     options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Fast Food API",
-        Version = "v1",
+        Title = "Fast Food API 1.0",
+        Version = "v1.0",
         Description = "An API to perform fast food delivery operations"
     });
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
