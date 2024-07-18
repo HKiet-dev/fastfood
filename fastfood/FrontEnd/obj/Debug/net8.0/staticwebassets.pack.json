@@ -1,51 +1,55 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FrontEnd.bundle.scp.css",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FrontEnd.bundle.scp.css",
       "PackagePath": "staticwebassets\\FrontEnd.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\Dathang.jpg",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\Dathang.jpg",
       "PackagePath": "staticwebassets\\Img\\Dathang.jpg"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\about-img.png",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\about-img.png",
       "PackagePath": "staticwebassets\\Img\\about-img.png"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_ 1.jpg",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_ 1.jpg",
       "PackagePath": "staticwebassets\\Img\\banner big_ 1.jpg"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_2.jpg",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_2.jpg",
       "PackagePath": "staticwebassets\\Img\\banner big_2.jpg"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_3.jpg",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_3.jpg",
       "PackagePath": "staticwebassets\\Img\\banner big_3.jpg"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\hamburger.jpg",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\hamburger.jpg",
       "PackagePath": "staticwebassets\\Img\\hamburger.jpg"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\app.css",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Product.css",
+      "PackagePath": "staticwebassets\\Product.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\login.css",
+      "Id": "C:\\Users\\USER\\Desktop\\asm\\fastfood\\fastfood\\FrontEnd\\wwwroot\\login.css",
       "PackagePath": "staticwebassets\\login.css"
     },
     {

@@ -15,12 +15,9 @@ namespace BackEnd
                 // VD : config.CreateMap<ProductDto, Products>().ReverseMap();
                 config.CreateMap<CategoryDto, Category>();
                 config.CreateMap<Category, CategoryDto>();
-<<<<<<< HEAD
                 config.CreateMap<UserDto, User>().ReverseMap();
-=======
                 config.CreateMap<ProductDto, Product>();
                 config.CreateMap<Product, ProductDto>();
->>>>>>> 70f37cdb3eac1149b41d643ac00e7334cd56f1a7
             });
             return mappingconfig;
         }
