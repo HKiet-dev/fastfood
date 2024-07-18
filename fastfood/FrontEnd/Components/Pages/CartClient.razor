@@ -1,13 +1,12 @@
 ﻿@page "/cartclient"
 @using Microsoft.JSInterop
 
-
 <div class="container mt-5">
     <div class="row">
         <!-- Left Column -->
         <div class="col-6">
             <h3>Fast food</h3>
-            <p>Giỏ hàng > Thông tin vận chuyển > Phương thức thanh toán</p>
+            <p>Giỏ hàng > Phương thức thanh toán</p>
             <h4>Thông tin thanh toán</h4>
             <p>Bạn đã có tài khoản? <a href="#">Đăng nhập</a></p>
             <form>
@@ -27,16 +26,23 @@
                     <label for="address" class="form-label">Địa chỉ</label>
                     <input type="text" class="form-control" id="address" placeholder="Địa chỉ">
                 </div>
-                <div>
-                    <select class="form-select form-select-sm mb-2" id="city" aria-label=".form-select-sm">
-                        <option value="" selected>Chọn tỉnh thành</option>
-                    </select>
-
-                    <select class="form-select form-select-sm mb-2" id="district" aria-label=".form-select-sm">
-                        <option value="" selected>Chọn quận huyện</option>
-                    </select>
-
-                    <select class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label for="city" class="form-label">Tỉnh</label>
+                        <select class="form-select" id="city" aria-label="Chọn tỉnh thành">
+                            <option value="" selected>Chọn tỉnh thành</option>
+                        </select>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="district" class="form-label">Quận/Huyện</label>
+                        <select class="form-select" id="district" aria-label="Chọn quận huyện">
+                            <option value="" selected>Chọn quận huyện</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="ward" class="form-label">Phường/Xã</label>
+                    <select class="form-select" id="ward" aria-label="Chọn phường xã">
                         <option value="" selected>Chọn phường xã</option>
                     </select>
                 </div>
@@ -46,13 +52,28 @@
         <!-- Right Column -->
         <div class="col-6">
             <div class="card">
-                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top img-fluid  w-50 mx-auto d-block" alt="Product Image">
-                <div class="card-body">
-                    <h5 class="card-title">Product Name</h5>
-                    <p class="card-text">Product details</p>
-                    <p class="card-text">000VNĐ</p>
+                <div class="container mt-5">
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width:100px; height:auto" class="img-fluid" alt="Product Image">
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="card-body p-0">
+                                <h5 class="card-title mb-2">Product Name</h5>
+                                <p class="card-text mb-1">Product details</p>
+                                <p class="card-text mb-0">000VNĐ</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center ms-3">
+                            <button class="btn btn-primary btn-sm me-2">-</button>
+                            <span class="product-quantity mx-2">1</span>
+                            <button class="btn btn-primary btn-sm ms-2">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            >
+
             <div class="d-flex justify-content-between mt-2">
                 <p>Tạm tính</p>
                 <p>000VNĐ</p>

@@ -52,9 +52,13 @@ h1:focus {
 
 .filters_menu {
     padding: 1rem 0;
+    display: flex;
+    justify-content: center;
 }
 
     .filters_menu .nav-item {
+        list-style: none;
+        display: inline-block;
         margin: 0 10px;
     }
 
@@ -65,48 +69,58 @@ h1:focus {
         border-radius: 50px;
         padding: 10px 20px;
         transition: all 0.3s ease;
+        text-decoration: none;
+        display: block;
+        font-size: 16px;
+        text-transform: capitalize; /* Ensure first letter of each word is capitalized */
     }
 
-        .filters_menu .nav-link:hover, .filters_menu .nav-link.active {
+        .filters_menu .nav-link:hover,
+        .filters_menu .nav-link.active {
             background-color: #138496;
             border-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transform: translateY(-2px);
         }
 
-        .filters_menu .nav-link.active {
-            background-color: #138496;
-            border-color: #fff;
-        }
-
-
-
 .product-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
 }
 
     .product-card:hover {
-        transform: scale(1.05);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
     .product-card img {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product-card .card-body {
+        padding: 1rem;
     }
 
     .product-card .card-title {
-        font-size: 1.1em;
-        margin: 0;
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
     }
 
-    .product-card .card-footer {
-        border-top: 1px solid #ddd;
+    .product-card .card-text {
+        font-size: 0.875rem;
+        color: #777;
+        margin-bottom: 1rem;
     }
 
-    .product-card .btn {
-        width: 100%;
+    .product-card .card-price {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 0;
     }
 
 .view-more-container {
