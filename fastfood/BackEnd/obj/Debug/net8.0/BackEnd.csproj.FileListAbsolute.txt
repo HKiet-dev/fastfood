@@ -592,3 +592,4 @@ C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\bin\Debug\net8.0\BackEnd
 C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.xml
 >>>>>>> main
 D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.xml
+D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\BackEnd\bin\Debug\net8.0\BackEnd.xml
