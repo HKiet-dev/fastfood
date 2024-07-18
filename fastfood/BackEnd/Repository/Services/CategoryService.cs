@@ -21,7 +21,7 @@ namespace BackEnd.Repository.Services
                 _db.Category.Add(category);
                 _db.SaveChanges();
                 response.Result = _mapper.Map<CategoryDto>(category);
-                response.Message = "Category Created";
+                response.Message = "Tạo danh mục thành công";
             }
             catch (Exception ex)
             {
@@ -38,12 +38,12 @@ namespace BackEnd.Repository.Services
                 var category = _db.Category.Find(id);
                 _db.Category.Remove(category);
                 _db.SaveChanges();
-                response.Message = "Category Deleted";
+                response.Message = "Xoá danh mục thành công";
             }
             catch
             {
                 response.IsSuccess = false;
-                response.Message = "The ID is not exist";
+                response.Message = "Danh mục này không tồn tại";
             }
             return response;
         }
@@ -57,7 +57,7 @@ namespace BackEnd.Repository.Services
                 return response;
             }
             response.IsSuccess = false;
-            response.Message = "Don't have any category";
+            response.Message = "Không có danh mục nào tồn tại";
             return response;
         }
 
@@ -69,7 +69,7 @@ namespace BackEnd.Repository.Services
                 if (category == null)
                 {
                     response.IsSuccess = false;
-                    response.Message = "The ID is not exist";
+                    response.Message = "Danh mục này không tồn tại";
                     return response;
                 }
                 response.Result = _mapper.Map<CategoryDto>(category);
@@ -90,7 +90,7 @@ namespace BackEnd.Repository.Services
                 if (!categories.Any())
                 {
                     response.IsSuccess = false;
-                    response.Message = $"The name '{name}' is not exist";
+                    response.Message = $"Không tồn tại danh mục nào tương ứng với từ khoá '{name}'";
                     return response;
                 }
                 response.Result = _mapper.Map<List<CategoryDto>>(categories);
@@ -109,12 +109,12 @@ namespace BackEnd.Repository.Services
                 _db.Entry(category).State = EntityState.Modified;
                 _db.SaveChanges();
                 response.Result = _mapper.Map<CategoryDto>(category);
-                response.Message = "Category Updated";
+                response.Message = "Cập nhật danh mục thành công";
             }
             catch
             {
                 response.IsSuccess = false;
-                response.Message = "This category is not exist";
+                response.Message = "Danh mục này không tồn tại";
             }
             return response;
         }

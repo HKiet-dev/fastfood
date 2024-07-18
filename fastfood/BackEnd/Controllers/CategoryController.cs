@@ -16,11 +16,11 @@ namespace BackEnd.Controllers
         IMapper _mapper = mapper;
 
         /// <summary>
-        /// Get all category
+        /// Lấy danh sách tất cả các danh mục.
         /// </summary>
-        /// <returns >List of category</returns>
-        /// <response code="200">Returns list of category</response>
-        /// <response code="400">If list of category is null</response>
+        /// <returns>Danh sách các danh mục (Category).</returns>
+        /// <response code="200">Trả về danh sách các danh mục.</response>
+        /// <response code="404">Không tìm thấy danh mục nào.</response>
         [HttpGet]
         public ResponseDto GetAll()
         {
@@ -28,11 +28,12 @@ namespace BackEnd.Controllers
         }
 
         /// <summary>
-        /// Get category by id
+        /// Lấy danh mục theo ID.
         /// </summary>
-        /// <returns>Category with id specify</returns>
-        /// <response code="200">Returns category with specified id</response>
-        /// <response code="400">If specified category id not found</response>
+        /// <param name="id">ID của danh mục cần lấy.</param>
+        /// <returns>Danh mục có ID tương ứng.</returns>
+        /// <response code="200">Trả về danh mục với ID đã chỉ định.</response>
+        /// <response code="404">Không tìm thấy danh mục với ID đã chỉ định.</response>
         [HttpGet("{id:int}")]
         public ResponseDto GetById(int id)
         {
@@ -40,12 +41,12 @@ namespace BackEnd.Controllers
         }
 
         /// <summary>
-        /// Create new category
+        /// Tạo danh mục mới.
         /// </summary>
-        /// <param name="categorydto"></param>
-        /// <returns>A newly category created</returns>
-        /// <response code="201">Newly category created</response>
-        /// <response code="400">Null or invalid</response>
+        /// <param name="categorydto">Thông tin của danh mục mới.</param>
+        /// <returns>Danh mục mới được tạo.</returns>
+        /// <response code="201">Danh mục mới được tạo thành công.</response>
+        /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
         [HttpPost]
         public ResponseDto Create([FromBody] CategoryDto categorydto)
         {
@@ -59,12 +60,13 @@ namespace BackEnd.Controllers
         }
 
         /// <summary>
-        /// Update category
+        /// Cập nhật thông tin danh mục.
         /// </summary>
-        /// <param name="category"></param>
-        /// <returns>Category updated</returns>
-        /// <response code="200">Category updated</response>
-        /// <response code="400">This category is not exist</response>
+        /// <param name="category">Thông tin cập nhật của danh mục.</param>
+        /// <returns>Danh mục sau khi được cập nhật.</returns>
+        /// <response code="200">Danh mục được cập nhật thành công.</response>
+        /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc</response>
+        /// <response code="404">Không tìm thấy danh mục cần cập nhật.</response>
         [HttpPut]
         public ResponseDto Update([FromBody] CategoryDto category)
         {
@@ -77,12 +79,12 @@ namespace BackEnd.Controllers
         }
 
         /// <summary>
-        /// Delete category
+        /// Xóa danh mục theo ID.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Category updated</returns>
-        /// <response code="200">Category updated</response>
-        /// <response code="400">Null or invalid</response>
+        /// <param name="id">ID của danh mục cần xóa.</param>
+        /// <returns>Kết quả xóa danh mục.</returns>
+        /// <response code="200">Xóa danh mục thành công.</response>
+        /// <response code="404">Không tìm thấy danh mục cần xóa.</response>
         [HttpDelete("{id:int}")]
         public ResponseDto Delete([FromRoute] int id)
         {
@@ -90,6 +92,13 @@ namespace BackEnd.Controllers
             return response;
         }
 
+        /// <summary>
+        /// Tìm kiếm danh mục theo tên.
+        /// </summary>
+        /// <param name="name">Tên danh mục cần tìm kiếm.</param>
+        /// <returns>Danh sách các danh mục có tên khớp với từ khóa tìm kiếm.</returns>
+        /// <response code="200">Trả về danh sách các danh mục khớp với tên.</response>
+        /// <response code="404">Không tìm thấy danh mục nào khớp với tên.</response>
         [HttpGet("{name}")]
         public ResponseDto GetByName(string name)
         {
