@@ -1,6 +1,7 @@
 ﻿@page "/"
 
 <PageTitle>Home</PageTitle>
+@* <link href="~/Product.css" rel="stylesheet" /> *@
 <header>
     <div id="carouselExampleDark" class="carousel carousel-dark slide">
         <div class="carousel-indicators">
@@ -56,123 +57,234 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="col-sm-3">
                         <div class="card product-card">
-                            <NavLink class="nav-link" href="productdetails">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top" alt="Product Image">
-                            </NavLink>
+                            <a href="#">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                </NavLink>
+
+                            </a>
                             <div class="card-body text-center">
                                 <NavLink class="nav-link" href="productdetails">
-                                    <h5 class="card-title">Product Name</h5>
-                                    <p class="card-text">details, details, details</p>
-                                    <p class="card-price">000₫</p>
+                                    @* Product Name *@
+                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    @* Description *@
+                                    <p>
+                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                    </p>
+                                    @* Price *@
+                                    <span> Giá : $15.00</span>
+                                    @* button *@
+                                    <div class="mt-2">
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                    </div>
                                 </NavLink>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="col-sm-3">
                         <div class="card product-card">
-                            <NavLink class="nav-link" href="productdetails">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top" alt="Product Image">
-                            </NavLink>
+                            <a href="#">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                </NavLink>
+
+                            </a>
                             <div class="card-body text-center">
                                 <NavLink class="nav-link" href="productdetails">
-                                    <h5 class="card-title">Product Name</h5>
-                                    <p class="card-text">details, details, details</p>
-                                    <p class="card-price">000₫</p>
+                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    <p>
+                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                    </p>
+                                    <span> Giá : $15.00</span>
+                                    <div class="mt-2">
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                    </div>
                                 </NavLink>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
+
+                    <div class="col-sm-3">
                         <div class="card product-card">
-                            <NavLink class="nav-link" href="productdetails">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top" alt="Product Image">
-                            </NavLink>
+                            <a href="#">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                </NavLink>
+
+                            </a>
                             <div class="card-body text-center">
                                 <NavLink class="nav-link" href="productdetails">
-                                    <h5 class="card-title">Product Name</h5>
-                                    <p class="card-text">details, details, details</p>
-                                    <p class="card-price">000₫</p>
+                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    <p>
+                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                    </p>
+                                    <span> Giá : $15.00</span>
+                                    <div class="mt-2">
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                    </div>
                                 </NavLink>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
+
+                    <div class="col-sm-3">
                         <div class="card product-card">
-                            <NavLink class="nav-link" href="productdetails">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top" alt="Product Image">
-                            </NavLink>
+                            <a href="#">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                </NavLink>
+
+                            </a>
                             <div class="card-body text-center">
                                 <NavLink class="nav-link" href="productdetails">
-                                    <h5 class="card-title">Product Name</h5>
-                                    <p class="card-text">details, details, details</p>
-                                    <p class="card-price">000₫</p>
+                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    <p>
+                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                    </p>
+                                    <span> Giá : $15.00</span>
+                                    <div class="mt-2">
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                    </div>
                                 </NavLink>
+
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <NavLink class="nav-link" href="productdetails">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top" alt="Product Image">
-                            </NavLink>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5 class="card-title">Product Name</h5>
-                                    <p class="card-text">details, details, details</p>
-                                    <p class="card-price">000₫</p>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <NavLink class="nav-link" href="productdetails">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top" alt="Product Image">
-                            </NavLink>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5 class="card-title">Product Name</h5>
-                                    <p class="card-text">details, details, details</p>
-                                    <p class="card-price">000₫</p>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <NavLink class="nav-link" href="productdetails">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top" alt="Product Image">
-                            </NavLink>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5 class="card-title">Product Name</h5>
-                                    <p class="card-text">details, details, details</p>
-                                    <p class="card-price">000₫</p>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <NavLink class="nav-link" href="productdetails">
-                                <a class="nav-link p-0" href="productdetails">
-                                    <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" class="card-img-top" alt="Product Image">
-                                </a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Product Name</h5>
-                                    <p class="card-text">details, details, details</p>
-                                    <p class="card-price">000₫</p>
-                                </div>
-                            </NavLink>
                         </div>
                     </div>
                 </div>
-                <div class="view-more-container text-center">
-                    <button class="btn btn-primary view-more-button">
-                        View More
-                    </button>
+
+                @* Sản phẩm dòng 2 *@
+
+                <div class="row my-3">
+                    <div class="col-sm-3">
+                        <div class="card product-card">
+                            <a href="#">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                </NavLink>
+
+                            </a>
+                            <div class="card-body text-center">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    <p>
+                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                    </p>
+                                    <span> Giá : $15.00</span>
+                                    <div class="mt-2">
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                    </div>
+                                </NavLink>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="card product-card">
+                            <a href="#">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                </NavLink>
+
+                            </a>
+                            <div class="card-body text-center">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    <p>
+                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                    </p>
+                                    <span> Giá : $15.00</span>
+                                    <div class="mt-2">
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                    </div>
+                                </NavLink>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="card product-card">
+                            <a href="#">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                </NavLink>
+
+                            </a>
+                            <div class="card-body text-center">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    <p>
+                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                    </p>
+                                    <span> Giá : $15.00</span>
+                                    <div class="mt-2">
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                    </div>
+                                </NavLink>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="card product-card">
+                            <a href="#">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                </NavLink>
+
+                            </a>
+                            <div class="card-body text-center">
+                                <NavLink class="nav-link" href="productdetails">
+                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    <p>
+                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                    </p>
+                                    <span> Giá : $15.00</span>
+                                    <div class="mt-2">
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                    </div>
+                                </NavLink>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-more-container ">
+                    <div class="col-12">
+                        <nav aria-label="Page navigation example ">
+                            <ul class="pagination justify-content-center text-dark">
+                                <li class="page-item">
+                                    <a class="page-link text-dark" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item "><a class="page-link text-dark" href="#">1</a></li>
+                                <li class="page-item "><a class="page-link text-dark" href="#">2</a></li>
+                                <li class="page-item "><a class="page-link text-dark" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link text-dark" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
                 </div>
             </div>
         </div>
