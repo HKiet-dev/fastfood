@@ -13,13 +13,16 @@ namespace BackEnd
             {
                 // Viết Model muốn mapping với DTO vào đây 
                 // VD : config.CreateMap<ProductDto, Products>().ReverseMap();
-                config.CreateMap<CategoryDto, Category>();
-                config.CreateMap<Category, CategoryDto>();
+                config.CreateMap<CategoryDto, Category>().ReverseMap();
                 config.CreateMap<UserDto, User>().ReverseMap();
+<<<<<<< HEAD
                 config.CreateMap<ProductDto, Product>();
                 config.CreateMap<Product, ProductDto>();
                 config.CreateMap<UserDto, User>();
                 config.CreateMap<User, UserDto>();
+=======
+                config.CreateMap<ProductDto, Product>().ReverseMap();
+>>>>>>> main
             });
             return mappingconfig;
         }

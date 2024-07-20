@@ -13,6 +13,6 @@ namespace BackEnd.Repository.Interfaces
         Task<UserDto> GetUserById(string userId);
         Task<string> GenerateJwt(UserDto user);
         Task<UserDto> GetUserByEmail(string email);
-        Task<User> CreateUserFromGoogleLogin(string email, string name);
+        Task<User> CreateUserFromGoogleLogin(User user);
     }
 }

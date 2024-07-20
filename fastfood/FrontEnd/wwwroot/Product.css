@@ -135,6 +135,7 @@
 /* Optional CSS for product-details */
 
 /*cart*/
+<<<<<<< HEAD
 .product-image-cart img {
     width: 100px;
     height: auto;
@@ -149,6 +150,44 @@
 }
 
 }
+=======
+.product-image-cart {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.product-details-cart {
+    margin-left: 15px;
+}
+
+.cart-summary-cart {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+    .cart-summary-cart img {
+        width: 50px;
+        height: auto;
+    }
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.btn-link {
+    border: none;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+>>>>>>> main
 /*cart*/
 
 
@@ -179,4 +218,8 @@
 .carousel-control-prev,
 .carousel-control-next {
     display: none;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

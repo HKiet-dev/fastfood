@@ -45,9 +45,51 @@ namespace BackEnd.Repository.Services
             return false;
         }
 
-        public Task<User> CreateUserFromGoogleLogin(string email, string name)
+        public async Task<User> CreateUserFromGoogleLogin(User user)
         {
-            throw new NotImplementedException();
+            var eUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+
+            if (eUser != null) 
+            {
+                return eUser;
+            }
+            
+            user = new User
+            {
+
+                Avatar = user.Avatar, 
+                UserName = user.Email,
+                Email = user.Email,
+                Name = user.Name,
+                Address = user.Address,
+                PhoneNumber = user.PhoneNumber,
+            };
+
+            var newUser = _mapper.Map<User>(user);
+
+            string role = "CUSTOMER";
+            var result = await _userManager.CreateAsync(newUser);
+            if (!_roleManager.RoleExistsAsync(role).GetAwaiter().GetResult())
+            {
+                _roleManager.CreateAsync(new IdentityRole(role)).GetAwaiter().GetResult();
+            }
+
+            await _userManager.AddToRoleAsync(newUser, role);
+
+            var cart = new Cart()
+            {
+                UserId = user.Id,
+            };
+
+            await _context.Cart.AddAsync(cart);
+            await _context.SaveChangesAsync();
+
+            if (result.Succeeded)
+            {
+                return newUser;
+            }
+
+            return null;
         }
 
         public async Task<string> GenerateJwt(UserDto user)
@@ -176,7 +218,7 @@ namespace BackEnd.Repository.Services
                     return result.Errors.FirstOrDefault().Description;
                 }
             }
-            catch (Exception ex)
+            catch
             {
 
             }

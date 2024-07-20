@@ -1,7 +1,10 @@
-using Blazorise;
+﻿using Blazorise;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
 using FrontEnd.Components;
+using FrontEnd.Services.IService;
+using FrontEnd.Services;
+using FrontEnd.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,17 @@ builder.Services
     })
     .AddBootstrap5Providers()
     .AddFontAwesomeIcons();
+
+// Đăng ký thư viện
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient();
+StaticDetails.ApiUrl = builder.Configuration["ServiceUrls:BackEndApi"];
+builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
+builder.Services.AddScoped<IBaseService, BaseService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IFoodService, FoodService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
