@@ -111,9 +111,9 @@ namespace BackEnd.Controllers
         }
 
         [HttpPost("GoogleAccount")]
-        public async Task<IActionResult> CreateUserFromGoogleLogin(string email, string name)
+        public async Task<IActionResult> CreateUserFromGoogleLogin(UserDto user)
         {
-            var result = await _authService.CreateUserFromGoogleLogin(email, name);
+            var result = await _authService.CreateUserFromGoogleLogin(user);
             if (result == null)
             {
                 _response.IsSuccess = false;
@@ -173,21 +173,32 @@ namespace BackEnd.Controllers
 
             var email = claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
             var name = claims.FirstOrDefault(x => x.Type == ClaimTypes.Name)?.Value;
+            var phone = claims.FirstOrDefault(x => x.Type == ClaimTypes.MobilePhone)?.Value;
+            var address = claims.FirstOrDefault(x => x.Type == ClaimTypes.StreetAddress)?.Value;
 
             if (email == null)
             {
                 return BadRequest(AuthError);
             }
 
-            var user = await _authService.CreateUserFromGoogleLogin(email, name);
-            if (user == null)
+            var user = new UserDto
+            {
+                Email = email,
+                Name = name,
+                Phone = phone,
+                Address = address
+            };
+
+            var action = await _authService.CreateUserFromGoogleLogin(user);
+
+            if (action == null)
             {
                 return BadRequest(AuthError);
             }
-            var role = await _authService.GetUserRole(user);
+            var role = await _authService.GetUserRole(action);
             // Generate JWT token and return
             /*var token = await _authService.GenerateJwt(user);*/
-            var token = _jwtTokenGenerator.GenerateToken(user, role);
+            var token = _jwtTokenGenerator.GenerateToken(action, role);
 
             LoginResponseDto? result = new()
             {

@@ -137,8 +137,7 @@
               "RelativeToolTip": "BackEnd\\Repository\\Interfaces\\IAuthService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T13:08:36.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-14T13:08:36.879Z"
             },
             {
               "$type": "Document",
@@ -150,8 +149,7 @@
               "RelativeToolTip": "BackEnd\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-14T13:04:55.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-14T13:04:55.378Z"
             },
             {
               "$type": "Document",
@@ -161,7 +159,7 @@
               "RelativeDocumentMoniker": "BackEnd\\Program.cs",
               "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Program.cs",
               "RelativeToolTip": "BackEnd\\Program.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAAAG4AAAABAAAA",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAG0AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-14T13:04:45.737Z",
               "EditorCaption": ""
@@ -176,8 +174,7 @@
               "RelativeToolTip": "FrontEnd\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T13:04:41.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-14T13:04:41.663Z"
             },
             {
               "$type": "Document",
@@ -405,8 +402,7 @@
               "RelativeToolTip": "BackEnd\\Repository\\Services\\AuthService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T14:43:04.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T14:43:04.49Z"
             },
             {
               "$type": "Document",
@@ -418,8 +414,7 @@
               "RelativeToolTip": "BackEnd\\Controllers\\AuthController.cs",
               "ViewState": "AQIAAKcAAAAAAAAAAADwv50AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T14:34:24.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T14:34:24.354Z"
             }
           ]
         }
