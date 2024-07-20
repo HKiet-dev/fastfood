@@ -57,26 +57,30 @@
             <div class="col-md-12">
                 @* List Product Start *@
                 <div class="row">
-                    <div class="col-sm-3">
+                    @if(Products == null)
+                    {
+                        
+                    } else
+                    {
+                        foreach (var item in Products)
+                        {
+                            <div class="col-sm-3">
                         <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
+                            <NavLink class="nav-link" href="productdetails">
+                                <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                            </NavLink>
                             <div class="card-body text-center">
                                 <NavLink class="nav-link" href="productdetails">
                                     @* Product Name *@
-                                    <h5>Pizza Cơn lốc hải sản</h5>
+                                    <h5>@item.Name</h5>
                                     @* Description *@
                                     <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
+                                        @item.Description
                                     </p>
                                     @* Price *@
-                                    <span> Giá : $15.00</span>
+                                    <span> Giá : @item.Price.ToString("#,##vnđ")</span>
                                     @* button *@
-                                    <div class="mt-2">
+                                    <div class="d-flex justify-content-around mt-2">
                                         <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
                                         <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
                                     </div>
@@ -85,80 +89,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
                 @* List Product End *@
                 @* Pagination Start *@
