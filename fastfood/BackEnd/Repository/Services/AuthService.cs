@@ -176,7 +176,7 @@ namespace BackEnd.Repository.Services
                     return result.Errors.FirstOrDefault().Description;
                 }
             }
-            catch (Exception ex)
+            catch
             {
 
             }
