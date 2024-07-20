@@ -26,209 +26,43 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
+                    @if (Products == null)
+                    {
 
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                    }
+                    else
+                    {
+                        foreach (var item in Products)
+                        {
+                            <div class="col-sm-3">
+                                <div class="card product-card">
+                                    <NavLink class="nav-link" href="productdetails">
+                                        <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
+                                    </NavLink>
+                                    <div class="card-body text-center">
+                                        <NavLink class="nav-link" href="productdetails">
+                                            @* Product Name *@
+                                            <h5>@item.Name</h5>
+                                            @* Description *@
+                                            <p>
+                                                @item.Description
+                                            </p>
+                                            @* Price *@
+                                            <span> Giá : @item.Price.ToString("#,##vnđ")</span>
+                                            @* button *@
+                                            <div class="d-flex justify-content-around mt-2">
+                                                <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
+                                                <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                            </div>
+                                        </NavLink>
+
                                     </div>
-                                </NavLink>
-
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
 
-                @* Sản phẩm dòng 2 *@
-
-                <div class="row my-3">
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card product-card">
-                            <a href="#">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <img alt="Product" src="http://placehold.it/350x260" class="card-img-top">
-                                </NavLink>
-
-                            </a>
-                            <div class="card-body text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <h5>Pizza Cơn lốc hải sản</h5>
-                                    <p>
-                                        Mực, thanh cua, thơm, ớt chuông, hành tây và phô mai mozzarella
-                                    </p>
-                                    <span> Giá : $15.00</span>
-                                    <div class="mt-2">
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i>Detail</a>
-                                        <a href="#" class="btn btn-outline-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
-                                    </div>
-                                </NavLink>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="view-more-container ">
                     <div class="col-12">
                         <nav aria-label="Page navigation example ">
