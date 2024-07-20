@@ -292,3 +292,5 @@ C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\obj\Debug\net8.0\refint\
 C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.pdb
 C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.genruntimeconfig.cache
 C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\obj\Debug\net8.0\ref\BackEnd.dll
+C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\bin\Debug\net8.0\BackEnd.xml
+C:\Users\Admin\Desktop\NET106\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.xml
