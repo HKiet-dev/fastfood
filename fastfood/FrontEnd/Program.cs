@@ -19,9 +19,12 @@ builder.Services
     .AddBootstrap5Providers()
     .AddFontAwesomeIcons();
 
-//builder.Services.AddHttpContextAccessor();
-//builder.Services.AddHttpClient();
-//StaticDetails.ApiUrl = builder.Configuration["ServiceUrls:BackEndApi"];
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient();
+StaticDetails.ApiUrl = builder.Configuration["ServiceUrls:BackEndApi"];
+builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
+builder.Services.AddScoped<IBaseService, BaseService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 var app = builder.Build();
