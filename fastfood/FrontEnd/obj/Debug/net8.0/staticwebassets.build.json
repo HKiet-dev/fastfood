@@ -1,16 +1,28 @@
 {
   "Version": 1,
-  "Hash": "aAl/9Z4f3aDw9HBGtqudu55WUkWHB0STCYocyfYfSj4=",
+  "Hash": "B86rOuoWQZHO3tKjKe711BnUKEKVxI+cfsYrXdCv6wo=",
   "Source": "FrontEnd",
   "BasePath": "_content/FrontEnd",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj",
+      "Version": 2,
+      "Source": "BackEnd",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "FrontEnd\\wwwroot",
       "Source": "FrontEnd",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "Pattern": "**"
     }
@@ -1290,10 +1302,10 @@
       "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\blazorise\\1.5.3\\staticwebassets\\vendors\\sha512.js"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FrontEnd.styles.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FrontEnd.styles.css",
       "SourceId": "FrontEnd",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "FrontEnd.styles.css",
       "AssetKind": "All",
@@ -1306,13 +1318,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FrontEnd.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FrontEnd.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FrontEnd.bundle.scp.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FrontEnd.bundle.scp.css",
       "SourceId": "FrontEnd",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "FrontEnd.bundle.scp.css",
       "AssetKind": "All",
@@ -1325,13 +1337,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FrontEnd.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FrontEnd.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\app.css",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -1347,10 +1359,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -1366,10 +1378,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1385,10 +1397,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\favicon.png",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -1404,10 +1416,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\about-img.png",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\about-img.png",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "Img/about-img.png",
       "AssetKind": "All",
@@ -1423,10 +1435,10 @@
       "OriginalItemSpec": "wwwroot\\Img\\about-img.png"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_ 1.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_ 1.jpg",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "Img/banner big_ 1.jpg",
       "AssetKind": "All",
@@ -1442,10 +1454,10 @@
       "OriginalItemSpec": "wwwroot\\Img\\banner big_ 1.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_2.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_2.jpg",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "Img/banner big_2.jpg",
       "AssetKind": "All",
@@ -1461,10 +1473,10 @@
       "OriginalItemSpec": "wwwroot\\Img\\banner big_2.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_3.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_3.jpg",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "Img/banner big_3.jpg",
       "AssetKind": "All",
@@ -1480,10 +1492,10 @@
       "OriginalItemSpec": "wwwroot\\Img\\banner big_3.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\Dathang.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\Dathang.jpg",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "Img/Dathang.jpg",
       "AssetKind": "All",
@@ -1499,10 +1511,10 @@
       "OriginalItemSpec": "wwwroot\\Img\\Dathang.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\hamburger.jpg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\hamburger.jpg",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "Img/hamburger.jpg",
       "AssetKind": "All",
@@ -1518,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\Img\\hamburger.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\login.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\login.css",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "login.css",
       "AssetKind": "All",
@@ -1537,10 +1549,10 @@
       "OriginalItemSpec": "wwwroot\\login.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Product.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Product.css",
       "SourceId": "FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\wwwroot\\",
       "BasePath": "_content/FrontEnd",
       "RelativePath": "Product.css",
       "AssetKind": "All",

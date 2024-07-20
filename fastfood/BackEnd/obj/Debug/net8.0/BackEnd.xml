@@ -58,7 +58,7 @@
             <response code="200">Trả về thông tin người dùng.</response>
             <response code="400">Người dùng không tồn tại.</response>
         </member>
-        <member name="M:BackEnd.Controllers.AuthController.CreateUserFromGoogleLogin(System.String,System.String)">
+        <member name="M:BackEnd.Controllers.AuthController.CreateUserFromGoogleLogin(BackEnd.Models.User)">
             <summary>
             Tạo người dùng mới từ thông tin đăng nhập Google.
             </summary>

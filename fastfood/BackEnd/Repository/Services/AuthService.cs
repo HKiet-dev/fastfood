@@ -45,7 +45,7 @@ namespace BackEnd.Repository.Services
             return false;
         }
 
-        public async Task<User> CreateUserFromGoogleLogin(UserDto user)
+        public async Task<User> CreateUserFromGoogleLogin(User user)
         {
             var eUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
 
@@ -53,13 +53,16 @@ namespace BackEnd.Repository.Services
             {
                 return eUser;
             }
-
-            user = new UserDto
+            
+            user = new User
             {
-                Name = user.Name,
+
+                Avatar = user.Avatar, 
+                UserName = user.Email,
                 Email = user.Email,
+                Name = user.Name,
                 Address = user.Address,
-                Phone = user.Phone,
+                PhoneNumber = user.PhoneNumber,
             };
 
             var newUser = _mapper.Map<User>(user);

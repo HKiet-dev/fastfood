@@ -1,35 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\",
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\",
   "Documents": [
     {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\as\\fastfood\\fastfood\\backend\\repository\\services\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\repository\\services\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\as\\fastfood\\fastfood\\frontend\\components\\pages\\login.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\login.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\as\\fastfood\\fastfood\\frontend\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\as\\fastfood\\fastfood\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\as\\fastfood\\fastfood\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\repository\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\repository\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|d:\\net106_asp.net_c#6_k6\\exercise\\nhom4_net106_sd18317_assignment\\fastfood\\fastfood\\backend\\repository\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\repository\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\components\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
->>>>>>> 99e5e7dffddef4053628afa42209558941f49844
     }
   ],
   "DocumentGroupContainers": [
@@ -39,120 +30,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< HEAD
-          "SelectedChildIndex": 9,
-=======
           "SelectedChildIndex": 4,
->>>>>>> 99e5e7dffddef4053628afa42209558941f49844
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-<<<<<<< HEAD
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\UserDto.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Models\\Dtos\\UserDto.cs",
-              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\Dtos\\UserDto.cs",
-              "RelativeToolTip": "BackEnd\\Models\\Dtos\\UserDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T10:53:49.431Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\User.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Models\\User.cs",
-              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Models\\User.cs",
-              "RelativeToolTip": "BackEnd\\Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T14:46:26.577Z"
-=======
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Menu.razor",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Menu.razor",
-              "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Menu.razor",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Menu.razor",
-              "RelativeToolTip": "FrontEnd\\Components\\Pages\\Menu.razor",
-              "ViewState": "AQIAADMAAAAAAAAAAAAuwC8AAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-20T08:26:32.541Z",
-              "EditorCaption": ""
->>>>>>> 99e5e7dffddef4053628afa42209558941f49844
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-<<<<<<< HEAD
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Repository\\Interfaces\\IAuthService.cs",
-              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Interfaces\\IAuthService.cs",
-              "RelativeToolTip": "BackEnd\\Repository\\Interfaces\\IAuthService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAzAAAA",
+              "Title": "Login.razor.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Login.razor.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Login.razor.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Login.razor.cs",
+              "RelativeToolTip": "FrontEnd\\Components\\Pages\\Login.razor.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAYwBMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T10:51:53.562Z"
+              "WhenOpened": "2024-07-20T13:10:24.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "FrontEnd\\Components\\Pages\\Login.razor",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABkAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-20T13:10:19.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\Program.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\Program.cs",
+              "RelativeToolTip": "BackEnd\\Program.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACYAAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T12:43:48.147Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "BackEnd\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAAMUAAAAAAAAAAAAQwMUAAAAAAAAA",
+              "Title": "JwtTokenGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\Repository\\Services\\JwtTokenGenerator.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Repository\\Services\\JwtTokenGenerator.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\Repository\\Services\\JwtTokenGenerator.cs",
+              "RelativeToolTip": "BackEnd\\Repository\\Services\\JwtTokenGenerator.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAzwBIAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T10:51:37.422Z",
-=======
-              "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Home.razor",
-              "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Home.razor",
-              "RelativeToolTip": "FrontEnd\\Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADsAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-20T08:22:28.325Z",
->>>>>>> 99e5e7dffddef4053628afa42209558941f49844
+              "WhenOpened": "2024-07-20T12:45:26.563Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Repository\\Services\\AuthService.cs",
-              "ToolTip": "D:\\NET106_ASP.NET_C#6_K6\\Exercise\\Nhom4_NET106_SD18317_Assignment\\fastfood\\fastfood\\BackEnd\\Repository\\Services\\AuthService.cs",
-              "RelativeToolTip": "BackEnd\\Repository\\Services\\AuthService.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAEwEwAAAANAAAA",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BackEnd\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BackEnd\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAOAAAAAAAAAAAAA9wOwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T14:43:04.49Z"
+              "WhenOpened": "2024-07-20T12:35:41.854Z",
+              "EditorCaption": ""
             }
           ]
         }

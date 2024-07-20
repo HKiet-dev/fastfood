@@ -162,7 +162,7 @@ namespace BackEnd.Controllers
         /// <response code="200">Tạo người dùng thành công.</response>
         /// <response code="400">Tạo người dùng thất bại.</response>
         [HttpPost("GoogleAccount")]
-        public async Task<IActionResult> CreateUserFromGoogleLogin(UserDto user)
+        public async Task<IActionResult> CreateUserFromGoogleLogin(User user)
         {
             var result = await _authService.CreateUserFromGoogleLogin(user);
             if (result == null)
@@ -248,17 +248,26 @@ namespace BackEnd.Controllers
             var name = claims.FirstOrDefault(x => x.Type == ClaimTypes.Name)?.Value;
             var phone = claims.FirstOrDefault(x => x.Type == ClaimTypes.MobilePhone)?.Value;
             var address = claims.FirstOrDefault(x => x.Type == ClaimTypes.StreetAddress)?.Value;
+            if( address == null)
+            {
+                address = "Hãy cập nhật địa chỉ : ";
+                
+            }
 
             if (email == null)
             {
                 return BadRequest(AuthError);
             }
+            var eUser = _mapper.Map<User>( await _authService.GetUserByEmail(email)); 
 
-            var user = new UserDto
+            var user = new User
             {
+                Id = eUser != null ? eUser.Id : Guid.NewGuid().ToString(), // Nếu eUser tồn tại, gán Id của eUser, nếu không, tạo một Id mới
+                Avatar = "https://img.freepik.com/free-photo/tasty-burger-isolated-white-background-fresh-hamburger-fastfood-with-beef-cheese_90220-1063.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1721433600&semt=sph",
                 Email = email,
-                Name = name,
-                Phone = phone,
+                UserName = email,
+                Name = name, 
+                PhoneNumber = phone,
                 Address = address
             };
 

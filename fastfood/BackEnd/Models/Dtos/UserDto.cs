@@ -10,6 +10,7 @@ namespace BackEnd.Models.Dtos
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Độ dài của tên phải từ 3 đến 50 ký tự")]
         [RegularExpression("^[a-zA-Z 0-9_]+$", ErrorMessage = "Tên tài khoản phải là ký tự không dấu hoặc số")]
         public string Name { get; set; }
+        public string UserName { get; set; }
         [StringLength(13, MinimumLength = 9, ErrorMessage = "Độ dài số điện thoại phải từ 9 đến 13 chữ số")]
         [Phone(ErrorMessage = "Số điện thoại phải là chữ số")]
         public string Phone {  get; set; }
