@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\backend\\controllers\\foodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}|BackEnd\\BackEnd.csproj|solutionrelative:backend\\controllers\\foodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,19 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FoodController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Controllers\\FoodController.cs",
-              "RelativeDocumentMoniker": "BackEnd\\Controllers\\FoodController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\BackEnd\\Controllers\\FoodController.cs",
-              "RelativeToolTip": "BackEnd\\Controllers\\FoodController.cs",
-              "ViewState": "AQIAAH0AAAAAAAAAAAAQwIwAAABNAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T07:55:47.367Z",
-              "EditorCaption": ""
             }
           ]
         }
