@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj": {}
+    "C:\\Users\\USER\\Desktop\\abc\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj": {
+    "C:\\Users\\USER\\Desktop\\abc\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\abc\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\as\\fastfood\\fastfood\\BackEnd\\obj\\",
+        "projectPath": "C:\\Users\\USER\\Desktop\\abc\\fastfood\\fastfood\\BackEnd\\BackEnd.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\abc\\fastfood\\fastfood\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -108,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

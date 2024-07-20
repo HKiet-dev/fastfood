@@ -135,20 +135,42 @@
 /* Optional CSS for product-details */
 
 /*cart*/
-.product-image-cart img {
-    width: 100px;
-    height: auto;
+.product-image-cart {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
 }
 
-.product-description {
-    min-width: 200px;
+.product-details-cart {
+    margin-left: 15px;
 }
 
-.product-quantity {
-    width: 150px;
+.cart-summary-cart {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
 }
 
+    .cart-summary-cart img {
+        width: 50px;
+        height: auto;
+    }
+
+.table th,
+.table td {
+    vertical-align: middle;
 }
+
+.btn-link {
+    border: none;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
 /*cart*/
 
 
