@@ -291,5 +291,17 @@
         <member name="M:BackEnd.Migrations.updateDB.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:BackEnd.Migrations.addstatususer">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.addstatususer.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.addstatususer.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.addstatususer.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

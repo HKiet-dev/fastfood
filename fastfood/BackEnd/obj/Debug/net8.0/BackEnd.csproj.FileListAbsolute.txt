@@ -443,3 +443,5 @@ C:\Users\Admin\Desktop\as\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.xml
 C:\Users\Admin\Desktop\as\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.pdb
 C:\Users\Admin\Desktop\as\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.genruntimeconfig.cache
 C:\Users\Admin\Desktop\as\fastfood\fastfood\BackEnd\obj\Debug\net8.0\ref\BackEnd.dll
+D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\BackEnd\obj\Debug\net8.0\BackEnd.xml
+D:\FPT Polytechnic\CSharp6\Lab\ASM\fastfood\fastfood\BackEnd\bin\Debug\net8.0\BackEnd.xml
