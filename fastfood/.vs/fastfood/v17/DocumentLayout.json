@@ -94,8 +94,7 @@
               "RelativeToolTip": "BackEnd\\Repository\\Services\\AuthService.cs",
               "ViewState": "AQIAAGEAAAAAAAAAAAAjwHQAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T16:34:06.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T16:34:06.769Z"
             },
             {
               "$type": "Document",
@@ -107,8 +106,7 @@
               "RelativeToolTip": "BackEnd\\MapConfig.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T18:10:38.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T18:10:38.607Z"
             },
             {
               "$type": "Document",
@@ -120,8 +118,7 @@
               "RelativeToolTip": "BackEnd\\Models\\Dtos\\ProductDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T18:06:58.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T18:06:58.359Z"
             },
             {
               "$type": "Document",
@@ -133,8 +130,7 @@
               "RelativeToolTip": "BackEnd\\Repository\\Services\\FoodService.cs",
               "ViewState": "AQIAAMYAAAAAAAAAAAAAANIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T17:33:02.636Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T17:33:02.636Z"
             },
             {
               "$type": "Document",
@@ -146,8 +142,7 @@
               "RelativeToolTip": "BackEnd\\Controllers\\FoodController.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAAACkAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T17:33:00.349Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T17:33:00.349Z"
             },
             {
               "$type": "Document",
@@ -159,8 +154,7 @@
               "RelativeToolTip": "BackEnd\\Program.cs",
               "ViewState": "AQIAAHEAAAAAAAAAAADwv3oAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T15:41:12.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T15:41:12.153Z"
             },
             {
               "$type": "Document",
@@ -172,8 +166,7 @@
               "RelativeToolTip": "BackEnd\\Models\\User.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T15:34:27.117Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T15:34:27.117Z"
             },
             {
               "$type": "Document",
@@ -185,8 +178,7 @@
               "RelativeToolTip": "BackEnd\\Models\\Dtos\\UserDto.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T15:30:12.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T15:30:12.989Z"
             },
             {
               "$type": "Document",
@@ -196,7 +188,7 @@
               "RelativeDocumentMoniker": "BackEnd\\Repository\\Services\\UserService.cs",
               "ToolTip": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\BackEnd\\Repository\\Services\\UserService.cs",
               "RelativeToolTip": "BackEnd\\Repository\\Services\\UserService.cs",
-              "ViewState": "AQIAAG8AAAAAAAAAAAApwHwAAAAhAAAA",
+              "ViewState": "AQIAAHIAAAAAAAAAAAApwHoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-18T15:15:58.513Z",
               "EditorCaption": ""
@@ -211,8 +203,7 @@
               "RelativeToolTip": "BackEnd\\Controllers\\UserController.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T15:15:46.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T15:15:46.428Z"
             },
             {
               "$type": "Document",
@@ -224,8 +215,7 @@
               "RelativeToolTip": "BackEnd\\Controllers\\CategoryController.cs",
               "ViewState": "AQIAADkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T18:07:16.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-18T18:07:16.829Z"
             }
           ]
         }
