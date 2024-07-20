@@ -56,124 +56,30 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <a class="link_product" href="#">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
-                                <div class="card-body">
-                                    <p class="card-title">Name Product™<br><b>000 VNĐ</b></p>
+                    @if(Products == null)
+                    {
+                        <p>Loading...</p>
+                    }else
+                    {
+                        foreach(var item in Products)
+                        {
+                            <div class="col-md-4 col-lg-3 mb-4">
+                                <div class="card product-card">
+                                    <a class="link_product" href="#">
+                                        <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
+                                        <div class="card-body">
+                                            <p class="card-title">@item.Name<br><b>@item.Price.ToString("#,##")</b></p>
+                                        </div>
+                                    </a>
+                                    <div class="text-center">
+                                        <NavLink class="nav-link" href="productdetails">
+                                            <a href="productdetails" class="btn btn-dark btn-block">Details</a>
+                                        </NavLink>
+                                    </div>
                                 </div>
-                            </a>
-                            <div class="text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <a href="productdetails" class="btn btn-dark btn-block">Details</a>
-                                </NavLink>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <a class="link_product" href="#">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
-                                <div class="card-body">
-                                    <p class="card-title">Name Product<br><b>000 VNĐ</b></p>
-                                </div>
-                            </a>
-                            <div class="text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <a href="productdetails" class="btn btn-dark btn-block">Details</a>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <a class="link_product" href="#">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
-                                <div class="card-body">
-                                    <p class="card-title">Name Product<br><b>000 VNĐ</b></p>
-                                </div>
-                            </a>
-                            <div class="text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <a href="productdetails" class="btn btn-dark btn-block">Details</a>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <a class="link_product" href="#">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
-                                <div class="card-body">
-                                    <p class="card-title">Name Product<br><b>000 VNĐ</b></p>
-                                </div>
-                            </a>
-                            <div class="text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <a href="productdetails" class="btn btn-dark btn-block">Details</a>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <a class="link_product" href="#">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
-                                <div class="card-body">
-                                    <p class="card-title">Name Product<br><b>000 VNĐ</b></p>
-                                </div>
-                            </a>
-                            <div class="text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <a href="productdetails" class="btn btn-dark btn-block">Details</a>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <a class="link_product" href="#">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
-                                <div class="card-body">
-                                    <p class="card-title">Name Product<br><b>000 VNĐ</b></p>
-                                </div>
-                            </a>
-                            <div class="text-center">
-                                <a class="btn btn-dark btn-block">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <a class="link_product" href="#">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
-                                <div class="card-body">
-                                    <p class="card-title">Name Product<br><b>000 VNĐ</b></p>
-                                </div>
-                            </a>
-                            <div class="text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <a href="productdetails" class="btn btn-dark btn-block">Details</a>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 mb-4">
-                        <div class="card product-card">
-                            <a class="link_product" href="#">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="card-img-top">
-                                <div class="card-body">
-                                    <p class="card-title">Name Product<br><b>000 VNĐ</b></p>
-                                </div>
-                            </a>
-                            <div class="text-center">
-                                <NavLink class="nav-link" href="productdetails">
-                                    <a href="productdetails" class="btn btn-dark btn-block">Details</a>
-                                </NavLink>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
                 <div class="view-more-container text-center">
                     <button class="btn btn-primary view-more-button">

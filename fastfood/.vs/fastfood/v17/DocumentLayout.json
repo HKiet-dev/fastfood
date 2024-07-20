@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\components\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\menu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\components\\pages\\menu.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\menu.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\components\\pages\\home.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\home.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|solutionrelative:frontend\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8822FCFD-B7B7-4A56-8397-5457776630BA}|FrontEnd\\FrontEnd.csproj|c:\\users\\admin\\desktop\\net106\\fastfood\\fastfood\\frontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,79 +43,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Menu.razor.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Menu.razor.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Menu.razor.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Menu.razor.cs",
-              "RelativeToolTip": "FrontEnd\\Components\\Pages\\Menu.razor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T02:17:01.13Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Menu.razor",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Menu.razor",
-              "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Menu.razor",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Menu.razor",
-              "RelativeToolTip": "FrontEnd\\Components\\Pages\\Menu.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-20T02:16:42.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Program.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Program.cs",
-              "RelativeToolTip": "FrontEnd\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T02:04:31.688Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\Models\\Category.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Models\\Category.cs",
-              "RelativeToolTip": "FrontEnd\\Models\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T01:49:57.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Home.razor.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Home.razor.cs",
-              "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Home.razor.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Home.razor.cs",
-              "RelativeToolTip": "FrontEnd\\Components\\Pages\\Home.razor.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T01:44:11.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "FrontEnd\\Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAiwCUAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEYAAABZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-20T01:40:54.779Z",
+              "WhenOpened": "2024-07-20T02:38:16.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.razor.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Home.razor.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\Components\\Pages\\Home.razor.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Components\\Pages\\Home.razor.cs",
+              "RelativeToolTip": "FrontEnd\\Components\\Pages\\Home.razor.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAnwBQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T02:35:26.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Program.cs",
+              "RelativeDocumentMoniker": "FrontEnd\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\NET106\\fastfood\\fastfood\\FrontEnd\\Program.cs",
+              "RelativeToolTip": "FrontEnd\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T02:34:36.105Z",
               "EditorCaption": ""
             }
           ]

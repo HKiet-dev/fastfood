@@ -60,6 +60,7 @@ namespace FrontEnd.Services
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.PUT,
+                Data = category,
                 Url = _categoryUri
             });
         }
