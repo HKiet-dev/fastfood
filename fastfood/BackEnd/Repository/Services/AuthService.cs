@@ -76,12 +76,12 @@ namespace BackEnd.Repository.Services
 
             await _userManager.AddToRoleAsync(newUser, role);
 
-            var cart = new Cart()
+            var cart = new CartDetail()
             {
                 UserId = user.Id,
             };
 
-            await _context.Cart.AddAsync(cart);
+            await _context.CartDetail.AddAsync(cart);
             await _context.SaveChangesAsync();
 
             if (result.Succeeded)
@@ -203,12 +203,12 @@ namespace BackEnd.Repository.Services
                         Avatar = userToReturn.Avatar
                     };
 
-                    CartDto cartDto = new()
+                    CartDetailDto cartDetailDto = new()
                     {
                         UserId = userToReturn.Id,
                     };
 
-                    await _context.Cart.AddAsync(_mapper.Map<Cart>(cartDto));
+                    await _context.CartDetail.AddAsync(_mapper.Map<CartDetail>(cartDetailDto));
                     await _context.SaveChangesAsync();
 
                     return "";

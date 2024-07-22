@@ -74,8 +74,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9kdWN0RGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/PurchaseHistory.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQdXJjaGFzZUhpc3RvcnkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/SignUp.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTaWduVXAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Pages/UserInfomation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VySW5mb21hdGlvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/FPT Polytechnic/CSharp6/Lab/ASM/fastfood/fastfood/FrontEnd/Components/Routes.razor]
