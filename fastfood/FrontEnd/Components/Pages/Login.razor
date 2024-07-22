@@ -1,41 +1,52 @@
 ﻿@page "/login"
+@layout AccountLayoutPage
 @rendermode InteractiveServer
 <link rel="stylesheet" href="~/login.css" />
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-6 offset-md-3">
-            <h3 class="text-center mb-4">Đăng nhập</h3>
+
+<div class="full-height d-flex justify-content-center align-items-center">
+    <div class="col-lg-4">
+        <div class="container">
+            <h3 class="text-center mb-4 text-white">Đăng nhập</h3>
             <form>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label text-white">Email</label>
                     <input type="email" class="form-control" id="email" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Mật khẩu</label>
+                    <label for="password" class="form-label text-white">Mật khẩu</label>
                     <input type="password" class="form-control" id="password" required>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Ghi nhớ mật khẩu</label>
+                    <label class="form-check-label text-white" for="rememberMe">Ghi nhớ mật khẩu</label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mb-3">Đăng nhập</button>
             </form>
-            <div class="text-center">
+            <div class="text-center text-white">
                 <p>Hoặc đăng nhập bằng</p>
                 <!-- Google Login Button -->
-                <button class="btn btn-outline-dark btn-block" @onclick="()=>GoogleLogin()">
+                <button class="btn btn-outline-light btn-block" @onclick="()=>GoogleLogin()">
                     <i class="fab fa-google"></i> Đăng nhập với Google
                 </button>
             </div>
             <div class="text-center mt-3">
-                <span class="text-black"> Bạn chưa có tài khoản?</span>
-                <NavLink class="nav-link" href="signUp">
-                    <span>Đăng kí</span>
-                </NavLink>
+                <p class="text-white">
+                    Bạn chưa có tài khoản?
+                    <NavLink class="nav-link" href="signUp">
+                        Đăng kí
+                    </NavLink>
+                </p>
+                
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .full-height {
+        height: 100vh;
+    }
+</style>
 
 @code {
 
