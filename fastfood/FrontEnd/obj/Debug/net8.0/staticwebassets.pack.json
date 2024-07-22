@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Img\\about-img.png"
     },
     {
+      "Id": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\anhthe.jfif",
+      "PackagePath": "staticwebassets\\Img\\anhthe.jfif"
+    },
+    {
       "Id": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_ 1.jpg",
       "PackagePath": "staticwebassets\\Img\\banner big_ 1.jpg"
     },
@@ -23,6 +27,10 @@
     {
       "Id": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\banner big_3.jpg",
       "PackagePath": "staticwebassets\\Img\\banner big_3.jpg"
+    },
+    {
+      "Id": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\bgaccount.jpg",
+      "PackagePath": "staticwebassets\\Img\\bgaccount.jpg"
     },
     {
       "Id": "D:\\FPT Polytechnic\\CSharp6\\Lab\\ASM\\fastfood\\fastfood\\FrontEnd\\wwwroot\\Img\\hamburger.jpg",
