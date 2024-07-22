@@ -104,19 +104,21 @@ namespace BackEnd.Repository.Services
         {
             try
             {
-                var eUser = _db.CartDetail.FirstOrDefault(u => u.UserId == userId);
-                if(eUser is null)
+                var cartItems = _db.CartDetail.Where(c => c.UserId == userId).ToList();
+                if (!cartItems.Any())
                 {
                     response.IsSuccess = false;
-                    response.Message = "Người dùng chưa có giỏ hàng"; 
+                    response.Message = "Người dùng chưa có giỏ hàng";
                     return response;
                 }
-                response.Result = _mapper.Map<CartDetailDto>(eUser);
+                response.Result = _mapper.Map<List<CartDetailDto>>(cartItems);
+                response.IsSuccess = true;
+                response.Message = "Lấy danh sách giỏ hàng thành công";
             }
             catch (Exception ex)
             {
                 response.IsSuccess = false;
-                response.Message = $"Đã xảy ra lỗi khi xóa mục giỏ hàng: {ex.Message}";
+                response.Message = $"Đã xảy ra lỗi khi lấy danh sách giỏ hàng: {ex.Message}";
             }
             return response;
         }
