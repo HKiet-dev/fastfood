@@ -98,6 +98,41 @@
             </summary>
             <returns>Chuyển hướng về frontend với token JWT (nếu thành công đăng nhập thành công).</returns>
         </member>
+        <member name="M:BackEnd.Controllers.CartController.Create(BackEnd.Models.Dtos.CartDetailDto)">
+            <summary>
+            Tạo mới giỏ hàng cho khách hàng.
+            </summary>
+            <param name="cartdetailsDto">Thông tin mới của giỏ hàng.</param>
+            <returns>Danh mục mới được tạo.</returns>
+            <response code="201">Tạo giỏ hàng mới được tạo thành công.</response>
+            <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CartController.GetAll">
+            <summary>
+            Lấy danh sách tất cả các danh sách giỏ hàng của khách hàng.
+            </summary>
+            <returns>Danh sách các danh mục (CartDetails).</returns>
+            <response code="200">Trả về danh sách các giỏ hàng của khách hàng.</response>
+            <response code="404">Không tìm thấy giỏ hàng nào.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CartController.Delete(System.Int32,System.String)">
+            <summary>
+            Xóa danh mục theo UserId và ProductId.
+            </summary>
+            <param name="id">ID của danh mục cần xóa.</param>
+            <returns>Kết quả xóa giỏ hàng thành công</returns>
+            <response code="200">Xóa giỏ hàng thành công.</response>
+            <response code="404">Không tìm thấy giỏ hàng cần xóa.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.CartController.GetById(System.String)">
+            <summary>
+            Tìm kiếm giỏ hàng theo id.
+            </summary>
+            <param name="userId">Id người dùng cần tìm kiếm giỏ hàng.</param>
+            <returns>Trả về danh sách giỏ hàng của khách hàng</returns>
+            <response code="200">Trả về giỏ hàng  với sản phẩm, số lượng của khách hàng</response>
+            <response code="404">Không tìm thấy không tìm thấy giỏ hàng nào của khách hàng</response>
+        </member>
         <member name="M:BackEnd.Controllers.CategoryController.GetAll">
             <summary>
             Lấy danh sách tất cả các danh mục.
@@ -313,6 +348,18 @@
             <inheritdoc />
         </member>
         <member name="M:BackEnd.Migrations.updatecart.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:BackEnd.Migrations.updateorder">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateorder.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateorder.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateorder.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
