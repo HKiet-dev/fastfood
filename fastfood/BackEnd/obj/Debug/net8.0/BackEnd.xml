@@ -154,7 +154,7 @@
             <summary>
             Tạo danh mục mới.
             </summary>
-            <param name="categorydto">Thông tin của danh mục mới.</param>
+            <param name="dto">Thông tin của danh mục mới.</param>
             <returns>Danh mục mới được tạo.</returns>
             <response code="201">Danh mục mới được tạo thành công.</response>
             <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
@@ -278,6 +278,32 @@
             <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
             <response code="404">Không tìm thấy sản phẩm cần cập nhật.</response>
         </member>
+        <member name="M:BackEnd.Controllers.OrderController.getAllOrder">
+            <summary>
+            Lấy danh sách tất cả các hoá đơn.
+            </summary>
+            <returns>Danh sách các hoá đơn (Order).</returns>
+            <response code="200">Trả về danh sách các hoá đơn.</response>
+            <response code="404">Không tìm thấy hoá đơn nào.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.OrderController.GetOrderByID(System.Int32)">
+            <summary>
+            Lấy hoá đơn theo ID.
+            </summary>
+            <param name="id">ID của hoá đơn cần lấy.</param>
+            <returns>Hoá đơn có ID tương ứng.</returns>
+            <response code="200">Trả về hoá đơn với ID đã chỉ định.</response>
+            <response code="404">Không tìm thấy hoá đơn với ID đã chỉ định.</response>
+        </member>
+        <member name="M:BackEnd.Controllers.OrderController.Create(BackEnd.Models.Dtos.OrderDto)">
+            <summary>
+            Tạo hoá đơn mới.
+            </summary>
+            <param name="dto">Thông tin của hoá đơn mới.</param>
+            <returns>Hoá đơn mới được tạo.</returns>
+            <response code="201">Hoá đơn mới được tạo thành công.</response>
+            <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
+        </member>
         <member name="T:BackEnd.Migrations.init">
             <inheritdoc />
         </member>
@@ -348,6 +374,18 @@
             <inheritdoc />
         </member>
         <member name="M:BackEnd.Migrations.updatecart.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:BackEnd.Migrations.updateorder">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateorder.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateorder.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackEnd.Migrations.updateorder.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
