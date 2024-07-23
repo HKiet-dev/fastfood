@@ -11,8 +11,4 @@
 /fastfood/BackEnd/obj
 /fastfood/BackEnd/bin
 /fastfood/.vs/fastfood/v17/DocumentLayout.json
-/fastfood/BackEnd/obj
-/fastfood/FrontEnd/obj
-fastfood/.vs/fastfood/v17/DocumentLayout.json
-/fastfood/FrontEnd/bin/Debug/net8.0
-/fastfood/FrontEnd/obj/Debug/net8.0
+/fastfood/BackEnd/obj/Debug
