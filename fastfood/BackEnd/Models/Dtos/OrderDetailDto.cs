@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+#pragma warning disable 1591
 namespace BackEnd.Models.Dtos
 {
     public class OrderDetailDto
     {
-        public int OrderId { get; set; }
-        public int ProductId { get; set; }
+        public string Name { get; set; }
         [Required, Range(1000, 1000000), Column(TypeName = "decimal(18,2)")]
         public decimal UnitPrice { get; set; }
         [Required]

@@ -38,6 +38,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IHelper, HelperService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSettings:JwtOptions"));
 
 // Config các IService và Service ở chỗ này ↑

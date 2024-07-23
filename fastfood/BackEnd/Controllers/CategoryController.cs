@@ -44,7 +44,7 @@ namespace BackEnd.Controllers
         /// <summary>
         /// Tạo danh mục mới.
         /// </summary>
-        /// <param name="categorydto">Thông tin của danh mục mới.</param>
+        /// <param name="dto">Thông tin của danh mục mới.</param>
         /// <returns>Danh mục mới được tạo.</returns>
         /// <response code="201">Danh mục mới được tạo thành công.</response>
         /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>

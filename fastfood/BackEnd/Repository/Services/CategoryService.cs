@@ -4,7 +4,7 @@ using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-
+#pragma warning disable 1591
 namespace BackEnd.Repository.Services
 {
     public class CategoryService(ApplicationDbContext db, IMapper mapper) : ICategoryService
