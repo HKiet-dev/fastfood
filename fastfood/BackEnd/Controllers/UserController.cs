@@ -27,6 +27,7 @@ namespace BackEnd.Controllers
             return await products;
         }
 
+
         [HttpGet("{id}")]
         public async Task<ResponseDto> GetById(string id)
         {
