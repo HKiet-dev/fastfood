@@ -33,6 +33,7 @@ namespace BackEnd.Controllers
         {
             return await _user.GetById(id);
         }
+
         [HttpGet("search/{query}")]
         public async Task<ResponseDto> GetBySearch(string query)
         {
