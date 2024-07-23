@@ -1,19 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+#pragma warning disable 1591
 namespace BackEnd.Models
 {
     public class OrderDetail
     {
         public int OrderId { get; set; }
         public int ProductId { get; set; }
-        [Column(TypeName = "DECIMAL(18,2)")]
-        [Range(0, double.MaxValue, ErrorMessage = "Giá sản phẩm phải lớn hơn bằng 0")]
+        [Required, Range(1000, 1000000), Column(TypeName = "decimal(18,2)")]
         public decimal UnitPrice { get; set; }
+        [Required]
         public int Quantity { get; set; }
-        [Range(1,100,ErrorMessage = "Giảm giá chỉ có thể trong khoảng từ 1 đến 100")]
-        public int Discount { get; set; }
-        [Column(TypeName = "DECIMAL(18,2)")]
+        [Required, Range(1000, 1000000), Column(TypeName = "decimal(18,2)")]
         public decimal Total { get; set; }
         [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; }
