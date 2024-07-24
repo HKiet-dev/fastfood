@@ -9,6 +9,7 @@ namespace BackEnd.Repository.Interfaces
         ResponseDto CreateCart(CartDetail cartDetail);
         ResponseDto UpdateCart(CartDetail cartDetail);
         ResponseDto DeleteCart(int  prodcutId, string userId);
+        ResponseDto DeleteAllById (string userId);
         ResponseDto GetById (string userId); 
     }
 }
