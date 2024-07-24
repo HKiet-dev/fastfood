@@ -1,27 +1,38 @@
 ﻿@page "/login"
+@using FrontEnd.Models
+@using FrontEnd.Services.IService
+@using Newtonsoft.Json
 @layout AccountLayoutPage
 @rendermode InteractiveServer
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+@inject ITokenProvider TokenProvider
+
 <link rel="stylesheet" href="~/login.css" />
 
 <div class="full-height d-flex justify-content-center align-items-center">
     <div class="col-lg-4">
         <div class="container">
             <h3 class="text-center mb-4 text-white">Đăng nhập</h3>
-            <form>
+            <EditForm Model="model" OnValidSubmit="HandleValidLoginModel" FormName="LoginForm">
                 <div class="mb-3">
-                    <label for="email" class="form-label text-white">Email</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <label for="email" class="form-label text-white">Tài khoản</label>
+                    <InputText @bind-Value="model.Username" type="text" class="form-control"></InputText>
+                    <ValidationMessage For="() => model.Username"></ValidationMessage>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label text-white">Mật khẩu</label>
-                    <input type="password" class="form-control" id="password" required>
+                    <label for="email" class="form-label text-white">Mật khẩu</label>
+                    <InputText @bind-Value="model.Password" type="password" class="form-control"></InputText>
+                    <ValidationMessage For="() => model.Password"></ValidationMessage>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="rememberMe">
                     <label class="form-check-label text-white" for="rememberMe">Ghi nhớ mật khẩu</label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mb-3">Đăng nhập</button>
-            </form>
+                <ValidationSummary></ValidationSummary>
+                <DataAnnotationsValidator></DataAnnotationsValidator>
+            </EditForm>
             <div class="text-center text-white">
                 <p>Hoặc đăng nhập bằng</p>
                 <!-- Google Login Button -->
@@ -32,8 +43,8 @@
             <div class="text-center mt-3">
                 <p class="text-white">
                     Bạn chưa có tài khoản?
-                    <NavLink class="nav-link" href="signUp">
-                        Đăng kí
+                    <NavLink class="nav-link" href="register">
+                        <button class="btn btn-primary">Đăng kí</button>
                     </NavLink>
                 </p>
                 
@@ -49,5 +60,18 @@
 </style>
 
 @code {
+    private LoginRequestDto model = new();
+
+    private async Task HandleValidLoginModel()
+    {
+        var loginObject = await AuthService.LoginAsync(model);
+        if (loginObject.Result != null)
+        {
+            var loginResponse = JsonConvert.DeserializeObject<LoginResponseDto>(loginObject.Result.ToString());
+            // TokenProvider.SetToken(loginResponse.Token);
+            Navigation.NavigateTo("/");
+        }
+    }
+
 
 }

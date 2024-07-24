@@ -33,6 +33,8 @@ namespace FrontEnd.Components.Pages
             {
                 Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(productsResponse.Result.ToString());
             }
+
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BackEnd.Models.Dtos;
+﻿using FrontEnd.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -35,7 +36,6 @@ namespace FrontEnd.Components.Pages
                     NavigationManager.NavigateTo("/"); // Điều hướng đến trang chủ hoặc trang khác tùy bạn
                 }
             }
-            NavigationManager.NavigateTo("/Login"); // Điều hướng đến trang đăng nhập nếu có lỗi
         }
         [Inject]
         private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
@@ -63,12 +63,16 @@ namespace FrontEnd.Components.Pages
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var user = new ClaimsPrincipal(identity);
 
-            var authState = await AuthenticationStateProvider
-            .GetAuthenticationStateAsync();
-            var userc = authState.User;
+            var httpContext = new HttpContextAccessor();
 
-            // Điều hướng đến trang chủ sau khi đăng nhập thành công
-            NavigationManager.NavigateTo("/");
+            httpContext.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,user);
+            TokenProvider.SetToken(model.Token);
+            //var authState = await AuthenticationStateProvider
+            //.GetAuthenticationStateAsync();
+            //var userc = authState.User;
+
+            //// Điều hướng đến trang chủ sau khi đăng nhập thành công
+            //NavigationManager.NavigateTo("/");
         }
     }
 }

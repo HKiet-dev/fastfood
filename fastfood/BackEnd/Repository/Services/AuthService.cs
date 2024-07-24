@@ -181,9 +181,10 @@ namespace BackEnd.Repository.Services
                 Email = registrationRequestDTO.Email,
                 NormalizedEmail = registrationRequestDTO.Email.ToUpper(),
                 Name = registrationRequestDTO.Name,
-                PhoneNumber = registrationRequestDTO.Phone,
+                PhoneNumber = registrationRequestDTO.PhoneNumber,
                 Address = registrationRequestDTO.Address,
-                Avatar = registrationRequestDTO.Avatar
+                Avatar = registrationRequestDTO.Avatar,
+                Gender = registrationRequestDTO.Gender,
             };
 
             try
@@ -200,29 +201,30 @@ namespace BackEnd.Repository.Services
                         Name = userToReturn.Name,
                         PhoneNumber = userToReturn.PhoneNumber,
                         Address = userToReturn.Address,
-                        Avatar = userToReturn.Avatar
+                        Avatar = userToReturn.Avatar,
+                        Gender = userToReturn.Gender,
                     };
 
-                    CartDetailDto cartDetailDto = new()
+                    string role = "CUSTOMER";
+
+                    if (!_roleManager.RoleExistsAsync(role).GetAwaiter().GetResult())
                     {
-                        UserId = userToReturn.Id,
-                    };
+                        _roleManager.CreateAsync(new IdentityRole(role)).GetAwaiter().GetResult();
+                    }
 
-                    await _context.CartDetail.AddAsync(_mapper.Map<CartDetail>(cartDetailDto));
-                    await _context.SaveChangesAsync();
+                    await _userManager.AddToRoleAsync(user, role);
 
-                    return "";
+                    return "Tạo tài khoản thành công";
                 }
                 else
                 {
                     return result.Errors.FirstOrDefault().Description;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                return ex.Message;
             }
-            return "Error Encoutered";
         }
     }
 }

@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace BackEnd.Controllers
 {
-    [Route("api/auth")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -37,7 +37,7 @@ namespace BackEnd.Controllers
         /// <returns>Kết quả đăng ký.</returns>
         /// <response code="200">Đăng ký thành công.</response>
         /// <response code="400">Đăng ký thất bại (có thể do email đã tồn tại hoặc dữ liệu không hợp lệ).</response>
-        [HttpPost("auth")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegistrationRequestDto obj)
         {
             var errorMessage = await _authService.Resgister(obj);
@@ -161,7 +161,7 @@ namespace BackEnd.Controllers
         /// <returns>Thông tin người dùng mới được tạo.</returns>
         /// <response code="200">Tạo người dùng thành công.</response>
         /// <response code="400">Tạo người dùng thất bại.</response>
-        [HttpPost("GoogleAccount")]
+        [HttpPost("googleaccount")]
         public async Task<IActionResult> CreateUserFromGoogleLogin(User user)
         {
             var result = await _authService.CreateUserFromGoogleLogin(user);

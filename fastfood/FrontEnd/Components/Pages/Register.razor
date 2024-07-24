@@ -1,0 +1,129 @@
+﻿@page "/register"
+@using FrontEnd.Helper
+@using FrontEnd.Models
+@using FrontEnd.Services.IService
+@layout AccountLayoutPage
+@inject IAuthService AuthService
+@rendermode InteractiveServer
+@inject CloudinaryServices CloudinaryService
+@inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Components.Forms
+<link rel="stylesheet" href="~/login.css" />
+
+<div class="full-height d-flex justify-content-center align-items-center">
+    <div class="col-lg-4">
+        <div class="container">
+            <h3 class="text-center mb-4 text-white">Đăng ký</h3>
+            <EditForm OnValidSubmit="HandleValidSubmit" FormName="RegisterForm" Model="model">
+                <div class="mb-3">
+                    <label for="username" class="form-label text-white">Tài khoản</label>
+                    <InputText @bind-Value="model.Name" type="text" class="form-control" id="username"></InputText>
+                    <ValidationMessage For="()=> model.Name"></ValidationMessage>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label text-white">Số điện thoại</label>
+                    <InputText @bind-Value="model.PhoneNumber" type="text" class="form-control" id="phone"></InputText>
+                    <ValidationMessage For="()=> model.PhoneNumber"></ValidationMessage>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white">Email</label>
+                    <InputText @bind-Value="model.Email" type="email" class="form-control" id="email"></InputText>
+                    <ValidationMessage For="()=> model.Email"></ValidationMessage>
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label text-white">Giới tính</label>
+                    <InputSelect @bind-Value="model.Gender" class="form-select" id="gender">
+                        <option value="1">Nam</option>
+                        <option value="2">Nữ</option>
+                    </InputSelect>
+                    <ValidationMessage For="()=> model.Gender"></ValidationMessage>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label text-white">Địa chỉ</label>
+                    <InputTextArea @bind-Value="model.Address" type="password" class="form-control" id="address"></InputTextArea>
+                    <ValidationMessage For="()=> model.Address"></ValidationMessage>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label text-white">Ảnh đại diện</label>
+                    <InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control" id="image" />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label text-white">Mật khẩu</label>
+                    <InputText @bind-Value="model.Password" type="password" class="form-control" id="password"></InputText>
+                    <ValidationMessage For="()=> model.Password"></ValidationMessage>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label text-white">Xác nhận mật khẩu</label>
+                    <InputText @bind-Value="model.ConfirmPassword" type="password" class="form-control" id="confirmPassword"></InputText>
+                    <ValidationMessage For="()=> model.ConfirmPassword"></ValidationMessage>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-3">Đăng ký</button>
+                <ValidationSummary></ValidationSummary>
+                <DataAnnotationsValidator></DataAnnotationsValidator>
+            </EditForm>
+            <div class="text-center mt-3">
+                <NavLink class="nav-link text-white" href="/login">
+                    <span>Quay lại đăng nhập</span>
+                </NavLink>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<style>
+    .full-height {
+        height: 100vh;
+    }
+</style>
+
+@code {
+    [Parameter]
+    public EventCallback<InputFileChangeEventArgs> OnChangeInputFile { get; set;}
+
+    private RegistrationRequestDto model = new();
+    private IBrowserFile file;
+
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        file = e.File;
+    }
+
+    private async void HandleValidSubmit()
+    {
+        if (file != null)
+        {
+            using var fileStream = file.OpenReadStream();
+            var fileName = file.Name;
+
+            var cloudinaryUrl = await CloudinaryService.UploadImageAsync(fileStream, fileName);
+
+            if (!string.IsNullOrEmpty(cloudinaryUrl))
+            {
+                model.Avatar = cloudinaryUrl;
+            }
+        }
+
+        bool validModel = await RegisterUserAsync(model);
+        if (validModel)
+        {
+            var userRegisterResponse = await AuthService.RegisterAsync(model);
+
+            if(userRegisterResponse.Result != null)
+            {
+                Navigation.NavigateTo("/");
+            }
+            else
+            {
+                
+            }
+        }
+
+    }
+
+    private async Task<bool> RegisterUserAsync(RegistrationRequestDto registerModel)
+    {
+        return await Task.FromResult(true);
+    }
+    
+}

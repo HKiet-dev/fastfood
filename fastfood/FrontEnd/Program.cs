@@ -5,6 +5,7 @@ using FrontEnd.Components;
 using FrontEnd.Services.IService;
 using FrontEnd.Services;
 using FrontEnd.Utility;
+using FrontEnd.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +28,8 @@ builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IFoodService, FoodService>();
-
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<CloudinaryServices>();
 
 var app = builder.Build();
 

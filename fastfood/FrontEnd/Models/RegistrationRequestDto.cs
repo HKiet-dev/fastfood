@@ -1,11 +1,9 @@
-﻿using BackEnd.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FrontEnd.Models
 {
-    public class User
+    public class RegistrationRequestDto
     {
-        [Required(ErrorMessage = "Id là bắt buộc")]
         public string Id { get; set; }
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Độ dài của tên phải từ 3 đến 50 ký tự")]
         [RegularExpression("^[a-zA-Z 0-9_]+$", ErrorMessage = "Tên tài khoản phải là ký tự không dấu hoặc số")]
@@ -24,13 +22,15 @@ namespace FrontEnd.Models
         [EnumDataType(typeof(UserStatus))]
         public UserStatus Status { get; set; } = UserStatus.Active;
         public DateTime CreateAt { get; set; } = DateTime.UtcNow;
+        [Required(ErrorMessage = "Mật không được để trống")]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+{}:;<>,.?~\-])[A-Za-z\d!@#$%^&*()_+{}:;<>,.?~\-]{8,}$",
+        ErrorMessage = "Mật khẩu phải có chữ đầu tiên là chữ viết hoa, tối thiểu 8 ký tự bao gồm chữ, số và ký tự đặc biệt")]
+        public string Password { get; set; }
+        [Required(ErrorMessage = "Mật khẩu xác nhận không được để trống")]
+        [Compare(nameof(Password),ErrorMessage = "Mật khẩu và mật khẩu xác nhận không trùng nhau")]
+        public string ConfirmPassword { get; set; }
+        public string Role { get; set; }
     }
 
-    public enum UserStatus
-    {
-        Active,
-        Inactive,
-        Delete,
-        Block
-    }
+
 }

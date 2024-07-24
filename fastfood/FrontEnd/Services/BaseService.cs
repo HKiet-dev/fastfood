@@ -23,7 +23,7 @@ namespace FrontEnd.Services
         {
             try
             {
-                HttpClient client = _httpClientFactory.CreateClient("MangoAPI");
+                HttpClient client = _httpClientFactory.CreateClient("FastFoodAPI");
                 HttpRequestMessage message = new();
                 message.Headers.Add("Accept", "application/json");
                 //Token

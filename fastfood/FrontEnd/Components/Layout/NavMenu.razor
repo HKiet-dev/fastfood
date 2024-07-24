@@ -53,10 +53,21 @@
             </NavLink>
         </div>
         <div>
-            <NavLink class="nav-link" href="login" Match="NavLinkMatch.All">
-                <i class="bi bi-person fs-6"></i>
-                <span class="mx-2 fs-6">Đăng kí/Đăng nhập</span>
-            </NavLink>
+            <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+                <Authorized>
+                    trên đây sẽ là chỗ để Hi, Name của user
+                    <NavLink class="nav-link" href="logout">
+                        <button class="btn"><i class="bi bi-box-arrow-left"></i> Đăng xuất</button>
+                    </NavLink>
+                </Authorized>
+                <NotAuthorized>
+                    <NavLink class="nav-link" href="login" Match="NavLinkMatch.All">
+                        <i class="bi bi-person fs-6"></i>
+                        <span class="mx-2 fs-6">Đăng kí/Đăng nhập</span>
+                    </NavLink>
+                </NotAuthorized>
+            </Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+            
         </div>
 
 
