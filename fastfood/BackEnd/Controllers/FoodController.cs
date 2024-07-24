@@ -36,7 +36,7 @@ namespace BackEnd.Controllers
         /// <returns>Sản phẩm có ID tương ứng.</returns>
         /// <response code="200">Trả về sản phẩm với ID đã chỉ định.</response>
         /// <response code="404">Không tìm thấy sản phẩm với ID đã chỉ định.</response>
-        [HttpGet("{id:int}")]
+        [HttpGet("product/{id:int}")]
         public ResponseDto GetById(int id)
         {
             return _foodService.GetById(id);
