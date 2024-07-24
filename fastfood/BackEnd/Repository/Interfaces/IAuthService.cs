@@ -11,7 +11,6 @@ namespace BackEnd.Repository.Interfaces
         Task<IList<string>> GetUserRole(User user);
         Task<string> GetUserId(string email);
         Task<UserDto> GetUserById(string userId);
-        Task<string> GenerateJwt(UserDto user);
         Task<UserDto> GetUserByEmail(string email);
         Task<User> CreateUserFromGoogleLogin(User user);
     }

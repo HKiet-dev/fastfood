@@ -3,15 +3,17 @@ using BackEnd.Data;
 using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+#pragma warning disable 1591
 namespace BackEnd.Repository.Services
 {
     public class AuthService : IAuthService
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _userManager;
+        readonly SignInManager<User> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly IMapper _mapper;
@@ -20,11 +22,12 @@ namespace BackEnd.Repository.Services
                            UserManager<User> userManager, 
                            RoleManager<IdentityRole> roleManager, 
                            IJwtTokenGenerator jwtTokenGenrator, 
-                           IMapper mapper)
+                           IMapper mapper,SignInManager<User> signInManager)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
+            _signInManager = signInManager;
             _jwtTokenGenerator = jwtTokenGenrator;
             _mapper = mapper;
         }
@@ -92,12 +95,6 @@ namespace BackEnd.Repository.Services
             return null;
         }
 
-        public async Task<string> GenerateJwt(UserDto user)
-        {
-            var role = await _userManager.GetRolesAsync(_mapper.Map<User>(user));
-            return _jwtTokenGenerator.GenerateToken(_mapper.Map<User>(user), role);
-        }
-
         public async Task<UserDto> GetUserByEmail(string email)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
@@ -141,27 +138,28 @@ namespace BackEnd.Repository.Services
 
         public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDTO)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName.ToLower() == loginRequestDTO.UserName.ToLower());
+            var user = await _userManager.FindByNameAsync(loginRequestDTO.UserName);
             bool isValid = await _userManager.CheckPasswordAsync(user, loginRequestDTO.Password);
 
             if (user == null || isValid == false)
             {
                 return new LoginResponseDto() { User = null, Token = null, Role = null };
             }
+            // first params : người dùng có tên đăng nhập là loginRequestDTO.UserName (object)
+            // second params : mật khẩu mà người dùng nhập  (string)
+            // third params : ghi nhớ trạng thái đăng nhập (bool)
+            // fourth params : mặc định nếu đăng nhập sai 5 lần liên tiếp sẽ bị khoá đăng nhập trong 5 phút
+            var result = await _signInManager.PasswordSignInAsync(user, loginRequestDTO.Password, false, false);
 
-            var roles = await _userManager.GetRolesAsync(user);
+            if (!result.Succeeded)
+            {
+                return new LoginResponseDto() { User = null, Token = null, Role = null };
+            }
+
+            var roles = await GetUserRole(user);
             var token = _jwtTokenGenerator.GenerateToken(user, roles);
 
-            var userDto = new UserDto()
-            {
-                Id = user.Id,
-                Name = user.Name,
-                PhoneNumber = user.PhoneNumber,
-                Email = user.Email,
-                Address = user.Address,
-                Gender = user.Gender,
-                Avatar = user.Avatar
-            };
+            var userDto = _mapper.Map<UserDto>(user);
 
             LoginResponseDto loginResponseDto = new LoginResponseDto()
             {
@@ -202,14 +200,6 @@ namespace BackEnd.Repository.Services
                         Address = userToReturn.Address,
                         Avatar = userToReturn.Avatar
                     };
-
-                    CartDetailDto cartDetailDto = new()
-                    {
-                        UserId = userToReturn.Id,
-                    };
-
-                    await _context.CartDetail.AddAsync(_mapper.Map<CartDetail>(cartDetailDto));
-                    await _context.SaveChangesAsync();
 
                     return "";
                 }

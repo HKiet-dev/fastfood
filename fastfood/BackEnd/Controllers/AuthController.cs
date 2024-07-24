@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using System.Security.Claims;
 using AutoMapper;
 using Microsoft.AspNetCore.Cors.Infrastructure;
-
+#pragma warning disable 1591
 namespace BackEnd.Controllers
 {
     [Route("api/auth")]
@@ -186,27 +186,6 @@ namespace BackEnd.Controllers
         public async Task<IActionResult> GetUserById([FromRoute] string userId)
         {
             var result = await _authService.GetUserById(userId);
-            if (result == null)
-            {
-                _response.IsSuccess = false;
-                _response.Message = AuthError;
-                return BadRequest(_response);
-            }
-            _response.Result = result;
-            return Ok(_response);
-        }
-
-        /// <summary>
-        /// Tạo token JWT cho người dùng.
-        /// </summary>
-        /// <param name="user">Thông tin người dùng.</param>
-        /// <returns>Token JWT.</returns>
-        /// <response code="200">Trả về token JWT.</response>
-        /// <response code="400">Lỗi xảy ra trong quá trình xác thực người dùng.</response>
-        [HttpGet("jwtauth")]
-        public async Task<IActionResult> JWTGenerator(UserDto user)
-        {
-            var result = await _authService.GenerateJwt(user);
             if (result == null)
             {
                 _response.IsSuccess = false;
