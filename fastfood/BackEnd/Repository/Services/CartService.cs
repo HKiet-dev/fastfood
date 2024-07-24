@@ -3,7 +3,7 @@ using BackEnd.Data;
 using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
-
+#pragma warning disable 1591
 namespace BackEnd.Repository.Services
 {
     public class CartService(ApplicationDbContext db, IMapper mapper) : ICartService
@@ -25,40 +25,27 @@ namespace BackEnd.Repository.Services
         }
         public ResponseDto CreateCart(CartDetail cartDetail)
         {
-            var eUser = _db.Users.FirstOrDefault(u => u.Id == cartDetail.UserId);
-            if(eUser is null)
-            {
-                response.IsSuccess = false;
-                response.Message = "Người dùng không tồn tại";
-                return response;
-            }
-
-            var eProduct = _db.Product.FirstOrDefault(p => p.Id == cartDetail.ProductId);
-            if( eProduct is null)
-            {
-                response.IsSuccess = false;
-                response.Message = "Sản phẩm không tồn tại"; 
-                return response;
-            }
-
-            var eCartDetal = _db.CartDetail.FirstOrDefault(c => c.Product.Id == cartDetail.ProductId && c.User.Id == cartDetail.UserId); 
-            if(eCartDetal is null)
-            {
-                var newCartDetail = new CartDetail
+            try {
+                var eProduct = _db.Product.FirstOrDefault(p => p.Id == cartDetail.ProductId);
+                if (eProduct is null)
                 {
-                    UserId = cartDetail.UserId,
-                    ProductId = cartDetail.ProductId,
-                    Quantity = cartDetail.Quantity
-                };
+                    response.IsSuccess = false;
+                    response.Message = "Sản phẩm không tồn tại";
+                    return response;
+                }
 
-                _db.CartDetail.Add(newCartDetail);
-            }
-            else
-            {
-                eCartDetal.Quantity += cartDetail.Quantity;
-            }
-            try
-            {
+                var eCartDetal = _db.CartDetail.SingleOrDefault( c => c.UserId == cartDetail.UserId);
+                if (eCartDetal is null)
+                {
+                    cartDetail.Total = cartDetail.Quantity * eProduct.Price;
+                    _db.CartDetail.Add(cartDetail);
+                }
+                else
+                {
+                    eCartDetal.Quantity += cartDetail.Quantity;
+                    eCartDetal.Total = eProduct.Price * eCartDetal.Quantity;
+                    _db.CartDetail.Update(eCartDetal);
+                }
                 _db.SaveChanges();
                 response.Result = _mapper.Map<CartDetailDto>(cartDetail);
                 response.IsSuccess = true;

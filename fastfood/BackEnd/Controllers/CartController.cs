@@ -3,32 +3,34 @@ using Azure;
 using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.CompilerServices;
 
 namespace BackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CartController(ICartService cartservice , IMapper mapper) : ControllerBase
+    public class CartController(ICartService cartservice , IMapper mapper, UserManager<User> userManager) : ControllerBase
     {
+        UserManager<User> _userManager = userManager;
         ICartService _cartservice = cartservice;
         IMapper _mapper = mapper;
 
         /// <summary>
         /// Tạo mới giỏ hàng cho khách hàng.
         /// </summary>
-        /// <param name="cartdetailsDto">Thông tin mới của giỏ hàng.</param>
+        /// <param name="dto">Thông tin mới của giỏ hàng.</param>
         /// <returns>Danh mục mới được tạo.</returns>
         /// <response code="201">Tạo giỏ hàng mới được tạo thành công.</response>
         /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
-        [HttpPost("addcart")]
+        [HttpPost("addtocart")]
         public ResponseDto Create([FromBody] CartDetailDto dto)
         {
             if (ModelState.IsValid)
             {
                 var cart = _mapper.Map<CartDetail>(dto);
+                cart.UserId = _userManager.GetUserId(User);
                 var response = _cartservice.CreateCart(cart); 
                 return response;
             }
@@ -64,13 +66,13 @@ namespace BackEnd.Controllers
         /// <summary>
         /// Tìm kiếm giỏ hàng theo id.
         /// </summary>
-        /// <param name="userId">Id người dùng cần tìm kiếm giỏ hàng.</param>
         /// <returns>Trả về danh sách giỏ hàng của khách hàng</returns>
         /// <response code="200">Trả về giỏ hàng  với sản phẩm, số lượng của khách hàng</response>
         /// <response code="404">Không tìm thấy không tìm thấy giỏ hàng nào của khách hàng</response>
         [HttpGet("find_id")]
-        public ResponseDto GetById(string userId)
+        public ResponseDto GetById()
         {
+            var userId = _userManager.GetUserId(User); ;
             return _cartservice.GetById(userId);
         }
     }
