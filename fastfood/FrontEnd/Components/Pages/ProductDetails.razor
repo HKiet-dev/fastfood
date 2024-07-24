@@ -1,110 +1,143 @@
-﻿@page "/productdetails"
-<link href="/Product.css" rel="stylesheet" />
-<div class="product-details">
-    <div class="product-image">
-        <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="#">
-    </div>
-    <div class="product-info">
-        <h2>Product Name</h2>
-        <div class="description">
-            <ul>
-                <li>Details product</li>
-            </ul>
-            <div class="price">
-                <h5 style="display: inline;">Giá bán:</h5>
-                <span class="current-price" style="display: inline;">000VNĐ</span>
+﻿@page "/productdetails/{Id:int}"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+<style>
+    .product-title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+        color: #e74c3c;
+        font-weight: bold;
+    }
+
+    .product-description {
+        margin-top: 1rem;
+    }
+
+    .product-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .btn-custom {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    .rating {
+        color: #ffc107;
+    }
+
+    .related-products img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .comment-section {
+        margin-top: 2rem;
+    }
+
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        @if (Product == null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="@Product.ImageUrl" alt="Product Image" class="product-image float-md-end w-50 h-100">
+                </div>
+                <div class="col-md-6">
+                    <h1 class="product-title">@Product.Name</h1>
+                    <p class="product-price">@Product.Price.ToString("C")</p>
+                    <div class="rating">
+                        <span>&#9733;&#9733;&#9733;&#9733;&#9734;</span> 4.0 (120 đánh giá)
+                    </div>
+                    <div class="product-description">
+                        <p>@Product.Description</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Số lượng</label>
+                        <input type="number" class="form-control" id="quantity" value="1" min="1">
+                    </div>
+                    <button class=" btn btn-outline-dark btn-lg">Add to Cart</button>
+                </div>
             </div>
+        }
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2>Sản phẩm liên quan khác</h2>
         </div>
-        <div class="order-links">
-            <ul>
-                <NavLink class="nav-link" href="cartcustomer">
-                    <a href="cartcustomer" type="button" class="btn btn-dark btn-block">Add to card</a>
-                </NavLink>
-            </ul>
-        </div>
-        <div class="social-share">
-            <p>Chia sẻ:</p>
-            <ul>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-            </ul>
+        @if (Products == null)
+        {
+
+        }
+        else
+        {
+            foreach (var item in Products.Take(4))
+            {
+                <div class="col-sm-3">
+                    <div class="card product-card">
+                        <NavLink class="nav-link" href="#">
+                            <img alt="Product" src="@item.ImageUrl" class="card-img-top">
+                        </NavLink>
+                        <div class="card-body text-center">
+                            @*  <NavLink class="nav-link" href="productdetails/@item.Id"> *@
+                            @* Product Name *@
+                            <h5>@item.Name</h5>
+                            @* Description *@
+                            <p>
+                                @item.Description
+                            </p>
+                            @* Price *@
+                            <span> Giá : @item.Price.ToString("#,##vnđ")</span>
+                            @* button *@
+                            <div class="d-flex justify-content-around mt-2">
+                                <a href="productdetails/@item.Id" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i> View Details</a>
+                                <a href="#" class="btn btn-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                            </div>
+                            @* </NavLink> *@
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+        }
+        <a href="menu" class="text-center my-3 ">Xem Thêm</a>
+    </div>
+
+    <div class="row mt-5 comment-section">
+        <div class="col-12">
+            <h2>Bình luận</h2>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Hãy để lại 1 comment nhé</label>
+                <textarea class="form-control" id="comment" rows="3"></textarea>
+                <button class="btn btn-custom mt-2">Đăng</button>
+            </div>
+            <div class="comments">
+                <div class="comment mb-3">
+                    <p><strong>Trường:</strong>Đồ ăn ngonnnn, giao hàng nhanh.</p>
+                    <div class="rating">
+                        <span>&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                </div>
+                <div class="comment mb-3">
+                    <p><strong>Như:</strong>Anh nhân viên đẹp traiii quá trời</p>
+                    <div class="rating">
+                        <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-            <div class="row">
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card product-card">
-                        <NavLink class="nav-link" href="productdetails">
-                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width: 350px; height: auto" class="card-img-top" alt="Product Image">
-                        </NavLink>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card product-card">
-                        <NavLink class="nav-link" href="productdetails">
-                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width: 350px; height: auto" class="card-img-top" alt="Product Image">
-                        </NavLink>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card product-card">
-                        <NavLink class="nav-link" href="productdetails">
-                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width: 350px; height: auto" class="card-img-top" alt="Product Image">
-                        </NavLink>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card product-card">
-                        <NavLink class="nav-link" href="productdetails">
-                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width: 350px; height: auto" class="card-img-top" alt="Product Image">
-                        </NavLink>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-            <div class="row">
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card product-card">
-                        <NavLink class="nav-link" href="productdetails">
-                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width: 350px; height: auto" class="card-img-top" alt="Product Image">
-                        </NavLink>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card product-card">
-                        <NavLink class="nav-link" href="productdetails">
-                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width: 350px; height: auto" class="card-img-top" alt="Product Image">
-                        </NavLink>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card product-card">
-                        <NavLink class="nav-link" href="productdetails">
-                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width: 350px; height: auto" class="card-img-top" alt="Product Image">
-                        </NavLink>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3 mb-4">
-                    <div class="card product-card">
-                        <NavLink class="nav-link" href="productdetails">
-                            <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" style="width: 350px; height: auto" class="card-img-top" alt="Product Image">
-                        </NavLink>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
