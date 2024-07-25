@@ -2,10 +2,7 @@
 using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
-using BackEnd.Repository.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 #pragma warning disable 1591
@@ -54,7 +51,7 @@ namespace BackEnd.Controllers
         /// <response code="201">Hoá đơn mới được tạo thành công.</response>
         /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
         [HttpPost]
-        public ResponseDto Create([FromBody] CreateOrderDto create)
+        public ResponseDto Payment([FromBody] CreateOrderDto create)
         {
             var userId = _usermanager.GetUserId(User);
             var cart = _cartService.getCart(userId);
@@ -83,6 +80,51 @@ namespace BackEnd.Controllers
                 return new ResponseDto { IsSuccess = true , Message = "Thêm hoá đơn thành công", Result = create};
             }
             return new ResponseDto { IsSuccess = false, Message = "Lỗi xảy ra trong quá trình thanh toán"};
+        }
+
+        /// <summary>
+        /// Lấy tất cả hoá đơn của người dùng đang đăng nhập.
+        /// </summary>
+        /// <returns>Tất cả hoá đơn của người dùng đang đăng nhập.</returns>
+        /// <response code="200">Trả về tất cả hoá đơn của người dùng chỉ định.</response>
+        /// <response code="404">Không tìm thấy hoá đơn nào của người dùng chỉ định.</response>
+        [HttpGet("OrderByUser")]
+        public ResponseDto GetOrderByUser()
+        {
+            var userId = _usermanager.GetUserId(User);
+            return _oService.getOrderId(userId);
+        }
+
+        /// <summary>
+        /// Lấy hoá đơn chi tiết.
+        /// </summary>
+        /// <returns>Trả về hoá đơn chi tiết với mã hoá đơn đã chỉ định.</returns>
+        /// <response code="200">Trả về hoá đơn chi tiết với mã hoá đơn đã chỉ định.</response>
+        /// <response code="404">Không tìm thấy mã hoá đơn.</response>
+        [HttpGet("Order-details/{OrderId:int}")]
+        public ResponseDto GetOrderDetails([FromRoute] int OrderId)
+        {
+            return _oService.GetOrderDetails(OrderId);
+        }
+
+        /// <summary>
+        /// Cập nhật trạng thái thanh toán.
+        /// </summary>
+        /// <returns>Kết quả cập nhật.</returns>
+        /// <response code="200">Cập nhật thành công.</response>
+        /// <response code="404">Cập nhật thất bại.</response>
+        [HttpPut("update/{OrderId:int}")]
+        public ResponseDto UpdateOrder([FromRoute] int OrderId, [FromQuery] string message)
+        {
+            try
+            {
+                _oService.UpdateOrderStatus(OrderId, message);
+                return new ResponseDto { IsSuccess = true, Message = "Đã cập nhật" };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDto { IsSuccess = false, Message = ex.Message };
+            }
         }
     }
 }
