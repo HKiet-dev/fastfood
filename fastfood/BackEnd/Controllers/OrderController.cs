@@ -49,32 +49,40 @@ namespace BackEnd.Controllers
         /// <summary>
         /// Tạo hoá đơn mới.
         /// </summary>
-        /// <param name="dto">Thông tin của hoá đơn mới.</param>
+        /// <param name="create">Thông tin của hoá đơn mới.</param>
         /// <returns>Hoá đơn mới được tạo.</returns>
         /// <response code="201">Hoá đơn mới được tạo thành công.</response>
         /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
         [HttpPost]
-        public ResponseDto Create([FromBody] OrderDto dto)
+        public ResponseDto Create([FromBody] CreateOrderDto create)
         {
             var userId = _usermanager.GetUserId(User);
-            var cart = _cartService.GetById(userId);
-            var cartResult = (List<CartDetail>)cart.Result;
+            var cart = _cartService.getCart(userId);
             if (ModelState.IsValid)
             {
-                var order = _mapper.Map<Order>(dto);
-                var createdOrder = _oService.AddOrder(order).Result;
-                var orderDetails = cartResult.Select(item => new OrderDetail
+                Order order = new Order
                 {
-                    OrderId = (int)createdOrder,
-                    ProductId = item.Product.Id,
+                    UserId = userId,
+                    FullName = create.FullName,
+                    Address = create.Address,
+                    PaymentType = create.PaymentType,
+                    PhoneNumber = create.PhoneNumber,
+                    PaymentStatus = create.PaymentStatus,
+                    note = create.note
+                };
+                var createdOrder = _oService.AddOrder(order);
+                var orderDetails = cart.Select(item => new OrderDetail
+                {
+                    OrderId = createdOrder.OrderId,
+                    ProductId = item.Food.Id,
                     Quantity = item.Quantity,
-                    UnitPrice = item.Product.Price,
+                    UnitPrice = item.Food.Price,
                     Total = item.Total,
                 });
                 _oService.AddOrderDetail(orderDetails);
-                return new ResponseDto { IsSuccess = true , Message = "Thêm hoá đơn thành công", Result = dto};
+                return new ResponseDto { IsSuccess = true , Message = "Thêm hoá đơn thành công", Result = create};
             }
-            return null;
+            return new ResponseDto { IsSuccess = false, Message = "Lỗi xảy ra trong quá trình thanh toán"};
         }
     }
 }

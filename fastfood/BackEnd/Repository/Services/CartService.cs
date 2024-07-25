@@ -146,5 +146,19 @@ namespace BackEnd.Repository.Services
             }
             return response;
         }
+
+        public IEnumerable<ListCartDetail> getCart(string UserId)
+        {
+            var cartDetail = from cd in _db.CartDetail
+                             join p in _db.Product on cd.ProductId equals p.Id
+                             where cd.UserId == UserId
+                             select new ListCartDetail
+                             {
+                                 Food = _mapper.Map<ProductDto>(p),
+                                 Quantity = cd.Quantity,
+                                 Total = cd.Total
+                             };
+            return cartDetail;
+        }
     }
 }

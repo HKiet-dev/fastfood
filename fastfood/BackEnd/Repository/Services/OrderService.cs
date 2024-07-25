@@ -25,35 +25,17 @@ namespace BackEnd.Repository.Services
             return response;
         }
 
-        public ResponseDto AddOrder(Order order)
+        public Order AddOrder(Order order)
         {
-            try
-            {
-                _db.Orders.Add(order);
-                _db.SaveChanges();
-                response.Result = _mapper.Map<OrderDto>(order);
-                response.Message = "Tạo hoá đơn thành công";
-            }
-            catch (Exception ex)
-            {
-                response.IsSuccess = false;
-                response.Message = ex.Message;
-            }
-            return response;
+            _db.Orders.Add(order);
+            _db.SaveChanges();
+            return order;
         }
 
         public void AddOrderDetail(IEnumerable<OrderDetail> orderdetails)
         {
-            try
-            {
                 _db.OrderDetail.AddRange(orderdetails);
                 _db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                response.IsSuccess = false;
-                response.Message = ex.Message;
-            }
         }
 
         public ResponseDto GetOrderDetails(int OrderId)
@@ -124,7 +106,7 @@ namespace BackEnd.Repository.Services
 
         public void UpdateOrderStatus(int OrderId, string message)
         {
-            var order = _db.Orders.SingleOrDefault(Order => Order.Id == OrderId);
+            var order = _db.Orders.SingleOrDefault(Order => Order.OrderId == OrderId);
             order.OrderStatus = message;
             if (message == "Đã giao")
             {
