@@ -1,10 +1,51 @@
-﻿@code {
+﻿@page "/signin/{token}"
+@using FrontEnd.Models
+@using System.IdentityModel.Tokens.Jwt
+@using System.Security.Claims
+@using FrontEnd.Services
+@using FrontEnd.Services.IService
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@inject ITokenProvider TokenProvider
+@inject NavigationManager Navigation
+@code {
+    [Parameter]
+    public string token { get; set; }
 
-    protected override Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
-
-        return base.OnInitializedAsync();
+        await SignInUser(token);
+        Navigation.NavigateTo("/",forceLoad: true);
     }
 
+    private async Task SignInUser(string token)
+    {
+        // Xây dựng identity từ JWT token
+        var handler = new JwtSecurityTokenHandler();
+        var jwt = handler.ReadJwtToken(token);
+
+        var claims = new List<Claim>();
+
+        // Thêm các claim từ JWT token vào danh sách claims
+        claims.Add(new Claim(JwtRegisteredClaimNames.Email,
+            jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email)?.Value));
+        claims.Add(new Claim(JwtRegisteredClaimNames.Sub,
+            jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value));
+        claims.Add(new Claim(JwtRegisteredClaimNames.Name,
+            jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name)?.Value));
+        claims.Add(new Claim(ClaimTypes.Name,
+            jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Email)?.Value));
+        claims.Add(new Claim(ClaimTypes.Role,
+            jwt.Claims.FirstOrDefault(u => u.Type == "role")?.Value));
+
+        // Tạo identity từ danh sách claims
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var user = new ClaimsPrincipal(identity);
+
+        var httpContext = new HttpContextAccessor();
+
+        httpContext.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, user);
+        TokenProvider.SetToken(token);
+    }
 
 }

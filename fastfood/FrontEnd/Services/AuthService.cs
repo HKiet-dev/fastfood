@@ -71,14 +71,14 @@ namespace FrontEnd.Services
             }, withBearer: false);
         }
 
-        public async Task<ResponseDto?> RegisterAsync(RegistrationRequestDto registrationRequestDTO)
+        public async Task<ResponseDto?> RegisterAsync(RegistrationRequestDto obj)
         {
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = StaticDetails.ApiType.POST,
-                Data = registrationRequestDTO,
-                Url = "https://localhost:7039/api/Auth/register"
-            });
+                Data = obj,
+                Url = StaticDetails.ApiUrl + "/api/Auth/register"
+            }, withBearer: false);
         }
 
         public async Task<ResponseDto?> GetUserById(string userId)

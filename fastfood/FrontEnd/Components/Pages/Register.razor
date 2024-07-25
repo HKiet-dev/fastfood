@@ -109,7 +109,7 @@
         {
             var userRegisterResponse = await AuthService.RegisterAsync(model);
 
-            if(userRegisterResponse.Result != null)
+            if (userRegisterResponse.Message == "Tạo tài khoản thành công")
             {
                 Navigation.NavigateTo("/");
             }

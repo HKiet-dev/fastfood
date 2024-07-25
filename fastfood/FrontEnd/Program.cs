@@ -6,6 +6,8 @@ using FrontEnd.Services.IService;
 using FrontEnd.Services;
 using FrontEnd.Utility;
 using FrontEnd.Helper;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,12 +26,20 @@ builder.Services
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 StaticDetails.ApiUrl = builder.Configuration["ServiceUrls:BackEndApi"];
-builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
+
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IFoodService, FoodService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<CloudinaryServices>();
+builder.Services.AddScoped<ITokenProvider, TokenProvider>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login"; // Địa chỉ để người dùng được chuyển hướng khi không được xác thực
+        options.LogoutPath = "/Logout"; // Địa chỉ để người dùng được chuyển hướng khi đăng xuất
+    });
 
 var app = builder.Build();
 

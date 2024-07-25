@@ -4,7 +4,8 @@ namespace FrontEnd.Models
 {
     public class RegistrationRequestDto
     {
-        public string Id { get; set; }
+/*        [Required]
+        public string Id { get; set; }*/
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Độ dài của tên phải từ 3 đến 50 ký tự")]
         [RegularExpression("^[a-zA-Z 0-9_]+$", ErrorMessage = "Tên tài khoản phải là ký tự không dấu hoặc số")]
         public string Name { get; set; }
@@ -29,7 +30,7 @@ namespace FrontEnd.Models
         [Required(ErrorMessage = "Mật khẩu xác nhận không được để trống")]
         [Compare(nameof(Password),ErrorMessage = "Mật khẩu và mật khẩu xác nhận không trùng nhau")]
         public string ConfirmPassword { get; set; }
-        public string Role { get; set; }
+        public string Role { get; set; } = "string";
     }
 
 

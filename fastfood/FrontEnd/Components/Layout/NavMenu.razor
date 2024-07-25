@@ -1,4 +1,9 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+﻿@using FrontEnd.Helper
+@using FrontEnd.Services.IService
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.IdentityModel.Tokens.Jwt
+@inject ITokenProvider TokenProvider
+<nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm p-3 mb-5 bg-body-tertiary rounded">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">FastFood</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,9 +60,9 @@
         <div>
             <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
                 <Authorized>
-                    trên đây sẽ là chỗ để Hi, Name của user
-                    <NavLink class="nav-link" href="logout">
-                        <button class="btn"><i class="bi bi-box-arrow-left"></i> Đăng xuất</button>
+                    <span>hi, @userName</span>
+                    <NavLink class="nav-link" href="signout">
+                        <button class="btn btn-outline-secondary"><i class="bi bi-box-arrow-left"></i> Đăng xuất</button>
                     </NavLink>
                 </Authorized>
                 <NotAuthorized>
@@ -67,12 +72,37 @@
                     </NavLink>
                 </NotAuthorized>
             </Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
-            
         </div>
 
 
     </div>
 </nav>
+
+@code
+{
+    [CascadingParameter]
+    Task<AuthenticationStateProvider> AuthenticationStateProvider { get; set; }
+
+    private string userName;
+    private string userId;
+    private string token;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        token = TokenProvider.GetToken();
+
+        if (token != null)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwt = handler.ReadJwtToken(token);
+
+            userName = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name)?.Value;
+            userId = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value;
+        }
+
+    }
+}
 
 
 

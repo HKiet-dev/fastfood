@@ -4,8 +4,8 @@ namespace BackEnd.Models.Dtos
 {
     public class RegistrationRequestDto
     {
-        [Required]
-        public string Id { get; set; }
+/*        [Required]
+        public string Id { get; set; }*/
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Độ dài của tên phải từ 3 đến 50 ký tự")]
         [RegularExpression("^[a-zA-Z 0-9_]+$", ErrorMessage = "Tên tài khoản phải là ký tự không dấu hoặc số")]
         public string Name { get; set; }

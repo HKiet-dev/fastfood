@@ -40,14 +40,19 @@ namespace BackEnd.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegistrationRequestDto obj)
         {
-            var errorMessage = await _authService.Resgister(obj);
-            if (!string.IsNullOrEmpty(errorMessage))
+            var message = await _authService.Resgister(obj);
+            if (message != "Tạo tài khoản thành công")
             {
                 _response.IsSuccess = false;
-                _response.Message = errorMessage;
+                _response.Message = message;
                 return BadRequest(_response);
             }
-            return Ok(_response);
+            else
+            {
+                _response.IsSuccess = true;
+                _response.Message = message;
+                return Ok(_response);
+            }
         }
 
         /// <summary>
@@ -293,7 +298,7 @@ namespace BackEnd.Controllers
             var base64Response = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(jsonResponse));
 
             // Redirect to the MVC front-end with the token in the URL or via POST form
-            var redirectUrl = $"https://localhost:7192/Auth/GoogleLoginCallback?data={base64Response}";
+            var redirectUrl = $"https://localhost:7192/?data={base64Response}";
 
             return Redirect(redirectUrl);
         }
