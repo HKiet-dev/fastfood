@@ -2,10 +2,7 @@
 using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
-using BackEnd.Repository.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 #pragma warning disable 1591
@@ -49,32 +46,85 @@ namespace BackEnd.Controllers
         /// <summary>
         /// Tạo hoá đơn mới.
         /// </summary>
-        /// <param name="dto">Thông tin của hoá đơn mới.</param>
+        /// <param name="create">Thông tin của hoá đơn mới.</param>
         /// <returns>Hoá đơn mới được tạo.</returns>
         /// <response code="201">Hoá đơn mới được tạo thành công.</response>
         /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
         [HttpPost]
-        public ResponseDto Create([FromBody] OrderDto dto)
+        public ResponseDto Payment([FromBody] CreateOrderDto create)
         {
             var userId = _usermanager.GetUserId(User);
-            var cart = _cartService.GetById(userId);
-            var cartResult = (List<CartDetail>)cart.Result;
+            var cart = _cartService.getCart(userId);
             if (ModelState.IsValid)
             {
-                var order = _mapper.Map<Order>(dto);
-                var createdOrder = _oService.AddOrder(order).Result;
-                var orderDetails = cartResult.Select(item => new OrderDetail
+                Order order = new Order
                 {
-                    OrderId = (int)createdOrder,
-                    ProductId = item.Product.Id,
+                    UserId = userId,
+                    FullName = create.FullName,
+                    Address = create.Address,
+                    PaymentType = create.PaymentType,
+                    PhoneNumber = create.PhoneNumber,
+                    PaymentStatus = create.PaymentStatus,
+                    note = create.note
+                };
+                var createdOrder = _oService.AddOrder(order);
+                var orderDetails = cart.Select(item => new OrderDetail
+                {
+                    OrderId = createdOrder.OrderId,
+                    ProductId = item.Food.Id,
                     Quantity = item.Quantity,
-                    UnitPrice = item.Product.Price,
+                    UnitPrice = item.Food.Price,
                     Total = item.Total,
                 });
                 _oService.AddOrderDetail(orderDetails);
-                return new ResponseDto { IsSuccess = true , Message = "Thêm hoá đơn thành công", Result = dto};
+                return new ResponseDto { IsSuccess = true , Message = "Thêm hoá đơn thành công", Result = create};
             }
-            return null;
+            return new ResponseDto { IsSuccess = false, Message = "Lỗi xảy ra trong quá trình thanh toán"};
+        }
+
+        /// <summary>
+        /// Lấy tất cả hoá đơn của người dùng đang đăng nhập.
+        /// </summary>
+        /// <returns>Tất cả hoá đơn của người dùng đang đăng nhập.</returns>
+        /// <response code="200">Trả về tất cả hoá đơn của người dùng chỉ định.</response>
+        /// <response code="404">Không tìm thấy hoá đơn nào của người dùng chỉ định.</response>
+        [HttpGet("OrderByUser")]
+        public ResponseDto GetOrderByUser()
+        {
+            var userId = _usermanager.GetUserId(User);
+            return _oService.getOrderId(userId);
+        }
+
+        /// <summary>
+        /// Lấy hoá đơn chi tiết.
+        /// </summary>
+        /// <returns>Trả về hoá đơn chi tiết với mã hoá đơn đã chỉ định.</returns>
+        /// <response code="200">Trả về hoá đơn chi tiết với mã hoá đơn đã chỉ định.</response>
+        /// <response code="404">Không tìm thấy mã hoá đơn.</response>
+        [HttpGet("Order-details/{OrderId:int}")]
+        public ResponseDto GetOrderDetails([FromRoute] int OrderId)
+        {
+            return _oService.GetOrderDetails(OrderId);
+        }
+
+        /// <summary>
+        /// Cập nhật trạng thái thanh toán.
+        /// </summary>
+        /// <returns>Kết quả cập nhật.</returns>
+        /// <response code="200">Cập nhật thành công.</response>
+        /// <response code="404">Cập nhật thất bại.</response>
+        [HttpPut("update/{OrderId:int}")]
+        public ResponseDto UpdateOrder([FromRoute] int OrderId, [FromQuery] string message)
+        {
+            try
+            {
+                _oService.UpdateOrderStatus(OrderId, message);
+                return new ResponseDto { IsSuccess = true, Message = "Đã cập nhật" };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDto { IsSuccess = false, Message = ex.Message };
+            }
         }
     }
 }

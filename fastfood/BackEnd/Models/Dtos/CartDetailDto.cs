@@ -1,17 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+#pragma warning disable 1591
 namespace BackEnd.Models.Dtos
 {
     public class CartDetailDto
     {
-        [Required(ErrorMessage = "UserId không được để trống")]
-        public string UserId { get; set; }
+        [Required]
         public int ProductId { get; set; }
-        [Range(1, int.MaxValue, ErrorMessage = "Số lượng phải lớn hơn 0")]
+        [Required, Range(1, 100)]
         public int Quantity { get; set; }
-        [Column(TypeName = "DECIMAL(18,2)")]
-        public decimal Total { get; }
     }
 }

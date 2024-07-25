@@ -3,7 +3,8 @@ using BackEnd.Data;
 using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
-
+using System.Net.WebSockets;
+#pragma warning disable 1591
 namespace BackEnd.Repository.Services
 {
     public class CartService(ApplicationDbContext db, IMapper mapper) : ICartService
@@ -25,40 +26,28 @@ namespace BackEnd.Repository.Services
         }
         public ResponseDto CreateCart(CartDetail cartDetail)
         {
-            var eUser = _db.Users.FirstOrDefault(u => u.Id == cartDetail.UserId);
-            if(eUser is null)
+            try 
             {
-                response.IsSuccess = false;
-                response.Message = "Người dùng không tồn tại";
-                return response;
-            }
-
-            var eProduct = _db.Product.FirstOrDefault(p => p.Id == cartDetail.ProductId);
-            if( eProduct is null)
-            {
-                response.IsSuccess = false;
-                response.Message = "Sản phẩm không tồn tại"; 
-                return response;
-            }
-
-            var eCartDetal = _db.CartDetail.FirstOrDefault(c => c.Product.Id == cartDetail.ProductId && c.User.Id == cartDetail.UserId); 
-            if(eCartDetal is null)
-            {
-                var newCartDetail = new CartDetail
+                var eProduct = _db.Product.FirstOrDefault(p => p.Id == cartDetail.ProductId);
+                if (eProduct is null)
                 {
-                    UserId = cartDetail.UserId,
-                    ProductId = cartDetail.ProductId,
-                    Quantity = cartDetail.Quantity
-                };
+                    response.IsSuccess = false;
+                    response.Message = "Sản phẩm không tồn tại";
+                    return response;
+                }
 
-                _db.CartDetail.Add(newCartDetail);
-            }
-            else
-            {
-                eCartDetal.Quantity += cartDetail.Quantity;
-            }
-            try
-            {
+                var eCartDetal = _db.CartDetail.SingleOrDefault( c => c.UserId == cartDetail.UserId && c.ProductId == cartDetail.ProductId);
+                if (eCartDetal is null)
+                {
+                    cartDetail.Total = cartDetail.Quantity * eProduct.Price;
+                    _db.CartDetail.Add(cartDetail);
+                }
+                else
+                {
+                    eCartDetal.Quantity += cartDetail.Quantity;
+                    eCartDetal.Total = eProduct.Price * eCartDetal.Quantity;
+                    _db.CartDetail.Update(eCartDetal);
+                }
                 _db.SaveChanges();
                 response.Result = _mapper.Map<CartDetailDto>(cartDetail);
                 response.IsSuccess = true;
@@ -126,6 +115,50 @@ namespace BackEnd.Repository.Services
         public ResponseDto UpdateCart(CartDetail cartDetail)
         {
             throw new NotImplementedException();
+        }
+
+        public ResponseDto DeleteAllById(string userId)
+        {
+            try
+            {
+                // Tìm tất cả sản phẩm trong giỏ hàng của người dùng
+                var cartItems = _db.CartDetail.Where(c => c.UserId == userId).ToList();
+
+                // Kiểm tra nếu không có sản phẩm nào trong giỏ hàng của người dùng
+                if (!cartItems.Any())
+                {
+                    response.IsSuccess = false;
+                    response.Message = "Không có sản phẩm nào trong giỏ hàng của người dùng";
+                    return response;
+                }
+
+                // Xóa tất cả sản phẩm trong giỏ hàng của người dùng
+                _db.CartDetail.RemoveRange(cartItems);
+                _db.SaveChanges();
+
+                response.IsSuccess = true;
+                response.Message = "Xóa tất cả sản phẩm trong giỏ hàng của người dùng thành công";
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = $"Đã xảy ra lỗi khi xóa sản phẩm trong giỏ hàng của người dùng: {ex.Message}";
+            }
+            return response;
+        }
+
+        public IEnumerable<ListCartDetail> getCart(string UserId)
+        {
+            var cartDetail = from cd in _db.CartDetail
+                             join p in _db.Product on cd.ProductId equals p.Id
+                             where cd.UserId == UserId
+                             select new ListCartDetail
+                             {
+                                 Food = _mapper.Map<ProductDto>(p),
+                                 Quantity = cd.Quantity,
+                                 Total = cd.Total
+                             };
+            return cartDetail;
         }
     }
 }
