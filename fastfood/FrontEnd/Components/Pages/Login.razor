@@ -65,7 +65,6 @@
 
 @code {
     private LoginRequestDto model = new();
-
     private async Task HandleValidLoginModel()
     {
         var loginObject = await AuthService.LoginAsync(model);
