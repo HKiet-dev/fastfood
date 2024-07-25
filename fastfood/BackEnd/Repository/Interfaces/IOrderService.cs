@@ -5,7 +5,7 @@ namespace BackEnd.Repository.Interfaces
 {
     public interface IOrderService
     {
-        ResponseDto AddOrder(Order order);
+        Order AddOrder(Order order);
         void AddOrderDetail(IEnumerable<OrderDetail> orderdetails);
         ResponseDto Orders();
         ResponseDto Order(int id);
