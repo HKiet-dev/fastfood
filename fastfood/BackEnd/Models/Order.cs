@@ -5,25 +5,30 @@ namespace BackEnd.Models
 {
     public class Order
     {
-        public int Id { get; set; }
-        public string UserId { get; set; } = string.Empty;
-        public DateTime? DateReceived { get; set; }
-        [Required, StringLength(100, MinimumLength = 2)]
+        [Key]
+        public int OrderId { get; set; }
+        [MaxLength(450), ForeignKey("User")]
+        public string UserId { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime OrderDate { get; set; } = DateTime.Now;
+        public DateTime? ReceviedDate { get; set; }
+        [Required, MaxLength(100)]
         public string FullName { get; set; } = string.Empty;
-        [Required]
-        public string PhoneNo { get; set; } = string.Empty;
         [Required, MaxLength(250)]
         public string Address { get; set; } = string.Empty;
+
+        [Required]
+        public string PhoneNumber { get; set; } = string.Empty;
         [Required]
         public string PaymentType { get; set; } = string.Empty;
         [Required]
         public string PaymentStatus { get; set; } = string.Empty;
         [Required]
         public string OrderStatus { get; set; } = "Đang chuẩn bị";
-        public string? Note { get; set; }
-        public DateTime CreateAt { get; set; } = DateTime.UtcNow;
-        [ForeignKey(nameof(UserId))]
-        public User User { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
+        public string? note { get; set; } = string.Empty;
+
+        // Navigation
+        public virtual User User { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -15,7 +15,6 @@ namespace BackEnd.Controllers
         ICategoryService _cateService = cateService;
         IMapper _mapper = mapper;
 
-
         /// <summary>
         /// Lấy danh sách tất cả các danh mục.
         /// </summary>

@@ -28,9 +28,6 @@ namespace BackEnd.Data
                 .WithOne(cd => cd.Product)
                 .HasForeignKey(cd => cd.ProductId);
 
-            builder.Entity<OrderDetail>()
-                .HasKey(od => new { od.OrderId, od.ProductId });
-
             builder.Entity<User>()
                 .HasMany(u => u.CartDetails)
                 .WithOne(c => c.User);

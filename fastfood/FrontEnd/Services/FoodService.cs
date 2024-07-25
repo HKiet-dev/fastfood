@@ -59,7 +59,7 @@ namespace FrontEnd.Services
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.GET,
-                Url = _foodUri + $"/{id}"
+                Url = _foodUri + $"/product/{id}"
             });
         }
 
