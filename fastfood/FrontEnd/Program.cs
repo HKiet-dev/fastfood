@@ -27,6 +27,7 @@ builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IFoodService, FoodService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 var app = builder.Build();
