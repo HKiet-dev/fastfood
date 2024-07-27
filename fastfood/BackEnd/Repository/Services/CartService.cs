@@ -3,7 +3,6 @@ using BackEnd.Data;
 using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
-using System.Net.WebSockets;
 #pragma warning disable 1591
 namespace BackEnd.Repository.Services
 {
@@ -121,18 +120,13 @@ namespace BackEnd.Repository.Services
         {
             try
             {
-                // Tìm tất cả sản phẩm trong giỏ hàng của người dùng
                 var cartItems = _db.CartDetail.Where(c => c.UserId == userId).ToList();
-
-                // Kiểm tra nếu không có sản phẩm nào trong giỏ hàng của người dùng
                 if (!cartItems.Any())
                 {
                     response.IsSuccess = false;
                     response.Message = "Không có sản phẩm nào trong giỏ hàng của người dùng";
                     return response;
                 }
-
-                // Xóa tất cả sản phẩm trong giỏ hàng của người dùng
                 _db.CartDetail.RemoveRange(cartItems);
                 _db.SaveChanges();
 
@@ -147,7 +141,7 @@ namespace BackEnd.Repository.Services
             return response;
         }
 
-        public IEnumerable<ListCartDetail> getCart(string UserId)
+        public ResponseDto getCart(string UserId)
         {
             var cartDetail = from cd in _db.CartDetail
                              join p in _db.Product on cd.ProductId equals p.Id
@@ -158,7 +152,9 @@ namespace BackEnd.Repository.Services
                                  Quantity = cd.Quantity,
                                  Total = cd.Total
                              };
-            return cartDetail;
+            response.Result = cartDetail;
+            response.IsSuccess = true;
+            return response;
         }
     }
 }
