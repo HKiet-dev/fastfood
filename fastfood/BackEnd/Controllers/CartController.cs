@@ -30,7 +30,6 @@ namespace BackEnd.Controllers
             if (ModelState.IsValid)
             {
                 var cart = _mapper.Map<CartDetail>(dto);
-                cart.UserId = _userManager.GetUserId(User);
                 var response = _cartservice.CreateCart(cart);
                 return response;
             }
@@ -56,11 +55,10 @@ namespace BackEnd.Controllers
         /// <returns>Kết quả xóa giỏ hàng thành công</returns>
         /// <response code="200">Xóa giỏ hàng thành công.</response>
         /// <response code="404">Không tìm thấy giỏ hàng cần xóa.</response>
-        [HttpDelete(("deletecart/{id:int}"))]
-        public ResponseDto Delete([FromRoute] int id)
+        [HttpDelete(("deletecart/{productId:int} && {userId}"))]
+        public ResponseDto Delete([FromRoute] int productId, string userId)
         {
-            var userId = _userManager.GetUserId(User);
-            var response = _cartservice.DeleteCart(id, userId);
+            var response = _cartservice.DeleteCart(productId, userId);
             return response;
         }
 
@@ -71,10 +69,9 @@ namespace BackEnd.Controllers
         /// <response code="200">Trả về giỏ hàng  với sản phẩm, số lượng của khách hàng</response>
         /// <response code="404">Không tìm thấy không tìm thấy giỏ hàng nào của khách hàng</response>
         [HttpGet("find_id")]
-        public ResponseDto GetById()
+        public ResponseDto GetById(string UserId)
         {
-            var userId = _userManager.GetUserId(User); ;
-            return _cartservice.GetById(userId);
+            return _cartservice.GetById(UserId);
         }
 
         /// <summary>
@@ -83,13 +80,23 @@ namespace BackEnd.Controllers
         /// <returns>Trả về xoá tất cả danh sách giỏ hàng của người dùng</returns>
         /// <response code="200">Trả về giỏ hàng của người dùng đã được xoá</response>
         /// <response code="404">Không tìm thấy không tìm thấy giỏ hàng nào của khách hàng</response>
-        [HttpDelete("delete-all-by-user-id")]
-        public ResponseDto DeleteAllByUserId()
+        [HttpDelete("delete-all-by-user-id/{userId}")]
+        public ResponseDto DeleteAllByUserId(string userId)
         {
-
-            var userId = _userManager.GetUserId(User);
             var response = _cartservice.DeleteAllById(userId);
-            return response; 
+            return response;
+        }
+        /// <summary>
+        /// Lấy thông tin chi tiết giỏ hàng của người dùng
+        /// </summary>
+        /// <returns>Trả về chi tiết giỏ hàng người dùng gôm thông tin tất cả sản phâm</returns>
+        /// <response code="200">Trả về chi tiết giỏ hàng của khách hàng</response>
+        /// <response code="404">Không tìm thấy không tìm thấy giỏ hàng nào của khách hàng</response>
+        [HttpGet("list_cartdetails/{userId}")]
+        public ResponseDto GetCart(string userId)
+        {
+            var cartDetails = _cartservice.getCart(userId);
+            return cartDetails;
         }
 
     }

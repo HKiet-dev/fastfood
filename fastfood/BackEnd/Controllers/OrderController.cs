@@ -54,7 +54,9 @@ namespace BackEnd.Controllers
         public ResponseDto Payment([FromBody] CreateOrderDto create)
         {
             var userId = _usermanager.GetUserId(User);
-            var cart = _cartService.getCart(userId);
+            var cartList = _cartService.getCart(userId);
+
+            var cart = (IEnumerable<ListCartDetail>)cartList.Result;
             if (ModelState.IsValid)
             {
                 Order order = new Order

@@ -1,4 +1,5 @@
 ﻿@page "/cartcustomer"
+@rendermode InteractiveServer
 <link href="/Product.css" rel="stylesheet" />
 
 <div class="container mt-5">
@@ -10,33 +11,44 @@
                     <thead class="thead-light">
                         <tr>
                             <th></th>
-                            <th>tên sản phẩm</th>
+                            <th>Tên sản phẩm</th>
                             <th>Số lượng</th>
-                            <th>Giá </th>
+                            <th>Giá</th>
                             <th>Tổng tiền</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="d-flex align-items-center">
-                                <img src="https://mcdonalds.vn/uploads/2018/food/evm/xEVM_03_6pcs_chicken_mcnuggets_0.png.pagespeed.ic.5p8-nnCwK_.webp" alt="Product Image" class="img-fluid product-image-cart">
-                            </td>
-                            <td>Combo gà vui vẽ</td>
-                            <td>
-                                <div class="input-group quantity-selector-ms" style="width: 100px;">
-                                    <input type="number" id="inputQuantitySelector" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="0" min="0" max="10" step="1" aria-label="Quantity selector" style="width: 100%;">
-                                </div>
-                            </td>
-                            <td>54.00đ</td>
-                            <td>54.00đ</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm me-1 mb-2">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <!-- Repeat this block for each product in the cart -->
+
+                        @if (listCartUser == null)
+                        {
+                            <p>Bạn chưa có sản phẩm</p>
+                        }
+                        else
+                        {
+                            @foreach (var item in listCartUser)
+                            {
+                                <tr>
+                                    <td class="d-flex align-items-center">
+                                        <img src="@item.Food.ImageUrl" alt="Product Image" class="img-fluid product-image-cart">
+                                    </td>
+                                    <td>@item.Food.Name</td>
+                                    <td>
+                                        <div class="input-group quantity-selector-ms" style="width: 100px;">
+                                            <input type="number" id="inputQuantitySelector" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="@item.Quantity" min="0" max="10" step="1" aria-label="Quantity selector" style="width: 100%;">
+                                        </div>
+                                    </td>
+                                    <td>@item.Food.Price.ToString("C")</td>
+                                    <td>@((item.Quantity * item.Food.Price).ToString("C"))</td>
+                                    <td>
+                                        <button type="button" @onclick="() => DeleteCartItem(item.Food.Id)" class="btn btn-primary btn-sm me-1 mb-2">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+
                     </tbody>
                 </table>
             </div>
@@ -44,7 +56,7 @@
         <div class="col-md-4">
             <div class="cart-summary-cart p-3 border">
                 <h4>Tổng tiền</h4>
-                <p>Tổng cộng: 54.00đ</p>
+                @*    <p>Tổng cộng: @(CartDetails.Sum(item => item.Quantity * item.Product.Price).ToString("C"))</p> *@
                 <select class="form-select mb-3">
                     <option>Thanh toán tiền mặt</option>
                     <option>Chuyển khoản ngân hàng</option>

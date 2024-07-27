@@ -67,7 +67,7 @@
                         <label for="quantity" class="form-label">Số lượng</label>
                         <input type="number" class="form-control" id="quantity" value="1" min="1">
                     </div>
-                    <button class=" btn btn-outline-dark btn-lg">Add to Cart</button>
+                    <button class=" btn btn-outline-dark btn-lg" @onclick="AddToCart">Add to Cart</button>
                 </div>
             </div>
         }
@@ -103,7 +103,8 @@
                             @* button *@
                             <div class="d-flex justify-content-around mt-2">
                                 <a href="productdetails/@item.Id" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i> View Details</a>
-                                <a href="#" class="btn btn-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+
+                                <a href="cartcustomer" class="btn btn-dark" @onclick="AddToCart"><i class="fas fa-shopping-cart mx-1"></i></a>
                             </div>
                             @* </NavLink> *@
 

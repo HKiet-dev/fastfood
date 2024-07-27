@@ -33,6 +33,7 @@ builder.Services.AddScoped<IFoodService, FoodService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<CloudinaryServices>();
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

@@ -37,11 +37,8 @@
                         {
                             <div class="col-sm-3">
                                 <div class="card product-card">
-                                    <NavLink class="nav-link" href="productdetails">
                                         <img alt="Product" src="@item.ImageUrl" class="card-img-top">
-                                    </NavLink>
                                     <div class="card-body text-center">
-                                        <NavLink class="nav-link" href="productdetails">
                                             @* Product Name *@
                                             <h5>@item.Name</h5>
                                             @* Description *@
@@ -53,9 +50,8 @@
                                             @* button *@
                                             <div class="d-flex justify-content-around mt-2">
                                                 <a href="productdetails/@item.Id" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i> View Details</a>
-                                                <a href="#" class="btn btn-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
+                                            <a href="cartcustomer" class="btn btn-dark"><i class="fas fa-shopping-cart mx-1"></i></a>
                                             </div>
-                                        </NavLink>
 
                                     </div>
                                 </div>

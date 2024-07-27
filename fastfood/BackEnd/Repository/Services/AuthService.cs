@@ -52,15 +52,16 @@ namespace BackEnd.Repository.Services
         {
             var eUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
 
-            if (eUser != null) 
+            if (eUser != null)
             {
+                await _signInManager.PasswordSignInAsync(eUser, "", false, false);
                 return eUser;
             }
-            
+
             user = new User
             {
 
-                Avatar = user.Avatar, 
+                Avatar = user.Avatar,
                 UserName = user.Email,
                 Email = user.Email,
                 Name = user.Name,
@@ -68,28 +69,19 @@ namespace BackEnd.Repository.Services
                 PhoneNumber = user.PhoneNumber,
             };
 
-            var newUser = _mapper.Map<User>(user);
-
             string role = "CUSTOMER";
-            var result = await _userManager.CreateAsync(newUser);
+            var result = await _userManager.CreateAsync(user);
             if (!_roleManager.RoleExistsAsync(role).GetAwaiter().GetResult())
             {
                 _roleManager.CreateAsync(new IdentityRole(role)).GetAwaiter().GetResult();
             }
 
-            await _userManager.AddToRoleAsync(newUser, role);
-
-            var cart = new CartDetail()
-            {
-                UserId = user.Id,
-            };
-
-            await _context.CartDetail.AddAsync(cart);
-            await _context.SaveChangesAsync();
+            await _userManager.AddToRoleAsync(user, role);
+            await _signInManager.PasswordSignInAsync(user, "", false, false);
 
             if (result.Succeeded)
             {
-                return newUser;
+                return user;
             }
 
             return null;
