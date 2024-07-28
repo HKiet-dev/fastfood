@@ -1,5 +1,6 @@
 ﻿using FrontEnd.Models;
 using FrontEnd.Services.IService;
+using Newtonsoft.Json;
 using static FrontEnd.Utility.StaticDetails;
 
 namespace FrontEnd.Services
@@ -8,6 +9,22 @@ namespace FrontEnd.Services
     {
         readonly IBaseService _baseService = baseService;
         readonly string _foodUri = ApiUrl + "/api/food";
+
+        public async Task<int>? Count()
+        {
+            IEnumerable<Product> product = new List<Product>();
+            var counter = await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.GET,
+                Url = _foodUri + $"?page=1&pageSize=100"
+            });
+            if (counter != null && counter.IsSuccess)
+            {
+                product = JsonConvert.DeserializeObject<IEnumerable<Product>>(counter.Result.ToString());
+            }
+            return product.Count();
+        }
+
         public async Task<ResponseDto>? Create(Product product)
         {
             return await _baseService.SendAsync(new RequestDto

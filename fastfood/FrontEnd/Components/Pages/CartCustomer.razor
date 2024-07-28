@@ -55,17 +55,17 @@
         </div>
         <div class="col-md-4">
             <div class="cart-summary-cart p-3 border">
-                <h4>Tổng tiền</h4>
-                @*    <p>Tổng cộng: @(CartDetails.Sum(item => item.Quantity * item.Product.Price).ToString("C"))</p> *@
-                <select class="form-select mb-3">
-                    <option>Thanh toán tiền mặt</option>
-                    <option>Chuyển khoản ngân hàng</option>
-                </select>
-                <button class="btn btn-danger w-100">Thanh Toán</button>
-                <p class="mt-3">Chuyển khoản</p>
+                <div class="row">
+                    <h4 class="col-6">Tổng tiền</h4>
+                    <h4 class="col-6 text-end">@(listCartUser.Sum(item => item.Quantity * item.Food.Price).ToString("C"))</h4>
+                </div>
+                
+                <button class="btn btn-danger w-100" @onclick="GoToPayment">Thanh Toán</button>
+                <p class="mt-3">Các phương thức thanh toán</p>
                 <div class="d-flex justify-content-around mb-3">
                     <img src="https://play-lh.googleusercontent.com/dQbjuW6Jrwzavx7UCwvGzA_sleZe3-Km1KISpMLGVf1Be5N6hN6-tdKxE5RDQvOiGRg" alt="momo" class="payment-icon-cart">
                     <img src="https://play-lh.googleusercontent.com/2WHgcuwhtbmfrDEF-D-lYQ4sAk0TlI-aFtqx7lJXK5KV7f8smnofaedP_Opcd3edR2c" alt="Vnpay" class="payment-icon-cart">
+                    <img src="https://th.bing.com/th/id/OIP.ssvXuvnttquYlYk1eYm5-wAAAA?pid=ImgDet&w=188&h=188&c=7" alt="Vnpay" class="payment-icon-cart">
                 </div>
             </div>
         </div>
