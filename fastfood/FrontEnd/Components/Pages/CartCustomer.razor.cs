@@ -17,6 +17,8 @@ namespace FrontEnd.Components.Pages
         protected ITokenProvider tokenProvider { get; set; }
         [Inject]
         protected IFoodService _foodService { get; set; }
+        [Inject]
+        protected NavigationManager Navigation { get; set; }
         public CartDetail CartDetail { get; set; }
         public IEnumerable<ListCartDetail> listCartUser { get; set; } = Enumerable.Empty<ListCartDetail>();
 
@@ -44,6 +46,11 @@ namespace FrontEnd.Components.Pages
             {
                 listCartUser = listCartUser.Where(item => item.Food.Id != productId).ToList();
             }
+        }
+
+        private async Task GoToPayment()
+        {
+            Navigation.NavigateTo("/cartclient", forceLoad: true);
         }
     }
 }

@@ -13,5 +13,6 @@ namespace FrontEnd.Services.IService
         Task<ResponseDto>? GetBySearch(string query, int page = 1, int pageSize = 10);
         Task<ResponseDto>? GetByFilter(int? categoryid, decimal? price, int page = 1, int pageSize = 10);
         Task<ResponseDto>? TopViewed(int page = 1, int pageSize = 10);
+        Task<int>? Count();
     }
 }
