@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BackEnd.Repository.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace FrontEnd.Models
 {
@@ -16,13 +17,13 @@ namespace FrontEnd.Models
         [EmailAddress(ErrorMessage = "Email phải đúng định dạng")]
         public string Email { get; set; }
         public GenderType Gender { get; set; }
-        [StringLength(250, MinimumLength = 5, ErrorMessage = "Độ dài địa chỉ phải từ 5 đến 250 ký tự")]
-        public string Address { get; set; }
-        public string Avatar { get; set; }
+        [AddressValidation]
+        public string? Address { get; set; }
+        public string? Avatar { get; set; }
         [Required]
         [EnumDataType(typeof(UserStatus))]
         public UserStatus Status { get; set; } = UserStatus.Active;
-        public DateTime CreateAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreateDate { get; set; } = DateTime.UtcNow;
     }
 
     public enum UserStatus

@@ -9,12 +9,33 @@ namespace BackEnd.Repository.Services
         public string GenerateRandomPassword(int length = 8)
         {
             Random random = new Random();
-            string password = "";
-            for (int i = 0; i < length; i++)
+            if (length < 4)
             {
-                password += (char)random.Next(33, 126);
+                throw new ArgumentException("Password length must be at least 4 characters.");
             }
-            return password;
+
+            const string upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string lowerChars = "abcdefghijklmnopqrstuvwxyz";
+            const string digitChars = "0123456789";
+            const string specialChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
+            char[] password = new char[length];
+
+            // Lấy 1 ký tự ngẫu nhiên từ mỗi loại ký tự
+            password[0] = upperChars[random.Next(upperChars.Length)];
+            password[1] = lowerChars[random.Next(lowerChars.Length)];
+            password[2] = digitChars[random.Next(digitChars.Length)];
+            password[3] = specialChars[random.Next(specialChars.Length)];
+
+            // Lấy các ký tự còn lại
+            string allChars = upperChars + lowerChars + digitChars + specialChars;
+            for (int i = 4; i < length; i++)
+            {
+                password[i] = allChars[random.Next(allChars.Length)];
+            }
+
+            // Trộn mảng ký tự
+            return new string(password.OrderBy(x => random.Next()).ToArray());
         }
 
         public async Task SendMail(string email, string subject, string content)
