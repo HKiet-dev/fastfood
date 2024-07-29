@@ -58,29 +58,10 @@
                     }
                 </div>
 
-                <div class="view-more-container ">
-                    <div class="col-12">
-                        <nav aria-label="Page navigation example ">
-                            <ul class="pagination justify-content-center text-dark">
-                                <li class="page-item">
-                                    <a class="page-link text-dark" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                @for (int i = 1; i <= 3; i++)
-                                {
-                                    var pageIndex = i;
-                                    <li class="page-item"><a class="page-link text-dark" href="#">@pageIndex</a></li>
-                                }
-                                <li class="page-item">
-                                    <a class="page-link text-dark" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
+                <div>
+                    <button @onclick="PreviousPage" disabled="@(!hasPreviousPage)">Previous</button>
+                    <span>Page @currentPage of @totalPages</span>
+                    <button @onclick="NextPage" disabled="@(!hasNextPage)">Next</button>
                 </div>
             </div>
         </div>

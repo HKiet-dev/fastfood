@@ -14,50 +14,10 @@ namespace FrontEnd.Components.Pages
     public partial class Home : ComponentBase
     {
         [Inject]
-        protected ICategoryService _categoryService { get; set; }
-        [Inject]
-        protected IFoodService _foodService { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
-        public IEnumerable<Product> Products { get; set; }
-        [Inject]
         protected NavigationManager Navigation { get; set; }
         [Inject]
         protected ITokenProvider TokenProvider { get; set; }
-
-        protected async override Task OnInitializedAsync()
-        {
-            var categoriesTask = _categoryService.GetAll();
-            var productsTask = _foodService.GetAll(1, 8);
-
-            await Task.WhenAll(categoriesTask, productsTask);
-
-            var categoriesResponse = await categoriesTask;
-            var productsResponse = await productsTask;
-
-            if (categoriesResponse != null && categoriesResponse.IsSuccess)
-            {
-                Categories = JsonConvert.DeserializeObject<IEnumerable<Category>>(categoriesResponse.Result.ToString());
-            }
-
-            if (productsResponse != null && productsResponse.IsSuccess)
-            {
-                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(productsResponse.Result.ToString());
-            }
-
-            var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
-            if (Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("data", out var base64Data))
-            {
-                var jsonResponse = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data));
-                var loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(jsonResponse);
-
-                // Sign in user with the token
-                await SignInUser(loginResponseDto);
-                TokenProvider.SetToken(loginResponseDto.Token);
-                Navigation.NavigateTo("/",forceLoad : true);
-            }
-
-
-        }
+        
 
         private async Task SignInUser(LoginResponseDto model)
         {

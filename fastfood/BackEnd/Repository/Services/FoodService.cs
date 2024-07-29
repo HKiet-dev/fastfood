@@ -4,7 +4,7 @@ using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-
+#pragma warning disable 1591
 namespace BackEnd.Repository.Services
 {
     public class FoodService(ApplicationDbContext db, IMapper mapper) : IFoodService
@@ -75,12 +75,20 @@ namespace BackEnd.Repository.Services
                 var products = _db.Product.Where(p => p.IsActive).ToList();
                 var totalCount = products.Count;
                 var totalPages = (int)Math.Ceiling((decimal)totalCount / pageSize);
+
                 var productsPerPage = products
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
-                response.Result = _mapper.Map<List<ProductDto>>(productsPerPage);
+
+                response.Result = new
+                {
+                    TotalCount = totalCount,
+                    TotalPages = totalPages,
+                    Products = _mapper.Map<List<ProductDto>>(productsPerPage)
+                };
                 response.IsSuccess = true;
+                response.Message = "Lấy danh sách sản phẩm thành công.";
             }
             catch (Exception ex)
             {
@@ -88,6 +96,24 @@ namespace BackEnd.Repository.Services
                 response.Message = ex.Message;
             }
             return response;
+            //try
+            //{
+            //    var products = _db.Product.Where(p => p.IsActive).ToList();
+            //    var totalCount = products.Count;
+            //    var totalPages = (int)Math.Ceiling((decimal)totalCount / pageSize);
+            //    var productsPerPage = products
+            //        .Skip((page - 1) * pageSize)
+            //        .Take(pageSize)
+            //        .ToList();
+            //    response.Result = _mapper.Map<List<ProductDto>>(productsPerPage);
+            //    response.IsSuccess = true;
+            //}
+            //catch (Exception ex)
+            //{
+            //    response.IsSuccess = false;
+            //    response.Message = ex.Message;
+            //}
+            //return response;
         }
 
         public ResponseDto GetByCategoryId(int categoryid, int page = 1, int pageSize = 10)
