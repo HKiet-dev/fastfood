@@ -1,6 +1,8 @@
-﻿using BackEnd.Models;
+﻿using FrontEnd.Models;
+using FrontEnd.Services;
 using FrontEnd.Services.IService;
 using Microsoft.AspNetCore.Components;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 
 namespace FrontEnd.Components.Pages
@@ -9,29 +11,58 @@ namespace FrontEnd.Components.Pages
     {
         [Inject]
         protected ICategoryService _categoryService { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
         [Inject]
         protected IFoodService _foodService { get; set; }
+        public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Product> Products { get; set; }
+        private int currentPage = 1;
+        private int pageSize = 8;
+        private int totalPages;
+        private bool hasPreviousPage => currentPage > 1;
+        private bool hasNextPage => currentPage < totalPages;
 
         protected async override Task OnInitializedAsync()
         {
-            var categoriesTask = _categoryService.GetAll();
-            var productsTask = _foodService.GetAll(1, 8);
+            await LoadCategory();
+            await LoadProducts();
 
-            await Task.WhenAll(categoriesTask, productsTask);
+        }
 
-            var categoriesResponse = await categoriesTask;
-            var productsResponse = await productsTask;
-
-            if (categoriesResponse != null && categoriesResponse.IsSuccess)
+        protected async Task LoadCategory()
+        {
+            var response = await _categoryService.GetAll();
+            if (response != null && response.IsSuccess)
             {
-                Categories = JsonConvert.DeserializeObject<IEnumerable<Category>>(categoriesResponse.Result.ToString());
+                Categories = JsonConvert.DeserializeObject<IEnumerable<Category>>(response.Result.ToString());
             }
+        }
 
-            if (productsResponse != null && productsResponse.IsSuccess)
+        protected async Task LoadProducts()
+        {
+            var response = await _foodService.GetAll(currentPage, pageSize);
+            if (response != null && response.IsSuccess)
             {
-                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(productsResponse.Result.ToString());
+
+                var result = response.Result as dynamic;
+                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                totalPages = result.totalPages;
+            }
+        }
+        private async Task PreviousPage()
+        {
+            if (hasPreviousPage)
+            {
+                currentPage--;
+                await LoadProducts();
+            }
+        }
+
+        private async Task NextPage()
+        {
+            if (hasNextPage)
+            {
+                currentPage++;
+                await LoadProducts();
             }
         }
         protected async Task GetByCategoryId(int categoryid)

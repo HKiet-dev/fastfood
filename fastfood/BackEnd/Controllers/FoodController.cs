@@ -23,10 +23,16 @@ namespace BackEnd.Controllers
         /// <response code="200">Trả về danh sách các sản phẩm.</response>
         /// <response code="404">Không tìm thấy sản phẩm nào.</response>
         [HttpGet]
-        public ResponseDto GetAll(int page = 1, int pageSize = 10)
+        public ActionResult<ResponseDto> GetAll(int page = 1, int pageSize = 10)
         {
-            var products = _foodService.GetAll(page,pageSize);
-            return products;
+            var response = _foodService.GetAll(page, pageSize);
+
+            if (!response.IsSuccess)
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
         }
 
         /// <summary>

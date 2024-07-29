@@ -4,10 +4,8 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using Newtonsoft.Json;
-using Product = BackEnd.Models.Product;
 using System.IdentityModel.Tokens.Jwt;
 using FrontEnd.Services;
-
 
 
 namespace FrontEnd.Components.Pages
@@ -47,16 +45,18 @@ namespace FrontEnd.Components.Pages
             {
                 Product = null;
             }
-            var relatedProductsResponse = await _foodService.GetAll();
-
+            var relatedProductsResponse = await _foodService.GetAll(1, 8);
             if (relatedProductsResponse != null && relatedProductsResponse.IsSuccess)
             {
-                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(relatedProductsResponse.Result.ToString());
+
+                var result = relatedProductsResponse.Result as dynamic;
+                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
             }
             else
             {
                 Products = Enumerable.Empty<Product>();
             }
+
 
         }
         private async Task AddToCart()
