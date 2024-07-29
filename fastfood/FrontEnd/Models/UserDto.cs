@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BackEnd.Repository.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace FrontEnd.Models
 {
     public class UserDto
     {
         [Required(ErrorMessage = "Id là bắt buộc")]
-        public string Id { get; set; }
+        public string Id { get; set; }  = Guid.NewGuid().ToString();
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Độ dài của tên phải từ 3 đến 50 ký tự")]
         [RegularExpression("^[a-zA-Z 0-9_]+$", ErrorMessage = "Tên tài khoản phải là ký tự không dấu hoặc số")]
         public string Name { get; set; }
@@ -15,14 +16,14 @@ namespace FrontEnd.Models
         [Required(ErrorMessage = "Email không được để trống")]
         [EmailAddress(ErrorMessage = "Email phải đúng định dạng")]
         public string Email { get; set; }
-        public int Gender { get; set; }
-        [StringLength(250, MinimumLength = 5, ErrorMessage = "Độ dài địa chỉ phải từ 5 đến 250 ký tự")]
-        public string Address { get; set; }
-        public string Avatar { get; set; }
+        public GenderType Gender { get; set; }
+        [AddressValidation]
+        public string? Address { get; set; }
+        public string? Avatar { get; set; }
         [Required]
         [EnumDataType(typeof(UserStatus))]
         public UserStatus Status { get; set; } = UserStatus.Active;
-        public DateTime CreateAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreateDate { get; set; } = DateTime.UtcNow;
     }
 
     public enum UserStatus
@@ -31,5 +32,10 @@ namespace FrontEnd.Models
         Inactive,
         Delete,
         Block
+    }
+    public enum GenderType
+    {
+        Female,
+        Male,
     }
 }

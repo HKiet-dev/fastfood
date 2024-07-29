@@ -1,163 +1,287 @@
 ﻿@page "/usermanager"
-
+@using FrontEnd.Models
+@using FrontEnd.Services.IService
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.Extensions.Logging
+@rendermode InteractiveServer
 <h3>Admin</h3>
 
 <div class="container">
-	<div class="row">
-		<a class="border-danger mb-3 mx-3 btn btn-danger text-black" style="max-width: 250px;" href="usermanager">
-			<h5 class="card-title m-5">Users Manager</h5>
-		</a>
-		<a class="card border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
-			<h5 class="card-title m-5">Products Manager</h5>
-		</a>
-		<a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
-			<h5 class="card-title m-5">Orders Manager</h5>
-		</a>
-		<a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
-			<h5 class="card-title m-5">Category Manager</h5>
-		</a>
-	</div>
+    <div class="row">
+        <a class="border-danger mb-3 mx-3 btn btn-danger text-black" style="max-width: 250px;" href="usermanager">
+            <h5 class="card-title m-5">Users Manager</h5>
+        </a>
+        <a class="card border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
+            <h5 class="card-title m-5">Products Manager</h5>
+        </a>
+        <a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
+            <h5 class="card-title m-5">Orders Manager</h5>
+        </a>
+        <a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
+            <h5 class="card-title m-5">Category Manager</h5>
+        </a>
+    </div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="createFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-large">
-			<div class="modal-content">
-				<div class="container-fluid p-5">
-					<form class="row">
-						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-						<div class="form-group input-group mb-3">
-							@* <label class="control-label fw-bold input-group-text">AccountId:</label> *@
-							<input type="hidden" asp-for="User Id" class="form-control w-100" />
-							@* <span asp-validation-for="AccountId" class="text-danger"></span> *@
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Username :</label>
-							<input asp-for="Username" class="form-control w-100" />
-							<span asp-validation-for="Username" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">FullName:</label>
-							<input asp-for="FullName" class="form-control w-100" />
-							<span asp-validation-for="FullName" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Gender:</label>
-							<input asp-for="Gender" class="form-control w-100" />
-							<span asp-validation-for="Gender" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">PhoneNumber:</label>
-							<input asp-for="PhoneNumber" class="form-control w-100" />
-							<span asp-validation-for="PhoneNumber" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Address:</label>
-							<input asp-for="Address" class="form-control w-100" />
-							<span asp-validation-for="Address" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Email:</label>
-							<input asp-for="Email" class="form-control w-100" />
-							<span asp-validation-for="Email" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Avatar:</label>
-							<input asp-for="Avatar" class="form-control w-100" />
-							<span asp-validation-for="Avatar" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">EmailConfirmed:</label>
-							<input asp-for="EmailConfirmed" class="form-control w-100" />
-							<span asp-validation-for="EmailConfirmed" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Role:</label>
-							<input asp-for="Role" class="form-control w-100" />
-							<span asp-validation-for="Role" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Status:</label>
-							<input asp-for="Status" class="form-control w-100" />
-							<span asp-validation-for="Status" class="text-danger"></span>
-						</div>
-						<div class="form-group input-group mb-3">
-							@* <label class="control-label fw-bold input-group-text">RowVersion:</label> *@
-							@* <input type="hidden" asp-for="RowVersion" class="form-control w-100" /> *@
-							@* <span asp-validation-for="RowVersion" class="text-danger"></span> *@
-						</div>
-						<div class="form-group mt-3 text-center">
-							<input type="submit" value="Create" asp-action="CreateAccount" class="btn btn-danger w-50" />
-						</div>
-						<div class="form-group mt-3 text-center">
-							<input type="submit" value="Update" asp-action="UpdateAccount" class="btn btn-primary w-50" />
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+    @if (!string.IsNullOrEmpty(notification))
+    {
+        <div class="alert alert-success">
+            @notification
+        </div>
+    }
+    <!-- Modal -->
+    <div class="modal fade" id="createUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-large">
+            <div class="modal-content">
+                <div class="container-fluid p-5">
+                    <EditForm Model="CreateUser" OnValidSubmit="Create" class="row" FormName="CreateForm">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
 
-	@* <partial name="_CreateAccount"></partial> *@
-	<nav class="navbar navbar-light bg-light justify-content-end">
-		<a class="form-inline btn btn-danger me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
-		<div class="form-inline">
-			<input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-danger my-3 my-sm-0 m-2" type="submit">Search</button>
-		</div>
-	</nav>
-	<div class="card border border-light rounded p-3 shadow bg-light">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>
-						User Id
-					</th>
-					<th>
-						Username
-					</th>
-					<th>
-						FullName
-					</th>
-					<th>
-						Gender
-					</th>
-					<th>
-						PhoneNumber
-					</th>
-					<th>
-						Address
-					</th>
-					<th>
-						Email
-					</th>
-					<th>
-						Avatar
-					</th>
-					<th>
-						Role
-					</th>
-					<th>
-						Status
-					</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-						body nef
-					</td>
-					<td>
-						<a href="" class="mx-2"><i class="fa-solid fa-pen"></i></a>
-						<a href="" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+                        <InputText type="hidden" @bind-Value="CreateUser.Id" class="form-control w-100" />
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">Username :</label>
+                            <InputText @bind-Value="CreateUser.Name" class="form-control w-100" />
+                            <ValidationMessage For="@(() => CreateUser.Name)" />
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text form-check-label">Gender:</label>
+                            <InputRadioGroup @bind-Value="CreateUser.Gender" class="form-control w-100">
+                                <div class="form-check">
+                                    <InputRadio class="form-check-input" Value="GenderType.Male" />
+                                    <label class="form-check-label">Nam</label>
+                                </div>
+                                <div class="form-check">
+                                    <InputRadio class="form-check-input" Value="GenderType.Female" />
+                                    <label class="form-check-label">Nữ</label>
+                                </div>
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => CreateUser.Gender)" />
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">PhoneNumber:</label>
+                            <InputText @bind-Value="CreateUser.PhoneNumber" class="form-control w-100" />
+                            <ValidationMessage For="@(() => CreateUser.PhoneNumber)" />
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">Address:</label>
+                            <InputText @bind-Value="CreateUser.Address" class="form-control w-100" />
+                            <ValidationMessage For="@(() => CreateUser.Address)" />
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">Email:</label>
+                            <InputText @bind-Value="CreateUser.Email" class="form-control w-100" />
+                            <ValidationMessage For="@(() => CreateUser.Email)" />
+                        </div>
+
+                        <div class="form-group mt-3 text-center">
+                            <button type="submit" class="btn btn-danger w-50">Thêm</button>
+                        </div>
+                    </EditForm>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-large">
+            <div class="modal-content">
+                <div class="container-fluid p-5">
+                    <EditForm Model="EditUser" OnValidSubmit="Edit" class="row" FormName="EditForm">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <InputText type="hidden" @bind-Value="EditUser.Id" class="form-control w-100" />
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">Username :</label>
+                            <InputText @bind-Value="EditUser.Name" class="form-control w-100" />
+                            <ValidationMessage For="@(() => EditUser.Name)" />
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text form-check-label">Gender:</label>
+                            <InputRadioGroup @bind-Value="EditUser.Gender" class="form-control w-100">
+                                <div class="form-check">
+                                    <InputRadio class="form-check-input" Value="GenderType.Male" />
+                                    <label class="form-check-label">Nam</label>
+                                </div>
+                                <div class="form-check">
+                                    <InputRadio class="form-check-input" Value="GenderType.Female" />
+                                    <label class="form-check-label">Nữ</label>
+                                </div>
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => EditUser.Gender)" />
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">PhoneNumber:</label>
+                            <InputText @bind-Value="EditUser.PhoneNumber" class="form-control w-100" />
+                            <ValidationMessage For="@(() => EditUser.PhoneNumber)" />
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">Address:</label>
+                            <InputText @bind-Value="EditUser.Address" class="form-control w-100" />
+                            <ValidationMessage For="@(() => EditUser.Address)" />
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">Email:</label>
+                            <InputText @bind-Value="EditUser.Email" class="form-control w-100" />
+                            <ValidationMessage For="@(() => EditUser.Email)" />
+                        </div>
+
+                        <div class="form-group mt-3 text-center">
+                            <button type="submit" class="btn btn-danger w-50">Sửa</button>
+                        </div>
+                    </EditForm>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xóa người dùng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" @onclick="Delete" class="btn btn-primary">Xóa</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @* <partial name="_CreateAccount"></partial> *@
+    <nav class="navbar navbar-light bg-light justify-content-end">
+        <a class="form-inline btn btn-danger me-5" data-toggle="modal" data-target="#createUser"><span><i class="fas fa-plus"></i></span> Thêm</a>
+        <div class="form-inline">
+            <input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-danger my-3 my-sm-0 m-2" type="submit">Search</button>
+        </div>
+    </nav>
+
+
+    <div class="card border border-light rounded p-3 shadow bg-light">
+        <table class="table table-active table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        Avatar
+                    </th>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Tên
+                    </th>
+                    <th>
+                        Giới tính
+                    </th>
+                    <th>
+                        SĐT
+                    </th>
+                    <th>
+                        Địa chỉ
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Trạng thái
+                    </th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            @if (Users == null)
+            {
+                <tbody>
+                    <tr>
+                        <td colspan="9">
+                            <h3>Không có dữ liệu</h3>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+            else
+            {
+                @foreach (var item in Users)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="@item.Avatar" width="50px" height="50px" />
+                            </td>
+                            <td>
+                                @item.Id
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @item.Gender
+                            </td>
+                            <td>
+                                @item.PhoneNumber
+                            </td>
+                            <td>
+                                @item.Address
+                            </td>
+                            <td>
+                                @item.Email
+                            </td>
+                            <td>
+                                @item.Status
+                            </td>
+                            <td>
+                                <a @onclick="()=>GetUser(item.Id)" class="mx-2" data-toggle="modal" data-target="#editUser"><i class="fa-solid fa-pen"></i></a>
+                                <a @onclick="()=>GetUser(item.Id)" data-toggle="modal" data-target="#deleteUser" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            }
+        </table>
+       @*  <nav class="my-4" aria-label="Page navigation user">
+            <ul class="pagination">
+                @if (page != null && page.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" @onclick="() => NavigateToPage(page.CurrentPage - 1)" href="#">Previous</a>
+                    </li>
+                }
+
+                @if (page != null)
+                {
+                    @for (int i = 1; i <= page.TotalPages; i++)
+                    {
+                        <li class="page-item @(page.CurrentPage == i ? "active" : "")">
+                            <a class="page-link" @onclick="() => NavigateToPage(i)" href="#">@i</a>
+                        </li>
+                    }
+                }
+
+                @if (page != null && page.CurrentPage < page.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" @onclick="() => NavigateToPage(page.CurrentPage + 1)" href="#">Next</a>
+                    </li>
+                }
+            </ul>
+        </nav> *@
+    </div>
 </div>
-
-@code {
-
-}
-
