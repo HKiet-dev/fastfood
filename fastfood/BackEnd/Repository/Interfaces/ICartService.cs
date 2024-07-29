@@ -11,6 +11,6 @@ namespace BackEnd.Repository.Interfaces
         ResponseDto DeleteCart(int  prodcutId, string userId);
         ResponseDto DeleteAllById (string userId);
         ResponseDto GetById (string userId);
-        IEnumerable<ListCartDetail> getCart(string UserId);
+        ResponseDto getCart(string UserId);
     }
 }

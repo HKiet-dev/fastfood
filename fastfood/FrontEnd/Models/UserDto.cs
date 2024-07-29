@@ -1,9 +1,8 @@
-﻿using BackEnd.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FrontEnd.Models
 {
-    public class User
+    public class UserDto
     {
         [Required(ErrorMessage = "Id là bắt buộc")]
         public string Id { get; set; }  = Guid.NewGuid().ToString();

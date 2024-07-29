@@ -19,6 +19,7 @@ namespace BackEnd
                 config.CreateMap<CartDetailDto,CartDetail>().ReverseMap();
                 config.CreateMap<OrderDto, Order>().ReverseMap();
                 config.CreateMap<OrderDetailDto, OrderDetail>().ReverseMap();
+                config.CreateMap<CartDetailDto, CartDetail>().ReverseMap();
             });
             return mappingconfig;
         }

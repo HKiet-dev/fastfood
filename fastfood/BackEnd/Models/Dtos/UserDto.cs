@@ -13,8 +13,8 @@ namespace BackEnd.Models.Dtos
         [StringLength(13, MinimumLength = 9, ErrorMessage = "Độ dài số điện thoại phải từ 9 đến 13 chữ số")]
         [Phone(ErrorMessage = "Số điện thoại phải là chữ số")]
         public string PhoneNumber {  get; set; }
-        [Required(ErrorMessage ="Email không được để trống")]
-        [EmailAddress(ErrorMessage ="Email phải đúng định dạng")]
+        [Required(ErrorMessage = "Email không được để trống")]
+        [EmailAddress(ErrorMessage = "Email phải đúng định dạng")]
         public string Email { get; set; }
         [Required(ErrorMessage ="Giới tính không được để trống")]
         public int Gender { get; set; }

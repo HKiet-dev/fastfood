@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BackEnd.Models.Dtos
+namespace FrontEnd.Models
 {
     public class RegistrationRequestDto
     {
@@ -28,8 +28,10 @@ namespace BackEnd.Models.Dtos
         ErrorMessage = "Mật khẩu phải có chữ đầu tiên là chữ viết hoa, tối thiểu 8 ký tự bao gồm chữ, số và ký tự đặc biệt")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Mật khẩu xác nhận không được để trống")]
-        [Compare(nameof(Password), ErrorMessage = "Mật khẩu và mật khẩu xác nhận không trùng nhau")]
+        [Compare(nameof(Password),ErrorMessage = "Mật khẩu và mật khẩu xác nhận không trùng nhau")]
         public string ConfirmPassword { get; set; }
-        public string Role { get; set; }
+        public string Role { get; set; } = "string";
     }
+
+
 }

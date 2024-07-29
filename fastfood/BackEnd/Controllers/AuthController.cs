@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 #pragma warning disable 1591
 namespace BackEnd.Controllers
 {
-    [Route("api/auth")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -37,17 +37,22 @@ namespace BackEnd.Controllers
         /// <returns>Kết quả đăng ký.</returns>
         /// <response code="200">Đăng ký thành công.</response>
         /// <response code="400">Đăng ký thất bại (có thể do email đã tồn tại hoặc dữ liệu không hợp lệ).</response>
-        [HttpPost("auth")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegistrationRequestDto obj)
         {
-            var errorMessage = await _authService.Resgister(obj);
-            if (!string.IsNullOrEmpty(errorMessage))
+            var message = await _authService.Resgister(obj);
+            if (message != "Tạo tài khoản thành công")
             {
                 _response.IsSuccess = false;
-                _response.Message = errorMessage;
+                _response.Message = message;
                 return BadRequest(_response);
             }
-            return Ok(_response);
+            else
+            {
+                _response.IsSuccess = true;
+                _response.Message = message;
+                return Ok(_response);
+            }
         }
 
         /// <summary>
@@ -161,7 +166,7 @@ namespace BackEnd.Controllers
         /// <returns>Thông tin người dùng mới được tạo.</returns>
         /// <response code="200">Tạo người dùng thành công.</response>
         /// <response code="400">Tạo người dùng thất bại.</response>
-        [HttpPost("GoogleAccount")]
+        [HttpPost("googleaccount")]
         public async Task<IActionResult> CreateUserFromGoogleLogin(User user)
         {
             var result = await _authService.CreateUserFromGoogleLogin(user);
@@ -272,7 +277,7 @@ namespace BackEnd.Controllers
             var base64Response = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(jsonResponse));
 
             // Redirect to the MVC front-end with the token in the URL or via POST form
-            var redirectUrl = $"https://localhost:7192/Auth/GoogleLoginCallback?data={base64Response}";
+            var redirectUrl = $"https://localhost:7192/?data={base64Response}";
 
             return Redirect(redirectUrl);
         }

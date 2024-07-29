@@ -7,6 +7,7 @@ namespace FrontEnd.Services
     {
         private readonly IHttpContextAccessor _contextAccessor;
 
+
         public TokenProvider(IHttpContextAccessor contextAccessor)
         {
             _contextAccessor = contextAccessor;
@@ -30,5 +31,14 @@ namespace FrontEnd.Services
         {
             _contextAccessor.HttpContext?.Response.Cookies.Append(StaticDetails.TokenCookie, token);
         }
+        public string GetIdentityToken()
+        {
+
+            string? token = null;
+
+            bool? hasToken = _contextAccessor.HttpContext?.Request.Cookies.TryGetValue(".AspNetCore.Identity.Application", out token);
+            return hasToken is true ? token : null;
+        }
+
     }
 }

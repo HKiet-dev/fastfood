@@ -8,7 +8,7 @@ namespace FrontEnd.Services
     {
         readonly IBaseService _baseService = baseService;
         readonly string _userUri = ApiUrl + "/api/user";
-        public async Task<ResponseDto>? Create(User user)
+        public async Task<ResponseDto>? Create(UserDto user)
         {
             return await _baseService.SendAsync(new RequestDto
             {
@@ -54,7 +54,7 @@ namespace FrontEnd.Services
             });
         }
 
-        public async Task<ResponseDto>? Update(User user)
+        public async Task<ResponseDto>? Update(UserDto user)
         {
             return await _baseService.SendAsync(new RequestDto
             {

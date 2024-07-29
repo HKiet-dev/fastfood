@@ -32,8 +32,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 // Config các IService và Service ở chỗ này ↓
-builder.Services.AddScoped<ICategoryService,CategoryService>();
-builder.Services.AddScoped<IFoodService,FoodService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IFoodService, FoodService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IHelper, HelperService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
@@ -94,7 +94,8 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["ApiSettings:JwtOptions:Issuer"],
         ValidAudience = builder.Configuration["ApiSettings:JwtOptions:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["ApiSettings:JwtOptions:Secret"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["ApiSettings:JwtOptions:Secret"])),
+        ClockSkew = TimeSpan.Zero
     };
 }).AddGoogle(googleOptions =>
 {

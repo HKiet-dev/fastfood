@@ -4,6 +4,8 @@ using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 using FrontEnd.Services.IService;
+using Azure.Core;
+using System.Net.Http.Headers;
 
 namespace FrontEnd.Services
 {
@@ -23,14 +25,16 @@ namespace FrontEnd.Services
         {
             try
             {
-                HttpClient client = _httpClientFactory.CreateClient("MangoAPI");
+                HttpClient client = _httpClientFactory.CreateClient("FastFoodAPI");
                 HttpRequestMessage message = new();
                 message.Headers.Add("Accept", "application/json");
                 //Token
                 if (withBearer)
                 {
+
                     var token = _tokenProvider.GetToken();
-                    message.Headers.Add("Authorization", $"Bearer {token}");
+                    message.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                    //message.Headers.Add("Authorization", $"Bearer {token}");
                 }
 
                 message.RequestUri = new Uri(requestDTO.Url);
