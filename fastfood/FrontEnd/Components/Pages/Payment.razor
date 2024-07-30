@@ -1,0 +1,80 @@
+﻿@page "/payment"
+@using Microsoft.JSInterop
+@using FrontEnd.Models
+@rendermode InteractiveServer
+<div class="container box-shadow-edit">
+    <EditForm OnValidSubmit="PaymentMethod" FormName="Payment" Model="model">
+        <div class="row">
+            <div class="col-md-6 p-4 bg-white border-end border-3">
+                <h2 class="text-lg font-semibold mb-4">Thông tin thanh toán</h2>
+                <div class="mb-3">
+                    <label class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                    <InputText @bind-Value="model.FullName" type="text" class="form-control" id="fullName" placeholder="Họ và tên đầy đủ"></InputText>
+                    <ValidationMessage For="()=> model.FullName"></ValidationMessage>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                    <InputText @bind-Value="model.PhoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="08588xxxxx"></InputText>
+                    <ValidationMessage For="()=> model.PhoneNumber"></ValidationMessage>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Địa chỉ nhận hàng <span class="text-danger">*</span></label>
+                    <InputText @bind-Value="model.Address" type="text" class="form-control" id="Address" placeholder="Nhập địa chỉ nhận chính xác"></InputText>
+                    <ValidationMessage For="()=> model.Address"></ValidationMessage>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Lưu ý</label>
+                    <InputText @bind-Value="model.note" type="text" class="form-control" id="Note" placeholder="Lưu ý dành cho đơn vị vận chuyển"></InputText>
+                    <ValidationMessage For="()=> model.note"></ValidationMessage>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Phương thức thanh toán <span class="text-danger">*</span></label>
+                    <InputSelect  @bind-Value="model.PaymentType" class="form-select">
+                        <option value="COD">Cash on Delivery</option>
+                        <option value="MOMO">Momo</option>
+                        <option value="VNPAY">VNpay</option>
+                    </InputSelect>
+                    <ValidationMessage For="()=> model.PaymentType"></ValidationMessage>
+                </div>
+            </div>
+            <div class="col-md-6 p-4 bg-white">
+                <h2 class="text-lg mb-4 text-center">Giỏ hàng</h2>
+                <div class="mb-4">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Tổng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(!cartDetails.Any())
+                            {
+                                
+                            } else
+                            {
+                                foreach (var item in cartDetails)
+                                {
+                                    <tr>
+                                        <td align="left">@item.Food.Name</td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.Food.Price</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="border-top pt-2 mb-4">
+                    <div class="d-flex justify-content-between align-items-center fs-4 fw-bold">
+                        <span>Total</span>
+                        <span>@cartDetails.Sum(x => x.Total).ToString("C")</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Thanh toán</button>
+                <DataAnnotationsValidator></DataAnnotationsValidator>
+            </div>
+        </div>
+    </EditForm>
+</div>
