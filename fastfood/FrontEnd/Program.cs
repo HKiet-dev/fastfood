@@ -36,6 +36,7 @@ builder.Services.AddScoped<CloudinaryServices>();
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
