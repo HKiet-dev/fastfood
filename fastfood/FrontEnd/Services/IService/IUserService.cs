@@ -4,7 +4,7 @@ namespace FrontEnd.Services.IService
 {
     public interface IUserService
     {
-        Task<ResponseDto>? GetAll(int page, int pageSize);
+        Task<ResponseDto>? GetAll(int page = 1, int pageSize = 10);
         Task<ResponseDto>? GetById(string id);
         Task<ResponseDto>? Create(UserDto user);
         Task<ResponseDto>? Update(UserDto user);

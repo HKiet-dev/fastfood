@@ -27,7 +27,7 @@ builder.Services
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 StaticDetails.ApiUrl = builder.Configuration["ServiceUrls:BackEndApi"];
-
+builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IFoodService, FoodService>();

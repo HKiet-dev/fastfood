@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BackEnd.Repository.Validation;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BackEnd.Models.Dtos
 {
@@ -18,10 +20,11 @@ namespace BackEnd.Models.Dtos
         public string Email { get; set; }
         [Required(ErrorMessage ="Giới tính không được để trống")]
         public int Gender { get; set; }
-        [StringLength(250, MinimumLength = 5, ErrorMessage = "Độ dài địa chỉ phải từ 5 đến 250 ký tự")]
-        public string Address { get; set; }
-        public string Avatar { get; set; }
+        [AddressValidation]
+        public string? Address { get; set; }
+        [AllowNull]
+        public string? Avatar { get; set; }
         public UserStatus Status { get; set; } = UserStatus.Active;
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

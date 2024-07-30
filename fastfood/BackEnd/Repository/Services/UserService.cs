@@ -33,10 +33,10 @@ namespace BackEnd.Repository.Services
                     user.NormalizedEmail = user.Email.ToUpper();
                     user.NormalizedUserName = user.UserName.ToUpper();
                     IdentityResult result;
-                    CartDetail cartDto = new CartDetail()
-                    {
-                        UserId = user.Id
-                    };
+                    //CartDetail cartDto = new CartDetail()
+                    //{
+                    //    UserId = user.Id
+                    //};
                     if (randomPassword == null)
                     {
                         result = await _userManager.CreateAsync(user);
@@ -49,7 +49,7 @@ namespace BackEnd.Repository.Services
                     if (result.Succeeded)
                     {
                         response.Message = "Đã tạo người dùng thành công";
-                        await _context.CartDetail.AddAsync(_mapper.Map<CartDetail>(cartDto));
+                        //await _context.CartDetail.AddAsync(_mapper.Map<CartDetail>(cartDto));
                         response.Result = _mapper.Map<UserDto>(user);
                         await _context.SaveChangesAsync();
                     }
