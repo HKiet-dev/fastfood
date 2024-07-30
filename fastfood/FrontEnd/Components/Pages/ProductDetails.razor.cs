@@ -100,7 +100,7 @@ namespace FrontEnd.Components.Pages
                     if (response != null && response.IsSuccess)
                     {
                         await JSRuntime.InvokeVoidAsync("alert", "Sản phẩm đã được thêm vào giỏ hàng.");
-                        NavigationManager.NavigateTo("/cartcustomer");
+                        NavigationManager.NavigateTo("/cart");
                     }
                     else
                     {

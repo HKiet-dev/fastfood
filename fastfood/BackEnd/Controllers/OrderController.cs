@@ -10,7 +10,6 @@ namespace BackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class OrderController(IOrderService oService, IMapper mapper, UserManager<User> userManager, ICartService cartService) : ControllerBase
     {
         IOrderService _oService = oService;
