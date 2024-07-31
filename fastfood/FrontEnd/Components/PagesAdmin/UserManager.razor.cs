@@ -3,24 +3,27 @@ using Microsoft.AspNetCore.Components;
 using FrontEnd.Services.IService;
 using Newtonsoft.Json;
 using Azure;
+using Microsoft.AspNetCore.Components.Forms;
+using FrontEnd.Helper;
 
 namespace FrontEnd.Components.PagesAdmin
 {
     public partial class UserManager : ComponentBase
     {
-        private bool isEditUserModalVisible = false;
+        [Parameter]
+        public EventCallback<InputFileChangeEventArgs> OnChangeInputFile { get; set; }
+        private IBrowserFile file;
         [SupplyParameterFromForm]
         private UserDto CreateUser { get; set; }
         [SupplyParameterFromForm]
         private UserDto EditUser { get; set; }
         [Inject]
         protected IUserService _userservice { get; set; }
+        [Inject]
+        protected CloudinaryServices CloudinaryService { get; set; }
         public List<UserDto>? Users { get; set; }
         public List<UserDto>? SearchUsers { get; set; }
-        [Inject]
-        protected IWebHostEnvironment _env { get; set; }
         public string notification = "";
-        //[SupplyParameterFromForm]
         private PageNavigation page { get; set; }
         private string search = null;
 
@@ -30,7 +33,7 @@ namespace FrontEnd.Components.PagesAdmin
             CreateUser ??= new();
             EditUser ??= new();
             page ??= new();
-            string defaultAvatar = Path.Combine(_env.WebRootPath, "Img", "default_avatar.png");
+            CloudinaryService ??= new();
             await LoadUsers();
 
         }
@@ -77,6 +80,7 @@ namespace FrontEnd.Components.PagesAdmin
         {
             try
             {
+                UploadAvatar(CreateUser);
                 var response = await _userservice.Create(CreateUser);
                 if (response.IsSuccess)
                     notification = "Thêm người dùng thành công";
@@ -94,6 +98,7 @@ namespace FrontEnd.Components.PagesAdmin
         {
             try
             {
+                UploadAvatar(EditUser);
                 var response = await _userservice.Update(EditUser);
                 if (response != null && response.IsSuccess)
                 {
@@ -184,6 +189,26 @@ namespace FrontEnd.Components.PagesAdmin
             else
             {
                 await LoadUsers();
+            }
+        }
+        private void HandleFileSelected(InputFileChangeEventArgs e)
+        {
+            file = e.File;
+        }
+
+        private async void UploadAvatar(UserDto user)
+        {
+            if (file != null)
+            {
+                using var fileStream = file.OpenReadStream();
+                var fileName = file.Name;
+
+                var cloudinaryUrl = await CloudinaryService.UploadImageAsync(fileStream, fileName);
+
+                if (!string.IsNullOrEmpty(cloudinaryUrl))
+                {
+                    user.Avatar = cloudinaryUrl;
+                }
             }
         }
     }

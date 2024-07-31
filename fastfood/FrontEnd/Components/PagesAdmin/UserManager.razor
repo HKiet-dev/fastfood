@@ -77,7 +77,10 @@
                             <InputText @bind-Value="CreateUser.Email" class="form-control w-100" />
                             <ValidationMessage For="@(() => CreateUser.Email)" />
                         </div>
-
+                        <div class="form-group input-group mb-3">
+                            <label for="image" class="control-label fw-bold input-group-text">Ảnh đại diện</label>
+                            <InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control w-100"/>
+                        </div>
                         <div class="form-group mt-3 text-center">
                             <button type="submit" class="btn btn-danger w-50">Thêm</button>
                         </div>
@@ -136,7 +139,10 @@
                             <InputText @bind-Value="EditUser.Email" class="form-control w-100" />
                             <ValidationMessage For="@(() => EditUser.Email)" />
                         </div>
-
+                        <div class="form-group input-group mb-3">
+                            <label for="image" class="control-label fw-bold input-group-text">Ảnh đại diện</label>
+                            <InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control w-100" />
+                        </div>
                         <div class="form-group mt-3 text-center">
                             <button type="submit" class="btn btn-danger w-50">Sửa</button>
                         </div>
@@ -165,8 +171,6 @@
         </div>
     </div>
 
-
-    @* <partial name="_CreateAccount"></partial> *@
     <nav class="navbar navbar-light bg-light justify-content-end">
         <a class="form-inline btn btn-danger me-5" data-toggle="modal" data-target="#createUser"><span><i class="fas fa-plus"></i></span> Thêm</a>
         <div class="form-inline">
@@ -261,7 +265,7 @@
                 @if (page != null && page.CurrentPage > 1)
                 {
                     <li class="page-item">
-                        <a class="page-link" @onclick="() => Navigate(page.CurrentPage - 1)" >Previous</a>
+                        <a class="page-link" @onclick="() => Navigate(page.CurrentPage - 1)">Previous</a>
                     </li>
                 }
 
@@ -279,7 +283,7 @@
                 @if (page != null && page.CurrentPage < page.TotalPages)
                 {
                     <li class="page-item">
-                        <a class="page-link" @onclick="() => Navigate(page.CurrentPage + 1)" >Next</a>
+                        <a class="page-link" @onclick="() => Navigate(page.CurrentPage + 1)">Next</a>
                     </li>
                 }
             </ul>
