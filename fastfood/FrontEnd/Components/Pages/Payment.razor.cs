@@ -10,28 +10,35 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace FrontEnd.Components.Pages
 {
-    public partial class Payment
+    public partial class Payment : ComponentBase
     {
         [Inject]
-        protected IJSRuntime JSRuntime { get; set; }
-        [Parameter]
-        public string userId { get; set; }
+        protected OrderService orderService { get; set; }
+
         [Inject]
         protected ICartService cartService { get; set; }
-        [Inject]
-        protected NavigationManager Navigation { get; set; }
+
         [Inject]
         protected ITokenProvider tokenProvider { get; set; }
-        [Inject]
-        protected OrderService orderService { get; set; }
-        private IEnumerable<ListCartDetail> cartDetails { get; set; } = Enumerable.Empty<ListCartDetail>();
-        protected Order model { get; set; }
 
+        [Inject]
+        protected IJSRuntime JSRuntime { get; set; }
+
+        [Inject]
+        protected NavigationManager Navigation { get; set; }
+
+        [Parameter]
+        public string userId { get; set; }
+
+        private IEnumerable<ListCartDetail> cartDetails { get; set; } = Enumerable.Empty<ListCartDetail>();
+
+        protected Order model= new();
 
         protected override async Task OnInitializedAsync()
         {
             await GetListCart();
         }
+
         private async Task GetListCart()
         {
             var token = tokenProvider.GetToken();
@@ -45,20 +52,17 @@ namespace FrontEnd.Components.Pages
                 cartDetails = JsonConvert.DeserializeObject<IEnumerable<ListCartDetail>>(cartResponse.Result.ToString());
             }
         }
+
         private async Task PaymentMethod()
         {
             if (model.PaymentType == "COD")
             {
                 await COD(model);
             }
-            if (model.PaymentType == "MOMO")
+            else if (model.PaymentType == "MOMO")
             {
-                 await Momo();
+                await Momo();
             }
-            //if (model.PaymentType == "VNPAY")
-            //{
-            //    return await VNPAY();
-            //}
         }
 
         protected async Task COD(Order order)
@@ -71,25 +75,27 @@ namespace FrontEnd.Components.Pages
                 {
                     await JSRuntime.InvokeVoidAsync("alert", "Đơn hàng đã được đặt.");
                 }
-            } else
+            }
+            else
             {
                 await JSRuntime.InvokeVoidAsync("alert", "Phát sinh lỗi trong quá trình đặt đơn COD.");
             }
         }
 
-        #region Momo
         private async Task Momo()
         {
             await GetListCart();
             var momoResponse = await orderService.MomoPayment(((int)Math.Round(cartDetails.Sum(x => x.Total))).ToString());
-            if(momoResponse.IsSuccess)
+            if (momoResponse.IsSuccess)
             {
+                var serializedModel = JsonConvert.SerializeObject(model);
+                await JSRuntime.InvokeVoidAsync("localStorage.setItem", "paymentModel", serializedModel);
                 Navigation.NavigateTo(momoResponse.Message);
-            }else
+            }
+            else
             {
                 await JSRuntime.InvokeVoidAsync("alert", "Phát sinh lỗi trong quá trình đặt đơn MOMO.");
             }
         }
-        #endregion
     }
 }
