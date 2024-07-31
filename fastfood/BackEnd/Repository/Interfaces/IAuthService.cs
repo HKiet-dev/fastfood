@@ -13,5 +13,6 @@ namespace BackEnd.Repository.Interfaces
         Task<UserDto> GetUserById(string userId);
         Task<UserDto> GetUserByEmail(string email);
         Task<User> CreateUserFromGoogleLogin(User user);
+        Task<string> ForgotPassword(string email);
     }
 }
