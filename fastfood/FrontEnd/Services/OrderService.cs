@@ -23,7 +23,15 @@ namespace FrontEnd.Services
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.POST,
-                Url = ApiUrl + $"/api/Momo?amount={amount}"
+                Url = ApiUrl + $"/api/Payment/momo?amount={amount}"
+            });
+        }
+        public async Task<ResponseDto> VNPayment(int amount)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.POST,
+                Url = ApiUrl + $"/api/Payment/vnpay?amount={amount}"
             });
         }
     }

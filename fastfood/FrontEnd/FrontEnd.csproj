@@ -18,4 +18,10 @@
     <ProjectReference Include="..\BackEnd\BackEnd.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Components\ReturnPage\VnpayReturn.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>
