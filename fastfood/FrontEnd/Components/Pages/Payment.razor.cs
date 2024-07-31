@@ -1,4 +1,6 @@
-﻿using FrontEnd.Models;
+﻿using BackEnd.Models.MOMO;
+using BackEnd.Models.VNPAY;
+using FrontEnd.Models;
 using FrontEnd.Models.MOMO;
 using FrontEnd.Services;
 using FrontEnd.Services.IService;
@@ -62,6 +64,9 @@ namespace FrontEnd.Components.Pages
             else if (model.PaymentType == "MOMO")
             {
                 await Momo();
+            } else if(model.PaymentType == "VNPAY")
+            {
+                await Vnpay();
             }
         }
 
@@ -94,7 +99,23 @@ namespace FrontEnd.Components.Pages
             }
             else
             {
-                await JSRuntime.InvokeVoidAsync("alert", "Phát sinh lỗi trong quá trình đặt đơn MOMO.");
+                await JSRuntime.InvokeVoidAsync("alert", "Phát sinh lỗi trong quá trình thanh toán MOMO.");
+            }
+        }
+
+        private async Task Vnpay()
+        {
+            await GetListCart();
+            var vnpayResponse = await orderService.VNPayment((int)Math.Round(cartDetails.Sum(x => x.Total)));
+            if (vnpayResponse.IsSuccess)
+            {
+                var serializedModel = JsonConvert.SerializeObject(model);
+                await JSRuntime.InvokeVoidAsync("localStorage.setItem", "paymentModel", serializedModel);
+                Navigation.NavigateTo(vnpayResponse.Message);
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("alert", "Phát sinh lỗi trong quá trình thanh toán Vnpay");
             }
         }
     }
