@@ -1,14 +1,16 @@
 ﻿using FrontEnd.Models;
-using FrontEnd.Services;
 using FrontEnd.Services.IService;
 using Microsoft.AspNetCore.Components;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.AspNetCore.Components.Authorization;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 namespace FrontEnd.Components.Pages
 {
-    public partial class CartCustomer : ComponentBase
+    public partial class Cart : ComponentBase
     {
+        [Inject]
+        protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+        private bool IsLoggedIn { get; set; }
         [Parameter]
         public string userId { get; set; }
         [Inject]
@@ -24,6 +26,12 @@ namespace FrontEnd.Components.Pages
 
         protected override async Task OnInitializedAsync()
         {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            IsLoggedIn = authState.User.Identity.IsAuthenticated;
+            if (!IsLoggedIn)
+            {
+                Navigation.NavigateTo("/login");
+            }
             var token = tokenProvider.GetToken();
             var handler = new JwtSecurityTokenHandler();
             var jwt = handler.ReadJwtToken(token);
@@ -46,11 +54,6 @@ namespace FrontEnd.Components.Pages
             {
                 listCartUser = listCartUser.Where(item => item.Food.Id != productId).ToList();
             }
-        }
-
-        private async Task GoToPayment()
-        {
-            Navigation.NavigateTo("/cartclient", forceLoad: true);
         }
     }
 }

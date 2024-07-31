@@ -1,5 +1,6 @@
 ﻿using FrontEnd.Services.IService;
 using FrontEnd.Utility;
+using System.Text.Json;
 
 namespace FrontEnd.Services
 {
@@ -39,6 +40,5 @@ namespace FrontEnd.Services
             bool? hasToken = _contextAccessor.HttpContext?.Request.Cookies.TryGetValue(".AspNetCore.Identity.Application", out token);
             return hasToken is true ? token : null;
         }
-
     }
 }

@@ -8,6 +8,7 @@ using FrontEnd.Utility;
 using FrontEnd.Helper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Authorization;
+using Blazored.LocalStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,13 +35,14 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<CloudinaryServices>();
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Login"; // Địa chỉ để người dùng được chuyển hướng khi không được xác thực
-        options.LogoutPath = "/Logout"; // Địa chỉ để người dùng được chuyển hướng khi đăng xuất
+        options.LoginPath = "/login"; // Địa chỉ để người dùng được chuyển hướng khi không được xác thực
+        options.LogoutPath = "/logout"; // Địa chỉ để người dùng được chuyển hướng khi đăng xuất
     });
 
 var app = builder.Build();
@@ -54,6 +56,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 
 app.UseStaticFiles();
 app.UseAntiforgery();

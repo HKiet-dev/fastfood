@@ -1,0 +1,41 @@
+﻿@page "/vnpay-return"
+@inherits Pages.Payment
+@using FrontEnd.Models
+@using Newtonsoft.Json
+@if (resultCode == "00")
+{
+    <h1 class="text-success">Thanh toán thành công</h1>
+}
+else
+{
+    <h1 class="text-danger">Thanh toán thất bại</h1>
+}
+
+@code {
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "vnp_ResponseCode")]
+    public string resultCode { get; set; }
+
+    private bool _loaded = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var serializedModel = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "paymentModel");
+            if (!string.IsNullOrEmpty(serializedModel))
+            {
+                model = JsonConvert.DeserializeObject<Order>(serializedModel);
+                await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "paymentModel");
+            }
+
+            if (resultCode == "00")
+            {
+                model.PaymentStatus = "Đã thanh toán";
+                await COD(model);
+            }
+            _loaded = true;
+            StateHasChanged();
+        }
+    }
+}

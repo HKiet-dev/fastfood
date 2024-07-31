@@ -17,8 +17,21 @@ namespace FrontEnd.Components.Pages
         protected NavigationManager Navigation { get; set; }
         [Inject]
         protected ITokenProvider TokenProvider { get; set; }
-        
 
+        protected override async Task OnInitializedAsync()
+        {
+            var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
+            if (Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("data", out var base64Data))
+            {
+                var jsonResponse = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data));
+                var loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(jsonResponse);
+
+                // Sign in user with the token
+                await SignInUser(loginResponseDto);
+                TokenProvider.SetToken(loginResponseDto.Token);
+                Navigation.NavigateTo("/", forceLoad: true);
+            }
+        }
         private async Task SignInUser(LoginResponseDto model)
         {
             // Xây dựng identity từ JWT token

@@ -21,12 +21,12 @@
             <EditForm Model="model" OnValidSubmit="HandleValidLoginModel" FormName="LoginForm">
                 <div class="mb-3">
                     <label for="email" class="form-label text-white">Tài khoản</label>
-                    <InputText @bind-Value="model.Username" type="text" class="form-control"></InputText>
+                    <InputText @oninput="ClearMessage" @bind-Value="model.Username" type="text" class="form-control"></InputText>
                     <ValidationMessage For="() => model.Username"></ValidationMessage>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label text-white">Mật khẩu</label>
-                    <InputText @bind-Value="model.Password" type="password" class="form-control"></InputText>
+                    <InputText @oninput="ClearMessage" @bind-Value="model.Password" type="password" class="form-control"></InputText>
                     <ValidationMessage For="() => model.Password"></ValidationMessage>
                 </div>
                 <div class="mb-3 form-check">
@@ -34,13 +34,20 @@
                     <label class="form-check-label text-white" for="rememberMe">Ghi nhớ mật khẩu</label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mb-3">Đăng nhập</button>
-                <ValidationSummary></ValidationSummary>
+                @* <ValidationSummary class="alert alert-danger list-unstyled p-1"></ValidationSummary> *@
                 <DataAnnotationsValidator></DataAnnotationsValidator>
+                @if (errorMessage != string.Empty)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <span>@errorMessage</span>
+                    </div>
+                }
+                
             </EditForm>
             <div class="text-center text-white">
                 <p>Hoặc đăng nhập bằng</p>
                 <!-- Google Login Button -->
-                <button class="btn btn-outline-light btn-block" @onclick="()=>GoogleLogin()">
+                <button class="btn btn-outline-light btn-block" @onclick="() => GoogleLogin()">
                     <i class="fab fa-google"></i> Đăng nhập với Google
                 </button>
             </div>
@@ -65,6 +72,7 @@
 
 @code {
     private LoginRequestDto model = new();
+    private string errorMessage = string.Empty;
     private async Task HandleValidLoginModel()
     {
         var loginObject = await AuthService.LoginAsync(model);
@@ -72,8 +80,18 @@
         {
             var loginResponse = JsonConvert.DeserializeObject<LoginResponseDto>(loginObject.Result.ToString());
             var token = loginResponse.Token;
+
             Navigation.NavigateTo($"/signin/{token}");
         }
+        else
+        {
+            errorMessage = loginObject.Message;
+        }
+    }
+
+    private void ClearMessage()
+    {
+        errorMessage = string.Empty;
     }
 
     private void GoogleLogin()
