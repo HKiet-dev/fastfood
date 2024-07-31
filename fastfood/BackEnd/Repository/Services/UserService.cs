@@ -106,7 +106,12 @@ namespace BackEnd.Repository.Services
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
-                response.Result = _mapper.Map<List<UserDto>>(usersPerPage);
+                response.Result = new
+                {
+                    TotalCount = totalCount,
+                    TotalPages = totalPages,
+                    Users = _mapper.Map<List<UserDto>>(usersPerPage)
+                };
                 response.Message = "Lấy người dùng thành công";
             }
             catch (Exception ex)
@@ -146,11 +151,16 @@ namespace BackEnd.Repository.Services
                 var users = await _context.Users.Where(p => p.Status == UserStatus.Active && p.Name.Contains(query)).ToListAsync();
                 var totalCount = users.Count;
                 var totalPages = (int)Math.Ceiling((decimal)totalCount / pageSize);
-                var productsPerPage = users
+                var usersPerPage = users
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
-                response.Result = _mapper.Map<List<UserDto>>(productsPerPage);
+                response.Result = new
+                {
+                    TotalCount = totalCount,
+                    TotalPages = totalPages,
+                    Users = _mapper.Map<List<UserDto>>(usersPerPage)
+                };
                 response.Message = "Tìm người dùng thành công";
             }
             catch (Exception ex)

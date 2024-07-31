@@ -13,7 +13,7 @@ namespace BackEnd.Controllers
         readonly IUserService _user;
         readonly IHelper _helper;
         readonly IMapper _mapper;
-        public UserController(IUserService user, IHelper helper, IMapper mapper) 
+        public UserController(IUserService user, IHelper helper, IMapper mapper)
         {
             _user = user;
             _helper = helper;
@@ -33,10 +33,10 @@ namespace BackEnd.Controllers
             return await _user.GetById(id);
         }
 
-        [HttpGet("search/{query}")]
-        public async Task<ResponseDto> GetBySearch(string query)
+        [HttpGet("search")]
+        public async Task<ResponseDto> GetBySearch(string query, int page = 1, int pageSize = 10)
         {
-            return await _user.GetBySearch(query);
+            return await _user.GetBySearch(query, page, pageSize);
         }
 
 
