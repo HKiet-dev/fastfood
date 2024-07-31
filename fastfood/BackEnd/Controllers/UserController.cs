@@ -19,27 +19,55 @@ namespace BackEnd.Controllers
             _helper = helper;
             _mapper = mapper;
         }
-
+        /// <summary>
+        /// Lấy danh sách tất cả các tài khoản (có phân trang).
+        /// </summary>
+        /// <param name="page">Trang hiện tại (mặc định là 1).</param>
+        /// <param name="pageSize">Số lượng tài khoản trên mỗi trang (mặc định là 10).</param>
+        /// <returns>Danh sách các tài khoản.</returns>
+        /// <response code="200">Trả về danh sách các tài khoản.</response>
+        /// <response code="404">Không tìm thấy tài khoản nào.</response>
         [HttpGet]
         public async Task<ResponseDto> GetAll(int page = 1, int pageSize = 10)
         {
-            var products = _user.GetAll(page, pageSize);
-            return await products;
+            var users = _user.GetAll(page, pageSize);
+            return await users;
         }
 
+        /// <summary>
+        /// Tìm kiếm tài khoản bằng id.
+        /// </summary>
+        /// <param name="id">Id của tài khoản cần tìm</param>
+        /// <returns>Tài khoản đã tìm thấy.</returns>
+        /// <response code="200">Trả về 1 tài khoản đã tìm thấy.</response>
+        /// <response code="404">Không tìm thấy tài khoản nào.</response>
         [HttpGet("{id}")]
         public async Task<ResponseDto> GetById(string id)
         {
             return await _user.GetById(id);
         }
-
+        /// <summary>
+        /// Tìm kiếm tài khoản bằng tên.
+        /// </summary>
+        /// <param name="query">Tên tài khoản cần tìm.</param>
+        /// <param name="page">Trang hiện tại (mặc định là 1).</param>
+        /// <param name="pageSize">Số lượng tài khoản trên mỗi trang (mặc định là 10).</param>
+        /// <returns>Danh sách tài khoản giống tên nhau.</returns>
+        /// <response code="200">Trả về danh sách tài khoản giống tên nhau.</response>
+        /// <response code="404">Không tìm thấy tài khoản nào.</response>
         [HttpGet("search")]
         public async Task<ResponseDto> GetBySearch(string query, int page = 1, int pageSize = 10)
         {
             return await _user.GetBySearch(query, page, pageSize);
         }
 
-
+        /// <summary>
+        /// Tạo tài khoản mới.
+        /// </summary>
+        /// <param name="userDto">Thông tin của tài khoản mới.</param>
+        /// <returns>Tài khoản mới được tạo.</returns>
+        /// <response code="201">Tài khoản mới được tạo thành công và gửi email chứa mật khẩu tới tài khoản đã đăng kí.</response>
+        /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
         [HttpPost]
         public async Task<ResponseDto> Create([FromBody] UserDto userDto)
         {
@@ -54,6 +82,15 @@ namespace BackEnd.Controllers
             }
             return null;
         }
+
+        /// <summary>
+        /// Cập nhật thông tin tài khoản.
+        /// </summary>
+        /// <param name="userDto">Thông tin cập nhật của tài khoản.</param>
+        /// <returns>Tài khoản sau khi được cập nhật.</returns>
+        /// <response code="200">Tài khoản được cập nhật thành công.</response>
+        /// <response code="400">Dữ liệu không hợp lệ hoặc thiếu thông tin bắt buộc.</response>
+        /// <response code="404">Không tìm thấy tài khoản cần cập nhật.</response>
         [HttpPut]
         public async Task<ResponseDto> Update([FromBody] UserDto userDto)
         {
@@ -65,6 +102,13 @@ namespace BackEnd.Controllers
             }
             return null;
         }
+        /// <summary>
+        /// Xóa tài khoản theo ID.
+        /// </summary>
+        /// <param name="id">ID của tài khoản cần xóa.</param>
+        /// <returns>Kết quả xóa tài khoản.</returns>
+        /// <response code="200">Xóa tài khoản thành công.</response>
+        /// <response code="404">Không tìm thấy tài khoản cần xóa.</response>
         [HttpDelete("{id}")]
         public async Task<ResponseDto> Delete([FromRoute] string id)
         {
