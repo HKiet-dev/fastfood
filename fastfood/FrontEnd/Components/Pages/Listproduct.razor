@@ -1,20 +1,66 @@
 ﻿@page "/listproduct"
 @rendermode InteractiveServer
+<style>
+    .product-card {
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    .card-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .price {
+        font-size: 1.1rem;
+        display: block;
+    }
+
+    .btn {
+        border-radius: 20px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+</style>
 <div class="container">
     <section class="navbar-nav">
         <ul class="filters_menu nav justify-content-center">
-            <li class="nav-item">
-                <button class="nav-link" @onclick="OnInitializedAsync">All</button>
-            </li>
             @if (Categories == null)
             {
                 <p>Loading...</p>
             }
             else
             {
+                <li class="nav-item mt-2">
+                    <button class="nav-link" @onclick="OnInitializedAsync">All</button>
+                </li>
                 foreach (var item in Categories)
                 {
-                    <li class="nav-item">
+                    <li class="nav-item mt-2">
                         <button class="nav-link" @onclick="() => GetByCategoryId(item.Id)">@item.Name</button>
                     </li>
                 }
@@ -33,35 +79,51 @@
                     {
                         foreach (var item in Products)
                         {
-                            <div class="col-sm-3">
-                                <div class="card product-card">
+                            <div class="col-sm-3 mt-3">
+                                <div class="card product-card shadow-sm">
                                     <img alt="Product" src="@item.ImageUrl" class="card-img-top">
                                     <div class="card-body text-center">
-                                        @* Product Name *@
-                                        <h5>@item.Name</h5>
-                                        @* Description *@
-                                        <p>
-                                            @item.Description
-                                        </p>
-                                        @* Price *@
-                                        <span> Giá : @item.Price.ToString("#,##")</span>
-                                        @* button *@
-                                        <div class="d-flex justify-content-around mt-2">
-                                            <a href="productdetails/@item.Id" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i> View Details</a>
+                                        <h5 class="card-title font-weight-bold">@item.Name</h5>
+                                        <p class="card-text text-muted small">@item.Description</p>
+                                        <span class="price text-primary font-weight-bold">Giá : @item.Price.ToString("#,## VNĐ")</span>
+                                        <div class="d-flex justify-content-around mt-1">
+                                            <a href="productdetails/@item.Id" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-info-circle mx-1"></i> View Details
+                                            </a>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
+
                         }
                     }
                 </div>
-
-                <div>
-                    <button @onclick="PreviousPage" disabled="@(!hasPreviousPage)">Previous</button>
-                    <span>Page @currentPage of @totalPages</span>
-                    <button @onclick="NextPage" disabled="@(!hasNextPage)">Next</button>
-                </div>
+                @if (totalPages > 1)
+                {
+                    <nav aria-label="Page navigation example mt-3">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item @(hasPreviousPage ? "" : "disabled")">
+                                <button class="page-link" @onclick="PreviousPage" aria-label="Previous" disabled="@(hasPreviousPage ? false : true)">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </button>
+                            </li>
+                            @for(int i = 1; i <= totalPages; i++)
+                            {
+                                int PageNumber = i;
+                                <li class="page-item">
+                                    <button class="btn btn-primary mx-1" @onclick="() => GoToPage(PageNumber)">@i</button>
+                                </li>
+                            }
+                            <li class="page-item @(hasNextPage ? "" : "disabled")">
+                                <button class="page-link" @onclick="NextPage" aria-label="Next" disabled="@(hasNextPage ? false : true)">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </button>
+                            </li>
+                            <span class="page-item mt-1">Page @currentPage of @totalPages</span>
+                        </ul>
+                    </nav>
+                }
+                
             </div>
         </div>
     </div>
