@@ -1,4 +1,5 @@
-﻿using FrontEnd.Models;
+﻿using Azure;
+using FrontEnd.Models;
 using FrontEnd.Services;
 using FrontEnd.Services.IService;
 using Microsoft.AspNetCore.Components;
@@ -65,13 +66,22 @@ namespace FrontEnd.Components.Pages
                 await LoadProducts();
             }
         }
+
+        private async Task GoToPage(int pageSelected)
+        {
+            currentPage = pageSelected;
+            await LoadProducts();
+        }
+
         protected async Task GetByCategoryId(int categoryid)
         {
-            var productsTask = _foodService.GetByCategoryId(categoryid,1, 8);
-            var productsResponse = await productsTask;
-            if (productsResponse != null && productsResponse.IsSuccess)
+            var response = await _foodService.GetByCategoryId(categoryid,1, pageSize);
+            if (response != null && response.IsSuccess)
             {
-                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(productsResponse.Result.ToString());
+
+                var result = response.Result as dynamic;
+                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                totalPages = result.totalPages;
             }
         }
     }
