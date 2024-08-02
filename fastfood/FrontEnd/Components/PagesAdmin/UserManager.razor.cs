@@ -80,7 +80,7 @@ namespace FrontEnd.Components.PagesAdmin
         {
             try
             {
-                UploadAvatar(CreateUser);
+                await UploadAvatar(CreateUser);
                 var response = await _userservice.Create(CreateUser);
                 if (response.IsSuccess)
                     notification = "Thêm người dùng thành công";
@@ -98,7 +98,7 @@ namespace FrontEnd.Components.PagesAdmin
         {
             try
             {
-                UploadAvatar(EditUser);
+                await UploadAvatar(EditUser);
                 var response = await _userservice.Update(EditUser);
                 if (response != null && response.IsSuccess)
                 {
@@ -196,7 +196,7 @@ namespace FrontEnd.Components.PagesAdmin
             file = e.File;
         }
 
-        private async void UploadAvatar(UserDto user)
+        private async Task UploadAvatar(UserDto user)
         {
             if (file != null)
             {

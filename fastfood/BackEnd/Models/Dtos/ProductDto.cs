@@ -17,6 +17,7 @@ namespace BackEnd.Models.Dtos
         public int View { get; set; } = 0;
         public bool IsActive { get; set; }
         public bool IsCombo { get; set; }
+        public string? QR { get; set; }
         public string ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public DateTime CreateAt { get; set; } = DateTime.UtcNow;
