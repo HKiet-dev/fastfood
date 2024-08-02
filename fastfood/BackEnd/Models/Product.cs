@@ -19,6 +19,8 @@ namespace BackEnd.Models
         public bool IsActive { get; set; }
         public bool IsCombo { get; set; }
         public string ImageUrl { get; set; }
+        [NotMapped]
+        public string? QR { get; set; }
         public int CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
