@@ -21,6 +21,8 @@ namespace FrontEnd.Components.Pages
         private int totalPages;
         private bool hasPreviousPage => currentPage > 1;
         private bool hasNextPage => currentPage < totalPages;
+        private int value;
+        private int sort;
 
         protected async override Task OnInitializedAsync()
         {
@@ -49,6 +51,99 @@ namespace FrontEnd.Components.Pages
                 totalPages = result.totalPages;
             }
         }
+
+        private async Task ProductSort()
+        {
+            ResponseDto response;
+            switch (sort)
+            {
+                case 0:
+                    await LoadProducts();
+                    break;
+                case 1:
+                    response = await _foodService.Sorting("desc", currentPage, pageSize);
+                    if (response != null && response.IsSuccess)
+                    {
+
+                        var result = response.Result as dynamic;
+                        Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                        totalPages = result.totalPages;
+                    }
+                    break;
+                case 2:
+                    response = await _foodService.Sorting("asc", currentPage, pageSize);
+                    if (response != null && response.IsSuccess)
+                    {
+
+                        var result = response.Result as dynamic;
+                        Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                        totalPages = result.totalPages;
+                    }
+                    break;
+            }
+        }
+
+        private async Task ProductFilter()
+        {
+            ResponseDto response;
+            switch (value)
+            {
+                case 0:
+                    await LoadProducts();
+                    break;
+                case 1:
+                    response = await _foodService.GetByFilter(0, 16000, currentPage, pageSize);
+                    if (response != null && response.IsSuccess)
+                    {
+
+                        var result = response.Result as dynamic;
+                        Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                        totalPages = result.totalPages;
+                    }
+                    break;
+                case 2:
+                    response = await _foodService.GetByFilter(16000, 30000, currentPage, pageSize);
+                    if (response != null && response.IsSuccess)
+                    {
+
+                        var result = response.Result as dynamic;
+                        Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                        totalPages = result.totalPages;
+                    }
+                    break;
+                case 3:
+                    response = await _foodService.GetByFilter(30000, 60000, currentPage, pageSize);
+                    if (response != null && response.IsSuccess)
+                    {
+
+                        var result = response.Result as dynamic;
+                        Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                        totalPages = result.totalPages;
+                    }
+                    break;
+                case 4:
+                    response = await _foodService.GetByFilter(60000, 100000, currentPage, pageSize);
+                    if (response != null && response.IsSuccess)
+                    {
+
+                        var result = response.Result as dynamic;
+                        Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                        totalPages = result.totalPages;
+                    }
+                    break;
+                case 5:
+                    response = await _foodService.GetByFilter(100000, int.MaxValue, currentPage, pageSize);
+                    if (response != null && response.IsSuccess)
+                    {
+
+                        var result = response.Result as dynamic;
+                        Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                        totalPages = result.totalPages;
+                    }
+                    break;
+            }
+
+        }
         private async Task PreviousPage()
         {
             if (hasPreviousPage)
@@ -70,7 +165,19 @@ namespace FrontEnd.Components.Pages
         private async Task GoToPage(int pageSelected)
         {
             currentPage = pageSelected;
-            await LoadProducts();
+            if (value != null)
+            {
+                await ProductFilter();
+            }
+            if (sort != null)
+            {
+                await ProductSort();
+            }
+            else
+            {
+                await LoadProducts();
+            }
+
         }
 
         protected async Task GetByCategoryId(int categoryid)

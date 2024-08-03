@@ -11,8 +11,9 @@ namespace FrontEnd.Services.IService
         Task<ResponseDto>? Delete(int id);
         Task<ResponseDto>? GetByCategoryId(int categoryid, int page = 1, int pageSize = 10);
         Task<ResponseDto>? GetBySearch(string query, int page = 1, int pageSize = 10);
-        Task<ResponseDto>? GetByFilter(int? categoryid, decimal? price, int page = 1, int pageSize = 10);
+        Task<ResponseDto>? GetByFilter(decimal? minrange, decimal? maxrange, int page = 1, int pageSize = 10);
         Task<ResponseDto>? TopViewed(int page = 1, int pageSize = 10);
+        Task<ResponseDto>? Sorting(string sort, int page = 1, int pageSize = 10);
         Task<int>? Count();
     }
 }

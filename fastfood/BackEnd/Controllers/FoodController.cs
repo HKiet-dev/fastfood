@@ -99,17 +99,17 @@ namespace BackEnd.Controllers
         /// <summary>
         /// Lọc sản phẩm theo danh mục và giá (có phân trang).
         /// </summary>
-        /// <param name="categoryid">ID của danh mục (tùy chọn).</param>
-        /// <param name="price">Giá sản phẩm (tùy chọn).</param>
+        /// <param name="minrange">Giá thấp nhất.</param>
+        /// <param name="maxrange">Giá cao nhất.</param>
         /// <param name="page">Trang hiện tại (mặc định là 1).</param>
         /// <param name="pageSize">Số lượng sản phẩm trên mỗi trang (mặc định là 10).</param>
         /// <returns>Danh sách các sản phẩm phù hợp với bộ lọc.</returns>
         /// <response code="200">Trả về danh sách các sản phẩm phù hợp với bộ lọc.</response>
         /// <response code="404">Không tìm thấy sản phẩm nào phù hợp với bộ lọc.</response>
         [HttpGet("Filter")]
-        public ResponseDto GetByFilter(int? categoryid, decimal? price, int page = 1, int pageSize = 10)
+        public ResponseDto GetByFilter(decimal? minrange, decimal? maxrange, int page = 1, int pageSize = 10)
         {
-            return _foodService.GetByFilter(categoryid, price, page, pageSize);
+            return _foodService.GetByFilter(minrange, maxrange, page, pageSize);
         }
 
         /// <summary>
@@ -125,6 +125,21 @@ namespace BackEnd.Controllers
         public ResponseDto GetBySearch(string query, int page = 1, int pageSize = 10)
         {
             return _foodService.GetBySearch(query, page, pageSize);
+        }
+
+        /// <summary>
+        /// Lọc sản phẩm theo giá (có phân trang).
+        /// </summary>
+        /// <param name="sort">Từ khóa lọc.</param>
+        /// <param name="page">Trang hiện tại (mặc định là 1).</param>
+        /// <param name="pageSize">Số lượng sản phẩm trên mỗi trang (mặc định là 10).</param>
+        /// <returns>Danh sách các sản phẩm theo giá tăng giảm dần.</returns>
+        /// <response code="200">Danh sách các sản phẩm theo giá tăng giảm dần.</response>
+        /// <response code="404">Không tìm thấy sản phẩm nào.</response>
+        [HttpGet("Sorting")]
+        public ResponseDto Sorting(string sort, int page = 1, int pageSize = 10)
+        {
+            return _foodService.Sorting(sort, page, pageSize);
         }
 
         /// <summary>
