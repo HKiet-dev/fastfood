@@ -23,6 +23,11 @@ namespace FrontEnd.Components.Pages
         private bool hasNextPage => currentPage < totalPages;
         private int value;
         private int sort;
+        public class SearchQuery
+        {
+            public string ProductName { get; set; }
+        }
+        private SearchQuery query = new();
 
         protected async override Task OnInitializedAsync()
         {
@@ -80,6 +85,18 @@ namespace FrontEnd.Components.Pages
                         totalPages = result.totalPages;
                     }
                     break;
+            }
+        }
+
+        private async Task ProductSearch()
+        {
+            var response = await _foodService.GetBySearch(query.ProductName,currentPage, pageSize);
+            if (response != null && response.IsSuccess)
+            {
+
+                var result = response.Result as dynamic;
+                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
+                totalPages = result.totalPages;
             }
         }
 

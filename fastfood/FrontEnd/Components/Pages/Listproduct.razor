@@ -75,27 +75,15 @@
                     <button class="btn btn-primary" type="submit">Lọc sản phẩm</button>
                 </div>
             </EditForm>
-            @* <form asp-controller="Food" asp-action="Filter">
-                <div class="d-flex">
-                    <select class="form-select me-3 text-center" style="width:200px;" name="value">
-                        <option value="0">Khoảng giá</option>
-                        <option value="1"> Dưới 16.000</option>
-                        <option value="2"> 16.000 - 30.000</option>
-                        <option value="3"> 30.000 - 60.000</option>
-                        <option value="4"> 60.000 - 100.000</option>
-                        <option value="5"> Trên 100.000</option>
-                    </select>
-                    
-                </div>
-            </form> *@
         </div>
         <div class="col">
-            <form asp-controller="Food" asp-action="SearchName">
+            <EditForm OnValidSubmit="ProductSearch" FormName="Search" Model="query">
                 <div class="d-flex">
-                    <input type="text" name="query" placeholder="Tên sản phẩm" class="form-control me-3" />
-                    <button class="btn btn-primary" type="submit">Search</button>
+                    <InputText @bind-Value="query.ProductName" type="text" class="me-3 text-center form-control" style="width:200px;" placeholder="Tên sản phẩm">
+                    </InputText>
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
                 </div>
-            </form>
+            </EditForm>
         </div>
     </div>
 </div>
