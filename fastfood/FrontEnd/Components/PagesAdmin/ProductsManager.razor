@@ -19,13 +19,6 @@
 			<h5 class="card-title m-5">Category Manager</h5>
 		</a>
 	</div>
-	<nav class="navbar navbar-light bg-light justify-content-end">
-		<a class="form-inline btn btn-warning me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
-		<div class="form-inline">
-			<input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-warning my-3 my-sm-0 m-2" type="submit">Search</button>
-		</div>
-	</nav>
 
 	@if (!string.IsNullOrEmpty(notification))
 	{
@@ -33,6 +26,14 @@
 			@notification
 		</div>
 	}
+
+	<nav class="navbar navbar-light bg-light justify-content-end">
+		<a class="form-inline btn btn-warning me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
+		<div class="form-inline">
+			<input class="mr-sm-2" type="search" @bind-value="@search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-warning my-3 my-sm-0 m-2" type="submit" @onclick="GetBySearch">Search</button>
+		</div>
+	</nav>
 
 	<!-- Modal Create -->
 	<div class="modal fade" id="createFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

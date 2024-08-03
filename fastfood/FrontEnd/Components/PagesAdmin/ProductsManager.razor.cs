@@ -29,6 +29,7 @@ namespace FrontEnd.Components.PagesAdmin
 		private Product editProduct { get; set; }
 
 		private string notification = "";
+		private string search { get; set; }
 
 		protected override async Task OnInitializedAsync()
 		{
@@ -149,15 +150,14 @@ namespace FrontEnd.Components.PagesAdmin
 		private async Task Navigate(int currentPage)
 		{
 			page.CurrentPage = currentPage;
-			//if (search == null)
-			//{
-			//	await LoadUsers();
-			//}
-			//else
-			//{
-			//	await GetBySearch();
-			//}
-			await LoadFoods();
+			if (search == null)
+			{
+				await LoadFoods();
+			}
+			else
+			{
+				await GetBySearch();
+			}
 		}
 
 		private async Task GetFood(int id)
@@ -199,6 +199,56 @@ namespace FrontEnd.Components.PagesAdmin
 				{
 					product.ImageUrl = cloudinaryUrl;
 				}
+			}
+		}
+
+		private async Task GetBySearch()
+		{
+			if (search != "")
+			{
+				var searchNameResponse = await _foodService.GetBySearch(search, page.CurrentPage, 10);
+				var result = searchNameResponse.Result as dynamic;
+				if (result.totalCount != 0)
+				{
+					if (searchNameResponse != null && searchNameResponse.IsSuccess)
+					{
+						Products = JsonConvert.DeserializeObject<List<Product>>(result.products.ToString());
+						//foreach (var item in Products)
+						//{
+						//	if (item.Avatar == "string" || item.Avatar == null)
+						//	{
+						//		item.Avatar = "/Img/default_avatar.png";
+						//	}
+						//}
+						page.TotalCount = result.totalCount;
+					}
+					else
+					{
+						Products = null;
+					}
+				}
+				else
+				{
+					var searchIdResponse = await _foodService.GetById(int.Parse(search));
+					if (searchIdResponse.Result != null && searchIdResponse.IsSuccess)
+					{
+						Product product = JsonConvert.DeserializeObject<Product>(searchIdResponse.Result.ToString());
+						//if (user.Avatar == "string" || user.Avatar == null)
+						//{
+						//	user.Avatar = "/Img/default_avatar.png";
+						//}
+						Products.Clear();
+						Products.Add(product);
+					}
+					else
+					{
+						Products = null;
+					}
+				}
+			}
+			else
+			{
+				await LoadFoods();
 			}
 		}
 	}
