@@ -208,7 +208,13 @@ namespace BackEnd.Repository.Services
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
-                response.Result = _mapper.Map<List<ProductDto>>(productsPerPage);
+                response.Result = new
+                {
+                    TotalCount = totalCount,
+                    TotalPages = totalPages,
+                    Products = _mapper.Map<List<ProductDto>>(productsPerPage)
+                };
+                response.IsSuccess = true;
             }
             catch (Exception ex)
             {
