@@ -2,36 +2,49 @@
 using Microsoft.AspNetCore.Components;
 using FrontEnd.Services.IService;
 using Newtonsoft.Json;
+using Azure;
+using Microsoft.AspNetCore.Components.Forms;
+using FrontEnd.Helper;
 
 namespace FrontEnd.Components.PagesAdmin
 {
     public partial class UserManager : ComponentBase
     {
-        private bool isEditUserModalVisible = false;
+        [Parameter]
+        public EventCallback<InputFileChangeEventArgs> OnChangeInputFile { get; set; }
+        private IBrowserFile file;
         [SupplyParameterFromForm]
         private UserDto CreateUser { get; set; }
         [SupplyParameterFromForm]
         private UserDto EditUser { get; set; }
         [Inject]
         protected IUserService _userservice { get; set; }
-        public List<UserDto>? Users { get; set; }
         [Inject]
-        protected IWebHostEnvironment _env { get; set; }
+        protected CloudinaryServices CloudinaryService { get; set; }
+        public List<UserDto>? Users { get; set; }
+        public List<UserDto>? SearchUsers { get; set; }
         public string notification = "";
-        //[SupplyParameterFromForm]
-        //public PageNavigation page { get; set; }
+        private PageNavigation page { get; set; }
+        private string search = null;
+
 
         protected override async Task OnInitializedAsync()
         {
             CreateUser ??= new();
             EditUser ??= new();
-            //page ??= new();
-            string defaultAvatar = Path.Combine(_env.WebRootPath, "Img", "default_avatar.png");
+            page ??= new();
+            CloudinaryService ??= new();
+            await LoadUsers();
 
-            var usersResponse = await _userservice.GetAll();
+        }
+
+        private async Task LoadUsers()
+        {
+            var usersResponse = await _userservice.GetAll(page.CurrentPage, 10);
             if (usersResponse != null && usersResponse.IsSuccess)
             {
-                Users = JsonConvert.DeserializeObject<List<UserDto>>(usersResponse.Result.ToString());
+                var result = usersResponse.Result as dynamic;
+                Users = JsonConvert.DeserializeObject<List<UserDto>>(result.users.ToString());
                 foreach (var item in Users)
                 {
                     if (item.Avatar == "string" || item.Avatar == null)
@@ -39,43 +52,35 @@ namespace FrontEnd.Components.PagesAdmin
                         item.Avatar = "/Img/default_avatar.png";
                     }
                 }
+                page.TotalCount = result.totalCount;
             }
             else
             {
                 Users = null;
             }
-
         }
 
-        //private async Task GetUser()
-        //{
-        //    var usersResponse = await _userservice.GetAll();
-        //    if (usersResponse != null && usersResponse.IsSuccess)
-        //    {
-        //        Users = JsonConvert.DeserializeObject<List<UserDto>>(usersResponse.Result.ToString());
-        //        foreach (var item in Users)
-        //        {
-        //            if (item.Avatar == "string" || item.Avatar == null)
-        //            {
-        //                item.Avatar = "/Img/default_avatar.png";
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Users = null;
-        //    }
-        //}
-        //private void NavigateToPage(int pageNumber)
-        //{
-        //    page.CurrentPage = pageNumber;
-        //    GetUser();
-        //}
+        private async Task Navigate(int currentPage)
+        {
+            page.CurrentPage = currentPage;
+            if (search == null)
+            {
+                await LoadUsers();
+            }
+            else
+            {
+                await GetBySearch();
+            }
+        }
+
+
+
 
         public async Task Create()
         {
             try
             {
+                await UploadAvatar(CreateUser);
                 var response = await _userservice.Create(CreateUser);
                 if (response.IsSuccess)
                     notification = "Thêm người dùng thành công";
@@ -93,6 +98,7 @@ namespace FrontEnd.Components.PagesAdmin
         {
             try
             {
+                await UploadAvatar(EditUser);
                 var response = await _userservice.Update(EditUser);
                 if (response != null && response.IsSuccess)
                 {
@@ -134,6 +140,76 @@ namespace FrontEnd.Components.PagesAdmin
         private async Task GetUser(string id)
         {
             EditUser = Users.FirstOrDefault(u => u.Id == id);
+        }
+
+        private async Task GetBySearch()
+        {
+            if (search != "")
+            {
+                var searchNameResponse = await _userservice.GetBySearch(search, page.CurrentPage, 10);
+                var result = searchNameResponse.Result as dynamic;
+                if (result.totalCount != 0)
+                {
+                    if (searchNameResponse != null && searchNameResponse.IsSuccess)
+                    {
+                        Users = JsonConvert.DeserializeObject<List<UserDto>>(result.users.ToString());
+                        foreach (var item in Users)
+                        {
+                            if (item.Avatar == "string" || item.Avatar == null)
+                            {
+                                item.Avatar = "/Img/default_avatar.png";
+                            }
+                        }
+                        page.TotalCount = result.totalCount;
+                    }
+                    else
+                    {
+                        Users = null;
+                    }
+                }
+                else
+                {
+                    var searchIdResponse = await _userservice.GetById(search);
+                    if (searchIdResponse.Result != null && searchIdResponse.IsSuccess)
+                    {
+                        UserDto user = JsonConvert.DeserializeObject<UserDto>(searchIdResponse.Result.ToString());
+                        if (user.Avatar == "string" || user.Avatar == null)
+                        {
+                            user.Avatar = "/Img/default_avatar.png";
+                        }
+                        Users.Clear();
+                        Users.Add(user);
+                    }
+                    else
+                    {
+                        Users = null;
+                    }
+                }
+            }
+            else
+            {
+                await LoadUsers();
+            }
+        }
+        private void HandleFileSelected(InputFileChangeEventArgs e)
+        {
+            file = e.File;
+        }
+
+        private async Task UploadAvatar(UserDto user)
+        {
+            if (file != null)
+            {
+                using var fileStream = file.OpenReadStream();
+                var fileName = file.Name;
+
+                var cloudinaryUrl = await CloudinaryService.UploadImageAsync(fileStream, fileName);
+
+                if (!string.IsNullOrEmpty(cloudinaryUrl))
+                {
+                    user.Avatar = cloudinaryUrl;
+                }
+            }
         }
     }
 }

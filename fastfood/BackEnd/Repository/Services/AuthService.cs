@@ -17,12 +17,14 @@ namespace BackEnd.Repository.Services
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly IMapper _mapper;
+        private readonly IHelper _helper;
 
         public AuthService(ApplicationDbContext context, 
                            UserManager<User> userManager, 
                            RoleManager<IdentityRole> roleManager, 
                            IJwtTokenGenerator jwtTokenGenrator, 
-                           IMapper mapper,SignInManager<User> signInManager)
+                           IMapper mapper,SignInManager<User> signInManager,
+                           IHelper helper)
         {
             _context = context;
             _userManager = userManager;
@@ -30,6 +32,7 @@ namespace BackEnd.Repository.Services
             _signInManager = signInManager;
             _jwtTokenGenerator = jwtTokenGenrator;
             _mapper = mapper;
+            _helper = helper;
         }
 
         public async Task<bool> AssignRole(string email, string roleName)
@@ -87,7 +90,17 @@ namespace BackEnd.Repository.Services
             return null;
         }
 
-        public async Task<UserDto> GetUserByEmail(string email)
+		public async Task<string> ForgotPassword(string email)
+		{
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+            {
+                return null;
+            }
+            return await _userManager.GeneratePasswordResetTokenAsync(user);
+		}
+
+		public async Task<UserDto> GetUserByEmail(string email)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 

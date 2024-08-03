@@ -9,6 +9,7 @@ using FrontEnd.Helper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.LocalStorage;
+using Microsoft.JSInterop;
 
 var builder = WebApplication.CreateBuilder(args);
 

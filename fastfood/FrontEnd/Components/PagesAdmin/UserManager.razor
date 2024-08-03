@@ -77,7 +77,10 @@
                             <InputText @bind-Value="CreateUser.Email" class="form-control w-100" />
                             <ValidationMessage For="@(() => CreateUser.Email)" />
                         </div>
-
+                        <div class="form-group input-group mb-3">
+                            <label for="image" class="control-label fw-bold input-group-text">Ảnh đại diện</label>
+                            <InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control w-100"/>
+                        </div>
                         <div class="form-group mt-3 text-center">
                             <button type="submit" class="btn btn-danger w-50">Thêm</button>
                         </div>
@@ -136,7 +139,10 @@
                             <InputText @bind-Value="EditUser.Email" class="form-control w-100" />
                             <ValidationMessage For="@(() => EditUser.Email)" />
                         </div>
-
+                        <div class="form-group input-group mb-3">
+                            <label for="image" class="control-label fw-bold input-group-text">Ảnh đại diện</label>
+                            <InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control w-100" />
+                        </div>
                         <div class="form-group mt-3 text-center">
                             <button type="submit" class="btn btn-danger w-50">Sửa</button>
                         </div>
@@ -165,19 +171,17 @@
         </div>
     </div>
 
-
-    @* <partial name="_CreateAccount"></partial> *@
     <nav class="navbar navbar-light bg-light justify-content-end">
         <a class="form-inline btn btn-danger me-5" data-toggle="modal" data-target="#createUser"><span><i class="fas fa-plus"></i></span> Thêm</a>
         <div class="form-inline">
-            <input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-danger my-3 my-sm-0 m-2" type="submit">Search</button>
+            <input class="mr-sm-2" @bind-value="@search" type="search" placeholder="Search by Id or Name" aria-label="Search">
+            <button class="btn btn-outline-danger my-3 my-sm-0 m-2" type="submit" @onclick="GetBySearch">Search</button>
         </div>
     </nav>
 
 
     <div class="card border border-light rounded p-3 shadow bg-light">
-        <table class="table table-active table-hover table-responsive">
+        <table class="table table-active table-hover table-responsive table-responsive-lg table-responsive-md table-responsive-sm ">
             <thead>
                 <tr>
                     <th>
@@ -226,10 +230,10 @@
                             <td>
                                 <img src="@item.Avatar" width="50px" height="50px" />
                             </td>
-                            <td>
+                            <td class="mh-100">
                                 @item.Id
                             </td>
-                            <td>
+                            <td class="text-truncate" style="max-width:100px;" title="@item.Name">
                                 @item.Name
                             </td>
                             <td>
@@ -256,12 +260,12 @@
                 }
             }
         </table>
-       @*  <nav class="my-4" aria-label="Page navigation user">
-            <ul class="pagination">
+        <nav class="my-4 text-center" aria-label="Page navigation user">
+            <ul class="pagination justify-content-center">
                 @if (page != null && page.CurrentPage > 1)
                 {
                     <li class="page-item">
-                        <a class="page-link" @onclick="() => NavigateToPage(page.CurrentPage - 1)" href="#">Previous</a>
+                        <a class="page-link" @onclick="() => Navigate(page.CurrentPage - 1)">Previous</a>
                     </li>
                 }
 
@@ -269,8 +273,9 @@
                 {
                     @for (int i = 1; i <= page.TotalPages; i++)
                     {
-                        <li class="page-item @(page.CurrentPage == i ? "active" : "")">
-                            <a class="page-link" @onclick="() => NavigateToPage(i)" href="#">@i</a>
+                        var pageIndex = i;
+                        <li class="page-item @(page.CurrentPage == pageIndex ? "active" : "")">
+                            <a class="page-link" @onclick="() => Navigate(pageIndex)">@pageIndex</a>
                         </li>
                     }
                 }
@@ -278,10 +283,10 @@
                 @if (page != null && page.CurrentPage < page.TotalPages)
                 {
                     <li class="page-item">
-                        <a class="page-link" @onclick="() => NavigateToPage(page.CurrentPage + 1)" href="#">Next</a>
+                        <a class="page-link" @onclick="() => Navigate(page.CurrentPage + 1)">Next</a>
                     </li>
                 }
             </ul>
-        </nav> *@
+        </nav>
     </div>
 </div>
