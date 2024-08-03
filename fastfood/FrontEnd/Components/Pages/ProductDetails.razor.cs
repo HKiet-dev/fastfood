@@ -6,6 +6,8 @@ using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using FrontEnd.Services;
+using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 
 namespace FrontEnd.Components.Pages
@@ -31,10 +33,14 @@ namespace FrontEnd.Components.Pages
         public Product Product { get; set; }
         public IEnumerable<Product> Products { get; set; } = Enumerable.Empty<Product>();
         private bool IsLoggedIn { get; set; }
-
         protected override async Task OnInitializedAsync()
         {
+            await LoadDetails();
+        }
 
+
+        private async Task LoadDetails()
+        {
             var productResponse = await _foodService.GetById(Id);
 
             if (productResponse != null && productResponse.IsSuccess)
@@ -56,8 +62,6 @@ namespace FrontEnd.Components.Pages
             {
                 Products = Enumerable.Empty<Product>();
             }
-
-
         }
         private async Task AddToCart()
         {

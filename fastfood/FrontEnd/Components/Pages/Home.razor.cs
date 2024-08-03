@@ -17,9 +17,12 @@ namespace FrontEnd.Components.Pages
         protected NavigationManager Navigation { get; set; }
         [Inject]
         protected ITokenProvider TokenProvider { get; set; }
-
+        [Inject]
+        protected IFoodService _foodService { get; set; }
+        public IEnumerable<Product> Products { get; set; }
         protected override async Task OnInitializedAsync()
         {
+            await LoadProducts();
             var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
             if (Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("data", out var base64Data))
             {
@@ -30,6 +33,17 @@ namespace FrontEnd.Components.Pages
                 await SignInUser(loginResponseDto);
                 TokenProvider.SetToken(loginResponseDto.Token);
                 Navigation.NavigateTo("/", forceLoad: true);
+            }
+        }
+
+        protected async Task LoadProducts()
+        {
+            var response = await _foodService.GetAll(1, 4);
+            if (response != null && response.IsSuccess)
+            {
+
+                var result = response.Result as dynamic;
+                Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
             }
         }
         private async Task SignInUser(LoginResponseDto model)
