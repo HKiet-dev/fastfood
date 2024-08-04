@@ -1,8 +1,14 @@
-﻿@inherits LayoutComponentBase
+﻿@using FrontEnd.Helper
+@using System.IdentityModel.Tokens.Jwt
+@inherits LayoutComponentBase
 <div class="page">
     <nav>
+        @if(role == "ADMIN"){
+        <NavMenuAdmin />
+        }
+        else{
         <NavMenu />
-        @* <NavMenuAdmin /> *@
+        }
     </nav>
 
     <main>
@@ -42,5 +48,19 @@
         </div>
     </footer>
 </div>
+@code{
+    private string role;
+    [Inject]
+    private CustomAuthenticationStateProvider Authentication { get; set; }
 
-
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        var token = await Authentication.GetTokenAsync();
+        if (token != string.Empty)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwt = handler.ReadJwtToken(token);
+            role = jwt.Claims.FirstOrDefault(u => u.Type == "role")?.Value;
+        }
+    }
+}

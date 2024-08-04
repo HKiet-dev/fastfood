@@ -6,13 +6,11 @@ using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using FrontEnd.Services;
-<<<<<<< Updated upstream
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-=======
+
 using Microsoft.AspNetCore.Authorization;
 using FrontEnd.Helper;
->>>>>>> Stashed changes
 
 
 namespace FrontEnd.Components.Pages
@@ -26,15 +24,11 @@ namespace FrontEnd.Components.Pages
 
         [Inject]
         protected IFoodService _foodService { get; set; }
-        /*[Inject]
-        protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }*/
 
         [Inject]
         protected CustomAuthenticationStateProvider Authentication { get; set; }
         [Inject]
         protected IJSRuntime JSRuntime { get; set; }
-        /*[Inject]
-        protected ITokenProvider tokenProvider { get; set; }*/
         [Inject]
         protected ICartService _cartService { get; set; }
         

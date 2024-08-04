@@ -16,13 +16,13 @@ namespace FrontEnd.Services
                 Url = ApiUrl + "/api/Cart/addtocart"
             });
         }
-        public async Task<ResponseDto?> DeleteAllById(string userId)
+        public async Task<ResponseDto?> DeleteAllById()
         {
             return await _baseService.SendAsync(new RequestDto
             {
                 //AccessToken = _tokenProvider.GetToken(),
                 ApiType = ApiType.DELETE,
-                Url = ApiUrl + "/api/Cart/delete-all-by-user-id/{userId}"
+                Url = ApiUrl + "/api/Cart/delete-all-by-user-id"
             });
         }
         public async Task<ResponseDto?> DeleteCart(int productId, string userId)
