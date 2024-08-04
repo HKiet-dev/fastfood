@@ -1,9 +1,10 @@
 
+using FrontEnd.Helper;
 using FrontEnd.Models;
 
 using FrontEnd.Services.IService;
 using Microsoft.AspNetCore.Components;
-
+using Microsoft.AspNetCore.Components.Forms;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 
@@ -11,18 +12,14 @@ namespace FrontEnd.Components.Pages
 {
     public partial class UserInfomation : ComponentBase
     {
+        #region Inject
         [Inject]
-<<<<<<< Updated upstream
         private ITokenProvider tokenProvider { get; set; }
         [Inject]
         private IAuthService _authService { get; set; }
-        private UserDto User { get; set; }
-        public string userId { get; set; }
-        protected override async Task OnInitializedAsync()
-=======
+
+		[Inject]
         protected CloudinaryServices CloudinaryService { get; set; }
-		/*[Inject]
-		ITokenProvider TokenProvider { get; set; }*/
 		[Inject]
 		CustomAuthenticationStateProvider Authentication { get; set; }
 
@@ -33,9 +30,9 @@ namespace FrontEnd.Components.Pages
         [Parameter]
         public EventCallback<InputFileChangeEventArgs> OnChangeInputFile { get; set; }
         private IBrowserFile file;
-        private UserDto User { get; set; }
 		private bool IsEdit { get; set; } = false;
-		private string userId;
+        private UserDto User { get; set; }
+        public string userId { get; set; }
 		private string token;
 		private string oldPassword;
 		private string newPassword;
@@ -66,6 +63,12 @@ namespace FrontEnd.Components.Pages
 			}
 			IsEdit = false;
 		}
+
+        private async Task UploadAvatar()
+        {
+            throw new NotImplementedException();
+        }
+
         private async Task ChangePassword()
 		{
 			IsChangePasswordShow = !IsChangePasswordShow;
@@ -92,8 +95,7 @@ namespace FrontEnd.Components.Pages
 		}
 
 
-		private void HandleFileSelected(InputFileChangeEventArgs e)
->>>>>>> Stashed changes
+		private async Task HandleFileSelected(InputFileChangeEventArgs e)
         {
             var token = tokenProvider.GetToken();
             var handler = new JwtSecurityTokenHandler();
@@ -102,9 +104,7 @@ namespace FrontEnd.Components.Pages
             var userResponse = await _authService.GetUserById(userId);
             if (userResponse != null && userResponse.IsSuccess)
             {
-<<<<<<< Updated upstream
                 User = JsonConvert.DeserializeObject<UserDto>(userResponse.Result.ToString());
-=======
                 using var fileStream = file.OpenReadStream(10 * 1024 * 1024);
                 var fileName = file.Name;
 
@@ -114,7 +114,6 @@ namespace FrontEnd.Components.Pages
                 {
                     User.Avatar = cloudinaryUrl;
                 }
->>>>>>> Stashed changes
             }
         }
     }
