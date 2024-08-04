@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using FrontEnd.Helper;
 
 namespace FrontEnd.Components.Pages
 {
@@ -15,7 +16,11 @@ namespace FrontEnd.Components.Pages
     {
         [Inject]
         protected NavigationManager Navigation { get; set; }
+        /*[Inject]
+        protected ITokenProvider TokenProvider { get; set; }*/
+
         [Inject]
+<<<<<<< Updated upstream
         protected ITokenProvider TokenProvider { get; set; }
         [Inject]
         protected IFoodService _foodService { get; set; }
@@ -28,14 +33,33 @@ namespace FrontEnd.Components.Pages
             {
                 var jsonResponse = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data));
                 var loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(jsonResponse);
+=======
+        private CustomAuthenticationStateProvider Authentication { get; set; }
 
-                // Sign in user with the token
-                await SignInUser(loginResponseDto);
-                TokenProvider.SetToken(loginResponseDto.Token);
-                Navigation.NavigateTo("/", forceLoad: true);
+        protected override async Task OnInitializedAsync()
+        {
+            
+        }
+>>>>>>> Stashed changes
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
+                if (Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query).TryGetValue("data", out var base64Data))
+                {
+                    var jsonResponse = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data));
+                    var loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(jsonResponse);
+
+                    // Sign in user with the token
+                    await Authentication.LoginAsync(null, loginResponseDto.Token);
+                    Navigation.NavigateTo("/");
+                }
             }
         }
 
+<<<<<<< Updated upstream
         protected async Task LoadProducts()
         {
             var response = await _foodService.GetAll(1, 4);
@@ -46,6 +70,9 @@ namespace FrontEnd.Components.Pages
                 Products = JsonConvert.DeserializeObject<IEnumerable<Product>>(result.products.ToString());
             }
         }
+=======
+
+>>>>>>> Stashed changes
         private async Task SignInUser(LoginResponseDto model)
         {
             // Xây dựng identity từ JWT token
@@ -69,13 +96,6 @@ namespace FrontEnd.Components.Pages
             // Tạo identity từ danh sách claims
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var user = new ClaimsPrincipal(identity);
-
-            var httpContext = new HttpContextAccessor();
-
-            if (httpContext != null)
-            {
-                httpContext.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, user);
-            }
         }
     }
 }

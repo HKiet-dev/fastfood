@@ -24,6 +24,12 @@ namespace BackEnd.Models
         public List<Order>? Orders { get; set; }
     }
 
+    public enum GenderType
+    {
+        Female,
+        Male,
+    }
+
     public enum UserStatus
     {
         Active,
@@ -31,4 +37,5 @@ namespace BackEnd.Models
         Delete,
         Block
     }
+
 }
