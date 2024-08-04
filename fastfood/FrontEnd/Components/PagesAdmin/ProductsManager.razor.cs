@@ -18,6 +18,8 @@ namespace FrontEnd.Components.PagesAdmin
 
 		[Inject]
 		protected IFoodService _foodService { get; set; }
+		[Inject]
+		protected ICategoryService _categoryService { get; set; }
 
 		private List<Product>? Products { get; set; }
 
@@ -48,6 +50,10 @@ namespace FrontEnd.Components.PagesAdmin
 			{
 				var result = foodsResponse.Result as dynamic;
 				Products = JsonConvert.DeserializeObject<List<Product>>(result.products.ToString());
+				foreach (var i in Products)
+				{
+					i.CategoryName = await GetCategoryName(i.CategoryId);
+				}
 				page.TotalCount = result.totalCount;
 			}
 			else
@@ -66,8 +72,9 @@ namespace FrontEnd.Components.PagesAdmin
 				var response = await _foodService.Create(createProduct);
 				if (response.IsSuccess && response != null)
 				{
-					notification = "Thêm người dùng thành công !!!";
+					notification = "Thành công: " + response.Message;
 					await LoadFoods();
+					createProduct = new();
 				}
 				else
 				{
@@ -129,11 +136,11 @@ namespace FrontEnd.Components.PagesAdmin
 		private string GenerateQRCode(Product product)
 		{
 			string infomationProduct = 
-				$"Tên món ăn: {product.Name}," +
-				$"Mô tả: {product.Description}," +
-				$"Giá: {product.Price}" +
-				$"Hình ảnh: {product.ImageUrl}" +
-				$"Loại: {product.CategoryId}";
+				$"Tên món ăn: {product.Name}, " +
+				$"Mô tả: {product.Description}, " +
+				$"Giá: {product.Price}, " +
+				$"Hình ảnh: {product.ImageUrl}, " +
+				$"Loại: {product.CategoryName}.";
 
 			QRCodeGenerator qrGenerator = new QRCodeGenerator();
 			QRCodeData qrCodeData = qrGenerator.CreateQrCode(infomationProduct, QRCodeGenerator.ECCLevel.Q);
@@ -250,6 +257,20 @@ namespace FrontEnd.Components.PagesAdmin
 			{
 				await LoadFoods();
 			}
+		}
+
+		private async Task<string> GetCategoryName(int categoryId)
+		{
+			var response = await _categoryService.GetById(categoryId);
+			if (response != null && response.IsSuccess)
+			{
+				var resultJson = response.Result.ToString();
+				Category category = JsonConvert.DeserializeObject<Category>(resultJson);
+
+				return category.Name;
+			}
+
+			return categoryId.ToString();
 		}
 	}
 }

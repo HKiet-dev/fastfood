@@ -21,5 +21,6 @@ namespace FrontEnd.Models
         public string ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public DateTime CreateAt { get; set; } = DateTime.UtcNow;
+        public string CategoryName { get; set; }
     }
 }
