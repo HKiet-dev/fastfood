@@ -6,13 +6,10 @@ using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using FrontEnd.Services;
-<<<<<<< Updated upstream
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-=======
 using Microsoft.AspNetCore.Authorization;
 using FrontEnd.Helper;
->>>>>>> Stashed changes
 
 
 namespace FrontEnd.Components.Pages
