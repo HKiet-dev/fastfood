@@ -86,7 +86,20 @@
         }
         else
         {
-            Navigation.NavigateTo("/");
+            var token = await Authentication.GetTokenAsync();
+            var handler = new JwtSecurityTokenHandler();
+            var jwt = handler.ReadJwtToken(token);
+            var role = jwt.Claims.FirstOrDefault(u => u.Type == "role")?.Value;
+            if (role == "CUSTOMER")
+            {
+                Navigation.NavigateTo("/");
+                return;
+            }
+            else if (role == "ADMIN")
+            {
+                Navigation.NavigateTo("/usermanager");
+                return;
+            }
         }
 
     }

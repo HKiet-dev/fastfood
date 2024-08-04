@@ -80,9 +80,10 @@ namespace BackEnd.Controllers
         /// <returns>Trả về xoá tất cả danh sách giỏ hàng của người dùng</returns>
         /// <response code="200">Trả về giỏ hàng của người dùng đã được xoá</response>
         /// <response code="404">Không tìm thấy không tìm thấy giỏ hàng nào của khách hàng</response>
-        [HttpDelete("delete-all-by-user-id/{userId}")]
-        public ResponseDto DeleteAllByUserId(string userId)
+        [HttpDelete("delete-all-by-user-id")]
+        public ResponseDto DeleteAllByUserId()
         {
+            var userId = _userManager.GetUserId(User);
             var response = _cartservice.DeleteAllById(userId);
             return response;
         }

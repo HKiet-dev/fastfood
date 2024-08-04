@@ -33,7 +33,7 @@ namespace FrontEnd.Components.Pages
 		private bool IsEdit { get; set; } = false;
         private UserDto User { get; set; }
         public string userId { get; set; }
-		private string token;
+        private string token;
 		private string oldPassword;
 		private string newPassword;
 		private string confirmPassword;

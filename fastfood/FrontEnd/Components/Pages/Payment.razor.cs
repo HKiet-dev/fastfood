@@ -79,7 +79,7 @@ namespace FrontEnd.Components.Pages
             var response = await orderService.Payment(order);
             if (response.Result != null && response.IsSuccess)
             {
-                var responseCartDelete = await cartService.DeleteAllById(userId);
+                var responseCartDelete = await cartService.DeleteAllById();
                 if (responseCartDelete.IsSuccess)
                 {
                     await JSRuntime.InvokeVoidAsync("alert", "Đơn hàng đã được đặt.");
