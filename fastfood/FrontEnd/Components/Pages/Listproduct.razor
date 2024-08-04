@@ -1,30 +1,137 @@
 ﻿@page "/listproduct"
 @rendermode InteractiveServer
-<div class="container">
-    <section class="navbar-nav">
-        <ul class="filters_menu nav justify-content-center">
-            <li class="nav-item">
-                <button class="nav-link" @onclick="OnInitializedAsync">All</button>
-            </li>
-            @if (Categories == null)
-            {
-                <p>Loading...</p>
-            }
-            else
-            {
-                foreach (var item in Categories)
+<style>
+    .product-card {
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    .card-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .price {
+        font-size: 1.1rem;
+        display: block;
+    }
+
+    .btn {
+        border-radius: 20px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+</style>
+<div class="container-fluid">
+    <!-- Filter -->
+    <div class="row mb-4">
+        <div class="col">
+            <EditForm OnValidSubmit="ProductSort" FormName="Sorting" Model="sort">
+                <div class="d-flex">
+                    <InputSelect @bind-Value="sort" class="form-select me-3 text-center" style="width:200px;">
+                        <option value="0">Sắp xếp giá</option>
+                        <option value="1"> Giá giảm dần</option>
+                        <option value="2"> Giá tăng dần</option>
+                    </InputSelect>
+                    <button class="btn btn-primary" type="submit">Sắp xếp</button>
+                </div>
+            </EditForm>
+        </div>
+        <div class="col">
+            <EditForm OnValidSubmit="ProductFilter" FormName="filter" Model="value">
+                <div class="d-flex">
+                    <InputSelect @bind-Value="value" class="form-select me-3 text-center" style="width:200px;">
+                        <option value="0">Lọc khoảng giá</option>
+                        <option value="1"> Dưới 16.000</option>
+                        <option value="2"> 16.000 - 30.000</option>
+                        <option value="3"> 30.000 - 60.000</option>
+                        <option value="4"> 60.000 - 100.000</option>
+                        <option value="5"> Trên 100.000</option>
+                    </InputSelect>
+                    <button class="btn btn-primary" type="submit">Lọc sản phẩm</button>
+                </div>
+            </EditForm>
+        </div>
+        <div class="col">
+            <EditForm OnValidSubmit="ProductSearch" FormName="Search" Model="query">
+                <div class="d-flex">
+                    <InputText @bind-Value="query.ProductName" type="text" class="me-3 text-center form-control" style="width:200px;" placeholder="Tên sản phẩm">
+                    </InputText>
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="card shadow">
+                <div class="card-header bg-primary h4 text-center text-white">
+                    <div class="p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 2 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                        </svg>
+                        Category
+                    </div>
+                </div>
+                @if(Categories == null)
                 {
-                    <li class="nav-item">
-                        <button class="nav-link" @onclick="() => GetByCategoryId(item.Id)">@item.Name</button>
-                    </li>
-                }
-            }
-        </ul>
-    </section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
+                    <p>Loading Categories...</p>
+                } else
+                {
+                    <div class="card-body text-center fw-bold">
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="menu" class="nav-link" @onclick="OnInitializedAsync">
+                                    Tất cả
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    @foreach (var item in Categories)
+                    {
+                        <div class="card-body text-center fw-bold">
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="menu" class="nav-link" @onclick="() => GetByCategoryId(item.Id)">
+                                        @item.Name
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                }       
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row">
                     @if (Products == null)
                     {
 
@@ -33,36 +140,50 @@
                     {
                         foreach (var item in Products)
                         {
-                            <div class="col-sm-3">
-                                <div class="card product-card">
+                            <div class="col-sm-3 mt-3">
+                                <div class="card product-card shadow-sm">
                                     <img alt="Product" src="@item.ImageUrl" class="card-img-top">
                                     <div class="card-body text-center">
-                                        @* Product Name *@
-                                        <h5>@item.Name</h5>
-                                        @* Description *@
-                                        <p>
-                                            @item.Description
-                                        </p>
-                                        @* Price *@
-                                        <span> Giá : @item.Price.ToString("#,##")</span>
-                                        @* button *@
-                                        <div class="d-flex justify-content-around mt-2">
-                                            <a href="productdetails/@item.Id" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i> View Details</a>
+                                        <h5 class="card-title font-weight-bold">@item.Name</h5>
+                                        <p class="card-text text-muted small">@item.Description</p>
+                                        <span class="price text-primary font-weight-bold">Giá : @item.Price.ToString("#,## VNĐ")</span>
+                                        <div class="d-flex justify-content-around mt-1">
+                                            <a href="productdetails/@item.Id" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-info-circle mx-1"></i> View Details
+                                            </a>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
+
                         }
                     }
                 </div>
-
-                <div>
-                    <button @onclick="PreviousPage" disabled="@(!hasPreviousPage)">Previous</button>
-                    <span>Page @currentPage of @totalPages</span>
-                    <button @onclick="NextPage" disabled="@(!hasNextPage)">Next</button>
-                </div>
-            </div>
+                @if (totalPages > 1)
+                {
+                    <nav aria-label="Page navigation example mt-3">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item @(hasPreviousPage ? "" : "disabled")">
+                                <button class="page-link" @onclick="PreviousPage" aria-label="Previous" disabled="@(hasPreviousPage ? false : true)">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </button>
+                            </li>
+                            @for(int i = 1; i <= totalPages; i++)
+                            {
+                                int PageNumber = i;
+                                <li class="page-item">
+                                    <button class="btn btn-primary mx-1" @onclick="() => GoToPage(PageNumber)">@i</button>
+                                </li>
+                            }
+                            <li class="page-item @(hasNextPage ? "" : "disabled")">
+                                <button class="page-link" @onclick="NextPage" aria-label="Next" disabled="@(hasNextPage ? false : true)">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </button>
+                            </li>
+                            <span class="page-item mt-1">Page @currentPage of @totalPages</span>
+                        </ul>
+                    </nav>
+                }
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ using BackEnd.Models;
 using BackEnd.Models.Dtos;
 using BackEnd.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 #pragma warning disable 1591
 namespace BackEnd.Repository.Services
 {
@@ -127,7 +128,12 @@ namespace BackEnd.Repository.Services
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
-                response.Result = _mapper.Map<List<ProductDto>>(productsPerPage);
+                response.Result = new
+                {
+                    TotalCount = totalCount,
+                    TotalPages = totalPages,
+                    Products = _mapper.Map<List<ProductDto>>(productsPerPage)
+                };
                 response.IsSuccess = true;
             }
             catch (Exception ex)
@@ -138,26 +144,28 @@ namespace BackEnd.Repository.Services
             return response;
         }
 
-        public ResponseDto GetByFilter(int? categoryid, decimal? price, int page = 1, int pageSize = 10)
+        public ResponseDto GetByFilter(decimal? minrange, decimal? maxrange, int page = 1, int pageSize = 10)
         {
             try
             {
-                var products = _db.Product.Where(x => x.IsActive).ToList();
-                if (categoryid.HasValue)
+                var products = _db.Product.Where(x => x.IsActive).ToList().AsQueryable();
+                if (minrange.HasValue && maxrange.HasValue)
                 {
-                    products = products.Where(x => x.CategoryId == categoryid).ToList();
+                    products = products.Where(x => x.Price <= maxrange.Value && x.Price >= minrange.Value);
                 }
-                if (price.HasValue)
-                {
-                    products = products.Where(x => x.Price >= price).ToList();
-                }
-                var totalCount = products.Count;
+                var productFiltered = products.ToList();
+                var totalCount = productFiltered.Count;
                 var totalPages = (int)Math.Ceiling((decimal)totalCount / pageSize);
-                var productsPerPage = products
+                var productsPerPage = productFiltered
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
-                response.Result = _mapper.Map<List<ProductDto>>(productsPerPage);
+                response.Result = new
+                {
+                    TotalCount = totalCount,
+                    TotalPages = totalPages,
+                    Products = _mapper.Map<List<ProductDto>>(productsPerPage)
+                };
             } catch (Exception ex)
             {
                 response.IsSuccess = false;
@@ -176,7 +184,9 @@ namespace BackEnd.Repository.Services
                     response.IsSuccess = false;
                     response.Message = $"Thức ăn này không tồn tại";
                     return response;
-                }    
+                }
+                product.View += 1;
+                _db.SaveChanges();
                 response.Result = _mapper.Map<ProductDto>(product);
             }
             catch (Exception ex)
@@ -198,7 +208,48 @@ namespace BackEnd.Repository.Services
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
-                response.Result = _mapper.Map<List<ProductDto>>(productsPerPage);
+                response.Result = new
+                {
+                    TotalCount = totalCount,
+                    TotalPages = totalPages,
+                    Products = _mapper.Map<List<ProductDto>>(productsPerPage)
+                };
+                response.IsSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        public ResponseDto Sorting(string sort, int page = 1, int pageSize = 10)
+        {
+            try
+            {
+                List<Product> products;
+                if (sort == "desc")
+                {
+                    products = _db.Product.Where(p => p.IsActive).OrderByDescending(x => x.Price).ToList();
+                }
+                else
+                {
+                    products = _db.Product.Where(p => p.IsActive).OrderBy(x => x.Price).ToList();
+                }
+                var totalCount = products.Count;
+                var totalPages = (int)Math.Ceiling((decimal)totalCount / pageSize);
+                var productsPerPage = products
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+                response.Result = new
+                {
+                    TotalCount = totalCount,
+                    TotalPages = totalPages,
+                    Products = _mapper.Map<List<ProductDto>>(productsPerPage)
+                };
+                response.IsSuccess = true;
             }
             catch (Exception ex)
             {

@@ -34,7 +34,7 @@
                     <label for="gender" class="form-label text-white">Giới tính</label>
                     <InputSelect @bind-Value="model.Gender" class="form-select" id="gender">
                         <option value="1">Nam</option>
-                        <option value="2">Nữ</option>
+                        <option value="0">Nữ</option>
                     </InputSelect>
                     <ValidationMessage For="()=> model.Gender"></ValidationMessage>
                 </div>
@@ -93,7 +93,7 @@
     {
         if (file != null)
         {
-            using var fileStream = file.OpenReadStream();
+            using var fileStream = file.OpenReadStream(10 * 1024 * 1024);
             var fileName = file.Name;
 
             var cloudinaryUrl = await CloudinaryService.UploadImageAsync(fileStream, fileName);

@@ -26,5 +26,6 @@ namespace BackEnd.Models.Dtos
         public string? Avatar { get; set; }
         public UserStatus Status { get; set; } = UserStatus.Active;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public string role { get; set; }
     }
 }

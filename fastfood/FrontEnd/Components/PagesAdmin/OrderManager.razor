@@ -87,30 +87,82 @@
 								</div>
 							</div>
 							<div class="col">
-								<div class="form-group input-group mb-3">
-									@* <label class="control-label fw-bold input-group-text">PizzaID:</label> *@
-									<input type="hidden" asp-for="OrderID" class="form-control w-100" />
-									@* <span asp-validation-for="PizzaID" class="text-danger"></span> *@
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">FoodID:</label>
-									@* <select asp-for="FoodID" class="custom-select w-100 h-100" id="inputGroupSelect01">
-									<option selected>Choose Size....</option>
-									<option value="Nho">Nhỏ</option>
-									<option value="Lon">Lớn</option>
-									</select> *@
-									<input asp-for="FoodID" class="form-control" />
-									<span asp-validation-for="FoodID" class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">Amout:</label>
-									@* 									<select asp-for="Rim" class="custom-select w-100" id="inputGroupSelect01">
-									<option selected>Choose Rim....</option>
-									<option value="Truyen Thong">Truyền Thống</option>
-									<option value="Mong">Mỏng</option>
-									</select> *@
-									<input asp-for="Amout" class="form-control" />
-									<span asp-validation-for="Amout" class="text-danger"></span>
+								<div>
+									<div class="card border border-light rounded p-3 shadow bg-light mb-2">
+										<div class="form-group input-group mb-3">
+											@* <label class="control-label fw-bold input-group-text">PizzaID:</label> *@
+											<input type="hidden" asp-for="OrderID" class="form-control w-100" />
+											@* <span asp-validation-for="PizzaID" class="text-danger"></span> *@
+										</div>
+										<div class="form-group input-group mb-3">
+											<label class="control-label fw-bold input-group-text">Name Product:</label>
+											<select asp-for="Name" class="custom-select w-100 h-100" id="inputGroupSelect01">
+												<option selected>Choose Product....</option>
+												<option value="Nho">Burger Cở To</option>
+												<option value="Lon">Burger Sốt đậu</option>
+												<option value="Lon">Burger Sốt cà chua</option>
+												<option value="Lon">Pizza Pho Mai</option>
+											</select>
+											@* <input asp-for="FoodID" class="form-control" /> *@
+											<span asp-validation-for="FoodID" class="text-danger"></span>
+										</div>
+										<div class="form-group input-group mb-3">
+											<label class="control-label fw-bold input-group-text">Amout:</label>
+											<input asp-for="Amout" class="form-control" />
+											<span asp-validation-for="Amout" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="card border border-light rounded p-3 shadow bg-light mb-2">
+										<div class="form-group input-group mb-3">
+											@* <label class="control-label fw-bold input-group-text">PizzaID:</label> *@
+											<input type="hidden" asp-for="OrderID" class="form-control w-100" />
+											@* <span asp-validation-for="PizzaID" class="text-danger"></span> *@
+										</div>
+										<div class="form-group input-group mb-3">
+											<label class="control-label fw-bold input-group-text">Name Product:</label>
+											<select asp-for="Name" class="custom-select w-100 h-100" id="inputGroupSelect01">
+												<option selected>Choose Product....</option>
+												<option value="Nho">Burger Cở To</option>
+												<option value="Lon">Burger Sốt đậu</option>
+												<option value="Lon">Burger Sốt cà chua</option>
+												<option value="Lon">Pizza Pho Mai</option>
+											</select>
+											@* <input asp-for="FoodID" class="form-control" /> *@
+											<span asp-validation-for="FoodID" class="text-danger"></span>
+										</div>
+										<div class="form-group input-group mb-3">
+											<label class="control-label fw-bold input-group-text">Amout:</label>
+											<input asp-for="Amout" class="form-control" />
+											<span asp-validation-for="Amout" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="card border border-light rounded p-3 shadow bg-light mb-2">
+										<div class="form-group input-group mb-3">
+											@* <label class="control-label fw-bold input-group-text">PizzaID:</label> *@
+											<input type="hidden" asp-for="OrderID" class="form-control w-100" />
+											@* <span asp-validation-for="PizzaID" class="text-danger"></span> *@
+										</div>
+										<div class="form-group input-group mb-3">
+											<label class="control-label fw-bold input-group-text">Name Product:</label>
+											<select asp-for="Name" class="custom-select w-100 h-100" id="inputGroupSelect01">
+												<option selected>Choose Product....</option>
+												<option value="Nho">Burger Cở To</option>
+												<option value="Lon">Burger Sốt đậu</option>
+												<option value="Lon">Burger Sốt cà chua</option>
+												<option value="Lon">Pizza Pho Mai</option>
+											</select>
+											@* <input asp-for="FoodID" class="form-control" /> *@
+											<span asp-validation-for="FoodID" class="text-danger"></span>
+										</div>
+										<div class="form-group input-group mb-3">
+											<label class="control-label fw-bold input-group-text">Amout:</label>
+											<input asp-for="Amout" class="form-control" />
+											<span asp-validation-for="Amout" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="text-center mt-3">
+										<button class="btn btn-outline-secondary"> <i class="fa-solid fa-circle-plus"></i> </button>
+									</div>
 								</div>
 							</div>
 						</div>

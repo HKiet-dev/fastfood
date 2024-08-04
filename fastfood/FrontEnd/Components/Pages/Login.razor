@@ -1,4 +1,5 @@
 ﻿@page "/login"
+@using FrontEnd.Helper
 @using FrontEnd.Models
 @using FrontEnd.Services.IService
 @using Microsoft.AspNetCore.Authentication
@@ -10,7 +11,7 @@
 @rendermode InteractiveServer
 @inject IAuthService AuthService
 @inject NavigationManager Navigation
-@inject ITokenProvider TokenProvider
+@inject CustomAuthenticationStateProvider Authentication
 
 <link rel="stylesheet" href="~/login.css" />
 
@@ -73,20 +74,34 @@
 @code {
     private LoginRequestDto model = new();
     private string errorMessage = string.Empty;
+
+
     private async Task HandleValidLoginModel()
     {
-        var loginObject = await AuthService.LoginAsync(model);
-        if (loginObject.Result != null)
-        {
-            var loginResponse = JsonConvert.DeserializeObject<LoginResponseDto>(loginObject.Result.ToString());
-            var token = loginResponse.Token;
+        var loginAction = await Authentication.LoginAsync(model,string.Empty);
 
-            Navigation.NavigateTo($"/signin/{token}");
+        if (loginAction == "Sai tài khoản hoặc mật khẩu")
+        {
+            errorMessage = loginAction;
         }
         else
         {
-            errorMessage = loginObject.Message;
+            var token = await Authentication.GetTokenAsync();
+            var handler = new JwtSecurityTokenHandler();
+            var jwt = handler.ReadJwtToken(token);
+            var role = jwt.Claims.FirstOrDefault(u => u.Type == "role")?.Value;
+            if (role == "CUSTOMER")
+            {
+                Navigation.NavigateTo("/");
+                return;
+            }
+            else if (role == "ADMIN")
+            {
+                Navigation.NavigateTo("/usermanager");
+                return;
+            }
         }
+
     }
 
     private void ClearMessage()

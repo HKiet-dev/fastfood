@@ -2,6 +2,7 @@
 using FrontEnd.Services.IService;
 using Newtonsoft.Json;
 using static FrontEnd.Utility.StaticDetails;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace FrontEnd.Services
 {
@@ -62,12 +63,12 @@ namespace FrontEnd.Services
             });
         }
 
-        public async Task<ResponseDto>? GetByFilter(int? categoryid, decimal? price, int page = 1, int pageSize = 10)
+        public async Task<ResponseDto>? GetByFilter(decimal? minrange, decimal? maxrange, int page = 1, int pageSize = 10)
         {
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.GET,
-                Url = _foodUri + $"/Filter?categoryid={categoryid}&price={price}&page={page}&pageSize={pageSize}"
+                Url = _foodUri + $"/Filter?minrange={minrange}&maxrange={maxrange}&page={page}&pageSize={pageSize}"
             });
         }
 
@@ -86,6 +87,15 @@ namespace FrontEnd.Services
             {
                 ApiType = ApiType.GET,
                 Url = _foodUri + $"/Get-by-search?query={query}&page={page}&pageSize={pageSize}"
+            });
+        }
+
+        public async Task<ResponseDto>? Sorting(string sort, int page = 1, int pageSize = 10)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.GET,
+                Url = _foodUri + $"/Sorting?sort={sort}&page={page}&pageSize={pageSize}"
             });
         }
 

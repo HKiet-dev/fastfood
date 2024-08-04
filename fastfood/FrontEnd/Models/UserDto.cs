@@ -16,7 +16,7 @@ namespace FrontEnd.Models
         [Required(ErrorMessage = "Email không được để trống")]
         [EmailAddress(ErrorMessage = "Email phải đúng định dạng")]
         public string Email { get; set; }
-        public GenderType Gender { get; set; }
+        public int Gender { get; set; }
         [AddressValidation]
         public string? Address { get; set; }
         public string? Avatar { get; set; }
@@ -24,6 +24,7 @@ namespace FrontEnd.Models
         [EnumDataType(typeof(UserStatus))]
         public UserStatus Status { get; set; } = UserStatus.Active;
         public DateTime CreateDate { get; set; } = DateTime.UtcNow;
+        public string role { get; set; }
     }
 
     public enum UserStatus

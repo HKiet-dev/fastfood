@@ -2,7 +2,7 @@
 @using FrontEnd.Services.IService
 @using Microsoft.AspNetCore.Components.Authorization
 @using System.IdentityModel.Tokens.Jwt
-@inject ITokenProvider TokenProvider
+@inject NavigationManager Navigation
 <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm p-3 mb-5 bg-body-tertiary rounded">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">FastFood</a>
@@ -12,28 +12,28 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                    <NavLink class="nav-link" href="" >
+                        Home
                     </NavLink>
                 </li>
                 <li class="nav-item">
-                    <NavLink class="nav-link" href="menu" Match="NavLinkMatch.All">
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Menu
+                    <NavLink class="nav-link" href="menu" >
+                         Menu
                     </NavLink>
                 </li>
                 <li class="nav-item">
-                    <NavLink class="nav-link" href="about" Match="NavLinkMatch.All">
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> About
+                    <NavLink class="nav-link" href="about">
+                         About
                     </NavLink>
                 </li>
                 <li class="nav-item">
-                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Contact
+                    <NavLink class="nav-link" href="contact" >
+                         Contact
                     </NavLink>
                 </li>
                 <li class="nav-item">
-                    <NavLink class="nav-link" href="purchasehistory" Match="NavLinkMatch.All">
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Lịch sử mua hàng
+                    <NavLink class="nav-link" href="purchasehistory">
+                        Lịch sử mua hàng
                     </NavLink>
                 </li>
             </ul>
@@ -51,31 +51,29 @@
             </NavLink>
 
         </div>
-        @* <div>
-            <NavLink class="nav-link" href="infomation" Match="NavLinkMatch.All">
-                <i class="bi bi-person fs-6"></i>
-                <span class="mx-2 fs-6">Hồ Sơ</span>
-            </NavLink>
-        </div> *@
         <div>
-            <Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+            <AuthorizeView>
                 <Authorized>
                     <div class="btn-group">
-                        <NavLink class="nav-link ms-2" href="infomation">
-                            <span class="btn btn-outline-warning text-white border-white">hi, @userName</span>
+                        <NavLink class="nav-link btn btn-outline-white ms-2" href="infomation">
+                            @{
+                                var nameClaim = context.User.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Name)?.Value;
+                            }
+                            <span class="btn btn-outline-warning text-white border-white">hi, @nameClaim</span>
                         </NavLink>
-                        <NavLink class="nav-link ms-2" href="signout">
-                            <button class="btn btn-outline-secondary"><i class="bi bi-box-arrow-left"></i> Đăng xuất</button>
-                        </NavLink>
+                        <button type="button" class="btn btn-primary" @onclick="TryLogout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
                     </div>
                 </Authorized>
+                <Authorizing>
+                    Authorizing in process...
+                </Authorizing>
                 <NotAuthorized>
                     <NavLink class="nav-link" href="login" Match="NavLinkMatch.All">
                         <i class="bi bi-person fs-6"></i>
                         <span class="mx-2 fs-6">Đăng kí/Đăng nhập</span>
                     </NavLink>
                 </NotAuthorized>
-            </Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
+            </AuthorizeView>
         </div>
 
 
@@ -84,27 +82,47 @@
 
 @code
 {
-    [CascadingParameter]
-    Task<AuthenticationStateProvider> AuthenticationStateProvider { get; set; }
+    [Inject]
+    CustomAuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
     private string userName;
     private string userId;
     private string token;
 
 
-    protected override async Task OnInitializedAsync()
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     token = await AuthenticationStateProvider.GetTokenAsync();
+
+    //     if (token != null)
+    //     {
+    //         var handler = new JwtSecurityTokenHandler();
+    //         var jwt = handler.ReadJwtToken(token);
+
+    //         userName = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name)?.Value;
+    //         userId = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value;
+    //     }
+
+    // }
+
+    // protected override async Task OnAfterRenderAsync(bool firstRender)
+    // {
+    //     token = await AuthenticationStateProvider.GetTokenAsync();
+
+    //     if (token != null)
+    //     {
+    //         var handler = new JwtSecurityTokenHandler();
+    //         var jwt = handler.ReadJwtToken(token);
+
+    //         userName = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name)?.Value;
+    //         userId = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value;
+    //     }
+    // }
+
+    private async Task TryLogout()
     {
-        token = TokenProvider.GetToken();
-
-        if (token != null)
-        {
-            var handler = new JwtSecurityTokenHandler();
-            var jwt = handler.ReadJwtToken(token);
-
-            userName = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Name)?.Value;
-            userId = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value;
-        }
-
+        await AuthenticationStateProvider.LogoutAsync();
+        Navigation.NavigateTo("/");
     }
 }
 

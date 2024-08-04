@@ -1,8 +1,50 @@
-﻿@inherits LayoutComponentBase
+﻿@using FrontEnd.Helper
+@using System.IdentityModel.Tokens.Jwt
+@using Microsoft.AspNetCore.Components.Authorization
+@inherits LayoutComponentBase
 <div class="page">
     <nav>
-        <NavMenu />
-        @* <NavMenuAdmin /> *@
+        @* @if(role == "ADMIN"){
+            <NavMenuAdmin />
+        }
+        else if(role == "CUSTOMER"){
+            <NavMenu />
+        }
+        else if(role == null)
+        {
+            <NavMenu />
+        }
+        else if(role == string.Empty)
+        {
+            <NavMenu />
+        }
+        else
+        {
+            <NavMenu />
+        } *@
+        <AuthorizeView Roles="ADMIN">
+                <Authorized>
+                    <NavMenuAdmin />
+                </Authorized>
+                <Authorizing>
+                    Authorizing in process...
+                </Authorizing>
+                <NotAuthorized>
+                    <NavMenu />
+                </NotAuthorized>
+        </AuthorizeView>
+
+        @* <AuthorizeView Roles="CUSTOMER">
+            <Authorized>
+                <NavMenu />
+            </Authorized>
+            <Authorizing>
+                Authorizing in process...
+            </Authorizing>
+            <NotAuthorized>
+                <NavMenu />
+            </NotAuthorized>
+        </AuthorizeView> *@
     </nav>
 
     <main>
@@ -42,5 +84,11 @@
         </div>
     </footer>
 </div>
-
-
+@code{
+    private string role;
+    [Inject]
+    private CustomAuthenticationStateProvider Authentication { get; set; }
+    [Inject]
+    private NavigationManager Navigation { get; set; }
+    
+}

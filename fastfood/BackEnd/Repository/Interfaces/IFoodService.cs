@@ -12,8 +12,9 @@ namespace BackEnd.Repository.Interfaces
         ResponseDto Delete(int id);
         ResponseDto GetByCategoryId(int categoryid, int page = 1, int pageSize = 10);
         ResponseDto GetBySearch(string query, int page = 1, int pageSize = 10);
-        ResponseDto GetByFilter(int? categoryid,decimal? price, int page = 1, int pageSize = 10);
+        ResponseDto GetByFilter(decimal? minrange, decimal? maxrange, int page = 1, int pageSize = 10);
         ResponseDto TopViewed(int page = 1, int pageSize = 10);
+        ResponseDto Sorting(string sort, int page = 1, int pageSize = 10);
 
     }
 }

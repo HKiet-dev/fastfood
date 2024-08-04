@@ -186,7 +186,7 @@ namespace BackEnd.Repository.Services
                 PhoneNumber = registrationRequestDTO.PhoneNumber,
                 Address = registrationRequestDTO.Address,
                 Avatar = registrationRequestDTO.Avatar,
-                Gender = registrationRequestDTO.Gender,
+                Gender = (int)registrationRequestDTO.Gender,
             };
 
             try

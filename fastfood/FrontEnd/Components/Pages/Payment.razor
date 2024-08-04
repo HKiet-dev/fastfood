@@ -1,7 +1,7 @@
-﻿@page "/payment"
+﻿@page "/payment/{userId}"
 @using Microsoft.JSInterop
 @using FrontEnd.Models
-@rendermode InteractiveServer
+@* @rendermode InteractiveServer *@
 <div class="container box-shadow-edit">
     <EditForm OnValidSubmit="PaymentMethod" FormName="Payment" Model="model">
         <div class="row">
@@ -59,7 +59,7 @@
                                     <tr>
                                         <td align="left">@item.Food.Name</td>
                                         <td>@item.Quantity</td>
-                                        <td>@item.Food.Price</td>
+                                        <td>@(item.Food.Price.ToString("#,## VND"))</td>
                                     </tr>
                                 }
                             }
@@ -69,7 +69,7 @@
                 <div class="border-top pt-2 mb-4">
                     <div class="d-flex justify-content-between align-items-center fs-4 fw-bold">
                         <span>Total</span>
-                        <span>@cartDetails.Sum(x => x.Total).ToString("C")</span>
+                        <span>@cartDetails.Sum(x => x.Total).ToString("#,## VND")</span>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Thanh toán</button>

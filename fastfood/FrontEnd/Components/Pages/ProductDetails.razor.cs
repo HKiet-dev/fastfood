@@ -6,10 +6,15 @@ using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using FrontEnd.Services;
+using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Authorization;
+using FrontEnd.Helper;
 
 
 namespace FrontEnd.Components.Pages
 {
+    
     public partial class ProductDetails : ComponentBase
     {
         [Parameter]
@@ -18,23 +23,27 @@ namespace FrontEnd.Components.Pages
 
         [Inject]
         protected IFoodService _foodService { get; set; }
+
         [Inject]
-        protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+        protected CustomAuthenticationStateProvider Authentication { get; set; }
         [Inject]
         protected IJSRuntime JSRuntime { get; set; }
         [Inject]
-        protected ITokenProvider tokenProvider { get; set; }
-        [Inject]
         protected ICartService _cartService { get; set; }
+        
 
         public CartDetail CartDetails { get; set; }
         public Product Product { get; set; }
         public IEnumerable<Product> Products { get; set; } = Enumerable.Empty<Product>();
         private bool IsLoggedIn { get; set; }
-
         protected override async Task OnInitializedAsync()
         {
+            await LoadDetails();
+        }
 
+
+        private async Task LoadDetails()
+        {
             var productResponse = await _foodService.GetById(Id);
 
             if (productResponse != null && productResponse.IsSuccess)
@@ -56,14 +65,13 @@ namespace FrontEnd.Components.Pages
             {
                 Products = Enumerable.Empty<Product>();
             }
-
-
         }
+
+        [Authorize]
         private async Task AddToCart()
         {
-            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-            IsLoggedIn = authState.User.Identity.IsAuthenticated;
-            if (!IsLoggedIn)
+            var checkAuth = await Authentication.GetTokenAsync();
+            if (checkAuth == string.Empty)
             {
                 // Redirect to login page if not logged in
                 NavigationManager.NavigateTo("/login");
@@ -76,7 +84,8 @@ namespace FrontEnd.Components.Pages
                 {
 
                     // Retrieve user ID from token
-                    var token = tokenProvider.GetToken();
+                    var token = await Authentication.GetTokenAsync();
+
                     var handler = new JwtSecurityTokenHandler();
                     var jwt = handler.ReadJwtToken(token);
                     var userId = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value;
