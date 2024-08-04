@@ -71,7 +71,7 @@
                     <label class="col-3 col-form-label">Mật khẩu: </label>
                     <div class="d-flex justify-content-between col-9">
                         <input type="password" value="password" disabled class="form-control col-8 w-auto">
-                        <button class="btn btn-warning col-4" @onclick="ChangePassword">Đổi mật khẩu</button>
+                        <button class="btn btn-warning col-4" @onclick="ShowChangePassword">Đổi mật khẩu</button>
                     </div>
                 </div>
                 <div class="form-group row my-5 mx-5 @(IsChangePasswordShow==true?"visible":"hidden")">
@@ -84,14 +84,14 @@
                     <label class="col-3 col-form-label">Mật khẩu mới: </label>
                     <div class="d-flex justify-content-between col-9">
                         <input type="password" @bind-value="newPassword" class="form-control col-8 w-auto">
-                        <button class="btn btn-danger col-4" type="submit" @onclick="ChangePassword">Hủy</button>
+                        <button class="btn btn-danger col-4" type="submit" @onclick="ShowChangePassword">Hủy</button>
                     </div>
                 </div>
                 <div class="form-group row my-5 mx-5 @(IsChangePasswordShow==true?"visible":"hidden")">
                     <label class="col-3 col-form-label">Xác nhận mật khẩu: </label>
                     <div class="d-flex justify-content-between col-9">
                         <input type="password" @bind-value="confirmPassword" class="form-control col-8 w-auto">
-                        <button class="btn btn-primary col-4" @onclick="Save">Xác nhận</button>
+                        <button class="btn btn-primary col-4" @onclick="ChangePassword">Xác nhận</button>
                     </div>
                 </div>
                 <div class="form-group row my-5 mx-5">

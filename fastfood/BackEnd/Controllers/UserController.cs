@@ -119,5 +119,16 @@ namespace BackEnd.Controllers
             }
             return null;
         }
+        
+        [HttpPost("changepassword")]
+        public async Task<ResponseDto> ChangePassword(ChangePassDto changepass)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = await _user.ChangePassword(changepass);
+                return response;
+            }
+            return null;
+        }
     }
 }

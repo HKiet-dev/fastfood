@@ -81,7 +81,6 @@ namespace BackEnd.Repository.Services
 
             await _userManager.AddToRoleAsync(user, role);
             await _signInManager.PasswordSignInAsync(user, "", false, false);
-
             if (result.Succeeded)
             {
                 return user;

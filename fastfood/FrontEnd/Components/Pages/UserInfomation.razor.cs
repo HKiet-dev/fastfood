@@ -63,7 +63,7 @@ namespace FrontEnd.Components.Pages
 			}
 			IsEdit = false;
 		}
-        private async Task ChangePassword()
+        private void ShowChangePassword()
 		{
 			IsChangePasswordShow = !IsChangePasswordShow;
 		}
@@ -107,5 +107,20 @@ namespace FrontEnd.Components.Pages
                 }
             }
         }
+
+		public async Task ChangePassword()
+		{
+			ChangePassDto changePass = new ChangePassDto
+            {
+                id = userId,
+                oldPassword = oldPassword,
+                newPassword = newPassword
+            };
+			var response = await _userService.ChangePassword(changePass);
+			if(response.IsSuccess)
+                notification = "Đã đổi mật khẩu thành công";
+            else
+                notification = "Đổi mật khẩu thất bại";
+		}
     }
 }
