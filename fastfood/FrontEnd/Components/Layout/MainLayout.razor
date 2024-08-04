@@ -1,14 +1,50 @@
 ﻿@using FrontEnd.Helper
 @using System.IdentityModel.Tokens.Jwt
+@using Microsoft.AspNetCore.Components.Authorization
 @inherits LayoutComponentBase
 <div class="page">
     <nav>
-        @if(role == "ADMIN"){
-        <NavMenuAdmin />
+        @* @if(role == "ADMIN"){
+            <NavMenuAdmin />
         }
-        else{
-        <NavMenu />
+        else if(role == "CUSTOMER"){
+            <NavMenu />
         }
+        else if(role == null)
+        {
+            <NavMenu />
+        }
+        else if(role == string.Empty)
+        {
+            <NavMenu />
+        }
+        else
+        {
+            <NavMenu />
+        } *@
+        <AuthorizeView Roles="ADMIN">
+                <Authorized>
+                    <NavMenuAdmin />
+                </Authorized>
+                <Authorizing>
+                    Authorizing in process...
+                </Authorizing>
+                <NotAuthorized>
+                    <NavMenu />
+                </NotAuthorized>
+        </AuthorizeView>
+
+        @* <AuthorizeView Roles="CUSTOMER">
+            <Authorized>
+                <NavMenu />
+            </Authorized>
+            <Authorizing>
+                Authorizing in process...
+            </Authorizing>
+            <NotAuthorized>
+                <NavMenu />
+            </NotAuthorized>
+        </AuthorizeView> *@
     </nav>
 
     <main>
@@ -52,15 +88,7 @@
     private string role;
     [Inject]
     private CustomAuthenticationStateProvider Authentication { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        var token = await Authentication.GetTokenAsync();
-        if (token != string.Empty)
-        {
-            var handler = new JwtSecurityTokenHandler();
-            var jwt = handler.ReadJwtToken(token);
-            role = jwt.Claims.FirstOrDefault(u => u.Type == "role")?.Value;
-        }
-    }
+    [Inject]
+    private NavigationManager Navigation { get; set; }
+    
 }

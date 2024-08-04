@@ -8,7 +8,6 @@ using System.IdentityModel.Tokens.Jwt;
 using FrontEnd.Services;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
 using Microsoft.AspNetCore.Authorization;
 using FrontEnd.Helper;
 
@@ -71,14 +70,13 @@ namespace FrontEnd.Components.Pages
         [Authorize]
         private async Task AddToCart()
         {
-            /*var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-            IsLoggedIn = authState.User.Identity.IsAuthenticated;
-            if (!IsLoggedIn)
+            var checkAuth = await Authentication.GetTokenAsync();
+            if (checkAuth == string.Empty)
             {
                 // Redirect to login page if not logged in
                 NavigationManager.NavigateTo("/login");
                 return;
-            }*/
+            }
 
             if (Product.Id != null)
             {
