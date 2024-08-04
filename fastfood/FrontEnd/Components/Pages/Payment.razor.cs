@@ -1,5 +1,6 @@
 ﻿using BackEnd.Models.MOMO;
 using BackEnd.Models.VNPAY;
+using FrontEnd.Helper;
 using FrontEnd.Models;
 using FrontEnd.Models.MOMO;
 using FrontEnd.Services;
@@ -20,8 +21,11 @@ namespace FrontEnd.Components.Pages
         [Inject]
         protected ICartService cartService { get; set; }
 
+        /*[Inject]
+        protected ITokenProvider tokenProvider { get; set; }*/
+
         [Inject]
-        protected ITokenProvider tokenProvider { get; set; }
+        protected CustomAuthenticationStateProvider Authentication { get; set; }
 
         [Inject]
         protected IJSRuntime JSRuntime { get; set; }
@@ -43,10 +47,10 @@ namespace FrontEnd.Components.Pages
 
         private async Task GetListCart()
         {
-            var token = tokenProvider.GetToken();
+            /*var token = await Authentication.GetTokenAsync();
             var handler = new JwtSecurityTokenHandler();
             var jwt = handler.ReadJwtToken(token);
-            userId = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value;
+            userId = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value;*/
             var cartResponse = await cartService.getCart(userId);
 
             if (cartResponse != null && cartResponse.IsSuccess)
