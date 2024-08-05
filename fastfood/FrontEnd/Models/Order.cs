@@ -4,6 +4,7 @@ namespace FrontEnd.Models
 {
     public class Order
     {
+        public int? OrderId { get; set; }
         [Required(ErrorMessage = "Họ và tên không được rỗng")]
         public string FullName { get; set; } = string.Empty;
         [Required(ErrorMessage = "Địa chỉ không được rỗng"), MaxLength(250,ErrorMessage = "Độ dài tối đa 250 kí tự")]
@@ -15,5 +16,7 @@ namespace FrontEnd.Models
         public string PaymentType { get; set; } = string.Empty;
         public string PaymentStatus { get; set; } = "Chưa thanh toán";
         public string? note { get; set; }
+        public DateTime? OrderDate { get; set; }
+        public string? OrderStatus { get; set; }
     }
 }

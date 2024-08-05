@@ -60,14 +60,14 @@ namespace BackEnd.Repository.Services
         {
             try
             {
-                var orders = _db.Orders.Where(o => o.UserId == UserId);
+                var orders = _db.Orders.Where(o => o.UserId == UserId).ToList();
                 if (orders == null)
                 {
                     response.IsSuccess = false;
                     response.Message = "Hoá đơn này không tồn tại";
                     return response;
                 }
-                response.Result = _mapper.Map<OrderDto>(orders);
+                response.Result = _mapper.Map<List<OrderDto>>(orders);
             }
             catch (Exception ex)
             {
