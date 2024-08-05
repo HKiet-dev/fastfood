@@ -13,5 +13,6 @@ namespace BackEnd.Repository.Interfaces
         ResponseDto GetOrderDetails(int OrderId);
         decimal Profit();
         void UpdateOrderStatus(int OrderId, string message);
+        void CancelOrder(int OrderId);
     }
 }

@@ -22,7 +22,7 @@
         }
         else
         {
-            @foreach (var item in orders)
+            @foreach (var item in orders.OrderByDescending(x => x.OrderDate))
             {
                 <tr class="align-middle">
                     <td>@item.OrderId</td>
@@ -31,9 +31,13 @@
                     <td>
                         @if (item.PaymentStatus == "Chưa thanh toán")
                         {
-                            <div class="p-2 badge bg-primary text-white">@item.PaymentStatus</div>
+                            <div class="p-2 badge bg-warning text-white">@item.PaymentStatus</div>
                         }
-                        else
+                        @if(item.PaymentStatus == "Đã huỷ")
+                        {
+                            <div class="p-2 badge bg-danger text-white">@item.PaymentStatus</div>
+                        }
+                        @if(item.PaymentStatus == "Đã thanh toán")
                         {
                             <div class="p-2 badge bg-success text-white">@item.PaymentStatus</div>
                         }
@@ -49,7 +53,7 @@
                         }
                         else
                         {
-                            <div class="p-2 badge bg-primary text-white">@item.OrderStatus</div>
+                            <div class="p-2 badge bg-danger text-white">@item.OrderStatus</div>
                         }
                     </td>
                     <td>
