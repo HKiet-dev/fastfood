@@ -6,6 +6,9 @@ using BackEnd.Repository.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
 #pragma warning disable 1591
 namespace BackEnd.Repository.Services
 {
@@ -57,7 +60,7 @@ namespace BackEnd.Repository.Services
 
             if (eUser != null)
             {
-                await _signInManager.PasswordSignInAsync(eUser, "", false, false);
+                await _signInManager.SignInAsync(eUser,false);
                 return eUser;
             }
 
@@ -80,8 +83,7 @@ namespace BackEnd.Repository.Services
             }
 
             await _userManager.AddToRoleAsync(user, role);
-            await _signInManager.PasswordSignInAsync(user, "", false, false);
-
+            await _signInManager.SignInAsync(user,false);
             if (result.Succeeded)
             {
                 return user;
@@ -97,7 +99,18 @@ namespace BackEnd.Repository.Services
             {
                 return null;
             }
-            return await _userManager.GeneratePasswordResetTokenAsync(user);
+            
+            var newPass = GenerateRandomString(20);
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, newPass);
+            if (!result.Succeeded)
+            {
+                return "Đổi mật khẩu thất bạu"; // Thay đổi mật khẩu không thành công
+            }
+
+            var sendMail = await SendNewPasswordToMail(email,"FastFood Service", newPass);
+
+            return sendMail;
 		}
 
 		public async Task<UserDto> GetUserByEmail(string email)
@@ -229,5 +242,100 @@ namespace BackEnd.Repository.Services
                 return ex.Message;
             }
         }
+
+        private async Task<string> SendNewPasswordToMail(string to, string subject, string content)
+        {
+            string from = "chienprivate@gmail.com";
+            string pass = "aohm alki wbdn zgeu";
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(from);
+            msg.To.Add(to);
+            msg.Subject = subject;
+            msg.IsBodyHtml = true;
+            msg.Body = $@"
+<!DOCTYPE html>
+<html lang=""en"">
+
+<head>
+    <meta charset=""UTF-8"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>Mật khẩu mới</title>
+    <style>
+        .container {{
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #1d0404;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(54, 134, 148, 0.1);
+        }}
+        .text-center{{
+            text-align: center;
+        }}
+        .text-white{{
+            color: white;
+        }}
+        .bg-white{{
+            background-color: white;
+        }}
+        .fs-1{{
+            font-size: large;
+        }}
+    </style>
+</head>
+<body>
+    <div class=""container bg-white"">
+        <h2>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi !</h2>
+        <span>Đây là mật khẩu mới của bạn, vui lòng không chia sẽ thông tin này</span>
+        <br>
+        <span>Hãy đổi mật khẩu trong lần đăng nhập tiếp theo, xin cảm ơn. </span>
+    </div>
+    <div class=""container"">
+        <div class=""text-center"">
+            <h1 class=""text-white"">Mật khẩu mới của bạn</h1>
+        </div>
+        <div class=""text-center bg-white fs-1"">
+            <h2>{content}</h2>
+        </div>
+    </div>
+    
+</body>
+
+</html>";
+            ;
+
+            SmtpClient client = new SmtpClient("smtp.gmail.com");
+            client.EnableSsl = true;
+            client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.Credentials = new NetworkCredential(from, pass);
+            try
+            {
+                client.Send(msg);
+                return "gửi mail thành công";
+            }
+            catch (Exception ex)
+            {
+                return "Gửi mail thất bại";
+            }
+        }
+
+        public string GenerateRandomString(int length)
+        {
+            Random random = new Random();
+            const string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=<>?";
+            StringBuilder sb = new StringBuilder(length);
+
+            for (int i = 0; i < length; i++)
+            {
+                int index = random.Next(characters.Length);
+                sb.Append(characters[index]);
+            }
+
+            return sb.ToString();
+        }
     }
+
+    
 }
