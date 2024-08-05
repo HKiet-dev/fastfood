@@ -34,5 +34,23 @@ namespace FrontEnd.Services
                 Url = ApiUrl + $"/api/Payment/vnpay?amount={amount}"
             });
         }
+
+        public async Task<ResponseDto> OrderByUserId()
+        {
+			return await _baseService.SendAsync(new RequestDto
+			{
+				ApiType = ApiType.GET,
+				Url = ApiUrl + $"/api/Order/OrderByUser"
+			});
+		}
+
+        public async Task<ResponseDto> GetOderDetail(int OrderId)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.GET,
+                Url = ApiUrl + $"/api/Order/Order-details/{OrderId}"
+            });
+        }
     }
 }
