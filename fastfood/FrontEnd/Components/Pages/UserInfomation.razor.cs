@@ -1,28 +1,28 @@
-
+﻿using Azure.Core;
 using FrontEnd.Helper;
 using FrontEnd.Models;
-
+using FrontEnd.Services;
 using FrontEnd.Services.IService;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.Extensions.Logging;
+using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
+using System.Reflection.Metadata;
 
 namespace FrontEnd.Components.Pages
 {
-    public partial class UserInfomation : ComponentBase
-    {
+	public partial class UserInfomation : ComponentBase
+	{
+		[CascadingParameter]
+		Task<AuthenticationStateProvider> AuthenticationStateProvider { get; set; }
         #region Inject
         [Inject]
-        private ITokenProvider tokenProvider { get; set; }
-        [Inject]
-        private IAuthService _authService { get; set; }
-
-		[Inject]
         protected CloudinaryServices CloudinaryService { get; set; }
-		[Inject]
-		CustomAuthenticationStateProvider Authentication { get; set; }
-
+        [Inject]
+		ITokenProvider TokenProvider { get; set; }
 		[Inject]
 		IUserService _userService { get; set; }
         #endregion
@@ -30,10 +30,10 @@ namespace FrontEnd.Components.Pages
         [Parameter]
         public EventCallback<InputFileChangeEventArgs> OnChangeInputFile { get; set; }
         private IBrowserFile file;
-		private bool IsEdit { get; set; } = false;
         private UserDto User { get; set; }
-        public string userId { get; set; }
-        private string token;
+		private bool IsEdit { get; set; } = false;
+		private string userId;
+		private string token;
 		private string oldPassword;
 		private string newPassword;
 		private string confirmPassword;
@@ -63,24 +63,17 @@ namespace FrontEnd.Components.Pages
 			}
 			IsEdit = false;
 		}
-
-        private async Task UploadAvatar()
-        {
-            throw new NotImplementedException();
-        }
-
-        private async Task ChangePassword()
+        private void ShowChangePassword()
 		{
 			IsChangePasswordShow = !IsChangePasswordShow;
 		}
 
-
 		protected override async Task OnInitializedAsync()
 		{
 			User ??= new();
-            token = await Authentication.GetTokenAsync();
+			token = TokenProvider.GetToken();
 
-            if (token != null)
+			if (token != null)
 			{
 				var handler = new JwtSecurityTokenHandler();
 				var jwt = handler.ReadJwtToken(token);
@@ -92,20 +85,18 @@ namespace FrontEnd.Components.Pages
 				var response = await _userService.GetById(userId);
 				User = JsonConvert.DeserializeObject<UserDto>(response.Result.ToString());
 			}
-		}
-
-
-		private async Task HandleFileSelected(InputFileChangeEventArgs e)
+        }
+        private void HandleFileSelected(InputFileChangeEventArgs e)
         {
-            var token = tokenProvider.GetToken();
-            var handler = new JwtSecurityTokenHandler();
-            var jwt = handler.ReadJwtToken(token);
-            userId = jwt.Claims.FirstOrDefault(u => u.Type == JwtRegisteredClaimNames.Sub)?.Value;
-            var userResponse = await _authService.GetUserById(userId);
-            if (userResponse != null && userResponse.IsSuccess)
+            file = e.File;
+			IsEdit = true;	
+        }
+
+        private async Task UploadAvatar()
+        {
+            if (file != null)
             {
-                User = JsonConvert.DeserializeObject<UserDto>(userResponse.Result.ToString());
-                using var fileStream = file.OpenReadStream(10 * 1024 * 1024);
+                using var fileStream = file.OpenReadStream();
                 var fileName = file.Name;
 
                 var cloudinaryUrl = await CloudinaryService.UploadImageAsync(fileStream, fileName);
@@ -116,5 +107,20 @@ namespace FrontEnd.Components.Pages
                 }
             }
         }
+
+		public async Task ChangePassword()
+		{
+			ChangePassDto changePass = new ChangePassDto
+            {
+                id = userId,
+                oldPassword = oldPassword,
+                newPassword = newPassword
+            };
+			var response = await _userService.ChangePassword(changePass);
+			if(response.IsSuccess)
+                notification = "Đã đổi mật khẩu thành công";
+            else
+                notification = "Đổi mật khẩu thất bại";
+		}
     }
 }

@@ -11,12 +11,45 @@ using Microsoft.OpenApi.Extensions;
 namespace BackEnd.Repository.Services
 {
     public class UserService(
-        ApplicationDbContext context, IMapper mapper, UserManager<User> userManager) : IUserService
+        ApplicationDbContext context, IMapper mapper, UserManager<User> userManager, RoleManager<IdentityRole> rolemanager) : IUserService
     {
+        private readonly RoleManager<IdentityRole> _roleManager = rolemanager;
         private readonly ApplicationDbContext _context = context;
         private readonly IMapper _mapper = mapper;
         private readonly UserManager<User> _userManager = userManager;
         private readonly ResponseDto response = new ResponseDto();
+
+        public async Task<ResponseDto> ChangePassword(ChangePassDto changePass)
+        {
+            try
+            {
+                if (changePass.id == null || changePass.id == "")
+                {
+                    response.IsSuccess = false;
+                    response.Message = "Id người dùng không được trống";
+                }
+                var user = await _context.Users.FindAsync(changePass.id);
+                var result = await _userManager.ChangePasswordAsync(user, changePass.oldPassword, changePass.newPassword);
+                if (result.Succeeded)
+                {
+                    response.IsSuccess = true;
+                    response.Message = "Đổi mật khẩu thành công";
+                }
+                else
+                {
+                    response.IsSuccess = false;
+                    response.Message = "Đổi mật khẩu thất bại";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+
         public async Task<ResponseDto> Create(User user, string? randomPassword)
         {
             try
@@ -28,15 +61,12 @@ namespace BackEnd.Repository.Services
                 }
                 else
                 {
-                    user.Id = Guid.NewGuid().ToString();
                     user.UserName = user.Name;
                     user.NormalizedEmail = user.Email.ToUpper();
                     user.NormalizedUserName = user.UserName.ToUpper();
                     IdentityResult result;
-                    //CartDetail cartDto = new CartDetail()
-                    //{
-                    //    UserId = user.Id
-                    //};
+
+
                     if (randomPassword == null)
                     {
                         result = await _userManager.CreateAsync(user);
@@ -45,6 +75,16 @@ namespace BackEnd.Repository.Services
                     {
                         result = await _userManager.CreateAsync(user, randomPassword);
                     }
+
+                    string role = "CUSTOMER";
+
+                    if (!_roleManager.RoleExistsAsync(role).GetAwaiter().GetResult())
+                    {
+                        _roleManager.CreateAsync(new IdentityRole(role)).GetAwaiter().GetResult();
+                    }
+
+                    await _userManager.AddToRoleAsync(user, role);
+
 
                     if (result.Succeeded)
                     {

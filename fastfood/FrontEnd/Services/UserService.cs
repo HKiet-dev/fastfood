@@ -62,6 +62,15 @@ namespace FrontEnd.Services
                 Data = user,
                 Url = _userUri
             });
+        } 
+        public async Task<ResponseDto>? ChangePassword(ChangePassDto changePass)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.POST,
+                Data = changePass,
+                Url = _userUri + "/changepassword"
+            });
         }
     }
 }

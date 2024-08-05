@@ -1,97 +1,148 @@
-@page "/infomation"
+﻿@page "/infomation"
+@using FrontEnd.Models
+@rendermode InteractiveServer
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="@User.Avatar" alt="@User.Name" class="w-100" />
+                        </div>
+                        <div class="col-8 text-center">
+                            <h5>@User.Name <i class="fa-solid fa-circle-check text-success"></i></h5>
+                            <div class="my-4">
+                                <div class="d-flex bd-highlight text-end">
+                                    <div class="flex-shrink-1">Email: </div>
+                                    <div class="w-100">@User.Email</div>
+                                </div>
+                                <div class="d-flex bd-highlight text-end">
+                                    <div class="flex-shrink-1">SDT: </div>
+                                    <div class="w-100">@User.PhoneNumber</div>
+                                </div>
+                                <div class="d-flex bd-highlight">
+                                    <div class="flex-shrink-1 w-100 text-start">Địa Chỉ: </div>
+                                    <div class="w-100 text-end">@User.Address</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <InputFile OnChange="HandleFileSelected"  MaxAllowedSize="1048576" multiple class="form-control w-100" />
+                            <div class="d-flex justify-content-between">
+                               
+                                <div>
+                                    <button class="mt-3 btn btn-outline-secondary" form="infoForm" disabled="@(!IsEdit)" @onclick=Save><i class="fa-regular fa-floppy-disk"></i> Save </button>
+                                    <button class="mt-3 btn btn-outline-secondary" @onclick="Edit"><i class="fa-solid fa-pen-to-square"></i> Edit </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-3 text-end">
+                <a href="signout" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+            </div>
+            @if (!string.IsNullOrEmpty(notification))
+            {
+                <div class="alert alert-success">
+                    @notification
+                </div>
+            }
 
-@if(User == null)
-{
-    <h1>Loading...</h1>
-} else
-{
-	<div class="container">
-		<div class="row">
-			<div class="col-4">
-				<div class="card">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-4">
-								<img src="/Img/anhthe.jfif" alt="Alternate Text" class="w-100" />
-							</div>
-							<div class="col-8 text-center">
-								<h5>@User.Name <i class="fa-solid fa-circle-check text-success"></i></h5>
-								<div class="my-4">
-									<div class="d-flex bd-highlight text-end">
-										<div class="flex-shrink-1">Email:  </div>
-										<div class="w-100"> @User.Email</div>
-									</div>
-									<div class="d-flex bd-highlight text-end">
-										<div class="flex-shrink-1">SDT: </div>
-										<div class="w-100"> @User.PhoneNumber</div>
-									</div>
-									<div class="d-flex bd-highlight">
-										<div class="flex-shrink-1 w-100 text-start">Địa Chỉ: </div>
-										<div class="w-100 text-end">@User.Address</div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div class="d-flex justify-content-between">
-									<button class="mt-3 btn btn-secondary"><i class="fa-regular fa-folder-open me-2"></i> Open </button>
-									<div>
-										<button class="mt-3 btn btn-outline-secondary"><i class="fa-regular fa-floppy-disk"></i> Save </button>
-										<button class="mt-3 btn btn-outline-secondary"><i class="fa-solid fa-pen-to-square"></i> Edit </button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="m-3 text-end">
-					<button class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
-				</div>
-			</div>
-			<div class="col-8">
-				<h4>Thông tin cá nhân</h4>
-				<hr />
-				<div class="text-center">
-					<div class="form-group row my-5 mx-5">
-						<label class="col-3 col-form-label">UserName: </label>
-						<div class="col-9">
-							<input type="text" value="TuanDepTrai" readonly="readonly" class="form-control mr-3">
-						</div>
-					</div>
-					<div class="form-group row my-5 mx-5">
-						<label class="col-3 col-form-label">Họ và tên: </label>
-						<div class="col-9">
-							<input type="text" value="Phạm Minh Tuấn" readonly="readonly" class="form-control mr-3">
-						</div>
-					</div>
-					<div class="form-group row my-5 mx-5">
-						<label class="col-3 col-form-label">Giới tính: </label>
-						<div class="col-9">
-							<input type="text" value="Nam" readonly="readonly" class="form-control mr-3">
-						</div>
-					</div>
-					<div class="form-group row my-5 mx-5">
-						<label class="col-3 col-form-label">Số điện thoại: </label>
-						<div class="col-9">
-							<input type="text" value="038578384" readonly="readonly" class="form-control mr-3">
-						</div>
-					</div>
-					<div class="form-group row my-5 mx-5">
-						<label class="col-3 col-form-label">Địa Chỉ: </label>
-						<div class="col-9">
-							<input type="text" value="Long Xuyên" readonly="readonly" class="form-control mr-3">
-						</div>
-					</div>
-					<div class="form-group row my-5 mx-5">
-						<label class="col-3 col-form-label">Email: </label>
-						<div class="col-9">
-							<input type="text" value="tuandeptrai@gmail.com" readonly="readonly" class="form-control mr-3">
-						</div>
-					</div>
-				</div>
-				<div class="text-center">
-					<button class="btn btn-outline-danger"><i class="fa-solid fa-user-minus"></i> Xóa tài khoản</button>
-				</div>
-			</div>
-		</div>
-	</div>
-}
+        </div>
+        <div class="col-8">
+            <h4>Thông tin cá nhân</h4>
+            <hr />
+            <EditForm Model="User" class="text-center" id="infoForm">
+                <div class="form-group row my-5 mx-5">
+                    <label class="col-3 col-form-label">UserName: </label>
+                    <div class="col-9">
+                        <InputText type="text" @bind-Value="User.Name" class="form-control mr-3" readonly="@(!IsEdit)" />
+                    </div>
+                </div>
+                <div class="form-group row my-5 mx-5">
+                    <label class="col-3 col-form-label">Email: </label>
+                    <div class="col-9">
+                        <InputText type="text" @bind-Value="User.Email" readonly="@(!IsEdit)" class="form-control mr-3" />
+                    </div>
+                </div>
+                <div class="form-group row my-5 mx-5">
+                    <label class="col-3 col-form-label">Mật khẩu: </label>
+                    <div class="d-flex justify-content-between col-9">
+                        <input type="password" value="password" disabled class="form-control col-8 w-auto">
+                        <button class="btn btn-warning col-4" @onclick="ShowChangePassword">Đổi mật khẩu</button>
+                    </div>
+                </div>
+                <div class="form-group row my-5 mx-5 @(IsChangePasswordShow==true?"visible":"hidden")">
+                    <label class="col-3 col-form-label">Mật khẩu cũ: </label>
+                    <div class="d-flex justify-content-between col-9">
+                        <input type="password" @bind-value="oldPassword" class="form-control col-8 w-auto">
+                    </div>
+                </div>
+                <div class="form-group row my-5 mx-5 @(IsChangePasswordShow==true?"visible":"hidden")">
+                    <label class="col-3 col-form-label">Mật khẩu mới: </label>
+                    <div class="d-flex justify-content-between col-9">
+                        <input type="password" @bind-value="newPassword" class="form-control col-8 w-auto">
+                        <button class="btn btn-danger col-4" type="submit" @onclick="ShowChangePassword">Hủy</button>
+                    </div>
+                </div>
+                <div class="form-group row my-5 mx-5 @(IsChangePasswordShow==true?"visible":"hidden")">
+                    <label class="col-3 col-form-label">Xác nhận mật khẩu: </label>
+                    <div class="d-flex justify-content-between col-9">
+                        <input type="password" @bind-value="confirmPassword" class="form-control col-8 w-auto">
+                        <button class="btn btn-primary col-4" @onclick="ChangePassword">Xác nhận</button>
+                    </div>
+                </div>
+                <div class="form-group row my-5 mx-5">
+                    <label class="col-3 col-form-label">Giới tính: </label>
+                    <div class="col-9">
+                        <InputSelect type="text" @bind-Value="User.Gender" readonly="@(!IsEdit)" class="form-control mr-3">
+                            <option value="@GenderType.Male">Nam</option>
+                            <option value="@GenderType.Female">Nữ</option>
+                        </InputSelect>
+                    </div>
+                </div>
+                <div class="form-group row my-5 mx-5">
+                    <label class="col-3 col-form-label">Số điện thoại: </label>
+                    <div class="col-9">
+                        <InputText type="text" @bind-Value="User.PhoneNumber" readonly="@(!IsEdit)" class="form-control mr-3" />
+                    </div>
+                </div>
+                <div class="form-group row my-5 mx-5">
+                    <label class="col-3 col-form-label">Địa Chỉ: </label>
+                    <div class="col-9">
+                        <InputText type="text" @bind-Value="User.Address" readonly="@(!IsEdit)" class="form-control mr-3" />
+                    </div>
+                </div>
+            </EditForm>
+            <div class="text-center">
+                <button class="btn btn-outline-danger"><i class="fa-solid fa-user-minus"></i> Xóa tài khoản</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .hidden {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        position: absolute; /* Đảm bảo phần tử không chiếm không gian */
+        transition: opacity 0.5s ease, max-height 0.5s ease;
+    }
+
+    .visible {
+        opacity: 1;
+        max-height: 200px; /* Giá trị max-height đủ lớn để chứa toàn bộ nội dung */
+        transition: opacity 0.5s ease, max-height 0.5s ease;
+    }
+
+</style>
+<script>
+    function submitFormById(formId) {
+        var form = document.getElementById(formId);
+        if (form) {
+            form.submit();
+        }
+    }
+</script>
