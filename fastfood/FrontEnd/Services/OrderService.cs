@@ -52,5 +52,21 @@ namespace FrontEnd.Services
                 Url = ApiUrl + $"/api/Order/Order-details/{OrderId}"
             });
         }
+        public async Task<ResponseDto> GetOrderByID(int OrderId)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.GET,
+                Url = ApiUrl + $"/api/Order/{OrderId}"
+            });
+        }
+        public async Task<ResponseDto> Cancel(int OrderId)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.PUT,
+                Url = ApiUrl + $"/api/Order/cancel/{OrderId}"
+            });
+        }
     }
 }

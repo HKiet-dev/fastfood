@@ -104,6 +104,15 @@ namespace BackEnd.Repository.Services
             return profit;
         }
 
+        public void CancelOrder(int OrderId)
+        {
+            var order = _db.Orders.SingleOrDefault(Order => Order.OrderId == OrderId);
+            order.PaymentStatus = "Đã huỷ";
+            order.OrderStatus = "Đã huỷ";
+            _db.Orders.Update(order);
+            _db.SaveChanges();
+        }
+
         public void UpdateOrderStatus(int OrderId, string message)
         {
             var order = _db.Orders.SingleOrDefault(Order => Order.OrderId == OrderId);
