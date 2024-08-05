@@ -1,97 +1,64 @@
 ﻿@page "/purchasehistory"
-<h3>PurchaseHistory</h3>
+@rendermode InteractiveServer
+<h3 class="text-center">Lịch sử mua hàng</h3>
 
-<div class="container">
-	<div class="m-5">
-		<div class="card border-dark mb-3">
-			<div class="card-header d-flex justify-content-between">
-				<div class="align-items-center">
-					<div class="d-flex align-items-center px-2">
-						<a class="btn btn-outline-dark"><i class="fa-solid fa-arrow-left"></i> Mua lại</a>
-						<label class="d-flex align-items-center px-2 align-content-center">Đơn hàng được đặt: 10/11/2024</label>
-					</div>
-				</div>
-				<div class="d-flex align-items-center px-2 ml-auto p-2 text-success"><i class="fas fa-truck"></i> Đơn hàng đã được giao thành công</div>
-				@*
-				<div class="ml-auto p-2 text-warning"><i class="fas fa-truck"></i> Đang được vận chuyển</div>
-
-				<div class="ml-auto p-2 text-danger">Đơn hàng lỗi</div> *@
-			</div>
-
-			<div class="row card-body text-dark">
-				<div class="col-11">
-					<h5 class="card-title">Food.FoodName</h5>
-					<label class="card-text text-muted" style="font-size: small">Description: Food.Description</label>
-					<label class="card-text">x 1</label>
-					<h4 class="text-danger m-1">300.000 đ</h4>
-				</div>
-				<div class="col-1">
-					<img src="/Img/anhthe.jfif" alt="Alternate Text" class="w-100 h-auto" />
-				</div>
-			</div>
-			<hr />
-			<div class="d-flex justify-content-between">
-				<div class="d-flex align-items-center px-2">Mã đơn hàng: item.OrderID</div>
-
-				<div class="d-flex align-items-center px-2 text-info">Phương thức thanh toán: Cash</div>
-				@*
-				<div class="d-flex align-items-center px-2 text-info">Phương thức thanh toán: InternetBanking</div>
-
-				<div class="d-flex align-items-center px-2 text-info">Phương thức thanh toán: Visa/MasterCard</div> *@
-
-				<div class="d-flex justify-content-end align-items-end">
-					<h6>Thành tiền:  </h6>
-					<h2 class="text-danger ms-3 m-1">300.000 đ</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="m-5">
-		<div class="card border-dark mb-3">
-			<div class="card-header d-flex justify-content-between">
-				<div class="align-items-center">
-					<div class="d-flex align-items-center px-2">
-						<a class="btn btn-outline-dark"><i class="fa-solid fa-arrow-left"></i> Mua lại</a>
-						<label class="d-flex align-items-center px-2 align-content-center">Đơn hàng được đặt: 10/11/2024</label>
-					</div>
-				</div>
-				<div class="d-flex align-items-center px-2 ml-auto p-2 text-success"><i class="fas fa-truck"></i> Đơn hàng đã được giao thành công</div>
-				@*
-				<div class="ml-auto p-2 text-warning"><i class="fas fa-truck"></i> Đang được vận chuyển</div>
-
-				<div class="ml-auto p-2 text-danger">Đơn hàng lỗi</div> *@
-			</div>
-
-			<div class="row card-body text-dark">
-				<div class="col-11">
-					<h5 class="card-title">Food.FoodName</h5>
-					<label class="card-text text-muted" style="font-size: small">Description: Food.Description</label>
-					<label class="card-text">x 1</label>
-					<h4 class="text-danger m-1">300.000 đ</h4>
-				</div>
-				<div class="col-1">
-					<img src="/Img/anhthe.jfif" alt="Alternate Text" class="w-100 h-auto" />
-				</div>
-			</div>
-			<hr />
-			<div class="d-flex justify-content-between">
-				<div class="d-flex align-items-center px-2">Mã đơn hàng: item.OrderID</div>
-
-				<div class="d-flex align-items-center px-2 text-info">Phương thức thanh toán: Cash</div>
-				@*
-				<div class="d-flex align-items-center px-2 text-info">Phương thức thanh toán: InternetBanking</div>
-
-				<div class="d-flex align-items-center px-2 text-info">Phương thức thanh toán: Visa/MasterCard</div> *@
-
-				<div class="d-flex justify-content-end align-items-end">
-					<h6>Thành tiền:  </h6>
-					<h2 class="text-danger ms-3 m-1">300.000 đ</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-@code {
-
-}
+<table class="table table-hover table-bordered text-center my-4">
+    <thead class="table-primary">
+        <tr>
+            <th>Mã đơn</th>
+            <th>Phương thức thanh toán</th>
+            <th>Thời gian đặt</th>
+            <th>Trạng thái thanh toán</th>
+            <th>Trạng thái đơn hàng</th>
+            <th>Xem chi tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (orders == null)
+        {
+            <tr>
+                <td colspan="5">Loading...</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in orders)
+            {
+                <tr class="align-middle">
+                    <td>@item.OrderId</td>
+                    <td>@item.PaymentType</td>
+                    <td>@item.OrderDate</td>
+                    <td>
+                        @if (item.PaymentStatus == "Chưa thanh toán")
+                        {
+                            <div class="p-2 badge bg-primary text-white">@item.PaymentStatus</div>
+                        }
+                        else
+                        {
+                            <div class="p-2 badge bg-success text-white">@item.PaymentStatus</div>
+                        }
+                    </td>
+                    <td>
+                        @if (@item.OrderStatus == "Đang chuẩn bị")
+                        {
+                            <div class="p-2 badge bg-warning text-white">@item.OrderStatus</div>
+                        }
+                        else if (item.OrderStatus == "Đã giao")
+                        {
+                            <div class="p-2 badge bg-success text-white">@item.OrderStatus</div>
+                        }
+                        else
+                        {
+                            <div class="p-2 badge bg-primary text-white">@item.OrderStatus</div>
+                        }
+                    </td>
+                    <td>
+                        <a href="order-details/@item.OrderId" class="btn btn-primary btn-sm">
+                            Chi tiết
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
