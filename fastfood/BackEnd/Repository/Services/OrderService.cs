@@ -58,16 +58,18 @@ namespace BackEnd.Repository.Services
 
         public ResponseDto getOrderId(string UserId)
         {
+            var response = new ResponseDto();
             try
             {
-                var orders = _db.Orders.Where(o => o.UserId == UserId).ToList();
-                if (orders == null)
+                var orders = _db.Orders.Where(o => o.UserId == UserId).ToList(); // Convert to List
+                if (orders.Count == 0)
                 {
                     response.IsSuccess = false;
                     response.Message = "Hoá đơn này không tồn tại";
                     return response;
                 }
-                response.Result = _mapper.Map<List<OrderDto>>(orders);
+                response.Result = _mapper.Map<List<OrderDto>>(orders); // Map the list
+                response.IsSuccess = true;
             }
             catch (Exception ex)
             {
