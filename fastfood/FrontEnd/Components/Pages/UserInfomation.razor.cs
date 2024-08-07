@@ -110,28 +110,6 @@ namespace FrontEnd.Components.Pages
             }
         }
 
-        //protected override async Task OnAfterRenderAsync(bool firstRender)
-        //{
-        //    if (firstRender)
-        //    {
-        //        User ??= new();
-        //        if (!isTokenLoaded)
-        //        {
-        //            await GetToken();
-        //        }
-        //    }
-        //}
-
-        //protected override async Task OnAfterRenderAsync(bool firstRender)
-        //{
-        //    if (firstRender)
-        //    {
-        //        User ??= new();
-        //        await GetToken();
-        //    }
-        //    else
-        //        User ??= new();
-        //}
 
         private void HandleFileSelected(InputFileChangeEventArgs e)
         {
