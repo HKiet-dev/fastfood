@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q9JQIoG13gI=",
+  "dgSpecHash": "b7K6S+2dVr8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\New folder\\fastfood\\fastfood\\UintTestBE_Service\\UintTestBE_Service.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\xTest\\fastfood\\fastfood\\UintTestBE_Service\\UintTestBE_Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
