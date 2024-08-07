@@ -58,16 +58,18 @@ namespace BackEnd.Repository.Services
 
         public ResponseDto getOrderId(string UserId)
         {
+            var response = new ResponseDto();
             try
             {
-                var orders = _db.Orders.Where(o => o.UserId == UserId);
-                if (orders == null)
+                var orders = _db.Orders.Where(o => o.UserId == UserId).ToList(); // Convert to List
+                if (orders.Count == 0)
                 {
                     response.IsSuccess = false;
                     response.Message = "Hoá đơn này không tồn tại";
                     return response;
                 }
-                response.Result = _mapper.Map<OrderDto>(orders);
+                response.Result = _mapper.Map<List<OrderDto>>(orders); // Map the list
+                response.IsSuccess = true;
             }
             catch (Exception ex)
             {
@@ -102,6 +104,15 @@ namespace BackEnd.Repository.Services
         {
             var profit = _db.OrderDetail.Sum(x => x.Total);
             return profit;
+        }
+
+        public void CancelOrder(int OrderId)
+        {
+            var order = _db.Orders.SingleOrDefault(Order => Order.OrderId == OrderId);
+            order.PaymentStatus = "Đã huỷ";
+            order.OrderStatus = "Đã huỷ";
+            _db.Orders.Update(order);
+            _db.SaveChanges();
         }
 
         public void UpdateOrderStatus(int OrderId, string message)

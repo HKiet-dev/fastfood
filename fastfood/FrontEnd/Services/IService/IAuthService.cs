@@ -14,5 +14,6 @@ namespace FrontEnd.Services.IService
         Task<ResponseDto?> GetUserId(string email);
         Task<ResponseDto?> GenerateJwt(UserDto user);
         Task<ResponseDto?> GetUserById(string userId);
+        Task<ResponseDto?> ForgotPassword(string email);
     }
 }

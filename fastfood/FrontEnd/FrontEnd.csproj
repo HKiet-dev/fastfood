@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\ReturnPage\CodReturn.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
     <PackageReference Include="Blazorise.Bootstrap5" Version="1.5.3" />
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.5.3" />
@@ -23,6 +27,18 @@
     <Content Update="Components\ReturnPage\VnpayReturn.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Components\ReturnPage\CodReturn.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Components\ReturnPage\CodReturn.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\Pages\CodReturn.razor" />
   </ItemGroup>
 
 </Project>

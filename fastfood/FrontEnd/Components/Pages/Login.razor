@@ -30,9 +30,14 @@
                     <InputText @oninput="ClearMessage" @bind-Value="model.Password" type="password" class="form-control"></InputText>
                     <ValidationMessage For="() => model.Password"></ValidationMessage>
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label text-white" for="rememberMe">Ghi nhớ mật khẩu</label>
+                <div class="mb-3 d-flex justify-content-between">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label text-white" for="rememberMe">Ghi nhớ mật khẩu</label>
+                    </div>
+                    <div class="">
+                        <a href="/forgotpassword"> Quên mật khẩu ?</a>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mb-3">Đăng nhập</button>
                 @* <ValidationSummary class="alert alert-danger list-unstyled p-1"></ValidationSummary> *@
@@ -60,6 +65,10 @@
                     </NavLink>
                 </p>
                 
+            </div>
+            <div class="text-center mt-2">
+                <hr/>
+                <button @onclick="BackToHome" class="btn btn-outline-light"><i class="bi bi-arrow-left"></i> Quay lại trang chủ</button>
             </div>
         </div>
     </div>
@@ -112,5 +121,10 @@
     private void GoogleLogin()
     {
         Navigation.NavigateTo("https://localhost:7039/api/Auth/signin-google");
+    }
+
+    private void BackToHome()
+    {
+        Navigation.NavigateTo("/");
     }
 }

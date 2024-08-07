@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Security.Claims;
 using AutoMapper;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Identity;
 #pragma warning disable 1591
 namespace BackEnd.Controllers
 {
@@ -21,12 +22,14 @@ namespace BackEnd.Controllers
         private readonly IAuthService _authService;
         private readonly IMapper _mapper;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
+        private readonly SignInManager<User> _signInManager;
         protected ResponseDto _response;
-        public AuthController(IAuthService authService, IMapper mapper, IJwtTokenGenerator jwtTokenGenerator) 
+        public AuthController(IAuthService authService, IMapper mapper, IJwtTokenGenerator jwtTokenGenerator, SignInManager<User> signInManager) 
         {
             _authService = authService;
             _jwtTokenGenerator = jwtTokenGenerator;
             _mapper = mapper;
+            _signInManager = signInManager;
             _response = new ResponseDto();
         }
 
@@ -202,6 +205,27 @@ namespace BackEnd.Controllers
         }
 
         /// <summary>
+        /// Tạo lại mật khẩu mới cho người dùng.
+        /// </summary>
+        /// <param name="email">Email của người dùng.</param>
+        /// <returns>Thông báo đã gửi mật khẩu mới cho người dùng.</returns>
+        /// <response code="200">Trả về thông báo cho người dùng.</response>
+        /// <response code="400">Lỗi xảy ra trong quá trình gửi mail.</response>
+        [HttpPost("forgotpassword/{email}")]
+        public async Task<IActionResult> ForgotPassword([FromRoute] string email)
+        {
+            var result = await _authService.ForgotPassword(email);
+            if (result == null)
+            {
+                _response.IsSuccess = false;
+                _response.Message = AuthError;
+                return BadRequest(_response);
+            }
+            _response.Result = result;
+            return Ok(_response);
+        }
+
+        /// <summary>
         /// Bắt đầu quá trình đăng nhập bằng Google.
         /// </summary>
         /// <returns>Chuyển hướng đến trang đăng nhập của Google.</returns>
@@ -257,6 +281,16 @@ namespace BackEnd.Controllers
 
             var action = await _authService.CreateUserFromGoogleLogin(user);
 
+            /*var context = await HttpContext.AuthenticateAsync(IdentityConstants.ExternalScheme);
+            var info = context.Principal;
+            var providerKey = info.FindFirstValue(ClaimTypes.NameIdentifier);
+            var loginProvider = info.Identity.AuthenticationType;*/
+
+
+            // Đăng nhập người dùng sử dụng providerKey và loginProvider
+            /*var signInResult = await _signInManager.ExternalLoginSignInAsync(loginProvider, providerKey, isPersistent: false);*/
+
+
             if (action == null)
             {
                 return BadRequest(AuthError);
@@ -272,6 +306,8 @@ namespace BackEnd.Controllers
                 Token = token,
                 Role = role
             };
+
+            HttpContext?.Response.Cookies.Append(".AspNetCore.Identity.Application", token);
 
             var jsonResponse = JsonConvert.SerializeObject(result);
             var base64Response = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(jsonResponse));
