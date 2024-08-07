@@ -21,7 +21,7 @@ namespace FrontEnd.Components.PagesAdmin
 
 		private List<Product>? Products { get; set; }
 
-		private PageNavigation page { get; set; }
+		private PagePagination page { get; set; }
 
 		[SupplyParameterFromForm]
 		private Product createProduct { get; set; }

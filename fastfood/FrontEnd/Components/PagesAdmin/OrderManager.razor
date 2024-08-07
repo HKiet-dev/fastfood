@@ -3,227 +3,183 @@
 <h3>OrderManager</h3>
 
 <div class="container">
-	<div class="row">
-		<a class="card border-danger mb-3 mx-3 btn btn-danger text-black" style="max-width: 250px;" href="usermanager">
-			<h5 class="card-title m-5">Users Manager</h5>
-		</a>
-		<a class="card border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
-			<h5 class="card-title m-5">Products Manager</h5>
-		</a>
-		<a class="border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
-			<h5 class="card-title m-5">Orders Manager</h5>
-		</a>
-		<a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
-			<h5 class="card-title m-5">Category Manager</h5>
-		</a>
-	</div>
+    <div class="row">
+        <a class="card border-danger mb-3 mx-3 btn btn-danger text-black" style="max-width: 250px;" href="usermanager">
+            <h5 class="card-title m-5">Users Manager</h5>
+        </a>
+        <a class="card border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
+            <h5 class="card-title m-5">Products Manager</h5>
+        </a>
+        <a class="border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
+            <h5 class="card-title m-5">Orders Manager</h5>
+        </a>
+        <a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
+            <h5 class="card-title m-5">Category Manager</h5>
+        </a>
+    </div>
 
-	<nav class="navbar navbar-light bg-light justify-content-end">
-		<a class="form-inline btn btn-info me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
-		<div class="form-inline">
-			<input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-info my-3 my-sm-0 m-2" type="submit">Search</button>
-		</div>
-	</nav>
+    <nav class="navbar navbar-light bg-light justify-content-end">
+        <div class="form-inline">
+            <input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-info my-3 my-sm-0 m-2" type="submit">Search</button>
+        </div>
+    </nav>
 
-	<!-- Modal -->
-	<div class="modal fade" id="createFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="container-fluid p-5">
-					<form class="row" asp-action="Create">
-						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-						<div class="row">
-							<div class="col">
-								<div class="form-group input-group mb-3">
-									@* <label class="control-label fw-bold input-group-text">ID:</label> *@
-									<input type="hidden" asp-for="OrderID" class="form-control" />
-									@* <span class="text-danger"></span> *@
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">DateReceived:</label>
-									<input asp-for="DateReceived" class="form-control" />
-									<span class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">FullName:</label>
-									<input asp-for="FullName" min="1" class="form-control " />
-									<span class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">PhoneNo:</label>
-									<input asp-for="PhoneNo" class="form-control" />
-									<span class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">Address:</label>
-									<input asp-for="Address" class="form-control" />
-									<span class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">PaymentType:</label>
-									<input asp-for="PaymentType" class="form-control" />
-									<span class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">PaymentStatus:</label>
-									<input asp-for="PaymentStatus" class="form-control" />
-									<span class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">OrderStatus:</label>
-									<input asp-for="OrderStatus" class="form-control" />
-									<span class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									<label class="control-label fw-bold input-group-text">Note:</label>
-									<input asp-for="Note" class="form-control" />
-									<span class="text-danger"></span>
-								</div>
-								<div class="form-group input-group mb-3">
-									@* <label class="control-label fw-bold input-group-text">AccountID:</label> *@
-									<input type="hidden" asp-for="UserId" class="form-control" />
-									@* <span class="text-danger"></span> *@
-								</div>
-							</div>
-							<div class="col">
-								<div>
-									<div class="card border border-light rounded p-3 shadow bg-light mb-2">
-										<div class="form-group input-group mb-3">
-											@* <label class="control-label fw-bold input-group-text">PizzaID:</label> *@
-											<input type="hidden" asp-for="OrderID" class="form-control w-100" />
-											@* <span asp-validation-for="PizzaID" class="text-danger"></span> *@
-										</div>
-										<div class="form-group input-group mb-3">
-											<label class="control-label fw-bold input-group-text">Name Product:</label>
-											<select asp-for="Name" class="custom-select w-100 h-100" id="inputGroupSelect01">
-												<option selected>Choose Product....</option>
-												<option value="Nho">Burger Cở To</option>
-												<option value="Lon">Burger Sốt đậu</option>
-												<option value="Lon">Burger Sốt cà chua</option>
-												<option value="Lon">Pizza Pho Mai</option>
-											</select>
-											@* <input asp-for="FoodID" class="form-control" /> *@
-											<span asp-validation-for="FoodID" class="text-danger"></span>
-										</div>
-										<div class="form-group input-group mb-3">
-											<label class="control-label fw-bold input-group-text">Amout:</label>
-											<input asp-for="Amout" class="form-control" />
-											<span asp-validation-for="Amout" class="text-danger"></span>
-										</div>
-									</div>
-									<div class="card border border-light rounded p-3 shadow bg-light mb-2">
-										<div class="form-group input-group mb-3">
-											@* <label class="control-label fw-bold input-group-text">PizzaID:</label> *@
-											<input type="hidden" asp-for="OrderID" class="form-control w-100" />
-											@* <span asp-validation-for="PizzaID" class="text-danger"></span> *@
-										</div>
-										<div class="form-group input-group mb-3">
-											<label class="control-label fw-bold input-group-text">Name Product:</label>
-											<select asp-for="Name" class="custom-select w-100 h-100" id="inputGroupSelect01">
-												<option selected>Choose Product....</option>
-												<option value="Nho">Burger Cở To</option>
-												<option value="Lon">Burger Sốt đậu</option>
-												<option value="Lon">Burger Sốt cà chua</option>
-												<option value="Lon">Pizza Pho Mai</option>
-											</select>
-											@* <input asp-for="FoodID" class="form-control" /> *@
-											<span asp-validation-for="FoodID" class="text-danger"></span>
-										</div>
-										<div class="form-group input-group mb-3">
-											<label class="control-label fw-bold input-group-text">Amout:</label>
-											<input asp-for="Amout" class="form-control" />
-											<span asp-validation-for="Amout" class="text-danger"></span>
-										</div>
-									</div>
-									<div class="card border border-light rounded p-3 shadow bg-light mb-2">
-										<div class="form-group input-group mb-3">
-											@* <label class="control-label fw-bold input-group-text">PizzaID:</label> *@
-											<input type="hidden" asp-for="OrderID" class="form-control w-100" />
-											@* <span asp-validation-for="PizzaID" class="text-danger"></span> *@
-										</div>
-										<div class="form-group input-group mb-3">
-											<label class="control-label fw-bold input-group-text">Name Product:</label>
-											<select asp-for="Name" class="custom-select w-100 h-100" id="inputGroupSelect01">
-												<option selected>Choose Product....</option>
-												<option value="Nho">Burger Cở To</option>
-												<option value="Lon">Burger Sốt đậu</option>
-												<option value="Lon">Burger Sốt cà chua</option>
-												<option value="Lon">Pizza Pho Mai</option>
-											</select>
-											@* <input asp-for="FoodID" class="form-control" /> *@
-											<span asp-validation-for="FoodID" class="text-danger"></span>
-										</div>
-										<div class="form-group input-group mb-3">
-											<label class="control-label fw-bold input-group-text">Amout:</label>
-											<input asp-for="Amout" class="form-control" />
-											<span asp-validation-for="Amout" class="text-danger"></span>
-										</div>
-									</div>
-									<div class="text-center mt-3">
-										<button class="btn btn-outline-secondary"> <i class="fa-solid fa-circle-plus"></i> </button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group mt-3 text-center">
-							<input type="submit" value="Create" asp-action="CreateOrder" class="btn btn-danger w-50" />
-						</div>
-						<div class="form-group mt-3 text-center">
-							<input type="submit" value="Save" asp-action="SaveEdit" class="btn btn-primary w-50" />
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Modal  detail-->
+    <div class="modal fade" id="detailOrder" tabindex="-1" role="dialog" aria-labelledby="createOrder" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="container-fluid p-5">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group input-group mb-3">
+                                <label class="control-label fw-bold input-group-text">Order ID:</label>
+                                <input readonly @bind-value="Order.OrderId" class="form-control" />
+                            </div>
+                            <div class="form-group input-group mb-3">
+                                <label class="control-label fw-bold input-group-text">Order Status:</label>
+                                <input readonly @bind-value="Order.OrderStatus" class="form-control" />
+                            </div>
+                            <div class="form-group input-group mb-3">
+                                <label class="control-label fw-bold input-group-text">Payment Type:</label>
+                                <input readonly @bind-value="Order.PaymentType" class="form-control" />
+                            </div>
+                            <div class="form-group input-group mb-3">
+                                <label class="control-label fw-bold input-group-text">Payment Status:</label>
+                                <input readonly @bind-value="Order.PaymentStatus" class="form-control" />
+                            </div>
 
-	<div class="card border border-light rounded p-3 shadow bg-light">
-		<table class="table table-active table-hover table-responsive table-responsive-lg table-responsive-md table-responsive-sm ">
-			<thead>
-				<tr>
-					<th>
-						OrderID
-					</th>
-					<th>
-						TotalPrice
-					</th>
-					<th>
-						Status
-					</th>
-					<th>
-						PaymentMethod
-					</th>
-					<th>
-						AccountID
-					</th>
-					<th>
-						FoodName
-					</th>
-					<th>
-						Image
-					</th>
-					<th>
-						Price
-					</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-						hehe
-					</td>
-					<td>
-						<a href="" class="mx-2"><i class="fa-solid fa-pen"></i></a>
-						<a href="" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+                        </div>
+                        <div class="col">
+                            @if (@OrderDetails == null)
+                            {
+                                <p class="control-label fw-bold input-group-text">Không có sản phẩm</p>
+                            }
+                            else
+                            {
+                                @foreach (var item in OrderDetails)
+                                {
+                                    <div class="card border border-light rounded p-3 shadow bg-light mb-2">
+                                        <div class="form-group input-group mb-3">
+
+
+                                            <div class="form-group input-group mb-3">
+                                                <p class="control-label fw-bold input-group-text">Tên: @item.Name</p>
+                                            </div>
+                                            <div class="form-group input-group mb-3">
+                                                <p class="control-label fw-bold input-group-text">Số lượng: @item.Quantity</p>
+                                            </div>
+                                            <div class="form-group input-group mb-3">
+                                                <p class="control-label fw-bold input-group-text">Giá: @item.UnitPrice</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="card border border-light rounded p-3 shadow bg-light">
+        <table class="table table-active table-light table-hover table-responsive table-responsive-lg table-responsive-md table-responsive-sm ">
+            <thead>
+                <tr>
+                    <th>
+                        Order ID
+                    </th>
+                    <th>
+                        Payment Type
+                    </th>
+                    <th>
+                        Payment Status
+                    </th>
+                    <th>
+                        OrderStatus
+                    </th>
+                    <th>
+                        note
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Orders == null)
+                {
+                    <tr>
+                        <td colspan="6">Không có dữ liệu</td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in Orders)
+                    {
+                        <tr>
+                            <td>
+                                @item.OrderId
+                            </td>
+                            <td>
+                                @item.PaymentType
+                            </td>
+                            <td>
+                                @item.PaymentStatus
+                            </td>
+                            <td>
+                                @item.OrderStatus
+                            </td>
+                            <td class="text-truncate" style="max-width:200px">
+                                @item.note
+                            </td>
+
+                            <td>
+                                <a @onclick="()=>LoadOrderDetails(item)" class="mx-2" data-toggle="modal" data-target="#detailOrder"><i class="fa-solid fa-pen"></i></a>
+                                <a @onclick='()=>UpdateStatus(item.OrderId, "Đã giao")' data-toggle="modal" data-target="#deleteOrder" class="mx-2 text-danger"><button class="btn btn-success">Đã nhận được hàng</button></a>
+
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <!--Pagination-->
+        @*  <nav class="my-4 text-center" aria-label="Page navigation order">
+        <ul class="pagination justify-content-center">
+        @if (page != null && page.CurrentPage > 1)
+        {
+        <li class="page-item">
+        <a class="page-link" @onclick="() => Navigate(page.CurrentPage - 1)">Previous</a>
+        </li>
+        }
+
+        @if (page != null)
+        {
+        @for (int i = 1; i <= page.TotalPages; i++)
+        {
+        var pageIndex = i;
+        <li class="page-item @(page.CurrentPage == pageIndex ? "active" : "")">
+        <a class="page-link" @onclick="() => Navigate(pageIndex)">@pageIndex</a>
+        </li>
+        }
+        }
+
+        @if (page != null && page.CurrentPage < page.TotalPages)
+        {
+        <li class="page-item">
+        <a class="page-link" @onclick="() => Navigate(page.CurrentPage + 1)">Next</a>
+        </li>
+        }
+        </ul>
+        </nav>
+        *@
+
+    </div>
 </div>
 
-@code {
 
-}

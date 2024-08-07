@@ -24,7 +24,7 @@ namespace FrontEnd.Components.PagesAdmin
         public List<UserDto>? Users { get; set; }
         public List<UserDto>? SearchUsers { get; set; }
         public string notification = "";
-        private PageNavigation page { get; set; }
+        private PagePagination page { get; set; }
         private string search = null;
 
 
