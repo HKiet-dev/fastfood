@@ -128,6 +128,24 @@ namespace BackEnd.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Huỷ đơn hàng.
+        /// </summary>
+        /// <returns>Kết quả cập nhật.</returns>
+        /// <response code="200">Huỷ đơn hàng thành công.</response>
+        /// <response code="404">Huỷ đơn hàng thất bại.</response>
+        [HttpPut("cancel/{OrderId:int}")]
+        public ResponseDto CancelOrder([FromRoute] int OrderId)
+        {
+            try
+            {
+                _oService.CancelOrder(OrderId);
+                return new ResponseDto { IsSuccess = true, Message = "Đã huỷ đơn hàng thành công" };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseDto { IsSuccess = false, Message = ex.Message };
+            }
+        }
     }
 }

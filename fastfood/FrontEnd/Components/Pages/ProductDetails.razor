@@ -57,11 +57,13 @@
                     <div class="product-description">
                         <p>@Product.Description</p>
                     </div>
-                    <div class="mb-3 col-3">
-                        <label for="quantity" class="form-label">Số lượng</label>
-                        <input type="number" class="form-control text-center" id="quantity" value="1" min="1">
-                    </div>
-                    <button class=" btn btn-outline-dark btn-lg" @onclick="AddToCart">Add to Cart</button>
+                    <EditForm OnValidSubmit="AddToCart" FormName="Addtocart" Model="Quantity">
+                        <div class="mb-3 col-3">
+                            <label for="quantity" class="form-label">Số lượng</label>
+                            <InputNumber @bind-Value="Quantity" type="number" class="form-control" min="1"></InputNumber>
+                        </div>
+                        <button class=" btn btn-outline-dark btn-lg" type="submit">Add to Cart</button>
+                    </EditForm>
                 </div>
             </div>
         }
@@ -98,8 +100,6 @@
                             @* button *@
                             <div class="d-flex justify-content-around mt-2">
                                 <a href="productdetails/@item.Id" class="btn btn-outline-dark"><i class="fas fa-align-left mx-1"></i> View Details</a>
-
-                                <a href="cartcustomer" class="btn btn-dark" @onclick="AddToCart"><i class="fas fa-shopping-cart mx-1"></i></a>
                             </div>
                             @* </NavLink> *@
 

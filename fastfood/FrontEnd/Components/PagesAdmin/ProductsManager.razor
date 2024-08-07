@@ -43,7 +43,7 @@
 					<EditForm Model="@createProduct" OnValidSubmit="CreateFood" class="row" FormName="CreateProductForm">
 						<DataAnnotationsValidator />
 						<ValidationSummary />
-						<input type="hidden" @bind="createProduct.Id" class="form-control w-100" />
+						@* <input type="hidden" @bind="createProduct.Id" class="form-control w-100" /> *@
 
 						<div class="form-group input-group mb-3">
 							<label class="control-label fw-bold input-group-text">Product Name:</label>
@@ -288,6 +288,9 @@
 					<th>
 						Image
 					</th>
+					<th>
+						QRCode
+					</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -328,7 +331,7 @@
 								@item.IsCombo
 							</td>
 							<td>
-								@item.CategoryId
+								@item.CategoryName
 							</td>
 							<td>
 								@* item.Avatar = "/Img/default_avatar.png"; *@
@@ -340,6 +343,17 @@
 								{
 									<img src="/Img/default_avatar.png" alt="Alternate Text" style="width:100px" height="100px" />
 								}
+							</td>
+							<td>
+								@* item.Avatar = "/Img/default_avatar.png"; *@
+@* 								@if (item.QR != null)
+								{ *@
+								<img src="@GenerateQRCode(item)" alt="Alternate Text" style="width:100px" height="100px" />
+@* 								}
+								else
+								{
+									<img src="/Img/default_avatar.png" alt="Alternate Text" style="width:100px" height="100px" />
+								} *@
 							</td>
 							<td>
 								<a @onclick="()=>GetFood(item.Id)" class="mx-2" data-toggle="modal" data-target="#editFood"><i class="fa-solid fa-pen"></i></a>

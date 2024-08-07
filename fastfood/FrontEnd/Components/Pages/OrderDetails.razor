@@ -1,0 +1,71 @@
+﻿@page "/order-details/{OrderId:int}"
+
+<h3 class="text-center">Chi tiết đơn hàng</h3>
+
+@if (showModal)
+{
+    <div class="modal" tabindex="-1" style="display:block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xác nhận đơn hàng</h5>
+                    <button type="button" class="btn-close" @onclick="HideConfirmModal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn huỷ đơn hàng này không?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="HideConfirmModal">Hủy</button>
+                    <button type="button" class="btn btn-danger" @onclick="Cancel">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table table-hover table-bordered">
+    <thead class="table-primary text-center">
+        <tr>
+            <th>Tên hàng</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th>Tổng</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @if(orderDetails == null) {
+            <tr>
+                <td colspan="4">Loading...</td>
+            </tr>
+        } else
+        {
+            @foreach (var item in orderDetails)
+            {
+                <tr class="align-middle">
+                    <td>@item.Name</td>
+                    <td>@item.UnitPrice.ToString("#,##") VNĐ</td>
+                    <td>
+                        @item.Quantity
+                    </td>
+                    <td>@item.Total.ToString("#,##") VNĐ</td>
+                </tr>
+            }
+        }      
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-6 text-center">Tổng hoá đơn : <span class="fw-bold">@orderDetails.Sum(x => x.Total).ToString("#,##") VNĐ</span></div>
+    <div class="col-6 d-flex justify-content-around">
+        @if(order == null)
+        {
+            
+        } else
+        {
+            if(order.PaymentStatus == "Chưa thanh toán")
+            {
+                <button class="btn btn-danger" @onclick="ShowConfirmModal">Huỷ đơn hàng</button>
+            }
+        }
+        <a href="purchasehistory" class="btn btn-info">Quay lại</a>
+    </div>
+</div>

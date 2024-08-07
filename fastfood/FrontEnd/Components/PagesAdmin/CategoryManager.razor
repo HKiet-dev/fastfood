@@ -18,9 +18,15 @@
 		</a>
 	</div>
 
+	@if (!string.IsNullOrEmpty(notification))
+	{
+		<div class="alert alert-success">
+			@notification
+		</div>
+	}
 
 	<nav class="navbar navbar-light bg-light justify-content-end">
-		<a class="form-inline btn btn-success me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
+		<a class="form-inline btn btn-success me-5" data-toggle="modal" data-target="#createCategory"><span><i class="fas fa-plus"></i></span> Thêm</a>
 		<div class="form-inline">
 			<input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 			<button class="btn btn-outline-success my-3 my-sm-0 m-2" type="submit">Search</button>
@@ -28,31 +34,107 @@
 	</nav>
 
 	<!-- Modal -->
-	<div class="modal fade" id="createFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="createCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-large">
 			<div class="modal-content">
 				<div class="container-fluid p-5">
-					<form class="row">
-						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-						<div class="form-group input-group mb-3">
-							@* <label class="control-label fw-bold input-group-text">ID:</label> *@
-							<input type="hidden" asp-for="CategoryID" class="form-control" />
-							@* <span asp-validation-for="FoodID" class="text-danger"></span> *@
-						</div>
+					<EditForm Model="@createCategory" OnValidSubmit="CreateCategory" class="row" FormName="CreateCategoryForm">
+						<DataAnnotationsValidator />
+						<ValidationSummary />
 						<div class="form-group input-group mb-3">
 							<label class="control-label fw-bold input-group-text">CategoryName:</label>
-							<input asp-for="CategoryName" class="form-control w-100" />
-							<span asp-validation-for="CategoryName" class="text-danger"></span>
+							<InputText @bind-Value="createCategory.Name" class="form-control w-100" />
+							<ValidationMessage For="@(() => createCategory.Name)" />
 						</div>
 
 						<div class="form-group mt-3 text-center">
-							<input type="submit" value="Create" asp-action="CreateFood" class="btn btn-danger w-50" />
+							<input type="submit" value="Thêm" asp-action="CreateFood" class="btn btn-danger w-50" />
 						</div>
+						@* 						<div class="form-group mt-3 text-center">
+						<input type="submit" value="Update" asp-action="UpdateFood" class="btn btn-primary w-50" />
+						</div> *@
+					</EditForm>
+					@* <form class="row">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+					<div class="form-group input-group mb-3">
+					<input type="hidden" asp-for="CategoryID" class="form-control" />
+					</div>
+					<div class="form-group input-group mb-3">
+					<label class="control-label fw-bold input-group-text">CategoryName:</label>
+					<input asp-for="CategoryName" class="form-control w-100" />
+					<span asp-validation-for="CategoryName" class="text-danger"></span>
+					</div>
+
+					<div class="form-group mt-3 text-center">
+					<input type="submit" value="Create" asp-action="CreateFood" class="btn btn-danger w-50" />
+					</div>
+					<div class="form-group mt-3 text-center">
+					<input type="submit" value="Update" asp-action="UpdateFood" class="btn btn-primary w-50" />
+					</div>
+					</form> *@
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Edit -->
+	<div class="modal fade" id="editCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-large">
+			<div class="modal-content">
+				<div class="container-fluid p-5">
+					<EditForm Model="@editCategory" OnValidSubmit="EditCategory" class="row" FormName="EditCategoryForm">
+						<DataAnnotationsValidator />
+						<ValidationSummary />
+						<div class="form-group input-group mb-3">
+							<label class="control-label fw-bold input-group-text">CategoryName:</label>
+							<InputText @bind-Value="editCategory.Name" class="form-control w-100" />
+							<ValidationMessage For="@(() => createCategory.Name)" />
+						</div>
+
+						@* 						<div class="form-group mt-3 text-center">
+						<input type="submit" value="Create" asp-action="CreateFood" class="btn btn-danger w-50" />
+						</div> *@
 						<div class="form-group mt-3 text-center">
-							<input type="submit" value="Update" asp-action="UpdateFood" class="btn btn-primary w-50" />
+							<input type="submit" value="Sửa" class="btn btn-primary w-50" />
 						</div>
-					</form>
+					</EditForm>
+					@* <form class="row">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+					<div class="form-group input-group mb-3">
+					<input type="hidden" asp-for="CategoryID" class="form-control" />
+					</div>
+					<div class="form-group input-group mb-3">
+					<label class="control-label fw-bold input-group-text">CategoryName:</label>
+					<input asp-for="CategoryName" class="form-control w-100" />
+					<span asp-validation-for="CategoryName" class="text-danger"></span>
+					</div>
+
+					<div class="form-group mt-3 text-center">
+					<input type="submit" value="Create" asp-action="CreateFood" class="btn btn-danger w-50" />
+					</div>
+					<div class="form-group mt-3 text-center">
+					<input type="submit" value="Update" asp-action="UpdateFood" class="btn btn-primary w-50" />
+					</div>
+					</form> *@
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Delete -->
+	<div class="modal fade" id="deleteCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Xóa món ăn</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>Bạn có chắc chắn muốn xóa.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" @onclick="DeleteCategory" class="btn btn-primary">Xóa</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
 				</div>
 			</div>
 		</div>
@@ -72,20 +154,39 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>
-						hehe
-					</td>
-					<td>
-						<a href="" class="mx-2"><i class="fa-solid fa-pen"></i></a>
-						<a href="" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
-					</td>
-				</tr>
+				@if (Categorys != null)
+				{
+					foreach (var item in Categorys)
+					{
+						<tr>
+							<td>
+								@item.Id
+							</td>
+							<td>
+								@item.Name
+							</td>
+							<td>
+								<a @onclick="()=>GetCategory(item.Id)" class="mx-2" data-toggle="modal" data-target="#editCategory"><i class="fa-solid fa-pen"></i></a>
+								<a @onclick="()=>GetCategory(item.Id)" data-toggle="modal" data-target="#deleteCategory" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
+							</td>
+						</tr>
+					}
+				}
+				else
+				{
+					<tr>
+						<td>
+							Không có dữ liệu nào luôn men.
+						</td>
+						@* 						<td>
+					<a href="" class="mx-2"><i class="fa-solid fa-pen"></i></a>
+					<a href="" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
+					</td> *@
+					</tr>
+				}
 			</tbody>
 		</table>
 	</div>
 </div>
 
-@code {
 
-}

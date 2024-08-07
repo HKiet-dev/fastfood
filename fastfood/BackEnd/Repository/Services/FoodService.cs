@@ -283,17 +283,33 @@ namespace BackEnd.Repository.Services
 
         public ResponseDto Update(Product product)
         {
+            var response = new ResponseDto();
             try
             {
-                _db.Entry(product).State = EntityState.Modified;
+                var existingProduct = _db.Product.Find(product.Id);
+                if (existingProduct == null)
+                {
+                    response.IsSuccess = false;
+                    response.Message = "Thức ăn này không tồn tại";
+                    return response;
+                }
+                existingProduct.Name = product.Name;
+                existingProduct.Description = product.Description;
+                existingProduct.Price = product.Price;
+                existingProduct.View = product.View;
+                existingProduct.IsActive = product.IsActive;
+                existingProduct.IsCombo = product.IsCombo;
+                existingProduct.ImageUrl = product.ImageUrl;
+                existingProduct.CategoryId = product.CategoryId;
                 _db.SaveChanges();
-                response.Result = _mapper.Map<ProductDto>(product);
+                response.IsSuccess = true;
+                response.Result = _mapper.Map<ProductDto>(existingProduct);
                 response.Message = "Thức ăn đã cập nhật";
             }
-            catch
+            catch (Exception ex)
             {
                 response.IsSuccess = false;
-                response.Message = $"Thức ăn này không tồn tại";
+                response.Message = $"Có lỗi xảy ra: {ex.Message}";
             }
             return response;
         }

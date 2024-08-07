@@ -82,12 +82,11 @@ namespace FrontEnd.Components.Pages
                 var responseCartDelete = await cartService.DeleteAllById();
                 if (responseCartDelete.IsSuccess)
                 {
-                    await JSRuntime.InvokeVoidAsync("alert", "Đơn hàng đã được đặt.");
+                    if(order.PaymentType == "COD")
+                    {
+                        Navigation.NavigateTo("/cod-return");
+                    }
                 }
-            }
-            else
-            {
-                await JSRuntime.InvokeVoidAsync("alert", "Phát sinh lỗi trong quá trình đặt đơn COD.");
             }
         }
 

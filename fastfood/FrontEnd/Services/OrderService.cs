@@ -1,4 +1,5 @@
-﻿using FrontEnd.Models;
+﻿using BackEnd.Models;
+using FrontEnd.Models;
 using FrontEnd.Models.MOMO;
 using FrontEnd.Services.IService;
 using static FrontEnd.Utility.StaticDetails;
@@ -35,29 +36,46 @@ namespace FrontEnd.Services
             });
         }
 
+        public async Task<ResponseDto> OrderByUserId()
+        {
+			return await _baseService.SendAsync(new RequestDto
+			{
+				ApiType = ApiType.GET,
+				Url = ApiUrl + $"/api/Order/OrderByUser"
+			});
+		}
+
+        public async Task<ResponseDto> GetOderDetail(int OrderId)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.GET,
+                Url = ApiUrl + $"/api/Order/Order-details/{OrderId}"
+            });
+        }
+        public async Task<ResponseDto> GetOrderByID(int OrderId)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.GET,
+                Url = ApiUrl + $"/api/Order/{OrderId}"
+            });
+        }
+        public async Task<ResponseDto> Cancel(int OrderId)
+        {
+            return await _baseService.SendAsync(new RequestDto
+            {
+                ApiType = ApiType.PUT,
+                Url = ApiUrl + $"/api/Order/cancel/{OrderId}"
+            });
+        }
+
         public async Task<ResponseDto> GetAll()
         {
             return await _baseService.SendAsync(new RequestDto
             {
                 ApiType = ApiType.GET,
-                Url = ApiUrl + "/api/order"
-            });
-        }
-        public async Task<ResponseDto> GetOrderById(int orderId)
-        {
-            return await _baseService.SendAsync(new RequestDto
-            {
-                ApiType = ApiType.GET,
-                Url = ApiUrl + $"/api/order/{orderId}"
-            });
-        }
-
-        public async Task<ResponseDto> GetOrderDetails(int orderId)
-        {
-            return await _baseService.SendAsync(new RequestDto
-            {
-                ApiType = ApiType.GET,
-                Url = ApiUrl + $"/api/order/Order-details/{orderId}"
+                Url = ApiUrl + $"/api/Order"
             });
         }
 
@@ -66,21 +84,9 @@ namespace FrontEnd.Services
         {
             return await _baseService.SendAsync(new RequestDto
             {
-                ApiType = ApiType.PUT,
-                Url = ApiUrl + $"/api/order/update/{orderid}?message={message}"
-            });
-        }
-
-
-        public async Task<ResponseDto> GetOrderbyUser(int orderid, string message)
-        {
-            return await _baseService.SendAsync(new RequestDto
-            {
                 ApiType = ApiType.GET,
-                Url = ApiUrl + $"/api/order/OrderByUser"
+                Url = ApiUrl + $"/api/Order/update/{orderid}?message={message}"
             });
         }
-
-
     }
 }

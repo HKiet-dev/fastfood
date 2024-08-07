@@ -89,5 +89,14 @@ namespace FrontEnd.Services
                 Url = StaticDetails.ApiUrl + "/api/Auth/userbyid/" + userId
             }, withBearer: false);
         }
+
+        public async Task<ResponseDto?> ForgotPassword(string email)
+        {
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = StaticDetails.ApiType.POST,
+                Url = StaticDetails.ApiUrl + "/api/Auth/forgotpassword/" + email
+            }, withBearer: false);
+        }
     }
 }
