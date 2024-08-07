@@ -3,6 +3,7 @@ using FrontEnd.Models;
 using FrontEnd.Services.IService;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 
 namespace FrontEnd.Components.PagesAdmin
@@ -49,7 +50,14 @@ namespace FrontEnd.Components.PagesAdmin
                 Orders = null;
             }
         }
-
+        private async Task Cancel(int orderid)
+        {
+            var response = await _orderservice.Cancel(orderid);
+            if (response != null && response.IsSuccess)
+            {
+                notification="Hủy đơn hàng thành công";
+            }
+        }
         private async Task LoadOrderDetails(Order order)
         {
             var orderDetailsResponse = await _orderservice.GetOrderDetail(order.OrderId??0);

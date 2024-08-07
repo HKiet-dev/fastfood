@@ -25,122 +25,200 @@
         </div>
     </nav>
 
-    <!-- Modal  detail-->
+    @* <!-- Modal  detail-->
     <div class="modal fade" id="detailOrder" tabindex="-1" role="dialog" aria-labelledby="createOrder" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="container-fluid p-5">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group input-group mb-3">
-                                <label class="control-label fw-bold input-group-text">Order ID:</label>
-                                <input readonly @bind-value="Order.OrderId" class="form-control" />
-                            </div>
-                            <div class="form-group input-group mb-3">
-                                <label class="control-label fw-bold input-group-text">Order Status:</label>
-                                <input readonly @bind-value="Order.OrderStatus" class="form-control" />
-                            </div>
-                            <div class="form-group input-group mb-3">
-                                <label class="control-label fw-bold input-group-text">Payment Type:</label>
-                                <input readonly @bind-value="Order.PaymentType" class="form-control" />
-                            </div>
-                            <div class="form-group input-group mb-3">
-                                <label class="control-label fw-bold input-group-text">Payment Status:</label>
-                                <input readonly @bind-value="Order.PaymentStatus" class="form-control" />
-                            </div>
-
-                        </div>
-                        <div class="col">
-                            @if (@OrderDetails == null)
-                            {
-                                <p class="control-label fw-bold input-group-text">Không có sản phẩm</p>
-                            }
-                            else
-                            {
-                                @foreach (var item in OrderDetails)
-                                {
-                                    <div class="card border border-light rounded p-3 shadow bg-light mb-2">
-                                        <div class="form-group input-group mb-3">
-
-
-                                            <div class="form-group input-group mb-3">
-                                                <p class="control-label fw-bold input-group-text">Tên: @item.Name</p>
-                                            </div>
-                                            <div class="form-group input-group mb-3">
-                                                <p class="control-label fw-bold input-group-text">Số lượng: @item.Quantity</p>
-                                            </div>
-                                            <div class="form-group input-group mb-3">
-                                                <p class="control-label fw-bold input-group-text">Giá: @item.UnitPrice</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+    <div class="container-fluid p-5">
+    <div class="row">
+    <div class="col">
+    <div class="form-group input-group mb-3">
+    <label class="control-label fw-bold input-group-text">Order ID:</label>
+    <input readonly @bind-value="Order.OrderId" class="form-control" />
+    </div>
+    <div class="form-group input-group mb-3">
+    <label class="control-label fw-bold input-group-text">Order Status:</label>
+    <input readonly @bind-value="Order.OrderStatus" class="form-control" />
+    </div>
+    <div class="form-group input-group mb-3">
+    <label class="control-label fw-bold input-group-text">Payment Type:</label>
+    <input readonly @bind-value="Order.PaymentType" class="form-control" />
+    </div>
+    <div class="form-group input-group mb-3">
+    <label class="control-label fw-bold input-group-text">Payment Status:</label>
+    <input readonly @bind-value="Order.PaymentStatus" class="form-control" />
     </div>
 
+    </div>
+    <div class="col">
+    @if (@OrderDetails == null)
+    {
+    <p class="control-label fw-bold input-group-text">Không có sản phẩm</p>
+    }
+    else
+    {
+    @foreach (var item in OrderDetails)
+    {
+    <div class="card border border-light rounded p-3 shadow bg-light mb-2">
+    <div class="form-group input-group mb-3">
+
+
+    <div class="form-group input-group mb-3">
+    <p class="control-label fw-bold input-group-text">Tên: @item.Name</p>
+    </div>
+    <div class="form-group input-group mb-3">
+    <p class="control-label fw-bold input-group-text">Số lượng: @item.Quantity</p>
+    </div>
+    <div class="form-group input-group mb-3">
+    <p class="control-label fw-bold input-group-text">Giá: @item.UnitPrice</p>
+    </div>
+    </div>
+    </div>
+    }
+    }
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    *@
 
 
 
 
     <div class="card border border-light rounded p-3 shadow bg-light">
-        <table class="table table-active table-light table-hover table-responsive table-responsive-lg table-responsive-md table-responsive-sm ">
-            <thead>
+        @* <table class="table table-active table-light table-hover table-responsive table-responsive-lg table-responsive-md table-responsive-sm ">
+        <thead>
+        <tr>
+        <th>
+        Order ID
+        </th>
+        <th>
+        Payment Type
+        </th>
+        <th>
+        Payment Status
+        </th>
+        <th>
+        OrderStatus
+        </th>
+        <th>
+        note
+        </th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Orders == null)
+        {
+        <tr>
+        <td colspan="6">Không có dữ liệu</td>
+        </tr>
+        }
+        else
+        {
+        @foreach (var item in Orders)
+        {
+        <tr>
+        <td>
+        @item.OrderId
+        </td>
+        <td>
+        @item.PaymentType
+        </td>
+        <td>
+        @item.PaymentStatus
+        </td>
+        <td>
+        @item.OrderStatus
+        </td>
+        <td class="text-truncate" style="max-width:200px">
+        @item.note
+        </td>
+
+        <td>
+        <a @onclick="()=>LoadOrderDetails(item)" class="mx-2" data-toggle="modal" data-target="#detailOrder"><i class="fa-solid fa-pen"></i></a>
+        <a @onclick='()=>UpdateStatus(item.OrderId??0, "Đã giao")' data-toggle="modal" data-target="#deleteOrder" class="mx-2 text-danger"><button class="btn btn-success">Đã nhận được hàng</button></a>
+
+        </td>
+        </tr>
+        }
+        }
+        </tbody>
+        </table> *@
+
+        <table class="table table-hover table-bordered text-center my-4">
+            <thead class="table-primary">
                 <tr>
-                    <th>
-                        Order ID
-                    </th>
-                    <th>
-                        Payment Type
-                    </th>
-                    <th>
-                        Payment Status
-                    </th>
-                    <th>
-                        OrderStatus
-                    </th>
-                    <th>
-                        note
-                    </th>
-                    <th></th>
+                    <th>Mã đơn</th>
+                    <th>Phương thức thanh toán</th>
+                    <th>Thời gian đặt</th>
+                    <th>Trạng thái thanh toán</th>
+                    <th>Trạng thái đơn hàng</th>
+                    <th>Xem chi tiết</th>
+                    <th>Xác nhận nhận hàng</th>
                 </tr>
             </thead>
             <tbody>
                 @if (Orders == null)
                 {
                     <tr>
-                        <td colspan="6">Không có dữ liệu</td>
+                        <td colspan="5">Loading...</td>
                     </tr>
                 }
                 else
                 {
-                    @foreach (var item in Orders)
+                    @foreach (var item in Orders.OrderByDescending(x => x.OrderDate))
                     {
-                        <tr>
-                            <td>
-                                @item.OrderId
-                            </td>
-                            <td>
-                                @item.PaymentType
-                            </td>
-                            <td>
-                                @item.PaymentStatus
-                            </td>
-                            <td>
-                                @item.OrderStatus
-                            </td>
-                            <td class="text-truncate" style="max-width:200px">
-                                @item.note
-                            </td>
 
-                            <td>
-                                <a @onclick="()=>LoadOrderDetails(item)" class="mx-2" data-toggle="modal" data-target="#detailOrder"><i class="fa-solid fa-pen"></i></a>
-                                <a @onclick='()=>UpdateStatus(item.OrderId??0, "Đã giao")' data-toggle="modal" data-target="#deleteOrder" class="mx-2 text-danger"><button class="btn btn-success">Đã nhận được hàng</button></a>
 
+                      
+                        <tr class="align-middle">
+                            <td>@item.OrderId</td>
+                            <td>@item.PaymentType</td>
+                            <td>@item.OrderDate</td>
+                            <td>
+                                @if (item.PaymentStatus == "Chưa thanh toán")
+                                {
+                                    <div class="p-2 badge bg-warning text-white">@item.PaymentStatus</div>
+                                }
+                                @if (item.PaymentStatus == "Đã huỷ")
+                                {
+                                    <div class="p-2 badge bg-danger text-white">@item.PaymentStatus</div>
+                                }
+                                @if (item.PaymentStatus == "Đã thanh toán")
+                                {
+                                    <div class="p-2 badge bg-success text-white">@item.PaymentStatus</div>
+                                }
+                            </td>
+                            <td>
+                                @if (@item.OrderStatus == "Đang chuẩn bị")
+                                {
+                                    <div class="p-2 badge bg-warning text-white">@item.OrderStatus</div>
+                                }
+                                else if (item.OrderStatus == "Đã giao")
+                                {
+                                    <div class="p-2 badge bg-success text-white">@item.OrderStatus</div>
+                                }
+                                else
+                                {
+                                    <div class="p-2 badge bg-danger text-white">@item.OrderStatus</div>
+                                }
+                            </td>
+                            <td>
+                                <a href="order-details-admin/@item.OrderId" class="btn btn-primary btn-sm">
+                                    Chi tiết
+                                </a>
+
+                            </td>
+                            <td>
+                                @if (item.OrderStatus == "Đang chuẩn bị")
+                                {
+                                    <a data-toggle="modal" @onclick='()=>UpdateStatus(item.OrderId??0, "Đã giao")' class="mx-2 btn btn-success">Đã nhận hàng</a>
+                                }
+
+                            
                             </td>
                         </tr>
                     }
@@ -148,38 +226,76 @@
             </tbody>
         </table>
 
-        <!--Pagination-->
-        @*  <nav class="my-4 text-center" aria-label="Page navigation order">
-        <ul class="pagination justify-content-center">
-        @if (page != null && page.CurrentPage > 1)
-        {
-        <li class="page-item">
-        <a class="page-link" @onclick="() => Navigate(page.CurrentPage - 1)">Previous</a>
-        </li>
-        }
-
-        @if (page != null)
-        {
-        @for (int i = 1; i <= page.TotalPages; i++)
-        {
-        var pageIndex = i;
-        <li class="page-item @(page.CurrentPage == pageIndex ? "active" : "")">
-        <a class="page-link" @onclick="() => Navigate(pageIndex)">@pageIndex</a>
-        </li>
-        }
-        }
-
-        @if (page != null && page.CurrentPage < page.TotalPages)
-        {
-        <li class="page-item">
-        <a class="page-link" @onclick="() => Navigate(page.CurrentPage + 1)">Next</a>
-        </li>
-        }
-        </ul>
-        </nav>
-        *@
-
     </div>
 </div>
 
 
+
+@*
+<h3 class="text-center">Lịch sử mua hàng</h3>
+
+<table class="table table-hover table-bordered text-center my-4">
+    <thead class="table-primary">
+        <tr>
+            <th>Mã đơn</th>
+            <th>Phương thức thanh toán</th>
+            <th>Thời gian đặt</th>
+            <th>Trạng thái thanh toán</th>
+            <th>Trạng thái đơn hàng</th>
+            <th>Xem chi tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Orders == null)
+        {
+            <tr>
+                <td colspan="5">Loading...</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in Orders.OrderByDescending(x => x.OrderDate))
+            {
+                <tr class="align-middle">
+                    <td>@item.OrderId</td>
+                    <td>@item.PaymentType</td>
+                    <td>@item.OrderDate</td>
+                    <td>
+                        @if (item.PaymentStatus == "Chưa thanh toán")
+                        {
+                            <div class="p-2 badge bg-warning text-white">@item.PaymentStatus</div>
+                        }
+                        @if (item.PaymentStatus == "Đã huỷ")
+                        {
+                            <div class="p-2 badge bg-danger text-white">@item.PaymentStatus</div>
+                        }
+                        @if (item.PaymentStatus == "Đã thanh toán")
+                        {
+                            <div class="p-2 badge bg-success text-white">@item.PaymentStatus</div>
+                        }
+                    </td>
+                    <td>
+                        @if (@item.OrderStatus == "Đang chuẩn bị")
+                        {
+                            <div class="p-2 badge bg-warning text-white">@item.OrderStatus</div>
+                        }
+                        else if (item.OrderStatus == "Đã giao")
+                        {
+                            <div class="p-2 badge bg-success text-white">@item.OrderStatus</div>
+                        }
+                        else
+                        {
+                            <div class="p-2 badge bg-danger text-white">@item.OrderStatus</div>
+                        }
+                    </td>
+                    <td>
+                        <a href="order-details-admin/@item.OrderId" class="btn btn-primary btn-sm">
+                            Chi tiết
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+ *@

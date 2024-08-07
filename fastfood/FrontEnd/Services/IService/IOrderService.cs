@@ -11,5 +11,6 @@ namespace FrontEnd.Services.IService
         Task<ResponseDto> GetOrderByID(int orderId);
         Task<ResponseDto> GetOrderDetail(int orderId);
         Task<ResponseDto> UpdateOrderStatus(int orderid, string message);
+        Task<ResponseDto> Cancel(int OrderId);
     }
 }

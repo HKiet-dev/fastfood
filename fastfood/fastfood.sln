@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "FrontEnd\FrontE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackEnd", "BackEnd\BackEnd.csproj", "{0A913BA0-BF73-4FF7-BA6A-7CF3806BF276}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UintTestBE_Service", "UintTestBE_Service\UintTestBE_Service.csproj", "{3BD8B0EE-FB2F-43CA-86DA-32ACB72C045F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UintTestBE_Service", "UintTestBE_Service\UintTestBE_Service.csproj", "{3BD8B0EE-FB2F-43CA-86DA-32ACB72C045F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -23,6 +23,8 @@ namespace FrontEnd.Components.PagesAdmin
 
 		private List<Product>? Products { get; set; }
 
+		private List<Category>? Categories { get; set; }
+
 		private PagePagination page { get; set; }
 
 		[SupplyParameterFromForm]
@@ -40,7 +42,7 @@ namespace FrontEnd.Components.PagesAdmin
 			page ??= new();
 			//CloudinaryService ??= new();
 			await LoadFoods();
-
+			await GetAllCategory();
 		}
 
 		private async Task LoadFoods()
@@ -271,6 +273,16 @@ namespace FrontEnd.Components.PagesAdmin
 			}
 
 			return categoryId.ToString();
+		}
+
+		private async Task GetAllCategory()
+		{
+			var response = await _categoryService.GetAll();
+			if (response != null && response.IsSuccess)
+			{
+				var resultJson = response.Result.ToString();
+				Categories = JsonConvert.DeserializeObject<List<Category>>(resultJson);
+			}
 		}
 	}
 }

@@ -5,394 +5,404 @@
 <h3>ProductsManager</h3>
 
 <div class="container">
-	<div class="row">
-		<a class="card border-danger mb-3 mx-3 btn btn-danger text-black" style="max-width: 250px;" href="usermanager">
-			<h5 class="card-title m-5">Users Manager</h5>
-		</a>
-		<a class="border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
-			<h5 class="card-title m-5">Products Manager</h5>
-		</a>
-		<a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
-			<h5 class="card-title m-5">Orders Manager</h5>
-		</a>
-		<a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
-			<h5 class="card-title m-5">Category Manager</h5>
-		</a>
-	</div>
+    <div class="row">
+        <a class="card border-danger mb-3 mx-3 btn btn-danger text-black" style="max-width: 250px;" href="usermanager">
+            <h5 class="card-title m-5">Users Manager</h5>
+        </a>
+        <a class="border-warning mb-3 mx-3 btn btn-warning text-black" style="max-width: 250px;" href="productmanager">
+            <h5 class="card-title m-5">Products Manager</h5>
+        </a>
+        <a class="card border-info mb-3 mx-3 btn btn-info text-black" style="max-width: 250px;" href="ordermanager">
+            <h5 class="card-title m-5">Orders Manager</h5>
+        </a>
+        <a class="card border-success mb-3 mx-3 btn btn-success text-black" style="max-width: 250px;" href="categorymanager">
+            <h5 class="card-title m-5">Category Manager</h5>
+        </a>
+    </div>
 
-	@if (!string.IsNullOrEmpty(notification))
-	{
-		<div class="alert alert-success">
-			@notification
-		</div>
-	}
+    @if (!string.IsNullOrEmpty(notification))
+    {
+        <div class="alert alert-success">
+            @notification
+        </div>
+    }
 
-	<nav class="navbar navbar-light bg-light justify-content-end">
-		<a class="form-inline btn btn-warning me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
-		<div class="form-inline">
-			<input class="mr-sm-2" type="search" @bind-value="@search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-warning my-3 my-sm-0 m-2" type="submit" @onclick="GetBySearch">Search</button>
-		</div>
-	</nav>
+    <nav class="navbar navbar-light bg-light justify-content-end">
+        <a class="form-inline btn btn-warning me-5" data-toggle="modal" data-target="#createFood"><span><i class="fas fa-plus"></i></span> Thêm</a>
+        <div class="form-inline">
+            <input class="mr-sm-2" type="search" @bind-value="@search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-warning my-3 my-sm-0 m-2" type="submit" @onclick="GetBySearch">Search</button>
+        </div>
+    </nav>
 
-	<!-- Modal Create -->
-	<div class="modal fade" id="createFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-large">
-			<div class="modal-content">
-				<div class="container-fluid p-5">
-					<EditForm Model="@createProduct" OnValidSubmit="CreateFood" class="row" FormName="CreateProductForm">
-						<DataAnnotationsValidator />
-						<ValidationSummary />
-						@* <input type="hidden" @bind="createProduct.Id" class="form-control w-100" /> *@
+    <!-- Modal Create -->
+    <div class="modal fade" id="createFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-large">
+            <div class="modal-content">
+                <div class="container-fluid p-5">
+                    <EditForm Model="@createProduct" OnValidSubmit="CreateFood" class="row" FormName="CreateProductForm">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                        @* <input type="hidden" @bind="createProduct.Id" class="form-control w-100" /> *@
 
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Product Name:</label>
-							<InputText @bind-Value="createProduct.Name" class="form-control w-100" />
-							<ValidationMessage For="@(() => createProduct.Name)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text form-check-label">Description:</label>
-							<InputText @bind-Value="createProduct.Description" class="form-control w-100" />
-							<ValidationMessage For="@(() => createProduct.Description)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">UnitPrice:</label>
-							<InputNumber @bind-Value="createProduct.Price" type="number" class="form-control w-100" />
-							<ValidationMessage For="@(() => createProduct.Price)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">IsActive:</label>
-							<InputRadioGroup @bind-Value="createProduct.IsActive" class="form-control w-100" Name="Active">
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="true" />
-									<label class="form-check-label">Active</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="false" />
-									<label class="form-check-label">Unactive</label>
-								</div>
-							</InputRadioGroup>
-							<ValidationMessage For="@(() => createProduct.IsActive)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">IsCombo:</label>
-							<InputRadioGroup @bind-Value="createProduct.IsCombo" class="form-control w-100" Name="Combo">
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="true" />
-									<label class="form-check-label">Có</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="false" />
-									<label class="form-check-label">Không</label>
-								</div>
-							</InputRadioGroup>
-							<ValidationMessage For="@(() => createProduct.IsCombo)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label for="image" class="control-label fw-bold input-group-text">CategoryId:</label>
-							<InputRadioGroup @bind-Value="createProduct.CategoryId" class="form-control w-100" Name="Category">
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="1" />
-									<label class="form-check-label">Thức ăn</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="2" />
-									<label class="form-check-label">Thức uống</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="3" />
-									<label class="form-check-label">Thức dậy</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="4" />
-									<label class="form-check-label">Thức sớm</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="5" />
-									<label class="form-check-label">Thức trễ</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="6" />
-									<label class="form-check-label">Thao thức</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="2" />
-									<label class="form-check-label">Thức trắng đêm</label>
-								</div>
-							</InputRadioGroup>
-							<ValidationMessage For="@(() => createProduct.CategoryId)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text form-check-label">Image:</label>
-							<InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control w-100" />
-							<ValidationMessage For="@(() => createProduct.ImageUrl)" />
-						</div>
-						<div class="form-group mt-3 text-center">
-							<button type="submit" class="btn btn-danger w-50">Thêm</button>
-						</div>
-						@* 						<div class="form-group mt-3 text-center">
-						<input type="submit" value="Update" asp-action="UpdateFood" class="btn btn-primary w-50" />
-						</div> *@
-					</EditForm>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal Edit -->
-	<div class="modal fade" id="editFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-large">
-			<div class="modal-content">
-				<div class="container-fluid p-5">
-					<EditForm Model="@editProduct" OnValidSubmit="EditFood" class="row" FormName="EditProductForm">
-						<DataAnnotationsValidator />
-						<ValidationSummary />
-						<input type="hidden" @bind="editProduct.Id" class="form-control w-100" />
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">Product Name:</label>
+                            <InputText @bind-Value="createProduct.Name" class="form-control w-100" />
+                            <ValidationMessage For="@(() => createProduct.Name)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text form-check-label">Description:</label>
+                            <InputText @bind-Value="createProduct.Description" class="form-control w-100" />
+                            <ValidationMessage For="@(() => createProduct.Description)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">UnitPrice:</label>
+                            <InputNumber @bind-Value="createProduct.Price" type="number" class="form-control w-100" />
+                            <ValidationMessage For="@(() => createProduct.Price)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">IsActive:</label>
+                            <InputRadioGroup @bind-Value="createProduct.IsActive" class="form-control w-100" Name="Active">
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="true" />
+                                    <label class="form-check-label">Active</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="false" />
+                                    <label class="form-check-label">Unactive</label>
+                                </div>
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => createProduct.IsActive)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">IsCombo:</label>
+                            <InputRadioGroup @bind-Value="createProduct.IsCombo" class="form-control w-100" Name="Combo">
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="true" />
+                                    <label class="form-check-label">Có</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="false" />
+                                    <label class="form-check-label">Không</label>
+                                </div>
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => createProduct.IsCombo)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label for="image" class="control-label fw-bold input-group-text">CategoryId:</label>
+                            <InputRadioGroup @bind-Value="createProduct.CategoryId" class="form-control w-100" Name="Category">
+                                @if (Categories == null)
+                                {
+                                    <p>Đang tải dữ liệu </p>
+                                }
+                                else
+                                {
+                                    @foreach (var item in Categories)
+                                    {
+                                        <div class="form-check m-2">
+                                            <InputRadio class="form-check-input" Value="item.Id" />
+                                            <label class="form-check-label">@item.Name</label>
+                                        </div>
+                                    }
+                                }
+                                @* <div class="form-check m-2">
+                                <InputRadio class="form-check-input" Value="2" />
+                                <label class="form-check-label">Combo Hamburger</label>
+                                </div>
+                                <div class="form-check m-2">
+                                <InputRadio class="form-check-input" Value="3" />
+                                <label class="form-check-label">Combo Noodles</label>
+                                </div>
+                                <div class="form-check m-2">
+                                <InputRadio class="form-check-input" Value="4" />
+                                <label class="form-check-label">Chicken</label>
+                                </div>
+                                <div class="form-check m-2">
+                                <InputRadio class="form-check-input" Value="5" />
+                                <label class="form-check-label">Hamburger</label>
+                                </div>
+                                <div class="form-check m-2">
+                                <InputRadio class="form-check-input" Value="6" />
+                                <label class="form-check-label">Chips Frries</label>
+                                </div>
+                                <div class="form-check m-2">
+                                <InputRadio class="form-check-input" Value="2" />
+                                <label class="form-check-label">Thức trắng đêm</label>
+                                </div> *@
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => createProduct.CategoryId)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text form-check-label">Image:</label>
+                            <InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control w-100" />
+                            <ValidationMessage For="@(() => createProduct.ImageUrl)" />
+                        </div>
+                        <div class="form-group mt-3 text-center">
+                            <button type="submit" class="btn btn-danger w-50">Thêm</button>
+                        </div>
+                        @* 						<div class="form-group mt-3 text-center">
+                        <input type="submit" value="Update" asp-action="UpdateFood" class="btn btn-primary w-50" />
+                        </div> *@
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-large">
+            <div class="modal-content">
+                <div class="container-fluid p-5">
+                    <EditForm Model="@editProduct" OnValidSubmit="EditFood" class="row" FormName="EditProductForm">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                        <input type="hidden" @bind="editProduct.Id" class="form-control w-100" />
 
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">Product Name:</label>
-							<InputText @bind-Value="editProduct.Name" class="form-control w-100" />
-							<ValidationMessage For="@(() => editProduct.Name)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text form-check-label">Description:</label>
-							<InputText @bind-Value="editProduct.Description" class="form-control w-100" />
-							<ValidationMessage For="@(() => editProduct.Description)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">UnitPrice:</label>
-							<InputNumber @bind-Value="editProduct.Price" type="number" class="form-control w-100" />
-							<ValidationMessage For="@(() => editProduct.Price)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">IsActive:</label>
-							<InputRadioGroup @bind-Value="editProduct.IsActive" class="form-control w-100" Name="Active">
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="true" />
-									<label class="form-check-label">Active</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="false" />
-									<label class="form-check-label">Unactive</label>
-								</div>
-							</InputRadioGroup>
-							<ValidationMessage For="@(() => editProduct.IsActive)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text">IsCombo:</label>
-							<InputRadioGroup @bind-Value="editProduct.IsCombo" class="form-control w-100" Name="Combo">
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="true" />
-									<label class="form-check-label">Có</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="false" />
-									<label class="form-check-label">Không</label>
-								</div>
-							</InputRadioGroup>
-							<ValidationMessage For="@(() => editProduct.IsCombo)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label for="image" class="control-label fw-bold input-group-text">CategoryId:</label>
-							<InputRadioGroup @bind-Value="editProduct.CategoryId" class="form-control w-100" Name="Category">
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="1" />
-									<label class="form-check-label">Thức ăn</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="2" />
-									<label class="form-check-label">Thức uống</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="3" />
-									<label class="form-check-label">Thức dậy</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="4" />
-									<label class="form-check-label">Thức sớm</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="5" />
-									<label class="form-check-label">Thức trễ</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="6" />
-									<label class="form-check-label">Thao thức</label>
-								</div>
-								<div class="form-check m-2">
-									<InputRadio class="form-check-input" Value="2" />
-									<label class="form-check-label">Thức trắng đêm</label>
-								</div>
-							</InputRadioGroup>
-							<ValidationMessage For="@(() => editProduct.CategoryId)" />
-						</div>
-						<div class="form-group input-group mb-3">
-							<label class="control-label fw-bold input-group-text form-check-label">Image:</label>
-							<InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control w-100" />
-							<ValidationMessage For="@(() => editProduct.ImageUrl)" />
-						</div>
-						@* 						<div class="form-group mt-3 text-center">
-						<button type="submit" class="btn btn-danger w-50">Thêm</button>
-						</div> *@
-						<div class="form-group mt-3 text-center">
-							<button type="submit" class="btn btn-danger w-50">Sửa</button>
-						</div>
-					</EditForm>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal Delete -->
-	<div class="modal fade" id="deleteFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Xóa món ăn</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<p>Bạn có chắc chắn muốn xóa.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" @onclick="Delete" class="btn btn-primary">Xóa</button>
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-				</div>
-			</div>
-		</div>
-	</div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">Product Name:</label>
+                            <InputText @bind-Value="editProduct.Name" class="form-control w-100" />
+                            <ValidationMessage For="@(() => editProduct.Name)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text form-check-label">Description:</label>
+                            <InputText @bind-Value="editProduct.Description" class="form-control w-100" />
+                            <ValidationMessage For="@(() => editProduct.Description)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">UnitPrice:</label>
+                            <InputNumber @bind-Value="editProduct.Price" type="number" class="form-control w-100" />
+                            <ValidationMessage For="@(() => editProduct.Price)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">IsActive:</label>
+                            <InputRadioGroup @bind-Value="editProduct.IsActive" class="form-control w-100" Name="Active">
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="true" />
+                                    <label class="form-check-label">Active</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="false" />
+                                    <label class="form-check-label">Unactive</label>
+                                </div>
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => editProduct.IsActive)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text">IsCombo:</label>
+                            <InputRadioGroup @bind-Value="editProduct.IsCombo" class="form-control w-100" Name="Combo">
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="true" />
+                                    <label class="form-check-label">Có</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="false" />
+                                    <label class="form-check-label">Không</label>
+                                </div>
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => editProduct.IsCombo)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label for="image" class="control-label fw-bold input-group-text">CategoryId:</label>
+                            <InputRadioGroup @bind-Value="editProduct.CategoryId" class="form-control w-100" Name="Category">
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="1" />
+                                    <label class="form-check-label">Combo Chicken</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="2" />
+                                    <label class="form-check-label">Combo Hamburger</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="3" />
+                                    <label class="form-check-label">Combo Noodles</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="4" />
+                                    <label class="form-check-label">Chicken</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="5" />
+                                    <label class="form-check-label">Hamburger</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="6" />
+                                    <label class="form-check-label">Chips Frries</label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <InputRadio class="form-check-input" Value="2" />
+                                    <label class="form-check-label">Thức trắng đêm</label>
+                                </div>
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => editProduct.CategoryId)" />
+                        </div>
+                        <div class="form-group input-group mb-3">
+                            <label class="control-label fw-bold input-group-text form-check-label">Image:</label>
+                            <InputFile OnChange="HandleFileSelected" MaxAllowedSize="1048576" multiple class="form-control w-100" />
+                            <ValidationMessage For="@(() => editProduct.ImageUrl)" />
+                        </div>
+                        @* 						<div class="form-group mt-3 text-center">
+                        <button type="submit" class="btn btn-danger w-50">Thêm</button>
+                        </div> *@
+                        <div class="form-group mt-3 text-center">
+                            <button type="submit" class="btn btn-danger w-50">Sửa</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Delete -->
+    <div class="modal fade" id="deleteFood" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xóa món ăn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" @onclick="Delete" class="btn btn-primary">Xóa</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="card border border-light rounded p-3 shadow bg-light">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>
-						Product ID
-					</th>
-					<th>
-						Name
-					</th>
-					<th>
-						Description
-					</th>
-					<th>
-						UnitPrice
-					</th>
-					<th>
-						IsActive
-					</th>
-					<th>
-						IsCombo
-					</th>
-					<th>
-						CategoryName
-					</th>
-					<th>
-						Image
-					</th>
-					<th>
-						QRCode
-					</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				@if (Products == null)
-				{
-					<tr>
-						<td>
-							Không có dữ liệu food nào luôn.
-						</td>
-						@* 						<td>
-					<a href="" class="mx-2"><i class="fa-solid fa-pen"></i></a>
-					<a href="" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
-					</td> *@
-					</tr>
-				}
-				else
-				{
-					@foreach (var item in Products)
-					{
-						<tr>
-							<td>
-								@item.Id
-							</td>
-							<td>
-								@item.Name
-							</td>
-							<td>
-								@item.Description
-							</td>
-							<td>
-								@item.Price
-							</td>
-							<td>
-								@item.IsActive
-							</td>
-							<td>
-								@item.IsCombo
-							</td>
-							<td>
-								@item.CategoryName
-							</td>
-							<td>
-								@* item.Avatar = "/Img/default_avatar.png"; *@
-								@if (item.ImageUrl != null)
-								{
-									<img src="@item.ImageUrl" alt="Alternate Text" style="width:100px" height="100px" />
-								}
-								else
-								{
-									<img src="/Img/default_avatar.png" alt="Alternate Text" style="width:100px" height="100px" />
-								}
-							</td>
-							<td>
-								@* item.Avatar = "/Img/default_avatar.png"; *@
-@* 								@if (item.QR != null)
-								{ *@
-								<img src="@GenerateQRCode(item)" alt="Alternate Text" style="width:100px" height="100px" />
-@* 								}
-								else
-								{
-									<img src="/Img/default_avatar.png" alt="Alternate Text" style="width:100px" height="100px" />
-								} *@
-							</td>
-							<td>
-								<a @onclick="()=>GetFood(item.Id)" class="mx-2" data-toggle="modal" data-target="#editFood"><i class="fa-solid fa-pen"></i></a>
-								<a @onclick="()=>GetFood(item.Id)" data-toggle="modal" data-target="#deleteFood" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
-							</td>
-						</tr>
-					}
-				}
-			</tbody>
-		</table>
-		<nav class="my-4 text-center" aria-label="Page navigation user">
-			<ul class="pagination justify-content-center">
-				@if (page != null && page.CurrentPage > 1)
-				{
-					<li class="page-item">
-						<a class="page-link" @onclick="() => Navigate(page.CurrentPage - 1)">Previous</a>
-					</li>
-				}
+    <div class="card border border-light rounded p-3 shadow bg-light">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Product ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        UnitPrice
+                    </th>
+                    <th>
+                        IsActive
+                    </th>
+                    <th>
+                        IsCombo
+                    </th>
+                    <th>
+                        CategoryName
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        QRCode
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Products == null)
+                {
+                    <tr>
+                        <td>
+                            Đang tải dữ liệu, vui lòng chờ...
+                        </td>
+                        @* 						<td>
+                    <a href="" class="mx-2"><i class="fa-solid fa-pen"></i></a>
+                    <a href="" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
+                    </td> *@
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in Products)
+                    {
+                        <tr>
+                            <td>
+                                @item.Id
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @item.Description
+                            </td>
+                            <td>
+                                @item.Price
+                            </td>
+                            <td>
+                                @item.IsActive
+                            </td>
+                            <td>
+                                @item.IsCombo
+                            </td>
+                            <td>
+                                @item.CategoryName
+                            </td>
+                            <td>
+                                @* item.Avatar = "/Img/default_avatar.png"; *@
+                                @if (item.ImageUrl != null)
+                                {
+                                    <img src="@item.ImageUrl" alt="Alternate Text" style="width:100px" height="100px" />
+                                }
+                                else
+                                {
+                                    <img src="/Img/default_avatar.png" alt="Alternate Text" style="width:100px" height="100px" />
+                                }
+                            </td>
+                            <td>
+                                @* item.Avatar = "/Img/default_avatar.png"; *@
+                                @* 								@if (item.QR != null)
+                        { *@
+                                <img src="@GenerateQRCode(item)" alt="Alternate Text" style="width:100px" height="100px" />
+                                @* 								}
+                        else
+                        {
+                        <img src="/Img/default_avatar.png" alt="Alternate Text" style="width:100px" height="100px" />
+                        } *@
+                            </td>
+                            <td>
+                                <a @onclick="()=>GetFood(item.Id)" class="mx-2" data-toggle="modal" data-target="#editFood"><i class="fa-solid fa-pen"></i></a>
+                                <a @onclick="()=>GetFood(item.Id)" data-toggle="modal" data-target="#deleteFood" class="mx-2 text-danger"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <nav class="my-4 text-center" aria-label="Page navigation user">
+            <ul class="pagination justify-content-center">
+                @if (page != null && page.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" @onclick="() => Navigate(page.CurrentPage - 1)">Previous</a>
+                    </li>
+                }
 
-				@if (page != null)
-				{
-					@for (int i = 1; i <= page.TotalPages; i++)
-					{
-						var pageIndex = i;
-						<li class="page-item @(page.CurrentPage == pageIndex ? "active" : "")">
-							<a class="page-link" @onclick="() => Navigate(pageIndex)">@pageIndex</a>
-						</li>
-					}
-				}
+                @if (page != null)
+                {
+                    @for (int i = 1; i <= page.TotalPages; i++)
+                    {
+                        var pageIndex = i;
+                        <li class="page-item @(page.CurrentPage == pageIndex ? "active" : "")">
+                            <a class="page-link" @onclick="() => Navigate(pageIndex)">@pageIndex</a>
+                        </li>
+                    }
+                }
 
-				@if (page != null && page.CurrentPage < page.TotalPages)
-				{
-					<li class="page-item">
-						<a class="page-link" @onclick="() => Navigate(page.CurrentPage + 1)">Next</a>
-					</li>
-				}
-			</ul>
-		</nav>
-	</div>
+                @if (page != null && page.CurrentPage < page.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" @onclick="() => Navigate(page.CurrentPage + 1)">Next</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
 </div>
 
 
