@@ -52,7 +52,7 @@ namespace FrontEnd.Components.PagesAdmin
 
         private async Task LoadOrderDetails(Order order)
         {
-            var orderDetailsResponse = await _orderservice.GetOrderDetails(order.OrderId);
+            var orderDetailsResponse = await _orderservice.GetOrderDetail(order.OrderId??0);
             if (orderDetailsResponse != null && orderDetailsResponse.IsSuccess)
             {
                 Order = order;
@@ -79,9 +79,15 @@ namespace FrontEnd.Components.PagesAdmin
 
         }
 
-        private async Task Search(int orderId)
+        private async Task Search()
         {
-            var orderDetailsResponse = await _orderservice.GetOrderById(orderId);
+            if (string.IsNullOrEmpty(search))
+            {
+                await LoadOrders();
+                return;
+            }
+            var searchId = Convert.ToInt16(search.Trim());
+            var orderDetailsResponse = await _orderservice.GetOrderByID(searchId);
             if (orderDetailsResponse != null && orderDetailsResponse.IsSuccess)
             {
                 Order = JsonConvert.DeserializeObject<Order>(orderDetailsResponse.Result.ToString());

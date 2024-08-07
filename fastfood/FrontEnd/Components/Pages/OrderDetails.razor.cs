@@ -26,7 +26,7 @@ namespace FrontEnd.Components.Pages
 
         private async Task GetOrderDetail()
         {
-            var response = await OrderService.GetOderDetail(OrderId);
+            var response = await OrderService.GetOrderDetail(OrderId);
             if (response.Result != null)
             {
                 orderDetails = JsonConvert.DeserializeObject<IEnumerable<OrderDetail>>(response.Result.ToString());

@@ -8,8 +8,8 @@ namespace FrontEnd.Services.IService
         Task<ResponseDto> MomoPayment(string amount);
         Task<ResponseDto> VNPayment(int amount);
         Task<ResponseDto> GetAll();
-        Task<ResponseDto> GetOrderById(int orderId);
-        Task<ResponseDto> GetOrderDetails(int orderId);
+        Task<ResponseDto> GetOrderByID(int orderId);
+        Task<ResponseDto> GetOrderDetail(int orderId);
         Task<ResponseDto> UpdateOrderStatus(int orderid, string message);
     }
 }
