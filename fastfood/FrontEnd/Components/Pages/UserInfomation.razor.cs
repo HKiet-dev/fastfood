@@ -37,6 +37,7 @@ namespace FrontEnd.Components.Pages
         private UserDto User { get; set; }
         private bool IsEdit { get; set; } = false;
         private string userId;
+        private string nameClaim;
         private string token;
         private string oldPassword;
         private string newPassword;
@@ -72,9 +73,9 @@ namespace FrontEnd.Components.Pages
             IsChangePasswordShow = !IsChangePasswordShow;
         }
 
-        protected override async Task OnInitializedAsync()
+
+        private async Task GetToken()
         {
-            User ??= new();
             token = await AuthenticationStateProvider.GetTokenAsync();
             if (token != null)
             {
@@ -89,6 +90,37 @@ namespace FrontEnd.Components.Pages
                 User = JsonConvert.DeserializeObject<UserDto>(response.Result.ToString());
             }
         }
+
+        protected override async Task OnInitializedAsync()
+        {
+            User ??= new();
+        }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (firstRender)
+            {
+                User??= new();
+                GetToken();
+            }
+            else
+            {
+                OnInitializedAsync();
+            }
+
+        }
+
+        //protected override async Task OnAfterRenderAsync(bool firstRender)
+        //{
+        //    if (firstRender)
+        //    {
+        //        User ??= new();
+        //        await GetToken();
+        //    }
+        //    else
+        //        User ??= new();
+        //}
+
         private void HandleFileSelected(InputFileChangeEventArgs e)
         {
             file = e.File;

@@ -20,8 +20,8 @@
 
     <nav class="navbar navbar-light bg-light justify-content-end">
         <div class="form-inline">
-            <input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-info my-3 my-sm-0 m-2" type="submit">Search</button>
+            <input class="mr-sm-2" @bind-value=search type="search" placeholder="Search" aria-label="Search">
+            <button @onclick=Search class="btn btn-outline-info my-3 my-sm-0 m-2" type="submit">Search</button>
         </div>
     </nav>
 
@@ -139,7 +139,7 @@
 
                             <td>
                                 <a @onclick="()=>LoadOrderDetails(item)" class="mx-2" data-toggle="modal" data-target="#detailOrder"><i class="fa-solid fa-pen"></i></a>
-                                <a @onclick='()=>UpdateStatus(item.OrderId, "Đã giao")' data-toggle="modal" data-target="#deleteOrder" class="mx-2 text-danger"><button class="btn btn-success">Đã nhận được hàng</button></a>
+                                <a @onclick='()=>UpdateStatus(item.OrderId??0, "Đã giao")' data-toggle="modal" data-target="#deleteOrder" class="mx-2 text-danger"><button class="btn btn-success">Đã nhận được hàng</button></a>
 
                             </td>
                         </tr>

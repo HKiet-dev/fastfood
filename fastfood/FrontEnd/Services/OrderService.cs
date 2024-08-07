@@ -1,5 +1,4 @@
-﻿using BackEnd.Models;
-using FrontEnd.Models;
+﻿using FrontEnd.Models;
 using FrontEnd.Models.MOMO;
 using FrontEnd.Services.IService;
 using static FrontEnd.Utility.StaticDetails;
@@ -45,7 +44,7 @@ namespace FrontEnd.Services
 			});
 		}
 
-        public async Task<ResponseDto> GetOderDetail(int OrderId)
+        public async Task<ResponseDto> GetOrderDetail(int OrderId)
         {
             return await _baseService.SendAsync(new RequestDto
             {
@@ -84,7 +83,7 @@ namespace FrontEnd.Services
         {
             return await _baseService.SendAsync(new RequestDto
             {
-                ApiType = ApiType.GET,
+                ApiType = ApiType.PUT,
                 Url = ApiUrl + $"/api/Order/update/{orderid}?message={message}"
             });
         }
