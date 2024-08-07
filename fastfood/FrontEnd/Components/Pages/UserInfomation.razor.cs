@@ -37,6 +37,7 @@ namespace FrontEnd.Components.Pages
         private UserDto User { get; set; }
         private bool IsEdit { get; set; } = false;
         private string userId;
+        private bool isTokenLoaded = false;
         private string nameClaim;
         private string token;
         private string oldPassword;
@@ -62,6 +63,8 @@ namespace FrontEnd.Components.Pages
                         notification = "Mật khẩu không trùng khớp";
                 }
                 await UploadAvatar();
+                if (User.role == null)
+                    User.role = "CUSTOMER";
                 var response = await _userService.Update(User);
                 if (response.IsSuccess)
                     notification = "Đã cập nhật thành công";
@@ -89,6 +92,7 @@ namespace FrontEnd.Components.Pages
                 var response = await _userService.GetById(userId);
                 User = JsonConvert.DeserializeObject<UserDto>(response.Result.ToString());
             }
+            isTokenLoaded = true;
         }
 
         protected override async Task OnInitializedAsync()
@@ -96,19 +100,27 @@ namespace FrontEnd.Components.Pages
             User ??= new();
         }
 
-        protected override void OnAfterRender(bool firstRender)
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (firstRender)
+            if (firstRender && !isTokenLoaded)
             {
-                User??= new();
-                GetToken();
+                await GetToken();
+                isTokenLoaded = true;
+                StateHasChanged();
             }
-            else
-            {
-                OnInitializedAsync();
-            }
-
         }
+
+        //protected override async Task OnAfterRenderAsync(bool firstRender)
+        //{
+        //    if (firstRender)
+        //    {
+        //        User ??= new();
+        //        if (!isTokenLoaded)
+        //        {
+        //            await GetToken();
+        //        }
+        //    }
+        //}
 
         //protected override async Task OnAfterRenderAsync(bool firstRender)
         //{

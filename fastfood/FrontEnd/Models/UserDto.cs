@@ -24,7 +24,7 @@ namespace FrontEnd.Models
         [EnumDataType(typeof(UserStatus))]
         public UserStatus Status { get; set; } = UserStatus.Active;
         public DateTime CreateDate { get; set; } = DateTime.UtcNow;
-        public string role { get; set; }
+        public string role { get; set; } = "CUSTOMER";
     }
 
     public enum UserStatus
